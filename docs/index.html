@@ -1,255 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Play Right with AI - AI 驅動的開發測試工作坊</title>
-  <meta name="description" content="學習如何成為 AI 指揮家，協調多個 AI 工具創建自循環的開發測試流程">
-  <link rel="stylesheet" href="assets/css/main.css">
-  
-  <!-- Google Analytics 4 - 請替換 GA_MEASUREMENT_ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    // 預設不載入 GA，等待用戶同意
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    
-    // 檢查用戶是否已同意 cookies
-    const cookieConsent = localStorage.getItem('cookieConsent');
-    if (cookieConsent === 'accepted') {
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        'anonymize_ip': true,
-        'cookie_flags': 'SameSite=None;Secure',
-        'cookie_expires': 30 * 24 * 60 * 60 // 30 天
-      });
-    }
-  </script>
-</head>
-<body>
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="./" class="nav-brand">Play Right with AI</a>
-      <ul class="nav-links">
-        <li><a href="chapters/" class="nav-link">章節</a></li>
-        <li><a href="playground/index.html" class="nav-link">Playground</a></li>
-        <li><a href="demos/index.html" class="nav-link">示範</a></li>
-        <li><a href="https://github.com/your-repo/play-right-with-ai" class="nav-link">GitHub</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Play Right with AI</h1>
-        <p>成為 AI 指揮家，協調多個 AI 工具創建自循環的開發測試流程</p>
-        <div class="hero-actions">
-          <a href="chapters/chapter-01.html" class="btn">開始學習</a>
-          <a href="playground/index.html" class="btn btn-secondary">試用 Playground</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Right with AI - AI 驅動的開發測試工作坊</title>
+    <meta name="description" content="學習如何成為 AI 指揮家，協調多個 AI 工具創建自循環的開發測試流程" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Google Analytics 4 - 請替換 GA_MEASUREMENT_ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      // 預設不載入 GA，等待用戶同意
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // 檢查用戶是否已同意 cookies
+      const cookieConsent = localStorage.getItem('cookieConsent');
+      if (cookieConsent === 'accepted') {
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=None;Secure',
+          cookie_expires: 30 * 24 * 60 * 60, // 30 天
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="./" class="nav-brand">Play Right with AI</a>
+        <ul class="nav-links">
+          <li><a href="chapters/" class="nav-link">章節</a></li>
+          <li><a href="playground/index.html" class="nav-link">Playground</a></li>
+          <li><a href="demos/index.html" class="nav-link">示範</a></li>
+          <li><a href="https://github.com/your-repo/play-right-with-ai" class="nav-link">GitHub</a></li>
+        </ul>
       </div>
-    </section>
-    
-    <section class="features">
-      <div class="container">
-        <h2>工作坊特色</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <h3>🎭 AI 驅動開發</h3>
-            <p>學習使用 Claude、Gemini 等 AI 工具自動生成應用程式碼</p>
-          </div>
-          <div class="feature-card">
-            <h3>🔄 自循環測試</h3>
-            <p>建立 AI 驅動的測試、分析、修復循環</p>
-          </div>
-          <div class="feature-card">
-            <h3>🎯 Playwright 整合</h3>
-            <p>使用 MCP 協議實現 AI 與瀏覽器自動化的無縫整合</p>
-          </div>
-          <div class="feature-card">
-            <h3>🌐 雙語提示策略</h3>
-            <p>掌握中英文混合提示技巧，獲得最佳 AI 輸出</p>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Play Right with AI</h1>
+          <p>成為 AI 指揮家，協調多個 AI 工具創建自循環的開發測試流程</p>
+          <div class="hero-actions">
+            <a href="chapters/chapter-01.html" class="btn">開始學習</a>
+            <a href="playground/index.html" class="btn btn-secondary">試用 Playground</a>
           </div>
         </div>
-      </div>
-    </section>
-    
-    <section class="chapters">
-      <div class="container">
-        <h2>學習章節</h2>
-        <div class="chapters-grid">
-          
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <h2>工作坊特色</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3>🎭 AI 驅動開發</h3>
+              <p>學習使用 Claude、Gemini 等 AI 工具自動生成應用程式碼</p>
+            </div>
+            <div class="feature-card">
+              <h3>🔄 自循環測試</h3>
+              <p>建立 AI 驅動的測試、分析、修復循環</p>
+            </div>
+            <div class="feature-card">
+              <h3>🎯 Playwright 整合</h3>
+              <p>使用 MCP 協議實現 AI 與瀏覽器自動化的無縫整合</p>
+            </div>
+            <div class="feature-card">
+              <h3>🌐 雙語提示策略</h3>
+              <p>掌握中英文混合提示技巧，獲得最佳 AI 輸出</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapters">
+        <div class="container">
+          <h2>學習章節</h2>
+          <div class="chapters-grid">
             <a href="chapters/chapter-01.html" class="chapter-card">
               <span class="chapter-number">第 1 章</span>
               <h3 class="chapter-title">第一章：AI 指揮家 - 思維轉變與環境搭建</h3>
               <p class="chapter-description">完成本章後，您將能夠：</p>
             </a>
-          
+
             <a href="chapters/chapter-02.html" class="chapter-card">
               <span class="chapter-number">第 2 章</span>
               <h3 class="chapter-title">第二章：第一樂章 - AI 生成應用程式</h3>
               <p class="chapter-description">完成本章後，您將能夠：</p>
             </a>
-          
+
             <a href="chapters/chapter-03.html" class="chapter-card">
               <span class="chapter-number">第 3 章</span>
               <h3 class="chapter-title">第二樂章：AI 擔任測試策略師 🎯</h3>
               <p class="chapter-description">在本章節中，您將學習如何指揮 AI 成為您的測試策略師，幫助您：</p>
             </a>
-          
+
             <a href="chapters/chapter-04.html" class="chapter-card">
               <span class="chapter-number">第 4 章</span>
               <h3 class="chapter-title">第三樂章：AI 執行測試腳本編寫 🎬</h3>
-              <p class="chapter-description">在本章節中，您將學習如何指揮 AI 將測試策略轉化為實際的 Playwright 測試腳本：</p>
+              <p class="chapter-description">
+                在本章節中，您將學習如何指揮 AI 將測試策略轉化為實際的 Playwright 測試腳本：
+              </p>
             </a>
-          
+
             <a href="chapters/chapter-05.html" class="chapter-card">
               <span class="chapter-number">第 5 章</span>
               <h3 class="chapter-title">第五章：第四樂章 - AI 分析測試失敗</h3>
-              <p class="chapter-description">在這個章節中，我們將學習如何利用 AI 進行智能的錯誤診斷、根本原因分析，以及自動化問題解決。將調試從繁瑣的過程轉變為智能、系統化的調查，快速準確地解決問題。</p>
+              <p class="chapter-description">
+                在這個章節中，我們將學習如何利用 AI
+                進行智能的錯誤診斷、根本原因分析，以及自動化問題解決。將調試從繁瑣的過程轉變為智能、系統化的調查，快速準確地解決問題。
+              </p>
             </a>
-          
+
             <a href="chapters/chapter-06.html" class="chapter-card">
               <span class="chapter-number">第 6 章</span>
               <h3 class="chapter-title">第六章：最終樂章 - AI 完成自我修復</h3>
-              <p class="chapter-description">在這個章節中，我們將學習如何建立具有自我修復能力的測試系統。透過 AI 的智能分析和自動化修復，讓測試能夠自動適應變化、修復問題，實現真正的自主測試循環。</p>
+              <p class="chapter-description">
+                在這個章節中，我們將學習如何建立具有自我修復能力的測試系統。透過 AI
+                的智能分析和自動化修復，讓測試能夠自動適應變化、修復問題，實現真正的自主測試循環。
+              </p>
             </a>
-          
+
             <a href="chapters/chapter-07.html" class="chapter-card">
               <span class="chapter-number">第 7 章</span>
               <h3 class="chapter-title">第七章：變奏曲 - 擴展 AI 工作流到複雜場景</h3>
               <p class="chapter-description">完成本章後，你將能夠：</p>
             </a>
-          
+
             <a href="chapters/chapter-08.html" class="chapter-card">
               <span class="chapter-number">第 8 章</span>
               <h3 class="chapter-title">第八章：總譜 - 獨立端到端 AI 編排挑戰</h3>
               <p class="chapter-description">完成本章後，你將能夠：</p>
             </a>
-          
+          </div>
         </div>
-      </div>
-    </section>
-    
-    <section class="search-section">
-      <div class="container">
-        <h2>搜尋內容</h2>
-        <div class="search-container">
-          <input type="text" id="search" class="search-input" placeholder="搜尋章節、提示詞、程式碼...">
-          <span class="search-icon">🔍</span>
+      </section>
+
+      <section class="search-section">
+        <div class="container">
+          <h2>搜尋內容</h2>
+          <div class="search-container">
+            <input type="text" id="search" class="search-input" placeholder="搜尋章節、提示詞、程式碼..." />
+            <span class="search-icon">🔍</span>
+          </div>
+          <div id="search-results"></div>
         </div>
-        <div id="search-results"></div>
-      </div>
-    </section>
-    
-    <section class="quick-start">
-      <div class="container">
-        <h2>快速開始</h2>
-        <div class="steps">
-          <div class="step">
-            <h3>1. 設定環境</h3>
-            <pre><code class="language-bash"># 安裝必要工具
+      </section>
+
+      <section class="llm-guide">
+        <div class="container">
+          <h2>🤖 AI 助手指南</h2>
+          <div class="llm-card">
+            <h3>LLMs 快速學習指南</h3>
+            <p>專為 AI 助手（Claude、GPT、Gemini）設計的專案總覽，包含完整的技術架構、提示詞模式和最佳實踐。</p>
+            <div class="llm-highlights">
+              <ul>
+                <li>✅ 完整專案結構與技術棧</li>
+                <li>✅ 40+ 黃金提示詞（版本無關）</li>
+                <li>✅ 雙語提示策略範例</li>
+                <li>✅ 自循環工作流程說明</li>
+                <li>✅ 記憶體系統使用指引</li>
+              </ul>
+            </div>
+            <div class="llm-actions">
+              <a href="llms.txt" class="btn" target="_blank">查看 LLM 指南</a>
+              <a href="https://github.com/clarencechien/play-right-with-ai/blob/main/llms.txt" class="btn btn-secondary"
+                >GitHub 檢視</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-start">
+        <div class="container">
+          <h2>快速開始</h2>
+          <div class="steps">
+            <div class="step">
+              <h3>1. 設定環境</h3>
+              <pre><code class="language-bash"># 安裝必要工具
 npm install -g @playwright/test
 npm install -g @anthropic-ai/claude-cli
 
 # 配置 API 金鑰
 export ANTHROPIC_API_KEY="your-key"
 export GOOGLE_API_KEY="your-key"</code></pre>
-          </div>
-          <div class="step">
-            <h3>2. 克隆專案</h3>
-            <pre><code class="language-bash">git clone https://github.com/your-repo/play-right-with-ai
+            </div>
+            <div class="step">
+              <h3>2. 克隆專案</h3>
+              <pre><code class="language-bash">git clone https://github.com/your-repo/play-right-with-ai
 cd play-right-with-ai
 npm install</code></pre>
-          </div>
-          <div class="step">
-            <h3>3. 開始學習</h3>
-            <pre><code class="language-bash"># 進入第一章
+            </div>
+            <div class="step">
+              <h3>3. 開始學習</h3>
+              <pre><code class="language-bash"># 進入第一章
 cd workshop/chapter-01
 cat README.md
 
 # 執行範例
 npm run demo</code></pre>
+            </div>
           </div>
         </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2024 Play Right with AI Workshop. 開源教學專案。</p>
+        <p><a href="privacy-policy.html" style="color: #fff; text-decoration: underline">隱私政策</a></p>
       </div>
-    </section>
-  </main>
-  
-  <footer>
-    <div class="container">
-      <p>© 2024 Play Right with AI Workshop. 開源教學專案。</p>
-      <p><a href="privacy-policy.html" style="color: #fff; text-decoration: underline;">隱私政策</a></p>
-    </div>
-  </footer>
-  
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/analytics.js"></script>
-  
-  <!-- Cookie 同意橫幅 -->
-  <div id="cookie-banner" class="cookie-banner" style="display: none;">
-    <div class="cookie-content">
-      <p>我們使用 Cookie 來改善您的瀏覽體驗並分析網站流量。您的資料將以匿名方式處理。</p>
-      <div class="cookie-actions">
-        <button id="accept-cookies" class="btn btn-primary">接受</button>
-        <button id="reject-cookies" class="btn btn-secondary">拒絕</button>
-        <a href="privacy-policy.html" class="cookie-link">隱私政策</a>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+
+    <!-- Cookie 同意橫幅 -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none">
+      <div class="cookie-content">
+        <p>我們使用 Cookie 來改善您的瀏覽體驗並分析網站流量。您的資料將以匿名方式處理。</p>
+        <div class="cookie-actions">
+          <button id="accept-cookies" class="btn btn-primary">接受</button>
+          <button id="reject-cookies" class="btn btn-secondary">拒絕</button>
+          <a href="privacy-policy.html" class="cookie-link">隱私政策</a>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <style>
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-      z-index: 9999;
-      animation: slideUp 0.3s ease-out;
-    }
-    
-    .cookie-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    
-    .cookie-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    
-    .cookie-link {
-      color: #3498db;
-      text-decoration: underline;
-      margin-left: 10px;
-    }
-    
-    @keyframes slideUp {
-      from {
-        transform: translateY(100%);
+
+    <style>
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #2c3e50;
+        color: white;
+        padding: 20px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        animation: slideUp 0.3s ease-out;
       }
-      to {
-        transform: translateY(0);
-      }
-    }
-    
-    @media (max-width: 768px) {
+
       .cookie-content {
-        flex-direction: column;
-        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
       }
-    }
-  </style>
-</body>
+
+      .cookie-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .cookie-link {
+        color: #3498db;
+        text-decoration: underline;
+        margin-left: 10px;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cookie-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </body>
 </html>

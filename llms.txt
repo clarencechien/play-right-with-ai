@@ -1,0 +1,144 @@
+# LLMs Quick Learning Guide - Play Right with AI Workshop
+
+## Repository Overview
+This is an open-source workshop teaching AI-driven development and testing workflows using Playwright. The workshop guides learners to become "AI Conductors" orchestrating automated development cycles.
+
+## Core Concept
+Transform developers from "code writers" to "AI orchestrators" who direct AI tools to:
+1. Generate applications
+2. Write tests
+3. Execute tests
+4. Analyze failures
+5. Self-repair issues
+
+## Technical Stack
+- **Frontend**: HTML/CSS/JavaScript (React ready but unused)
+- **Testing**: Playwright for E2E testing
+- **AI Integration**: Claude, Gemini, GPT APIs
+- **Deployment**: GitHub Pages
+- **Language**: Traditional Chinese (繁體中文) with bilingual prompting
+
+## Project Structure
+```
+/workshop/         - 8 complete chapters with exercises
+/prompts/          - 40+ golden prompts (version-agnostic)
+/sample-app-source/ - 4 example applications (TODO, Shopping, Multi-page, Capstone)
+/tests/            - E2E test suites
+/docs/             - Static website (port 8080)
+/integrations/     - AI service integrations
+/memory-bank/      - Project context persistence
+```
+
+## Key Features
+1. **Bilingual Prompting Strategy**: "Think in English, Output in Chinese"
+2. **Playwright MCP Integration**: AI controls browser through natural language
+3. **Self-Cycling Workflow**: Automated test-analyze-fix loop
+4. **Progressive Learning**: From basic CRUD to complex systems
+
+## Workshop Chapters
+1. **AI Conductor** - Mindset shift & environment setup
+2. **First Movement** - AI generates applications
+3. **Second Movement** - AI as test strategist
+4. **Third Movement** - AI writes Playwright tests
+5. **Fourth Movement** - AI analyzes test failures
+6. **Final Movement** - AI completes self-repair
+7. **Variations** - Complex scenarios
+8. **Capstone** - End-to-end challenge
+
+## Sample Applications
+1. **TODO App** (★★☆☆☆) - Basic CRUD with local storage
+2. **Shopping List** (★★★☆☆) - Categories, budget tracking
+3. **Multi-Page App** (★★★★☆) - Routing, forms, responsive
+4. **Capstone Starter** (★★★★★) - Complete project template
+
+## Development Commands
+```bash
+npm run workshop:start    # Start workshop on port 8080
+npm run test             # Run Playwright tests
+npm run validate:env     # Validate environment
+npm run build:site       # Build static site
+```
+
+## AI Prompt Patterns
+
+### Application Generation
+```
+You are a senior developer. Create a [type] application with:
+- [Feature 1]
+- [Feature 2]
+請用繁體中文註解所有功能
+```
+
+### Test Strategy
+```
+分析這個應用程式並設計測試策略：
+[Application code]
+Please focus on:
+- Critical user paths
+- Edge cases
+```
+
+### Debug Analysis
+```
+Debug this test failure:
+[Error message]
+請分析可能原因並提供修復建議
+```
+
+## Current Status
+- ✅ 8/8 chapters complete
+- ✅ 4/4 sample apps implemented
+- ✅ 40+ prompts (GPT version-agnostic)
+- ✅ E2E tests complete
+- ✅ GitHub Pages deployed
+- 🎯 UX/UI enhancement plan created (see docs/next-step.md)
+
+## Next Steps (UX/UI Enhancement)
+**Phase 1 (Week 1-2)**: Glassmorphism design, navigation, mobile-first
+**Phase 2 (Week 3-4)**: Progress tracking, interactive playground, quizzes
+**Phase 3 (Week 5-6)**: Animations, gamification, performance optimization
+
+## Key Files for LLMs
+1. `/memory-bank/activeContext.md` - Current project state
+2. `/docs/next-step.md` - UX/UI enhancement roadmap
+3. `/PROJECT_STRUCTURE.md` - Complete file organization
+4. `/CLAUDE.md` - AI assistant guidelines
+5. `/.cursorrules` - Memory bank system
+
+## Important Patterns
+- **TDD First**: All examples follow Test-Driven Development
+- **Incremental Complexity**: Each chapter builds on previous
+- **Practical Focus**: Real-world applications, not toy examples
+- **Error Learning**: Intentional bugs for debugging practice
+
+## Success Metrics
+- User engagement: 70% chapter completion target
+- Performance: <3s load time on 3G
+- Accessibility: WCAG 2.1 AA compliant
+- Mobile usage: >50% of traffic
+
+## Repository URLs
+- GitHub: https://github.com/clarencechien/play-right-with-ai
+- Live Demo: https://clarencechien.github.io/play-right-with-ai/
+- Local Dev: http://localhost:8080
+
+## For AI Assistants
+When helping with this repository:
+1. Maintain Traditional Chinese for all user-facing content
+2. Use bilingual prompting (English technical, Chinese output)
+3. Follow TDD principles for all code examples
+4. Preserve the educational progression structure
+5. Keep prompts version-agnostic (no GPT-4 specifics)
+
+## Quick Start for Development
+```bash
+git clone https://github.com/clarencechien/play-right-with-ai.git
+cd play-right-with-ai
+npm install
+npm run workshop:start  # Runs on port 8080
+```
+
+---
+Last Updated: 2025-09-11
+Workshop Version: 1.0.0
+Status: Production Ready

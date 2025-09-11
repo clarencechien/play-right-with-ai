@@ -107,7 +107,8 @@ npm run workshop:start
 ## 📂 專案結構
 
 完整專案結構詳見 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)  
-UX/UI 改進計畫詳見 [docs/next-step.md](./docs/next-step.md)
+UX/UI 改進計畫詳見 [docs/next-step.md](./docs/next-step.md)  
+快速學習指南詳見 [llms.txt](./llms.txt) - 為 AI 助手準備的專案總覽
 
 ```
 play-right-with-ai/
