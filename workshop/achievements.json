@@ -1,0 +1,426 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-09-11",
+  "achievements": {
+    "core": {
+      "title": "核心成就",
+      "description": "完成章節獲得的主要成就",
+      "badges": [
+        {
+          "id": "novice-conductor",
+          "name": "新手指揮家",
+          "description": "完成第1-2章，掌握基礎概念",
+          "icon": "🎵",
+          "xp": 250,
+          "requirements": {
+            "chapters": [1, 2],
+            "minCompletion": 2
+          },
+          "color": "blue"
+        },
+        {
+          "id": "test-master",
+          "name": "測試大師",
+          "description": "完成第3-4章，精通測試策略",
+          "icon": "🎭",
+          "xp": 500,
+          "requirements": {
+            "chapters": [3, 4],
+            "minCompletion": 2
+          },
+          "color": "green"
+        },
+        {
+          "id": "debug-detective",
+          "name": "除錯偵探",
+          "description": "完成第5-6章，掌握診斷技巧",
+          "icon": "🔍",
+          "xp": 600,
+          "requirements": {
+            "chapters": [5, 6],
+            "minCompletion": 2
+          },
+          "color": "yellow"
+        },
+        {
+          "id": "ai-symphonist",
+          "name": "AI交響樂家",
+          "description": "完成第7-8章，成為AI編排大師",
+          "icon": "🎼",
+          "xp": 1150,
+          "requirements": {
+            "chapters": [7, 8],
+            "minCompletion": 2
+          },
+          "color": "purple"
+        }
+      ]
+    },
+    "special": {
+      "title": "特殊成就",
+      "description": "通過特定挑戰獲得的成就",
+      "badges": [
+        {
+          "id": "speed-star",
+          "name": "速度之星",
+          "description": "在建議時間內完成任一章節",
+          "icon": "🚀",
+          "xp": 100,
+          "requirements": {
+            "type": "time_challenge",
+            "condition": "complete_within_suggested_time"
+          }
+        },
+        {
+          "id": "perfectionist",
+          "name": "完美主義者",
+          "description": "任一測試達到100%覆蓋率",
+          "icon": "💯",
+          "xp": 200,
+          "requirements": {
+            "type": "coverage",
+            "minCoverage": 100
+          }
+        },
+        {
+          "id": "innovator",
+          "name": "創新者",
+          "description": "提交被採納的改進建議",
+          "icon": "🔧",
+          "xp": 150,
+          "requirements": {
+            "type": "contribution",
+            "accepted": true
+          }
+        },
+        {
+          "id": "community-contributor",
+          "name": "社群貢獻者",
+          "description": "在討論區幫助5位以上學習者",
+          "icon": "🌟",
+          "xp": 150,
+          "requirements": {
+            "type": "community",
+            "helpedUsers": 5
+          }
+        },
+        {
+          "id": "one-shot",
+          "name": "一次通關",
+          "description": "測試首次執行即全部通過",
+          "icon": "🎯",
+          "xp": 150,
+          "requirements": {
+            "type": "test_execution",
+            "firstAttemptPass": true
+          }
+        },
+        {
+          "id": "knowledge-sharer",
+          "name": "知識分享者",
+          "description": "發表優質學習筆記",
+          "icon": "📚",
+          "xp": 100,
+          "requirements": {
+            "type": "content",
+            "qualityNotes": true
+          }
+        },
+        {
+          "id": "bug-hunter",
+          "name": "Bug獵人",
+          "description": "發現並回報工作坊內容錯誤",
+          "icon": "🐛",
+          "xp": 100,
+          "requirements": {
+            "type": "bug_report",
+            "validBugs": 1
+          }
+        },
+        {
+          "id": "i18n-pioneer",
+          "name": "國際化先鋒",
+          "description": "協助翻譯其他語言版本",
+          "icon": "🌍",
+          "xp": 200,
+          "requirements": {
+            "type": "translation",
+            "translatedContent": true
+          }
+        },
+        {
+          "id": "marathon-runner",
+          "name": "馬拉松跑者",
+          "description": "連續7天學習",
+          "icon": "🏃",
+          "xp": 150,
+          "requirements": {
+            "type": "streak",
+            "consecutiveDays": 7
+          }
+        },
+        {
+          "id": "night-owl",
+          "name": "夜貓子",
+          "description": "深夜完成章節（晚上11點後）",
+          "icon": "🌙",
+          "xp": 50,
+          "requirements": {
+            "type": "time_of_day",
+            "afterHour": 23
+          }
+        },
+        {
+          "id": "early-bird",
+          "name": "早鳥",
+          "description": "清晨完成章節（早上6點前）",
+          "icon": "☀️",
+          "xp": 50,
+          "requirements": {
+            "type": "time_of_day",
+            "beforeHour": 6
+          }
+        },
+        {
+          "id": "persistent",
+          "name": "堅持不懈",
+          "description": "克服困難完成挑戰章節",
+          "icon": "💪",
+          "xp": 100,
+          "requirements": {
+            "type": "difficulty",
+            "completedHardChapter": true
+          }
+        }
+      ]
+    },
+    "rare": {
+      "title": "稀有成就",
+      "description": "極具挑戰性的成就",
+      "badges": [
+        {
+          "id": "unicorn",
+          "name": "獨角獸",
+          "description": "單日完成3個章節",
+          "icon": "🦄",
+          "xp": 300,
+          "requirements": {
+            "type": "daily_challenge",
+            "chaptersPerDay": 3
+          },
+          "rarity": "legendary"
+        },
+        {
+          "id": "grand-slam",
+          "name": "全壘打",
+          "description": "獲得所有成就",
+          "icon": "🏆",
+          "xp": 500,
+          "requirements": {
+            "type": "collection",
+            "allAchievements": true
+          },
+          "rarity": "legendary"
+        },
+        {
+          "id": "return-of-king",
+          "name": "王者歸來",
+          "description": "完成所有進階挑戰",
+          "icon": "👑",
+          "xp": 400,
+          "requirements": {
+            "type": "advanced",
+            "allChallenges": true
+          },
+          "rarity": "epic"
+        },
+        {
+          "id": "rainbow-warrior",
+          "name": "彩虹戰士",
+          "description": "使用3種不同AI服務完成專案",
+          "icon": "🌈",
+          "xp": 250,
+          "requirements": {
+            "type": "ai_diversity",
+            "aiServices": ["claude", "gemini", "openai"]
+          },
+          "rarity": "epic"
+        },
+        {
+          "id": "zero-to-hero",
+          "name": "從零到英雄",
+          "description": "無編程經驗但完成全部章節",
+          "icon": "🚀",
+          "xp": 500,
+          "requirements": {
+            "type": "beginner_success",
+            "startingLevel": "beginner",
+            "allChapters": true
+          },
+          "rarity": "legendary"
+        }
+      ]
+    },
+    "milestones": {
+      "title": "里程碑",
+      "description": "學習過程中的重要節點",
+      "badges": [
+        {
+          "id": "first-step",
+          "name": "第一步",
+          "description": "完成環境設置",
+          "icon": "👣",
+          "xp": 50,
+          "requirements": {
+            "type": "setup",
+            "environmentReady": true
+          }
+        },
+        {
+          "id": "first-app",
+          "name": "第一個應用",
+          "description": "成功生成第一個AI應用",
+          "icon": "🎉",
+          "xp": 100,
+          "requirements": {
+            "type": "generation",
+            "firstApp": true
+          }
+        },
+        {
+          "id": "first-test",
+          "name": "第一個測試",
+          "description": "成功執行第一個測試",
+          "icon": "✅",
+          "xp": 100,
+          "requirements": {
+            "type": "testing",
+            "firstTest": true
+          }
+        },
+        {
+          "id": "halfway",
+          "name": "半程達標",
+          "description": "完成50%的章節",
+          "icon": "🎯",
+          "xp": 200,
+          "requirements": {
+            "type": "progress",
+            "completionRate": 50
+          }
+        },
+        {
+          "id": "graduate",
+          "name": "畢業生",
+          "description": "完成所有章節",
+          "icon": "🎓",
+          "xp": 500,
+          "requirements": {
+            "type": "completion",
+            "allChapters": true
+          }
+        }
+      ]
+    },
+    "bonus": {
+      "title": "獎勵成就",
+      "description": "特別活動或挑戰獲得的成就",
+      "badges": [
+        {
+          "id": "week-challenge-winner",
+          "name": "週挑戰冠軍",
+          "description": "贏得任一週挑戰",
+          "icon": "🥇",
+          "xp": 200,
+          "requirements": {
+            "type": "weekly_challenge",
+            "winner": true
+          }
+        },
+        {
+          "id": "mentor",
+          "name": "導師",
+          "description": "成為認證導師",
+          "icon": "👨‍🏫",
+          "xp": 300,
+          "requirements": {
+            "type": "certification",
+            "mentorStatus": true
+          }
+        },
+        {
+          "id": "workshop-ambassador",
+          "name": "工作坊大使",
+          "description": "推薦10人參加工作坊",
+          "icon": "📢",
+          "xp": 200,
+          "requirements": {
+            "type": "referral",
+            "referredUsers": 10
+          }
+        }
+      ]
+    }
+  },
+  "levels": {
+    "title": "等級系統",
+    "description": "根據累積XP提升等級",
+    "tiers": [
+      {
+        "level": 1,
+        "title": "新手學徒",
+        "minXP": 0,
+        "maxXP": 300,
+        "privileges": ["基礎徽章", "討論區發言權"]
+      },
+      {
+        "level": 2,
+        "title": "初級指揮家",
+        "minXP": 301,
+        "maxXP": 600,
+        "privileges": ["進階內容解鎖", "程式碼範例庫"]
+      },
+      {
+        "level": 3,
+        "title": "中級指揮家",
+        "minXP": 601,
+        "maxXP": 1000,
+        "privileges": ["社群導師資格", "專屬討論頻道"]
+      },
+      {
+        "level": 4,
+        "title": "進階指揮家",
+        "minXP": 1001,
+        "maxXP": 1500,
+        "privileges": ["特殊挑戰解鎖", "1對1諮詢機會"]
+      },
+      {
+        "level": 5,
+        "title": "資深指揮家",
+        "minXP": 1501,
+        "maxXP": 2000,
+        "privileges": ["貢獻者權限", "內容共創資格"]
+      },
+      {
+        "level": 6,
+        "title": "AI交響樂家",
+        "minXP": 2001,
+        "maxXP": 2500,
+        "privileges": ["榮譽殿堂", "永久認證"]
+      },
+      {
+        "level": 7,
+        "title": "大師",
+        "minXP": 2501,
+        "maxXP": null,
+        "privileges": ["工作坊助教資格", "特別榮譽徽章", "終身學習資源"]
+      }
+    ]
+  },
+  "statistics": {
+    "totalAchievements": 37,
+    "totalXP": 7500,
+    "averageCompletionTime": "2 weeks",
+    "successRate": "85%"
+  }
+}

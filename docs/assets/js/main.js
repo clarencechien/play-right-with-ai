@@ -1,7 +1,24 @@
 
 // Play Right with AI - 主要 JavaScript
+
+// 基礎路徑配置（支援 GitHub Pages）
+const BASE_PATH = (() => {
+  const path = window.location.pathname;
+  if (path.includes('/play-right-with-ai/')) {
+    return '/play-right-with-ai/';
+  }
+  return '/';
+})();
+
+// 設置全域基礎路徑
+window.__BASE_PATH__ = BASE_PATH;
+
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Play Right with AI Workshop 已載入');
+  console.log('基礎路徑:', BASE_PATH);
+  
+  // 初始化平滑滾動
+  initSmoothScroll();
   
   // 初始化搜尋功能
   initSearch();
@@ -11,7 +28,62 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 初始化互動元素
   initInteractive();
+  
+  // 初始化章節導航
+  initChapterNavigation();
 });
+
+// 平滑滾動
+function initSmoothScroll() {
+  // 設置 CSS 平滑滾動
+  document.documentElement.style.scrollBehavior = 'smooth';
+  
+  // 處理錨點連結
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
+// 章節導航
+function initChapterNavigation() {
+  const chapterNav = document.querySelector('.chapter-nav-links');
+  if (!chapterNav) return;
+  
+  // 獲取當前章節
+  const currentPath = window.location.pathname;
+  const chapterMatch = currentPath.match(/chapter-(\d+)\.html/);
+  
+  if (chapterMatch) {
+    const currentChapter = parseInt(chapterMatch[1]);
+    const prevChapter = currentChapter - 1;
+    const nextChapter = currentChapter + 1;
+    
+    let navHTML = '';
+    
+    if (prevChapter >= 1) {
+      navHTML += `<a href="chapter-${prevChapter.toString().padStart(2, '0')}.html" class="prev-chapter">← 上一章</a>`;
+    }
+    
+    navHTML += `<a href="../" class="back-to-home">返回首頁</a>`;
+    
+    if (nextChapter <= 8) {
+      navHTML += `<a href="chapter-${nextChapter.toString().padStart(2, '0')}.html" class="next-chapter">下一章 →</a>`;
+    }
+    
+    chapterNav.innerHTML = navHTML;
+  }
+}
 
 function initSearch() {
   const searchInput = document.getElementById('search');
@@ -28,11 +100,31 @@ function performSearch(query) {
     return;
   }
   
-  fetch('/docs/search-index.json')
-    .then(res => res.json())
+  // 使用相對路徑獲取搜尋索引
+  const searchIndexPath = (() => {
+    const path = window.location.pathname;
+    if (path.includes('/chapters/')) {
+      return '../search-index.json';
+    }
+    return 'search-index.json';
+  })();
+  
+  fetch(searchIndexPath)
+    .then(res => {
+      if (!res.ok) {
+        console.warn('搜尋索引不存在');
+        return null;
+      }
+      return res.json();
+    })
     .then(index => {
-      const results = searchInIndex(index, query);
-      displaySearchResults(results);
+      if (index) {
+        const results = searchInIndex(index, query);
+        displaySearchResults(results);
+      }
+    })
+    .catch(err => {
+      console.error('搜尋錯誤:', err);
     });
 }
 
@@ -115,12 +207,33 @@ function runPrompt() {
 }
 
 function addCopyButton(block) {
+  // 避免重複添加
+  if (block.querySelector('.copy-btn')) return;
+  
   const button = document.createElement('button');
   button.className = 'copy-btn';
   button.textContent = '複製';
   button.onclick = () => {
-    const code = block.querySelector('code').textContent;
-    navigator.clipboard.writeText(code).then(() => {
+    const code = block.querySelector('code');
+    if (!code) return;
+    
+    const text = code.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      button.textContent = '已複製！';
+      setTimeout(() => {
+        button.textContent = '複製';
+      }, 2000);
+    }).catch(err => {
+      console.error('複製失敗:', err);
+      // 備用複製方法
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
       button.textContent = '已複製！';
       setTimeout(() => {
         button.textContent = '複製';

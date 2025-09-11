@@ -1,0 +1,101 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: 安裝相依套件
+      run: npm ci
+    
+    - name: 建立文件網站
+      run: |
+        # 使用自訂的建構腳本
+        npm run build:site
+        
+        # 驗證輸出
+        test -d docs || exit 1
+        test -f docs/index.html || exit 1
+        test -f docs/assets/css/main.css || exit 1
+        test -f docs/assets/js/main.js || exit 1
+        
+        echo "✅ 網站建構完成"
+    
+    - name: 設定 GitHub Pages
+      uses: actions/configure-pages@v4
+    
+    - name: 執行冒煙測試
+      run: |
+        echo "執行網站完整性檢查..."
+        
+        # 檢查關鍵檔案
+        test -f docs/index.html || exit 1
+        test -f docs/search-index.json || exit 1
+        test -d docs/playground || exit 1
+        test -d docs/demos || exit 1
+        
+        # 檢查章節頁面
+        for i in {1..8}; do
+          if [ -f "docs/chapters/chapter-0${i}.html" ]; then
+            echo "✅ 第 ${i} 章已生成"
+          else
+            echo "⚠️ 第 ${i} 章未找到"
+          fi
+        done
+        
+        echo "✅ 冒煙測試通過"
+    
+    - name: 上傳成品
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'docs'
+    
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: 部署到 GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always()
+    
+    steps:
+    - name: 通知部署狀態
+      run: |
+        if [ "${{ needs.deploy.result }}" == "success" ]; then
+          echo "✅ 成功部署到 GitHub Pages"
+          echo "🔗 網站連結: https://${{ github.repository_owner }}.github.io/play-right-with-ai/"
+        else
+          echo "❌ 部署失敗，請檢查錯誤日誌"
+        fi

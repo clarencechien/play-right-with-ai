@@ -59,7 +59,7 @@
 
 ### 1. Clone 專案
 ```bash
-git clone https://github.com/yourusername/play-right-with-ai.git
+git clone https://github.com/clarencechien/play-right-with-ai.git
 cd play-right-with-ai
 ```
 
@@ -171,8 +171,8 @@ Create a web application with CRUD operations...
 ## 🤝 社群參與
 
 ### 獲得幫助
-- 💬 [GitHub Discussions](https://github.com/yourusername/play-right-with-ai/discussions) - 學習討論
-- 🐛 [Issues](https://github.com/yourusername/play-right-with-ai/issues) - 回報問題
+- 💬 [GitHub Discussions](https://github.com/clarencechien/play-right-with-ai/discussions) - 學習討論
+- 🐛 [Issues](https://github.com/clarencechien/play-right-with-ai/issues) - 回報問題
 - 📧 Email: workshop@playrightwithAI.com
 
 ### 貢獻指南
@@ -212,9 +212,10 @@ Create a web application with CRUD operations...
 
 ## 🚦 專案狀態
 
-![Build Status](https://img.shields.io/github/workflow/status/yourusername/play-right-with-ai/CI)
-![Coverage](https://img.shields.io/codecov/c/github/yourusername/play-right-with-ai)
-![Last Commit](https://img.shields.io/github/last-commit/yourusername/play-right-with-ai)
+![Build Status](https://img.shields.io/github/actions/workflow/status/clarencechien/play-right-with-ai/workshop-tests.yml)
+![Coverage](https://img.shields.io/codecov/c/github/clarencechien/play-right-with-ai)
+![Last Commit](https://img.shields.io/github/last-commit/clarencechien/play-right-with-ai)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-green)
 
 ---
 
@@ -222,7 +223,7 @@ Create a web application with CRUD operations...
 
 **開始你的 AI 指揮家之旅 🎭**
 
-[立即開始](./workshop/chapter-01) | [查看範例](./sample-app-source) | [加入社群](https://github.com/yourusername/play-right-with-ai/discussions)
+[立即開始](./workshop/chapter-01) | [查看範例](./sample-app-source) | [加入社群](https://github.com/clarencechien/play-right-with-ai/discussions)
 
 Made with ❤️ by the Play right with AI Community
 

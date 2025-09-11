@@ -1,0 +1,132 @@
+name: Workshop Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # 每天 UTC 時間 00:00 執行
+    - cron: '0 0 * * *'
+
+jobs:
+  test-workshop-examples:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+        chapter: [1, 2, 3, 4, 5, 6, 7, 8]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: 安裝相依套件
+      run: |
+        npm ci
+        npx playwright install --with-deps
+    
+    - name: 執行第 ${{ matrix.chapter }} 章範例測試
+      run: |
+        if [ -d "workshop/chapter-${{ matrix.chapter }}" ]; then
+          cd workshop/chapter-${{ matrix.chapter }}
+          if [ -f "test.spec.ts" ]; then
+            npx playwright test
+          fi
+        fi
+      env:
+        CI: true
+    
+    - name: 上傳測試報告
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report-ch${{ matrix.chapter }}-node${{ matrix.node-version }}
+        path: workshop/chapter-${{ matrix.chapter }}/playwright-report/
+        retention-days: 30
+
+  test-integration-scripts:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: 設定 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: 安裝套件
+      run: |
+        npm ci
+        pip install -r requirements.txt || echo "No requirements.txt found"
+    
+    - name: 測試 AI 整合腳本
+      run: |
+        # 測試 Claude 整合
+        if [ -f "integrations/claude/test.js" ]; then
+          node integrations/claude/test.js
+        fi
+        
+        # 測試 Gemini 整合
+        if [ -f "integrations/gemini/test.py" ]; then
+          python integrations/gemini/test.py
+        fi
+        
+        # 測試 MCP 整合
+        if [ -f "integrations/mcp/test.js" ]; then
+          node integrations/mcp/test.js
+        fi
+      env:
+        CI: true
+        # 使用 GitHub Secrets 存儲 API 金鑰
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+  test-mcp-server:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+    
+    - name: 安裝 Playwright
+      run: |
+        npm ci
+        npx playwright install chromium
+    
+    - name: 測試 MCP 伺服器
+      run: |
+        if [ -f "integrations/mcp/playwright-mcp.js" ]; then
+          # 啟動 MCP 伺服器
+          node integrations/mcp/playwright-mcp.js &
+          MCP_PID=$!
+          
+          # 等待伺服器啟動
+          sleep 5
+          
+          # 執行測試
+          curl -X POST http://localhost:3001/test || true
+          
+          # 關閉伺服器
+          kill $MCP_PID
+        fi
+      env:
+        CI: true

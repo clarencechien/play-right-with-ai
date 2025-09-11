@@ -1,50 +1,62 @@
 [
   {
-    "title": "第一章：AI 指揮家 - 思維轉變與環境搭建",
-    "content": "# 第一章：AI 指揮家 - 思維轉變與環境搭建\n\n## 學習目標\n\n完成本章後，您將能夠：\n- ✅ 理解從「編碼者」到「AI 指揮家」的思維轉變\n- ✅ 完成完整的開發環境設置（VS Code、Node.js、Playwright）\n- ✅ 設置並測試 AI 服務（Claude、Gemini、GPT-4）\n- ✅ 掌握「Think in English, Output in Chinese」的雙語提示策略\n- ✅ 執行第一個 AI 驅動的開發任務\n\n## 前置需求\n\n- 基本的命令列操作知識\n- 可以連接網際網路的電腦\n- 至少一個 AI 服務的存取權限（Claude、Gemini 或 GPT-4）\n\n## 環境設置\n\n### VS Code 安裝與設定\n\nVisual Studio Code 是我們的主要開發環境，它提供了優秀的 AI 整合能力。\n\n#### Windows 安裝步驟\n```bash\n# 1. 訪問 https://code.visualstudio.com/\n# 2. 下載 Windows 版本\n# 3. 執行安裝程式，勾選以下選項：\n#    - Add to ",
-    "excerpt": "完成本章後，您將能夠：",
-    "url": "/chapters/chapter-01.html"
+    "title": "第一章：AI 指揮家",
+    "url": "chapters/chapter-01.html",
+    "content": "AI 指揮家 思維轉變 環境搭建 VS Code Node.js Playwright Claude Gemini GPT-4",
+    "excerpt": "完成本章後，您將能夠理解從「編碼者」到「AI 指揮家」的思維轉變"
   },
   {
     "title": "第二章：第一樂章 - AI 生成應用程式",
-    "content": "# 第二章：第一樂章 - AI 生成應用程式\n\n## 學習目標\n\n完成本章後，您將能夠：\n- ✅ 使用自然語言精確描述應用程式需求\n- ✅ 掌握有效的提示詞工程技巧\n- ✅ 理解雙語提示策略對程式碼品質的影響\n- ✅ 評估和優化 AI 生成的程式碼\n- ✅ 運用迭代式改進流程達到理想結果\n\n## 前置需求\n\n- 完成第一章的環境設置\n- 至少一個可用的 AI 服務（Claude、Gemini 或 GPT-4）\n- 基本的 HTML、CSS、JavaScript 知識\n- 理解雙語提示策略的概念\n\n## 本章概述\n\n在傳統開發中，我們從空白檔案開始，一行一行編寫程式碼。作為 AI 指揮家，我們的工作是清晰地表達「想要什麼」，讓 AI 處理「如何實現」。本章將透過創建一個 TODO 應用程式，學習如何有效地指揮 AI 生成高品質的應用程式碼。\n\n## 自然語言需求規範\n\n### 需求描述的層次結構\n\n優秀的需求描述應該包含多個層次的資訊：\n\n```\n1. 高層次目標（What）\n   └── 2. 功能需求（Features）\n       └── 3. 技術規格（How）\n       ",
-    "excerpt": "完成本章後，您將能夠：",
-    "url": "/chapters/chapter-02.html"
+    "url": "chapters/chapter-02.html",
+    "content": "AI 生成應用程式 自然語言需求 程式碼生成 應用架構設計",
+    "excerpt": "學習如何使用 AI 從自然語言需求生成完整的應用程式碼"
   },
   {
-    "title": "第二樂章：AI 擔任測試策略師 🎯",
-    "content": "# 第二樂章：AI 擔任測試策略師 🎯\n\n## 學習目標\n\n在本章節中，您將學習如何指揮 AI 成為您的測試策略師，幫助您：\n\n- 🔍 **分析應用程式碼**：讓 AI 深入理解程式架構與業務邏輯\n- 📋 **制定測試策略**：運用 AI 設計全面的測試計劃\n- ⚖️ **評估風險優先級**：識別關鍵路徑與高風險區域\n- 📊 **規劃測試覆蓋率**：確保測試的完整性與有效性\n- 🌐 **雙語思維優勢**：Think in English for analysis, Output in Chinese for clarity\n\n## 前置需求\n\n- ✅ 完成 Chapter 2：已有 TODO 應用程式的源代碼\n- ✅ 理解基本測試概念（功能測試、邊界測試、負向測試）\n- ✅ 熟悉 AI 提示詞基本技巧\n\n## 核心概念：AI 測試策略師的角色\n\n### 傳統測試 vs AI 驅動測試策略\n\n**傳統方式**：\n```\n開發者 → 手動分析代碼 → 撰寫測試計劃 → 執行測試\n```\n\n**AI 驅動方式**：\n```\n開發者 → AI 分析代碼 → AI 生成測試策略 → A",
-    "excerpt": "在本章節中，您將學習如何指揮 AI 成為您的測試策略師，幫助您：",
-    "url": "/chapters/chapter-03.html"
+    "title": "第二樂章：AI 擔任測試策略師",
+    "url": "chapters/chapter-03.html",
+    "content": "AI 測試策略 測試計劃 測試案例設計 風險分析",
+    "excerpt": "在本章節中，您將學習如何指揮 AI 成為您的測試策略師"
   },
   {
-    "title": "第三樂章：AI 執行測試腳本編寫 🎬",
-    "content": "# 第三樂章：AI 執行測試腳本編寫 🎬\n\n## 學習目標\n\n在本章節中，您將學習如何指揮 AI 將測試策略轉化為實際的 Playwright 測試腳本：\n\n- 🤖 **Playwright 基礎指令**：掌握核心自動化測試命令\n- 🏗️ **Page Object Model**：使用 AI 建立可維護的測試架構\n- 🔌 **MCP 整合實踐**：體驗 Model Context Protocol 的強大功能\n- 🌐 **跨瀏覽器測試**：確保應用在不同環境下的相容性\n- 📝 **雙語提示工程**：優化 AI 生成高品質測試代碼\n\n## 前置需求\n\n- ✅ 完成 Chapter 3：已有完整的測試策略\n- ✅ 安裝 Playwright：`npm init playwright@latest`\n- ✅ 設置 MCP Server：配置 Playwright MCP\n- ✅ 熟悉基本 JavaScript/TypeScript\n\n## 核心概念：從策略到腳本\n\n### 測試腳本生成流程\n\n```mermaid\ngraph LR\n    A[測試策略] --> B[AI 理解",
-    "excerpt": "在本章節中，您將學習如何指揮 AI 將測試策略轉化為實際的 Playwright 測試腳本：",
-    "url": "/chapters/chapter-04.html"
+    "title": "第三樂章：AI 執行測試腳本編寫",
+    "url": "chapters/chapter-04.html",
+    "content": "Playwright 測試腳本 MCP 協議 瀏覽器自動化 E2E 測試",
+    "excerpt": "學習如何指揮 AI 將測試策略轉化為實際的 Playwright 測試腳本"
   },
   {
-    "title": "第五章：第四樂章 - AI 分析測試失敗",
-    "content": "# 第五章：第四樂章 - AI 分析測試失敗\n\n## 章節概述\n\n在這個章節中，我們將學習如何利用 AI 進行智能的錯誤診斷、根本原因分析，以及自動化問題解決。將調試從繁瑣的過程轉變為智能、系統化的調查，快速準確地解決問題。\n\n## 學習目標\n\n完成本章後，您將能夠：\n\n1. **錯誤分析專家**：準確診斷測試失敗和運行時錯誤\n2. **追蹤分析大師**：解讀 Playwright trace 文件和截圖\n3. **模式識別高手**：識別常見錯誤模式和反模式\n4. **解決方案生成器**：生成精確的修復建議\n\n## 章節架構\n\n```\nchapter-05/\n├── README.md (本文件)\n├── scenarios/\n│   ├── 01-javascript-errors/    # JavaScript 常見錯誤\n│   ├── 02-async-timing/        # 非同步時序問題\n│   ├── 03-dom-manipulation/    # DOM 操作問題\n│   └── 04-api-integration/     # API 整合失敗\n├──",
-    "excerpt": "在這個章節中，我們將學習如何利用 AI 進行智能的錯誤診斷、根本原因分析，以及自動化問題解決。將調試從繁瑣的過程轉變為智能、系統化的調查，快速準確地解決問題。",
-    "url": "/chapters/chapter-05.html"
+    "title": "第四樂章：AI 分析測試失敗",
+    "url": "chapters/chapter-05.html",
+    "content": "測試失敗分析 錯誤診斷 根本原因分析 調試技巧",
+    "excerpt": "學習如何利用 AI 進行智能的錯誤診斷、根本原因分析"
   },
   {
-    "title": "第六章：最終樂章 - AI 完成自我修復",
-    "content": "# 第六章：最終樂章 - AI 完成自我修復\n\n## 章節概述\n\n在這個章節中，我們將學習如何建立具有自我修復能力的測試系統。透過 AI 的智能分析和自動化修復，讓測試能夠自動適應變化、修復問題，實現真正的自主測試循環。\n\n## 學習目標\n\n完成本章後，您將能夠：\n\n1. **自動修復生成器**：讓 AI 自動生成修復代碼\n2. **智能重試策略**：實施智能的測試重試機制\n3. **動態定位器**：建立自適應的元素定位系統\n4. **容錯機制**：設計健壯的錯誤處理和回退方案\n\n## 章節架構\n\n```\nchapter-06/\n├── README.md (本文件)\n├── self-repair/\n│   ├── 01-auto-fix-generation/    # 自動修復生成\n│   ├── 02-retry-strategies/       # 重試策略\n│   ├── 03-smart-locators/        # 智能定位器\n│   └── 04-fallback-mechanisms/   # 回退機制\n├── exercises/\n│   ├── exe",
-    "excerpt": "在這個章節中，我們將學習如何建立具有自我修復能力的測試系統。透過 AI 的智能分析和自動化修復，讓測試能夠自動適應變化、修復問題，實現真正的自主測試循環。",
-    "url": "/chapters/chapter-06.html"
+    "title": "最終樂章：AI 完成自我修復",
+    "url": "chapters/chapter-06.html",
+    "content": "自我修復 測試維護 自動化修復 智能適應",
+    "excerpt": "學習如何建立具有自我修復能力的測試系統"
   },
   {
-    "title": "第七章：變奏曲 - 擴展 AI 工作流到複雜場景",
-    "content": "# 第七章：變奏曲 - 擴展 AI 工作流到複雜場景\n\n## 學習目標\n\n完成本章後，你將能夠：\n\n1. **擴展應用**：將 AI 工作流應用到多服務整合、效能測試等複雜場景\n2. **模式識別**：識別並應用進階 AI 編排模式\n3. **優化策略**：優化提示詞和工作流以處理大型專案\n4. **創新思維**：探索 AI 測試的創新應用領域\n\n## 本章概覽\n\n```mermaid\ngraph TD\n    A[基礎工作流] --> B[進階場景]\n    B --> C[複雜整合]\n    C --> D[創新應用]\n    \n    B --> E[多服務測試]\n    B --> F[效能測試]\n    B --> G[安全測試]\n    B --> H[無障礙測試]\n    B --> I[視覺迴歸測試]\n    \n    style A fill:#e1f5fe\n    style D fill:#c8e6c9\n```\n\n## 章節結構\n\n### 7.1 多服務整合測試\n學習如何讓 AI 協調複雜的微服務測試場景\n\n### 7.2 AI 驅動的效能測試\n使用 AI 識別效",
-    "excerpt": "完成本章後，你將能夠：",
-    "url": "/chapters/chapter-07.html"
+    "title": "變奏曲：擴展 AI 工作流到複雜場景",
+    "url": "chapters/chapter-07.html",
+    "content": "複雜場景 微服務測試 性能測試 安全測試 CI/CD 整合",
+    "excerpt": "將 AI 驅動的工作流擴展到更複雜的測試場景"
   },
   {
-    "title": "第八章：總譜 - 獨立端到端 AI 編排挑戰",
-    "content": "# 第八章：總譜 - 獨立端到端 AI 編排挑戰\n\n## 學習目標\n\n完成本章後，你將能夠：\n\n1. **獨立編排**：獨立設計和執行完整的 AI 驅動開發流程\n2. **綜合應用**：整合所有學到的技能和模式\n3. **創新思維**：發展自己的 AI 工作流程和最佳實踐\n4. **專業評估**：評估和優化 AI 輔助開發的效率\n\n## 章節概覽\n\n```mermaid\ngraph TD\n    A[知識整合] --> B[專案規劃]\n    B --> C[獨立實作]\n    C --> D[自我評估]\n    D --> E[社群分享]\n    \n    style A fill:#e3f2fd\n    style E fill:#c8e6c9\n```\n\n## 專案挑戰總覽\n\n### 🎯 核心挑戰：線上學習平台\n\n你將獨立使用 AI 工具，從零開始構建一個完整的線上學習平台，包含：\n\n**功能需求**：\n- 用戶註冊和登入系統\n- 課程瀏覽和搜尋\n- 影片播放和進度追蹤\n- 測驗和作業提交\n- 討論區和即時聊天\n- 個人學習儀表板\n\n**技術要求**：\n- 前端：現代 JavaS",
-    "excerpt": "完成本章後，你將能夠：",
-    "url": "/chapters/chapter-08.html"
+    "title": "總譜：獨立端到端 AI 編排挑戰",
+    "url": "chapters/chapter-08.html",
+    "content": "端到端專案 AI 編排 獨立實作 最佳實踐",
+    "excerpt": "完成一個完整的端到端 AI 驅動開發測試專案"
+  },
+  {
+    "title": "Playground - AI 提示詞測試",
+    "url": "playground/",
+    "content": "提示詞測試 互動式練習 即時回饋",
+    "excerpt": "在這裡測試您的 AI 提示詞並獲得即時回饋"
+  },
+  {
+    "title": "示範專案 - TODO 應用程式",
+    "url": "demos/todo-app.html",
+    "content": "TODO 應用 範例程式碼 Playwright 測試 完整實作",
+    "excerpt": "完整的 TODO 應用程式範例，包含 AI 生成的程式碼和測試"
   }
 ]
