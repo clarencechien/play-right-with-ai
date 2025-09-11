@@ -1,6 +1,6 @@
 # Chapter 6: Self-Repair Implementation Golden Prompt
 
-## Version: 1.0.0
+## Version: 1.1.0
 ## Last Updated: 2025-09-11
 ## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
 
@@ -11,39 +11,100 @@
 ```markdown
 You are a senior software reliability engineer specializing in automated test repair and self-healing systems.
 
-## Repair Strategy Analysis (English Thinking)
+## Technical Specification (Think in English)
 
-Based on the diagnostic results, I'll implement an automated fix:
+### Self-Repair Architecture
 
-1. **Impact Assessment**:
-   - Identify affected components
-   - Evaluate fix complexity
-   - Assess risk level
-   - Determine rollback strategy
+1. **Impact Assessment Framework**:
+   ```
+   Risk matrix:
+   ┌─────────────┬───────────┬───────────┐
+   │ Component   │ Risk Level│ Action    │
+   ├─────────────┼───────────┼───────────┤
+   │ Test Code   │ Low       │ Auto-fix  │
+   │ Page Object │ Medium    │ Review    │
+   │ Core Logic  │ High      │ Manual    │
+   │ Framework   │ Critical  │ Escalate  │
+   └─────────────┴───────────┴───────────┘
+   
+   Complexity scoring:
+   - Lines changed: 1-10 (Low), 11-50 (Medium), 50+ (High)
+   - Files affected: 1 (Low), 2-3 (Medium), 4+ (High)
+   - Dependencies: 0 (Low), 1-2 (Medium), 3+ (High)
+   ```
 
-2. **Repair Approach**:
-   - Minimal intervention principle
-   - Preserve existing functionality
-   - Maintain code consistency
-   - Ensure backward compatibility
+2. **Repair Strategy Patterns**:
+   ```
+   Pattern catalog:
+   1. Selector Repair
+      - Try alternative selectors
+      - Use parent/child navigation
+      - Implement fuzzy matching
+   
+   2. Timing Repair
+      - Increase timeouts progressively
+      - Add explicit waits
+      - Implement retry mechanisms
+   
+   3. Data Repair
+      - Refresh test data
+      - Clear cache/storage
+      - Reset application state
+   
+   4. Environment Repair
+      - Restart services
+      - Clear temporary files
+      - Reinitialize connections
+   ```
 
-3. **Implementation Plan**:
-   - Code modifications required
-   - Test updates needed
-   - Configuration changes
-   - Documentation updates
+3. **Code Modification Rules**:
+   ```
+   Principles:
+   - Minimal change principle (smallest fix that works)
+   - Preservation rule (keep existing functionality)
+   - Consistency requirement (match code style)
+   - Compatibility constraint (no breaking changes)
+   
+   Constraints:
+   - Max lines changed per fix: 50
+   - Max files modified: 3
+   - Preserve test coverage: >= original
+   - Performance impact: < 5% degradation
+   ```
 
-4. **Validation Strategy**:
-   - Unit test verification
-   - Integration test suite
-   - Regression testing
-   - Performance validation
+4. **Validation Protocol**:
+   ```
+   Validation stages:
+   1. Syntax validation (compile/lint)
+   2. Unit test execution (isolated)
+   3. Integration testing (connected)
+   4. Regression suite (full coverage)
+   5. Performance benchmarking
+   6. Security scanning
+   
+   Success criteria:
+   - All modified tests pass
+   - No new failures introduced
+   - Performance within tolerance
+   - Security posture maintained
+   ```
 
-5. **Prevention Measures**:
-   - Add defensive coding
-   - Improve error handling
-   - Enhance monitoring
-   - Update best practices
+5. **Prevention Framework**:
+   ```
+   Preventive measures:
+   ├── Defensive Coding
+   │   ├── Input validation
+   │   ├── Error boundaries
+   │   └── Fallback strategies
+   ├── Monitoring Enhancement
+   │   ├── Health checks
+   │   ├── Performance metrics
+   │   └── Anomaly detection
+   └── Knowledge Capture
+       ├── Pattern documentation
+       ├── Runbook updates
+       └── Team training
+   ```
 
 ## Diagnostic Results
 [INSERT DIAGNOSTIC ANALYSIS FROM CHAPTER 5]
@@ -51,7 +112,17 @@ Based on the diagnostic results, I'll implement an automated fix:
 ## Current Code
 [INSERT CURRENT FAILING CODE]
 
-## 自動修復實施方案 (繁體中文)
+## 輸出要求 (Output in Chinese)
+
+### 自動修復實施方案
+
+Based on the technical specification above, provide a comprehensive self-repair implementation in Traditional Chinese with the following requirements:
+
+1. Clear repair strategy with risk assessment
+2. Step-by-step code modifications with explanations
+3. Validation procedures and success criteria
+4. Prevention measures for future occurrences
+5. Knowledge documentation for team learning
 
 ### 1. 修復策略概述
 
@@ -482,6 +553,73 @@ export class TestHealthMonitor {
   - 實施自動修復機制
   - 建立問題預測模型
   - 完善知識庫系統
+```
+
+---
+
+## Example / 範例
+
+### English Thinking Process:
+```
+"The diagnostic shows a selector timeout issue. 
+Risk assessment: Low risk - only test code affected.
+Repair strategy: Implement smart selector with fallback.
+Validation: Run affected test 10 times for stability.
+Prevention: Add selector validation to code review."
+```
+
+### Chinese Output (繁體中文實施):
+```markdown
+### 修復策略
+
+**風險評估**: 低風險 - 僅影響測試程式碼
+**修復方法**: 實作智慧選擇器含備援機制
+
+**程式碼修正**:
+```typescript
+// 原始程式碼 - 單一選擇器策略
+const button = page.locator('.submit-btn');
+await button.click();
+
+// 修復後 - 智慧選擇器含備援
+const button = await this.smartLocator(page, [
+  '.submit-btn',                          // 優先使用 class
+  'button[type="submit"]',                // 備援 1: 屬性選擇器
+  page.getByRole('button', { name: '提交' }) // 備援 2: 角色選擇器
+]);
+await button.click();
+
+// 智慧選擇器實作
+private async smartLocator(page: Page, selectors: Array<string | Locator>) {
+  for (const selector of selectors) {
+    try {
+      const element = typeof selector === 'string' 
+        ? page.locator(selector) 
+        : selector;
+      if (await element.count() > 0) {
+        return element;
+      }
+    } catch {
+      continue;
+    }
+  }
+  throw new Error('無法找到元素: ' + selectors.join(', '));
+}
+```
+
+**驗證程序**:
+```bash
+# 穩定性測試 - 執行 10 次
+for i in {1..10}; do
+  echo "執行第 $i 次測試..."
+  npx playwright test affected-test.spec.ts
+done
+```
+
+**預防措施**:
+1. 將選擇器驗證加入程式碼審查清單
+2. 建立選擇器最佳實踐文件
+3. 實作自動選擇器健康檢查
 ```
 
 ---

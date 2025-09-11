@@ -3,19 +3,31 @@
  * 所有錯誤都已修正，包含註解說明
  */
 
+/**
+ * TodoApp 類別
+ */
 class TodoApp {
+    /**
+     * 初始化建構函式
+     */
     constructor() {
         this.todos = [];
         this.currentFilter = 'all';
         this.init();
     }
 
+    /**
+     * init 方法
+     */
     init() {
         this.loadFromStorage();
         this.bindEvents();
         this.render();
     }
 
+    /**
+     * bindEvents 方法
+     */
     bindEvents() {
         const input = document.getElementById('todoInput');
         const addButton = document.getElementById('addButton');
@@ -42,6 +54,9 @@ class TodoApp {
         });
     }
 
+    /**
+     * addTodo 方法
+     */
     addTodo() {
         const input = document.getElementById('todoInput');
         // FIX 4: 使用 trim() 移除空白
@@ -70,6 +85,10 @@ class TodoApp {
         input.focus();
     }
 
+    /**
+     *
+     * @param {*} id - id 參數
+     */
     toggleTodo(id) {
         // FIX 9: 使用嚴格相等運算符
         const todo = this.todos.find(t => t.id === id);
@@ -81,6 +100,10 @@ class TodoApp {
         }
     }
 
+    /**
+     *
+     * @param {*} id - id 參數
+     */
     deleteTodo(id) {
         // FIX 11: 使用正確的 filter 條件
         this.todos = this.todos.filter(t => t.id !== id);
@@ -88,6 +111,9 @@ class TodoApp {
         this.render();
     }
 
+    /**
+     * getFilteredTodos 方法
+     */
     getFilteredTodos() {
         switch(this.currentFilter) {
             case 'active':
@@ -101,6 +127,9 @@ class TodoApp {
         }
     }
 
+    /**
+     * render 方法
+     */
     render() {
         const todoList = document.getElementById('todoList');
         const filteredTodos = this.getFilteredTodos();
@@ -127,6 +156,9 @@ class TodoApp {
         this.updateStats();
     }
 
+    /**
+     * updateStats 方法
+     */
     updateStats() {
         const total = this.todos.length;
         // FIX 15: 正確計算已完成的項目
@@ -136,11 +168,17 @@ class TodoApp {
         document.getElementById('completedCount').textContent = `已完成: ${completed}`;
     }
 
+    /**
+     * saveToStorage 方法
+     */
     saveToStorage() {
         // FIX 16: 使用正確的 key 名稱
         localStorage.setItem('todos', JSON.stringify(this.todos));
     }
 
+    /**
+     * loadFromStorage 方法
+     */
     loadFromStorage() {
         // FIX 17: 使用正確的 key 名稱
         const saved = localStorage.getItem('todos');
@@ -155,6 +193,10 @@ class TodoApp {
         }
     }
 
+    /**
+     *
+     * @param {*} text - text 參數
+     */
     escapeHtml(text) {
         const div = document.createElement('div');
         // FIX 19: 正確的 HTML 轉義方法

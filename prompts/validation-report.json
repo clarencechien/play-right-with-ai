@@ -1,0 +1,425 @@
+{
+  "timestamp": "2025-09-11T06:20:07.542731",
+  "summary": {
+    "total_files": 17,
+    "compliant_files": 6,
+    "non_compliant_files": 11,
+    "compliance_rate": "35.3%"
+  },
+  "compliant": [
+    "chapter-02/app-generation.md",
+    "chapter-02/generate-todo-app.md",
+    "chapter-03/test-strategy.md",
+    "chapter-04/playwright-scripts.md",
+    "chapter-05/failure-analysis.md",
+    "chapter-06/self-repair.md"
+  ],
+  "non_compliant": [
+    {
+      "file": "chapter-02/add-features.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-02/app-generation.test.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-02/bilingual-comparison.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-02/refine-ui.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-02-app-generation/todo-app-bilingual.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-03/test-strategy-prompt.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-03/test-strategy.test.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-04/playwright-generator.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-04/playwright-scripts.test.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-05/failure-analysis.test.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    },
+    {
+      "file": "chapter-06/self-repair.test.md",
+      "missing": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ]
+    }
+  ],
+  "details": [
+    {
+      "file": "chapter-02/add-features.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 9332,
+        "line_count": 391
+      }
+    },
+    {
+      "file": "chapter-02/app-generation.md",
+      "compliant": true,
+      "missing_sections": [],
+      "has_sections": {
+        "tech_spec": true,
+        "output": true,
+        "example": true
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 7948,
+        "line_count": 281
+      }
+    },
+    {
+      "file": "chapter-02/app-generation.test.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 2792,
+        "line_count": 100
+      }
+    },
+    {
+      "file": "chapter-02/bilingual-comparison.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 7726,
+        "line_count": 292
+      }
+    },
+    {
+      "file": "chapter-02/generate-todo-app.md",
+      "compliant": true,
+      "missing_sections": [],
+      "has_sections": {
+        "tech_spec": true,
+        "output": true,
+        "example": true
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 8198,
+        "line_count": 324
+      }
+    },
+    {
+      "file": "chapter-02/refine-ui.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 7370,
+        "line_count": 288
+      }
+    },
+    {
+      "file": "chapter-02-app-generation/todo-app-bilingual.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 4409,
+        "line_count": 163
+      }
+    },
+    {
+      "file": "chapter-03/test-strategy-prompt.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 7802,
+        "line_count": 344
+      }
+    },
+    {
+      "file": "chapter-03/test-strategy.md",
+      "compliant": true,
+      "missing_sections": [],
+      "has_sections": {
+        "tech_spec": true,
+        "output": true,
+        "example": true
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 10649,
+        "line_count": 451
+      }
+    },
+    {
+      "file": "chapter-03/test-strategy.test.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 3163,
+        "line_count": 130
+      }
+    },
+    {
+      "file": "chapter-04/playwright-generator.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 13369,
+        "line_count": 634
+      }
+    },
+    {
+      "file": "chapter-04/playwright-scripts.md",
+      "compliant": true,
+      "missing_sections": [],
+      "has_sections": {
+        "tech_spec": true,
+        "output": true,
+        "example": true
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 16264,
+        "line_count": 620
+      }
+    },
+    {
+      "file": "chapter-04/playwright-scripts.test.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 3959,
+        "line_count": 180
+      }
+    },
+    {
+      "file": "chapter-05/failure-analysis.md",
+      "compliant": true,
+      "missing_sections": [],
+      "has_sections": {
+        "tech_spec": true,
+        "output": true,
+        "example": true
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 11651,
+        "line_count": 490
+      }
+    },
+    {
+      "file": "chapter-05/failure-analysis.test.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 4305,
+        "line_count": 187
+      }
+    },
+    {
+      "file": "chapter-06/self-repair.md",
+      "compliant": true,
+      "missing_sections": [],
+      "has_sections": {
+        "tech_spec": true,
+        "output": true,
+        "example": true
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 16290,
+        "line_count": 647
+      }
+    },
+    {
+      "file": "chapter-06/self-repair.test.md",
+      "compliant": false,
+      "missing_sections": [
+        "Technical Specification (Think in English)",
+        "輸出要求 (Output in Chinese)",
+        "Example / 範例"
+      ],
+      "has_sections": {
+        "tech_spec": false,
+        "output": false,
+        "example": false
+      },
+      "quality_checks": {
+        "has_markdown_code_blocks": true,
+        "has_chinese_comments": true,
+        "file_size_bytes": 4165,
+        "line_count": 188
+      }
+    }
+  ]
+}

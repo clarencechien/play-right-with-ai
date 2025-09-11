@@ -13,7 +13,7 @@ test.describe('購物清單應用程式', () => {
 
   test.describe('基本介面', () => {
     test('應該顯示應用標題', async ({ page }) => {
-      const title = await page.locator('h1');
+      const title = page.locator('h1');
       await expect(title).toContainText('智能購物清單');
     });
 
@@ -121,7 +121,7 @@ test.describe('購物清單應用程式', () => {
       const deleteBtn = item.locator('[data-testid="delete-button"]');
       
       await deleteBtn.click();
-      await expect(item).not.toBeVisible();
+      await expect(item).toBeHidden();
     });
   });
 

@@ -167,6 +167,7 @@ export const workshopTestData = {
 
 /**
  * 生成隨機測試資料
+ * @param {*} count - count 參數
  */
 export function generateRandomTodos(count: number) {
   const actions = ['完成', '撰寫', '測試', '部署', '檢查', '更新', '修復', '優化'];
@@ -190,6 +191,7 @@ export function generateRandomTodos(count: number) {
 
 /**
  * 生成測試提示詞
+ * @param {*} chapter - chapter 參數
  */
 export function generateTestPrompt(chapter: number): string {
   const prompts = workshopTestData.chapters[chapter - 1]?.prompts || [];
@@ -198,6 +200,8 @@ export function generateTestPrompt(chapter: number): string {
 
 /**
  * 模擬 API 回應
+ * @param {*} endpoint - endpoint 參數
+ * @param {*} delay - delay 參數
  */
 export function mockApiResponse(endpoint: string, delay = 500) {
   return new Promise((resolve) => {
@@ -224,6 +228,8 @@ export function mockApiResponse(endpoint: string, delay = 500) {
 
 /**
  * 驗證測試結果
+ * @param {*} expected - expected 參數
+ * @param {*} actual - actual 參數
  */
 export function validateTestResult(expected: any, actual: any): boolean {
   if (typeof expected !== typeof actual) return false;

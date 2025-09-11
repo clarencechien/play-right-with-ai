@@ -97,6 +97,10 @@ const results = {
   }
 };
 
+/**
+ *
+ * @param {*} filePath - filePath 參數
+ */
 async function fileExists(filePath) {
   try {
     await fs.access(filePath);
@@ -106,6 +110,10 @@ async function fileExists(filePath) {
   }
 }
 
+/**
+ *
+ * @param {*} filePath - filePath 參數
+ */
 async function readFileContent(filePath) {
   try {
     return await fs.readFile(filePath, 'utf-8');
@@ -114,6 +122,11 @@ async function readFileContent(filePath) {
   }
 }
 
+/**
+ *
+ * @param {*} chapterName - chapterName 參數
+ * @param {*} objectives - objectives 參數
+ */
 async function validateChapterObjectives(chapterName, objectives) {
   const chapterPath = path.join(__dirname, 'workshop', chapterName);
   const chapterResult = {
@@ -214,6 +227,9 @@ async function validateChapterObjectives(chapterName, objectives) {
   return chapterResult;
 }
 
+/**
+ *
+ */
 async function generateReport() {
   console.log('\n' + '='.repeat(70));
   console.log('LEARNING OBJECTIVES VALIDATION REPORT');
@@ -290,6 +306,9 @@ async function generateReport() {
 }
 
 // Main execution
+/**
+ *
+ */
 async function main() {
   console.log('🎯 Validating Learning Objectives...\n');
 

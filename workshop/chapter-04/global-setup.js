@@ -7,6 +7,10 @@ const { chromium } = require('@playwright/test');
 const fs = require('fs').promises;
 const path = require('path');
 
+/**
+ *
+ * @param {*} config - config 參數
+ */
 async function globalSetup(config) {
   console.log('🚀 開始全域設定...');
   

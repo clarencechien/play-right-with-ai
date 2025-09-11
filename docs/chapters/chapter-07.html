@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第七章：變奏曲 - 擴展 AI 工作流到複雜場景 - Play Right with AI</title>
+  <link rel="stylesheet" href="/docs/assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="/docs/" class="nav-brand">Play Right with AI</a>
+      <ul class="nav-links">
+        <li><a href="/docs/" class="nav-link">首頁</a></li>
+        <li><a href="/docs/chapters/" class="nav-link">章節</a></li>
+        <li><a href="/docs/playground/" class="nav-link">Playground</a></li>
+        <li><a href="/docs/demos/" class="nav-link">示範</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <article class="chapter-content fade-in">
+      <h1>第七章：變奏曲 - 擴展 AI 工作流到複雜場景</h1>
+<h2>學習目標</h2>
+<p>完成本章後，你將能夠：</p>
+<ol>
+<li><strong>擴展應用</strong>：將 AI 工作流應用到多服務整合、效能測試等複雜場景</li>
+<li><strong>模式識別</strong>：識別並應用進階 AI 編排模式</li>
+<li><strong>優化策略</strong>：優化提示詞和工作流以處理大型專案</li>
+<li><strong>創新思維</strong>：探索 AI 測試的創新應用領域</li>
+</ol>
+<h2>本章概覽</h2>
+<pre><code class="language-mermaid">graph TD
+    A[基礎工作流] --&gt; B[進階場景]
+    B --&gt; C[複雜整合]
+    C --&gt; D[創新應用]
+    
+    B --&gt; E[多服務測試]
+    B --&gt; F[效能測試]
+    B --&gt; G[安全測試]
+    B --&gt; H[無障礙測試]
+    B --&gt; I[視覺迴歸測試]
+    
+    style A fill:#e1f5fe
+    style D fill:#c8e6c9
+</code></pre>
+<h2>章節結構</h2>
+<h3>7.1 多服務整合測試</h3>
+<p>學習如何讓 AI 協調複雜的微服務測試場景</p>
+<h3>7.2 AI 驅動的效能測試</h3>
+<p>使用 AI 識別效能瓶頸並生成壓力測試腳本</p>
+<h3>7.3 自動化安全測試</h3>
+<p>讓 AI 成為你的安全顧問，自動發現潛在漏洞</p>
+<h3>7.4 無障礙測試自動化</h3>
+<p>確保你的應用對所有使用者都友善</p>
+<h3>7.5 視覺迴歸測試</h3>
+<p>使用 AI 檢測視覺變化和 UI 一致性</p>
+<h2>技能檢查點</h2>
+<p>開始本章前，請確認你已經：</p>
+<ul>
+<li>✅ 掌握基本的 AI 提示詞設計</li>
+<li>✅ 能夠編排完整的測試循環</li>
+<li>✅ 理解自我修復工作流</li>
+<li>✅ 準備好挑戰更複雜的場景</li>
+</ul>
+<h2>學習路徑</h2>
+<pre><code>初級路徑（2-3小時）
+├── 7.1 多服務整合測試基礎
+└── 選擇一個進階場景深入練習
+
+進階路徑（4-5小時）
+├── 完成所有五個進階場景
+├── 實作至少兩個案例研究
+└── 創建自己的測試模式
+
+專家路徑（6+小時）
+├── 所有內容
+├── 設計新的 AI 測試模式
+└── 貢獻到社群模式庫
+</code></pre>
+<h2>本章工具箱</h2>
+<h3>新增工具和技術</h3>
+<ul>
+<li><strong>K6</strong>：效能測試</li>
+<li><strong>OWASP ZAP</strong>：安全測試</li>
+<li><strong>Axe</strong>：無障礙測試</li>
+<li><strong>Percy</strong>：視覺測試</li>
+<li><strong>Docker Compose</strong>：多服務編排</li>
+</ul>
+<h3>AI 工具進階應用</h3>
+<ul>
+<li>多模型協作（Claude + Gemini）</li>
+<li>鏈式提示詞（Chain-of-Thought）</li>
+<li>少樣本學習（Few-shot Learning）</li>
+<li>自適應提示詞優化</li>
+</ul>
+<h2>實作專案預覽</h2>
+<h3>專案 1：電商平台完整測試</h3>
+<pre><code>系統架構：
+- 前端：React SPA
+- API Gateway
+- 訂單服務
+- 庫存服務
+- 支付服務
+- 通知服務
+
+測試範圍：
+- 端到端購物流程
+- 服務間整合
+- 負載測試
+- 安全掃描
+- 無障礙合規
+</code></pre>
+<h3>專案 2：社交媒體應用測試套件</h3>
+<pre><code>測試焦點：
+- 即時通訊功能
+- 媒體上傳處理
+- 隱私設定驗證
+- 效能基準測試
+- 視覺一致性檢查
+</code></pre>
+<h2>學習資源</h2>
+<h3>必讀材料</h3>
+<ul>
+<li><a href="/workshop/chapter-07/resources/advanced-playwright.md">進階 Playwright 技巧</a></li>
+<li><a href="/workshop/chapter-07/patterns/README.md">AI 測試模式目錄</a></li>
+<li><a href="/workshop/chapter-07/resources/complex-systems.md">複雜系統測試策略</a></li>
+</ul>
+<h3>參考案例</h3>
+<ul>
+<li><a href="/workshop/chapter-07/case-studies/netflix-chaos.md">Netflix 的混沌工程實踐</a></li>
+<li><a href="/workshop/chapter-07/case-studies/amazon-testing.md">Amazon 的自動化測試策略</a></li>
+<li><a href="/workshop/chapter-07/case-studies/google-a11y.md">Google 的無障礙測試框架</a></li>
+</ul>
+<h2>開始探索</h2>
+<p>準備好將你的 AI 測試技能提升到新高度了嗎？讓我們從第一個進階場景開始：</p>
+<h3><a href="./advanced/multi-service-testing.md">→ 進入 7.1 多服務整合測試</a></h3>
+<hr>
+<h2>討論與支援</h2>
+<p>遇到挑戰？有創新想法？歡迎參與討論：</p>
+<ul>
+<li>💬 <a href="https://github.com/%5Byour-repo%5D/discussions/categories/chapter-7">GitHub Discussions - 第七章討論區</a></li>
+<li>🎯 <a href="https://github.com/%5Byour-repo%5D/issues/new?template=pattern-submission.md">提交你的測試模式</a></li>
+<li>🏆 <a href="./showcase/README.md">查看社群最佳實踐</a></li>
+</ul>
+<h2>章節導航</h2>
+<p>⬅️ <a href="../chapter-06/README.md">第六章：終章 - 自我修復循環</a>
+➡️ <a href="../chapter-08/README.md">第八章：總譜 - 獨立專案挑戰</a>
+🏠 <a href="../../README.md">回到工作坊首頁</a></p>
+
+    </article>
+    
+    <nav class="chapter-nav">
+      <div class="chapter-nav-links"><a href="/chapters/chapter-01.html" class="btn">下一章 →</a></div>
+    </nav>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="/docs/assets/js/main.js"></script>
+</body>
+</html>
+    

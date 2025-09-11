@@ -1,7 +1,6 @@
 /**
  * Playwright 測試模板
  * 使用此模板開始撰寫您的測試
- * 
  * @description TODO 應用程式測試起始模板
  */
 

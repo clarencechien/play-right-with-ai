@@ -1,0 +1,51 @@
+title: "[一般討論] "
+labels: ["general"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 歡迎來到討論區！
+        
+        這裡是分享想法、提問和討論工作坊相關話題的地方。
+        
+  - type: textarea
+    id: topic
+    attributes:
+      label: 討論主題
+      description: 你想討論什麼？
+      placeholder: 請描述你想討論的主題...
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: category
+    attributes:
+      label: 相關類別
+      description: 這個討論屬於哪個類別？
+      options:
+        - 工作坊內容
+        - AI 工具使用
+        - 測試策略
+        - 最佳實踐
+        - 社群活動
+        - 其他
+    validations:
+      required: true
+      
+  - type: textarea
+    id: context
+    attributes:
+      label: 背景說明
+      description: 提供更多背景資訊（可選）
+      placeholder: 任何有助於討論的額外資訊...
+      
+  - type: checkboxes
+    id: guidelines
+    attributes:
+      label: 討論準則
+      description: 請確認你已閱讀並同意
+      options:
+        - label: 我已閱讀並同意遵守社群行為準則
+          required: true
+        - label: 這個討論與工作坊相關
+          required: true

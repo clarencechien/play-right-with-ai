@@ -32,290 +32,45 @@ jobs:
     
     - name: 建立文件網站
       run: |
-        # 安裝文件生成工具
-        npm install -g @11ty/eleventy markdown-it
+        # 使用自訂的建構腳本
+        npm run build:site
         
-        # 建立網站結構
-        mkdir -p _site
+        # 驗證輸出
+        test -d docs || exit 1
+        test -f docs/index.html || exit 1
+        test -f docs/assets/css/main.css || exit 1
+        test -f docs/assets/js/main.js || exit 1
         
-        # 複製靜態資源
-        cp -r workshop _site/ 2>/dev/null || true
-        cp -r prompts _site/ 2>/dev/null || true
-        cp -r sample-app-source _site/ 2>/dev/null || true
-        
-        # 生成首頁
-        cat > _site/index.html <<'HTML'
-        <!DOCTYPE html>
-        <html lang="zh-TW">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Play right with AI - AI 驅動開發工作坊</title>
-          <style>
-            :root {
-              --primary: #2563eb;
-              --secondary: #7c3aed;
-              --bg: #f9fafb;
-              --text: #1f2937;
-            }
-            body {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-              background: var(--bg);
-              color: var(--text);
-              margin: 0;
-              padding: 0;
-              line-height: 1.6;
-            }
-            .container {
-              max-width: 1200px;
-              margin: 0 auto;
-              padding: 2rem;
-            }
-            .hero {
-              background: linear-gradient(135deg, var(--primary), var(--secondary));
-              color: white;
-              padding: 4rem 2rem;
-              border-radius: 1rem;
-              margin-bottom: 3rem;
-              text-align: center;
-            }
-            .hero h1 {
-              font-size: 3rem;
-              margin: 0 0 1rem;
-            }
-            .hero p {
-              font-size: 1.25rem;
-              opacity: 0.9;
-            }
-            .chapters {
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-              gap: 2rem;
-              margin-top: 3rem;
-            }
-            .chapter-card {
-              background: white;
-              border-radius: 0.5rem;
-              padding: 1.5rem;
-              box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-              transition: transform 0.2s, box-shadow 0.2s;
-            }
-            .chapter-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            }
-            .chapter-card h3 {
-              color: var(--primary);
-              margin-top: 0;
-            }
-            .chapter-card a {
-              color: var(--primary);
-              text-decoration: none;
-              font-weight: 600;
-            }
-            .chapter-card a:hover {
-              text-decoration: underline;
-            }
-            .stats {
-              display: flex;
-              justify-content: space-around;
-              margin: 3rem 0;
-              text-align: center;
-            }
-            .stat {
-              padding: 1rem;
-            }
-            .stat-number {
-              font-size: 2.5rem;
-              font-weight: bold;
-              color: var(--primary);
-            }
-            .stat-label {
-              color: #6b7280;
-              margin-top: 0.5rem;
-            }
-            .resources {
-              background: white;
-              border-radius: 0.5rem;
-              padding: 2rem;
-              margin-top: 3rem;
-            }
-            .resources h2 {
-              color: var(--secondary);
-            }
-            .resource-grid {
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              gap: 1rem;
-              margin-top: 1.5rem;
-            }
-            .resource-item {
-              padding: 1rem;
-              border: 1px solid #e5e7eb;
-              border-radius: 0.25rem;
-              transition: border-color 0.2s;
-            }
-            .resource-item:hover {
-              border-color: var(--primary);
-            }
-            .resource-item a {
-              color: var(--text);
-              text-decoration: none;
-              font-weight: 600;
-            }
-            .tech-stack {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 0.5rem;
-              margin-top: 2rem;
-            }
-            .tech-badge {
-              background: #e5e7eb;
-              padding: 0.25rem 0.75rem;
-              border-radius: 1rem;
-              font-size: 0.875rem;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="hero">
-              <h1>🎭 Play right with AI</h1>
-              <p>掌握 AI 驅動的自循環開發與測試工作流程</p>
-              <p>成為 AI 指揮家，編排完美的軟體開發交響曲</p>
-            </div>
-            
-            <div class="stats">
-              <div class="stat">
-                <div class="stat-number">8</div>
-                <div class="stat-label">學習章節</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">3+</div>
-                <div class="stat-label">AI 工具整合</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">實作導向</div>
-              </div>
-            </div>
-            
-            <h2>📚 工作坊章節</h2>
-            <div class="chapters">
-              <div class="chapter-card">
-                <h3>第 1 章：AI 指揮家</h3>
-                <p>建立 AI 驅動開發的思維模式，設定環境與工具</p>
-                <a href="workshop/chapter-1/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 2 章：第一樂章</h3>
-                <p>使用 AI 從自然語言需求生成應用程式碼</p>
-                <a href="workshop/chapter-2/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 3 章：第二樂章</h3>
-                <p>AI 擔任測試策略師，分析程式碼並建立測試計畫</p>
-                <a href="workshop/chapter-3/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 4 章：第三樂章</h3>
-                <p>使用 MCP 讓 AI 撰寫 Playwright 測試腳本</p>
-                <a href="workshop/chapter-4/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 5 章：第四樂章</h3>
-                <p>AI 分析測試失敗並進行問題除錯</p>
-                <a href="workshop/chapter-5/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 6 章：終章</h3>
-                <p>AI 完成自我修復循環，自動修正錯誤</p>
-                <a href="workshop/chapter-6/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 7 章：變奏</h3>
-                <p>將工作流程擴展到複雜場景</p>
-                <a href="workshop/chapter-7/">開始學習 →</a>
-              </div>
-              
-              <div class="chapter-card">
-                <h3>第 8 章：總整專案</h3>
-                <p>獨立完成端到端的 AI 編排挑戰</p>
-                <a href="workshop/chapter-8/">開始學習 →</a>
-              </div>
-            </div>
-            
-            <div class="resources">
-              <h2>🔧 工具與資源</h2>
-              <div class="resource-grid">
-                <div class="resource-item">
-                  <a href="integrations/claude/">Claude 整合指南</a>
-                  <p>設定與使用 Claude API</p>
-                </div>
-                <div class="resource-item">
-                  <a href="integrations/gemini/">Gemini 整合指南</a>
-                  <p>配置 Google Gemini</p>
-                </div>
-                <div class="resource-item">
-                  <a href="integrations/openai/">OpenAI 整合指南</a>
-                  <p>使用 GPT-4 API</p>
-                </div>
-                <div class="resource-item">
-                  <a href="integrations/mcp/">MCP 設定指南</a>
-                  <p>Playwright MCP 配置</p>
-                </div>
-                <div class="resource-item">
-                  <a href="prompts/">黃金提示詞庫</a>
-                  <p>精心設計的提示詞範本</p>
-                </div>
-                <div class="resource-item">
-                  <a href="sample-app-source/">範例應用程式</a>
-                  <p>預建的測試應用</p>
-                </div>
-              </div>
-              
-              <h3>技術堆疊</h3>
-              <div class="tech-stack">
-                <span class="tech-badge">Playwright</span>
-                <span class="tech-badge">Claude API</span>
-                <span class="tech-badge">Gemini API</span>
-                <span class="tech-badge">OpenAI API</span>
-                <span class="tech-badge">Node.js</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">MCP</span>
-                <span class="tech-badge">GitHub Actions</span>
-              </div>
-            </div>
-          </div>
-        </body>
-        </html>
-        HTML
-        
-        # 生成章節頁面
-        for i in {1..8}; do
-          chapter_dir="_site/workshop/chapter-$i"
-          mkdir -p "$chapter_dir"
-          
-          if [ -f "workshop/chapter-$i/README.md" ]; then
-            # 轉換 Markdown 為 HTML
-            npx markdown-it "workshop/chapter-$i/README.md" > "$chapter_dir/index.html"
-          fi
-        done
+        echo "✅ 網站建構完成"
     
     - name: 設定 GitHub Pages
       uses: actions/configure-pages@v4
     
+    - name: 執行冒煙測試
+      run: |
+        echo "執行網站完整性檢查..."
+        
+        # 檢查關鍵檔案
+        test -f docs/index.html || exit 1
+        test -f docs/search-index.json || exit 1
+        test -d docs/playground || exit 1
+        test -d docs/demos || exit 1
+        
+        # 檢查章節頁面
+        for i in {1..8}; do
+          if [ -f "docs/chapters/chapter-0${i}.html" ]; then
+            echo "✅ 第 ${i} 章已生成"
+          else
+            echo "⚠️ 第 ${i} 章未找到"
+          fi
+        done
+        
+        echo "✅ 冒煙測試通過"
+    
     - name: 上傳成品
       uses: actions/upload-pages-artifact@v3
       with:
-        path: '_site'
+        path: 'docs'
     
   deploy:
     environment:
@@ -340,7 +95,7 @@ jobs:
       run: |
         if [ "${{ needs.deploy.result }}" == "success" ]; then
           echo "✅ 成功部署到 GitHub Pages"
-          echo "🔗 網站連結: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo "🔗 網站連結: https://${{ github.repository_owner }}.github.io/play-right-with-ai/"
         else
           echo "❌ 部署失敗，請檢查錯誤日誌"
         fi

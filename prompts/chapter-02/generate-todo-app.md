@@ -4,10 +4,11 @@
 
 這是經過優化和測試的提示詞，能夠生成高品質的 TODO 應用程式。
 
-### Version 1: Basic TODO App
+## Version 1: Basic TODO App
+
+### Technical Specification (Think in English)
 
 ```markdown
-[English Technical Specification]
 Create a modern TODO application with the following requirements:
 
 Technical Stack:
@@ -50,8 +51,11 @@ Core Features:
    - Use ES6 modules pattern
    - Implement event delegation
    - Add comprehensive error handling
+```
 
-[Chinese Localization]
+### 輸出要求 (Output in Chinese)
+
+```markdown
 所有使用者介面文字使用繁體中文：
 
 介面文字：
@@ -70,10 +74,30 @@ Core Features:
 程式碼註解全部使用繁體中文，詳細說明每個函數的用途和參數。
 ```
 
-### Version 2: Enhanced TODO App with Filtering
+### Example / 範例
+
+```javascript
+// 範例輸出結構
+// TODO 應用程式主要功能
+class TodoApp {
+  constructor() {
+    // 初始化應用程式
+    this.todos = this.loadFromStorage();
+    this.init();
+  }
+  
+  // 新增任務
+  addTodo(title, description) {
+    // 實作細節...
+  }
+}
+```
+
+## Version 2: Enhanced TODO App with Filtering
+
+### Technical Specification (Think in English)
 
 ```markdown
-[Enhancement Request]
 Based on the previous TODO app, add these advanced features:
 
 Filtering & Sorting:
@@ -99,8 +123,11 @@ Performance Optimizations:
 - Debounce search input (300ms)
 - Lazy load task descriptions
 - Use requestAnimationFrame for animations
+```
 
-[UI Enhancement in Chinese]
+### 輸出要求 (Output in Chinese)
+
+```markdown
 新增介面元素的中文文字：
 - 篩選器：「全部」、「進行中」、「已完成」
 - 排序：「建立時間」、「到期日」、「優先級」、「字母順序」
@@ -108,11 +135,27 @@ Performance Optimizations:
 - 批次操作：「全選」、「刪除選中」、「標記完成」、「清除已完成」
 ```
 
-### Version 3: Full-Featured TODO App
+### Example / 範例
+
+```javascript
+// 篩選功能實作範例
+filterTasks(filterType) {
+  switch(filterType) {
+    case 'active':  // 進行中
+      return this.todos.filter(t => t.status === 'pending');
+    case 'completed':  // 已完成
+      return this.todos.filter(t => t.status === 'completed');
+    default:  // 全部
+      return this.todos;
+  }
+}
+```
+
+## Version 3: Full-Featured TODO App
+
+### Technical Specification (Think in English)
 
 ```markdown
-[Complete TODO Application Specification]
-
 Create a production-ready TODO application with enterprise features:
 
 Architecture:
@@ -157,8 +200,11 @@ Advanced Features:
    - Lazy loading strategies
    - Code splitting
    - Bundle optimization
+```
 
-[Complete Chinese UI]
+### 輸出要求 (Output in Chinese)
+
+```markdown
 完整的中文化介面需求：
 
 導航與選單：
@@ -185,6 +231,39 @@ Advanced Features:
 - 「Space：標記完成」
 
 所有程式碼必須包含詳細的中文註解，解釋架構決策和實作細節。
+```
+
+### Example / 範例
+
+```javascript
+// MVC 架構範例
+class TodoModel {
+  // 資料模型層
+  constructor() {
+    this.todos = [];
+    this.observers = [];
+  }
+  
+  // 通知觀察者
+  notify() {
+    this.observers.forEach(observer => observer.update());
+  }
+}
+
+class TodoView {
+  // 視圖層
+  render(todos) {
+    // 渲染 UI
+  }
+}
+
+class TodoController {
+  // 控制器層
+  constructor(model, view) {
+    this.model = model;
+    this.view = view;
+  }
+}
 ```
 
 ## 使用指南

@@ -9,6 +9,7 @@ export class BasePage {
 
   /**
    * 導航到指定路徑
+   * @param {*} path - path 參數
    */
   async navigate(path: string) {
     await this.page.goto(path);
@@ -24,6 +25,7 @@ export class BasePage {
 
   /**
    * 截圖功能
+   * @param {*} name - name 參數
    */
   async takeScreenshot(name: string) {
     await this.page.screenshot({ 
@@ -34,6 +36,8 @@ export class BasePage {
 
   /**
    * 等待元素出現
+   * @param {*} selector - selector 參數
+   * @param {*} timeout - timeout 參數
    */
   async waitForElement(selector: string, timeout = 5000) {
     await this.page.waitForSelector(selector, { timeout });
@@ -41,6 +45,7 @@ export class BasePage {
 
   /**
    * 檢查元素是否存在
+   * @param {*} selector - selector 參數
    */
   async elementExists(selector: string): Promise<boolean> {
     try {
@@ -67,6 +72,7 @@ export class BasePage {
 
   /**
    * 執行 JavaScript
+   * @param {*} fn - fn 參數
    */
   async evaluate<T>(fn: () => T): Promise<T> {
     return await this.page.evaluate(fn);
@@ -81,6 +87,8 @@ export class BasePage {
 
   /**
    * 模擬鍵盤輸入
+   * @param {*} selector - selector 參數
+   * @param {*} text - text 參數
    */
   async type(selector: string, text: string) {
     await this.page.fill(selector, text);
@@ -88,6 +96,7 @@ export class BasePage {
 
   /**
    * 點擊元素
+   * @param {*} selector - selector 參數
    */
   async click(selector: string) {
     await this.page.click(selector);
@@ -95,6 +104,7 @@ export class BasePage {
 
   /**
    * 取得元素文字
+   * @param {*} selector - selector 參數
    */
   async getText(selector: string): Promise<string> {
     return await this.page.textContent(selector) || '';
@@ -102,6 +112,7 @@ export class BasePage {
 
   /**
    * 檢查元素是否可見
+   * @param {*} selector - selector 參數
    */
   async isVisible(selector: string): Promise<boolean> {
     return await this.page.isVisible(selector);
@@ -109,6 +120,7 @@ export class BasePage {
 
   /**
    * 捲動到元素
+   * @param {*} selector - selector 參數
    */
   async scrollToElement(selector: string) {
     await this.page.locator(selector).scrollIntoViewIfNeeded();
@@ -116,6 +128,7 @@ export class BasePage {
 
   /**
    * 取得所有符合選擇器的元素數量
+   * @param {*} selector - selector 參數
    */
   async getElementCount(selector: string): Promise<number> {
     return await this.page.locator(selector).count();

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - 頁面未找到 | Play Right with AI</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--bg) 0%, #1a1f3a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .error-container {
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .error-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .suggestions {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    .suggestions h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .suggestions ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .suggestions li {
+      padding: 0.5rem 0;
+      color: var(--text-muted);
+    }
+
+    .suggestions a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .suggestions a:hover {
+      text-decoration: underline;
+    }
+
+    .robot {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .error-code {
+        font-size: 6rem;
+      }
+      
+      .error-title {
+        font-size: 1.5rem;
+      }
+      
+      .error-actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="robot">🤖</div>
+    
+    <div class="error-code">404</div>
+    
+    <h1 class="error-title">頁面未找到</h1>
+    
+    <p class="error-message">
+      看起來 AI 指揮家迷路了！您要找的頁面可能已經移動、刪除，或者從未存在過。
+    </p>
+    
+    <div class="error-actions">
+      <a href="/play-right-with-ai/" class="btn">回到首頁</a>
+      <a href="/play-right-with-ai/chapters/chapter-01.html" class="btn btn-secondary">開始學習</a>
+    </div>
+    
+    <div class="suggestions">
+      <h3>您可能在尋找：</h3>
+      <ul>
+        <li>📚 <a href="/play-right-with-ai/chapters/">工作坊章節</a> - 瀏覽所有學習內容</li>
+        <li>🎮 <a href="/play-right-with-ai/playground/">Playground</a> - 測試 AI 提示詞</li>
+        <li>💡 <a href="/play-right-with-ai/demos/">示範應用</a> - 查看 AI 生成的範例</li>
+        <li>📝 <a href="/play-right-with-ai/prompts/">提示詞庫</a> - 探索黃金提示詞</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // 自動記錄 404 錯誤（可選）
+    if (typeof console !== 'undefined') {
+      console.log('404 Error: ' + window.location.pathname);
+    }
+
+    // 5 秒後建議返回首頁
+    setTimeout(() => {
+      const message = document.querySelector('.error-message');
+      if (message) {
+        message.innerHTML += '<br><small>提示：5 秒後可以自動返回首頁...</small>';
+      }
+    }, 5000);
+  </script>
+</body>
+</html>

@@ -7,7 +7,15 @@ const { chromium, firefox, webkit } = require('playwright');
 const express = require('express');
 const cors = require('cors');
 
+/**
+ * Playwright MCP 伺服器類別
+ * 提供 AI 與瀏覽器自動化之間的橋接功能
+ */
 class PlaywrightMCPServer {
+  /**
+   * 初始化 MCP 伺服器
+   * @param {number} port - 伺服器監聽埠號
+   */
   constructor(port = 3001) {
     this.port = port;
     this.app = express();
@@ -20,6 +28,9 @@ class PlaywrightMCPServer {
     this.setupRoutes();
   }
 
+  /**
+   * 設定 Express 中介軟體
+   */
   setupMiddleware() {
     this.app.use(cors());
     this.app.use(express.json({ limit: '10mb' }));
@@ -31,6 +42,9 @@ class PlaywrightMCPServer {
     });
   }
 
+  /**
+   * 設定 API 路由
+   */
   setupRoutes() {
     // 健康檢查
     this.app.get('/health', (req, res) => {
@@ -384,6 +398,9 @@ class PlaywrightMCPServer {
 
   /**
    * 執行 Playwright 命令
+   * @param {*} session - session 參數
+   * @param {*} command - command 參數
+   * @param {*} parameters - parameters 參數
    */
   async executeCommand(session, command, parameters) {
     const { page } = session;
@@ -452,6 +469,7 @@ class PlaywrightMCPServer {
 
   /**
    * 解析自然語言指令
+   * @param {*} instruction - instruction 參數
    */
   interpretInstruction(instruction) {
     const commands = [];

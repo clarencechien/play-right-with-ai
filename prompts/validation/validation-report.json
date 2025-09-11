@@ -1,0 +1,169 @@
+{
+  "timestamp": "2025-09-11T03:42:04.743Z",
+  "summary": {
+    "total": 18,
+    "passed": 3,
+    "failed": 15,
+    "warnings": 3
+  },
+  "details": {
+    "passed": [
+      "bilingual-structure-summary.md",
+      "app-generation.md",
+      "test-strategy.md"
+    ],
+    "failed": [
+      {
+        "fileName": "add-features.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "app-generation.test.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "bilingual-comparison.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "generate-todo-app.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "refine-ui.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "todo-app-bilingual.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "test-strategy-prompt.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "test-strategy.test.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "playwright-generator.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "playwright-scripts.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "playwright-scripts.test.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "failure-analysis.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "failure-analysis.test.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "self-repair.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      },
+      {
+        "fileName": "self-repair.test.md",
+        "issues": [
+          "Missing required section: \"Technical Specification (Think in English)\"",
+          "Missing required section: \"輸出要求 (Output in Chinese)\"",
+          "Missing required section: \"Example / 範例\""
+        ]
+      }
+    ],
+    "warnings": [
+      {
+        "fileName": "bilingual-structure-summary.md",
+        "warnings": [
+          "English section should contain technical code blocks"
+        ]
+      },
+      {
+        "fileName": "app-generation.md",
+        "warnings": [
+          "English section should contain technical code blocks"
+        ]
+      },
+      {
+        "fileName": "test-strategy.md",
+        "warnings": [
+          "English section should contain technical code blocks"
+        ]
+      }
+    ]
+  },
+  "requiredSections": [
+    "Technical Specification (Think in English)",
+    "輸出要求 (Output in Chinese)",
+    "Example / 範例"
+  ],
+  "validationRules": [
+    "englishThinking",
+    "chineseOutput",
+    "technicalCode",
+    "chineseComments"
+  ]
+}

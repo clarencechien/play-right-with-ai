@@ -7,7 +7,15 @@ const Anthropic = require('@anthropic-ai/sdk');
 const fs = require('fs').promises;
 const path = require('path');
 
+/**
+ * Claude API 整合類別
+ * 提供與 Claude API 互動的功能
+ */
 class ClaudeIntegration {
+  /**
+   * 初始化 Claude 整合
+   * @param {string} apiKey - Anthropic API 金鑰
+   */
   constructor(apiKey) {
     if (!apiKey) {
       throw new Error('需要提供 ANTHROPIC_API_KEY');
@@ -59,7 +67,7 @@ Output the complete code that can be saved as a single HTML file.`;
   /**
    * 分析程式碼品質
    * @param {string} code - 要分析的程式碼
-   * @returns {Promise<Object>} - 分析結果
+   * @returns {Promise<object>} - 分析結果
    */
   async analyzeCode(code) {
     const prompt = `As a senior code reviewer, analyze the following code and provide:
@@ -188,7 +196,7 @@ Use modern Playwright best practices and TypeScript.`;
    * 分析測試失敗
    * @param {string} testOutput - 測試輸出日誌
    * @param {string} code - 應用程式碼
-   * @returns {Promise<Object>} - 失敗分析結果
+   * @returns {Promise<object>} - 失敗分析結果
    */
   async analyzeTestFailure(testOutput, code) {
     const prompt = `As a debugging expert, analyze this test failure and identify root causes.
@@ -240,7 +248,7 @@ Format as JSON with Traditional Chinese explanations.`;
   /**
    * 自動修復程式碼
    * @param {string} code - 原始程式碼
-   * @param {Object} failureAnalysis - 失敗分析結果
+   * @param {object} failureAnalysis - 失敗分析結果
    * @returns {Promise<string>} - 修復後的程式碼
    */
   async autoFixCode(code, failureAnalysis) {

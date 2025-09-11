@@ -1,7 +1,6 @@
 /**
  * 完整的 TODO 應用測試範例
  * 展示 AI 協助生成的 Playwright 測試腳本
- * 
  * @author AI Assistant & Human Developer
  * @version 1.0.0
  */
@@ -264,10 +263,10 @@ test.describe('TODO 應用程式完整測試套件', () => {
       // Assert - 應該有錯誤提示或降級處理
       // 具體驗證取決於應用的錯誤處理策略
       const errorMessage = page.locator('[data-testid="error-message"]');
-      const todoExists = await page.locator('text="測試任務"').isVisible();
+      const todoExists = page.locator('text="測試任務"');
       
       // 任務應該仍然顯示（即使可能無法持久化）
-      expect(todoExists).toBeTruthy();
+      await expect(todoExists).toBeVisible();
     });
   });
 

@@ -43,10 +43,19 @@ const colors = {
   cyan: '\x1b[36m'
 };
 
+/**
+ *
+ * @param {*} message - message 參數
+ * @param {*} color - color 參數
+ */
 function log(message, color = 'reset') {
   console.log(`${colors[color]}${message}${colors.reset}`);
 }
 
+/**
+ *
+ * @param {*} filePath - filePath 參數
+ */
 async function fileExists(filePath) {
   try {
     await fs.access(filePath);
@@ -56,6 +65,9 @@ async function fileExists(filePath) {
   }
 }
 
+/**
+ *
+ */
 async function validateChapterStructure() {
   log('\n=== Validating Chapter Structure ===', 'cyan');
   
@@ -139,6 +151,9 @@ async function validateChapterStructure() {
   }
 }
 
+/**
+ *
+ */
 async function validateSampleApplications() {
   log('\n=== Validating Sample Applications ===', 'cyan');
   
@@ -212,6 +227,9 @@ async function validateSampleApplications() {
   }
 }
 
+/**
+ *
+ */
 async function validatePrompts() {
   log('\n=== Validating Prompts ===', 'cyan');
   
@@ -286,6 +304,9 @@ async function validatePrompts() {
   }
 }
 
+/**
+ *
+ */
 async function validateTestInfrastructure() {
   log('\n=== Validating Test Infrastructure ===', 'cyan');
   
@@ -324,6 +345,9 @@ async function validateTestInfrastructure() {
   }
 }
 
+/**
+ *
+ */
 async function validateDocumentation() {
   log('\n=== Validating Documentation ===', 'cyan');
   
@@ -355,6 +379,9 @@ async function validateDocumentation() {
   }
 }
 
+/**
+ *
+ */
 async function runSimpleTests() {
   log('\n=== Running Simple Validation Tests ===', 'cyan');
   
@@ -387,6 +414,9 @@ async function runSimpleTests() {
   }
 }
 
+/**
+ *
+ */
 async function generateReport() {
   log('\n' + '='.repeat(60), 'cyan');
   log('VALIDATION REPORT', 'cyan');
@@ -473,6 +503,9 @@ async function generateReport() {
 }
 
 // Main execution
+/**
+ *
+ */
 async function main() {
   log('🚀 Starting Workshop Validation...', 'cyan');
   log('='.repeat(60), 'cyan');

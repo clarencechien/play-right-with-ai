@@ -1,0 +1,98 @@
+title: "[想法] "
+labels: ["idea", "brainstorming"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 想法與創意
+        
+        有改進工作坊的想法？想提議新的學習路徑？在這裡分享你的創意！
+        
+  - type: input
+    id: idea-title
+    attributes:
+      label: 想法標題
+      description: 簡短描述你的想法
+      placeholder: 建議添加關於...的內容
+    validations:
+      required: true
+      
+  - type: textarea
+    id: idea-description
+    attributes:
+      label: 詳細說明
+      description: 完整描述你的想法
+      placeholder: |
+        我的想法是...
+        
+        這將幫助學習者...
+        
+        實施方式可能是...
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: idea-type
+    attributes:
+      label: 想法類型
+      description: 這是什麼類型的想法？
+      options:
+        - 新章節或內容
+        - 改進現有章節
+        - 新的練習或挑戰
+        - 工具或技術整合
+        - 學習路徑優化
+        - 社群活動
+        - 其他
+    validations:
+      required: true
+      
+  - type: textarea
+    id: benefits
+    attributes:
+      label: 預期效益
+      description: 這個想法會帶來什麼好處？
+      placeholder: |
+        - 學習者將能夠...
+        - 這將改進...
+        - 解決的問題是...
+      
+  - type: textarea
+    id: implementation
+    attributes:
+      label: 實施建議
+      description: 你認為如何實施這個想法？（可選）
+      placeholder: |
+        步驟 1: ...
+        步驟 2: ...
+        需要的資源: ...
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 建議優先級
+      description: 你認為這個想法的優先級如何？
+      options:
+        - 低 - 有了更好，但不急迫
+        - 中 - 會顯著改善體驗
+        - 高 - 對學習體驗很重要
+        - 關鍵 - 解決重要問題
+      
+  - type: textarea
+    id: examples
+    attributes:
+      label: 參考範例
+      description: 有類似的範例或參考嗎？（可選）
+      placeholder: |
+        - 類似的工作坊：[連結]
+        - 參考資料：[連結]
+        - 相關技術：...
+      
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: 貢獻意願
+      options:
+        - label: 我願意協助實施這個想法
+        - label: 我可以提供更多細節或資源
+        - label: 我可以測試或審查實施結果

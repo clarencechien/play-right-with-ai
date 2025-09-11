@@ -13,7 +13,7 @@ test.describe('TODO 應用程式', () => {
 
   test.describe('基本功能', () => {
     test('應該顯示應用標題', async ({ page }) => {
-      const title = await page.locator('h1');
+      const title = page.locator('h1');
       await expect(title).toContainText('我的待辦事項');
     });
 
@@ -107,7 +107,7 @@ test.describe('TODO 應用程式', () => {
       const deleteButton = todoItem.locator('[data-testid="delete-button"]');
       
       await deleteButton.click();
-      await expect(todoItem).not.toBeVisible();
+      await expect(todoItem).toBeHidden();
     });
   });
 

@@ -20,10 +20,20 @@ const colors = {
 };
 
 // 輔助函數
+/**
+ *
+ * @param {*} message - message 參數
+ * @param {*} color - color 參數
+ */
 function log(message, color = 'reset') {
   console.log(`${colors[color]}${message}${colors.reset}`);
 }
 
+/**
+ *
+ * @param {*} command - command 參數
+ * @param {*} versionFlag - versionFlag 參數
+ */
 function checkCommand(command, versionFlag = '--version') {
   try {
     const result = execSync(`${command} ${versionFlag}`, { encoding: 'utf8' });
@@ -33,10 +43,18 @@ function checkCommand(command, versionFlag = '--version') {
   }
 }
 
+/**
+ *
+ * @param {*} varName - varName 參數
+ */
 function checkEnvironmentVariable(varName) {
   return process.env[varName] ? true : false;
 }
 
+/**
+ *
+ * @param {*} versionString - versionString 參數
+ */
 function parseVersion(versionString) {
   const match = versionString.match(/(\d+)\.(\d+)\.(\d+)/);
   if (match) {
@@ -50,6 +68,9 @@ function parseVersion(versionString) {
 }
 
 // 主要檢查邏輯
+/**
+ *
+ */
 async function main() {
   log('\n========================================', 'cyan');
   log('   Play right with AI 環境檢查工具', 'cyan');

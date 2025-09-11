@@ -1,0 +1,226 @@
+# Repository settings
+# These settings are synced to GitHub via https://github.com/apps/settings
+
+repository:
+  # 基本資訊
+  name: play-right-with-ai
+  description: "🎼 AI-driven self-cycling development workflow workshop | AI 驅動的自循環開發工作流程工作坊"
+  homepage: https://playrightwithAI.com
+  topics:
+    - ai
+    - playwright
+    - testing
+    - automation
+    - workshop
+    - education
+    - ai-orchestration
+    - claude
+    - gemini
+    - self-healing
+    - traditional-chinese
+    - online-workshop
+  
+  # 設定
+  private: false
+  has_issues: true
+  has_projects: true
+  has_wiki: false
+  has_downloads: true
+  
+  # 預設分支
+  default_branch: main
+  
+  # 功能開關
+  allow_squash_merge: true
+  allow_merge_commit: true
+  allow_rebase_merge: true
+  allow_auto_merge: false
+  delete_branch_on_merge: true
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+
+# 標籤
+labels:
+  # 類型標籤
+  - name: bug
+    color: d73a4a
+    description: "Something isn't working | 某些功能無法正常運作"
+  
+  - name: enhancement
+    color: a2eeef
+    description: "New feature or request | 新功能或請求"
+  
+  - name: documentation
+    color: 0075ca
+    description: "Improvements or additions to documentation | 文件改進或新增"
+  
+  - name: question
+    color: d876e3
+    description: "Further information is requested | 需要更多資訊"
+  
+  - name: help wanted
+    color: 008672
+    description: "Extra attention is needed | 需要額外協助"
+  
+  - name: good first issue
+    color: 7057ff
+    description: "Good for newcomers | 適合新手"
+  
+  # 章節標籤
+  - name: chapter-1
+    color: fbca04
+    description: "Chapter 1: AI Conductor"
+  
+  - name: chapter-2
+    color: fbca04
+    description: "Chapter 2: First Movement"
+  
+  - name: chapter-3
+    color: fbca04
+    description: "Chapter 3: Second Movement"
+  
+  - name: chapter-4
+    color: fbca04
+    description: "Chapter 4: Third Movement"
+  
+  - name: chapter-5
+    color: fbca04
+    description: "Chapter 5: Fourth Movement"
+  
+  - name: chapter-6
+    color: fbca04
+    description: "Chapter 6: Final Movement"
+  
+  - name: chapter-7
+    color: fbca04
+    description: "Chapter 7: Variations"
+  
+  - name: chapter-8
+    color: fbca04
+    description: "Chapter 8: Capstone Project"
+  
+  # 技術標籤
+  - name: playwright
+    color: 45aaf2
+    description: "Related to Playwright testing | Playwright 測試相關"
+  
+  - name: ai-tools
+    color: 26de81
+    description: "Related to AI tools (Claude, Gemini, etc.) | AI 工具相關"
+  
+  - name: testing
+    color: fed330
+    description: "Related to testing | 測試相關"
+  
+  - name: setup
+    color: fc5c65
+    description: "Related to environment setup | 環境設定相關"
+  
+  # 優先級標籤
+  - name: priority-critical
+    color: b60205
+    description: "Critical priority | 關鍵優先級"
+  
+  - name: priority-high
+    color: ff9f1a
+    description: "High priority | 高優先級"
+  
+  - name: priority-medium
+    color: ffeb3b
+    description: "Medium priority | 中優先級"
+  
+  - name: priority-low
+    color: c5def5
+    description: "Low priority | 低優先級"
+  
+  # 狀態標籤
+  - name: work-in-progress
+    color: fef2c0
+    description: "Work in progress | 進行中"
+  
+  - name: ready-for-review
+    color: 0e8a16
+    description: "Ready for review | 準備審查"
+  
+  - name: needs-update
+    color: e99695
+    description: "Needs to be updated | 需要更新"
+  
+  - name: stale
+    color: ffffff
+    description: "Inactive issue or PR | 非活躍的 issue 或 PR"
+  
+  # 社群標籤
+  - name: community
+    color: d4c5f9
+    description: "Community contribution | 社群貢獻"
+  
+  - name: feedback
+    color: 8250df
+    description: "User feedback | 使用者回饋"
+  
+  - name: first-time-contributor
+    color: 9149d1
+    description: "First contribution | 第一次貢獻"
+  
+  # 其他標籤
+  - name: dependencies
+    color: 0366d6
+    description: "Dependencies update | 依賴更新"
+  
+  - name: security
+    color: ee0701
+    description: "Security issue | 安全問題"
+  
+  - name: performance
+    color: f9d0c4
+    description: "Performance related | 效能相關"
+  
+  - name: translation
+    color: 168700
+    description: "Translation related | 翻譯相關"
+
+# 分支保護規則
+branches:
+  - name: main
+    # 保護規則
+    protection:
+      required_status_checks:
+        strict: true
+        contexts:
+          - continuous-integration/travis-ci
+          - test
+          - lint
+      enforce_admins: false
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        dismissal_restrictions:
+          users: []
+          teams:
+            - workshop-maintainers
+      restrictions:
+        users: []
+        teams: []
+        apps: []
+      allow_force_pushes: false
+      allow_deletions: false
+      required_conversation_resolution: true
+
+# 協作者和團隊
+# collaborators:
+#   - username: maintainer1
+#     permission: admin
+#   - username: maintainer2
+#     permission: maintain
+#   - username: contributor1
+#     permission: push
+
+# teams:
+#   - name: workshop-maintainers
+#     permission: admin
+#   - name: content-team
+#     permission: push
+#   - name: community-team
+#     permission: triage

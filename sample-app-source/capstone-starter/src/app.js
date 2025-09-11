@@ -3,7 +3,13 @@
  * 這是您專案的起點 - 請根據需求擴展
  */
 
+/**
+ * CapstoneApp 類別
+ */
 class CapstoneApp {
+    /**
+     * 初始化建構函式
+     */
     constructor() {
         // 初始化您的應用狀態
         this.data = [];
@@ -16,6 +22,9 @@ class CapstoneApp {
         this.init();
     }
 
+    /**
+     * init 方法
+     */
     init() {
         console.log('🚀 Capstone 專案啟動中...');
         
@@ -32,6 +41,9 @@ class CapstoneApp {
         this.checkRequirements();
     }
 
+    /**
+     * bindEvents 方法
+     */
     bindEvents() {
         // 需求檢查清單
         document.querySelectorAll('#requirementsList input[type="checkbox"]').forEach(checkbox => {
@@ -44,6 +56,9 @@ class CapstoneApp {
         this.loadRequirementStatus();
     }
 
+    /**
+     * initializeUI 方法
+     */
     initializeUI() {
         // 顯示歡迎訊息
         this.showWelcomeMessage();
@@ -54,6 +69,9 @@ class CapstoneApp {
         // this.loadModules();
     }
 
+    /**
+     * showWelcomeMessage 方法
+     */
     showWelcomeMessage() {
         const appContent = document.getElementById('appContent');
         
@@ -113,6 +131,9 @@ class DataService {
     }
 
     // 需求管理功能
+    /**
+     * checkRequirements 方法
+     */
     checkRequirements() {
         const requirements = [
             { id: 'features', name: '功能模組', checked: false },
@@ -132,6 +153,10 @@ class DataService {
         this.updateProgressIndicator(percentage);
     }
 
+    /**
+     *
+     * @param {*} checkbox - checkbox 參數
+     */
     updateRequirementStatus(checkbox) {
         const requirements = {};
         document.querySelectorAll('#requirementsList input[type="checkbox"]').forEach(cb => {
@@ -142,6 +167,9 @@ class DataService {
         this.checkRequirements();
     }
 
+    /**
+     * loadRequirementStatus 方法
+     */
     loadRequirementStatus() {
         const saved = localStorage.getItem('capstone_requirements');
         if (saved) {
@@ -155,16 +183,26 @@ class DataService {
         }
     }
 
+    /**
+     *
+     * @param {*} percentage - percentage 參數
+     */
     updateProgressIndicator(percentage) {
         // 可以在這裡添加進度指示器的視覺更新
         console.log(`專案完成度: ${percentage}%`);
     }
 
     // 資料管理功能
+    /**
+     * saveData 方法
+     */
     saveData() {
         localStorage.setItem('capstone_data', JSON.stringify(this.data));
     }
 
+    /**
+     * loadData 方法
+     */
     loadData() {
         const saved = localStorage.getItem('capstone_data');
         if (saved) {
@@ -178,6 +216,10 @@ class DataService {
     }
 
     // CRUD 操作範例
+    /**
+     *
+     * @param {*} item - item 參數
+     */
     createItem(item) {
         const newItem = {
             ...item,
@@ -191,10 +233,19 @@ class DataService {
         return newItem;
     }
 
+    /**
+     *
+     * @param {*} id - id 參數
+     */
     readItem(id) {
         return this.data.find(item => item.id === id);
     }
 
+    /**
+     *
+     * @param {*} id - id 參數
+     * @param {*} updates - updates 參數
+     */
     updateItem(id, updates) {
         const index = this.data.findIndex(item => item.id === id);
         if (index !== -1) {
@@ -209,6 +260,10 @@ class DataService {
         return null;
     }
 
+    /**
+     *
+     * @param {*} id - id 參數
+     */
     deleteItem(id) {
         const index = this.data.findIndex(item => item.id === id);
         if (index !== -1) {
@@ -219,6 +274,10 @@ class DataService {
         return null;
     }
 
+    /**
+     *
+     * @param {*} filters - filters 參數
+     */
     listItems(filters = {}) {
         let results = [...this.data];
         
@@ -238,10 +297,16 @@ class DataService {
     }
 
     // 工具函數
+    /**
+     * generateId 方法
+     */
     generateId() {
         return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     }
 
+    /**
+     * exportData 方法
+     */
     exportData() {
         const dataStr = JSON.stringify(this.data, null, 2);
         const blob = new Blob([dataStr], { type: 'application/json' });
@@ -255,6 +320,10 @@ class DataService {
         URL.revokeObjectURL(url);
     }
 
+    /**
+     *
+     * @param {*} file - file 參數
+     */
     importData(file) {
         const reader = new FileReader();
         reader.onload = (e) => {

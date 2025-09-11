@@ -21,6 +21,7 @@ export class WorkshopPage extends BasePage {
 
   /**
    * 導航到特定章節
+   * @param {*} chapterNumber - chapterNumber 參數
    */
   async navigateToChapter(chapterNumber: number) {
     await this.chapterItems.nth(chapterNumber - 1).click();
@@ -44,6 +45,7 @@ export class WorkshopPage extends BasePage {
 
   /**
    * 執行提示詞
+   * @param {*} prompt - prompt 參數
    */
   async executePrompt(prompt: string) {
     await this.promptInput.fill(prompt);
@@ -72,6 +74,7 @@ export class WorkshopPage extends BasePage {
 
   /**
    * 檢查章節是否已解鎖
+   * @param {*} chapterNumber - chapterNumber 參數
    */
   async isChapterUnlocked(chapterNumber: number): Promise<boolean> {
     const chapter = this.chapterItems.nth(chapterNumber - 1);
@@ -129,6 +132,7 @@ export class WorkshopPage extends BasePage {
 
   /**
    * 上傳檔案到練習
+   * @param {*} filePath - filePath 參數
    */
   async uploadFile(filePath: string) {
     const fileInput = this.page.locator('input[type="file"]');

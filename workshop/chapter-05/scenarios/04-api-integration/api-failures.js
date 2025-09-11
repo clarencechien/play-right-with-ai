@@ -6,8 +6,15 @@
 // ============================================
 // API 錯誤 1: Network Timeout
 // ============================================
+/**
+ * NetworkTimeoutError 類別
+ */
 class NetworkTimeoutError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // API 響應緩慢，但沒有適當的超時處理
         await page.click('#fetch-data');
@@ -70,8 +77,15 @@ class NetworkTimeoutError {
 // ============================================
 // API 錯誤 2: Authentication Failure
 // ============================================
+/**
+ * AuthenticationError 類別
+ */
 class AuthenticationError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 嘗試訪問需要認證的 API
         await page.goto('/protected-page');
@@ -139,8 +153,15 @@ class AuthenticationError {
 // ============================================
 // API 錯誤 3: CORS Issues
 // ============================================
+/**
+ * CORSError 類別
+ */
 class CORSError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 跨域請求被阻擋
         await page.evaluate(() => {
@@ -201,8 +222,15 @@ class CORSError {
 // ============================================
 // API 錯誤 4: Rate Limiting
 // ============================================
+/**
+ * RateLimitError 類別
+ */
 class RateLimitError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 快速發送多個請求
         for (let i = 0; i < 10; i++) {
@@ -297,8 +325,15 @@ class RateLimitError {
 // ============================================
 // API 錯誤 5: Data Inconsistency
 // ============================================
+/**
+ * DataInconsistencyError 類別
+ */
 class DataInconsistencyError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 創建資料
         await page.click('#create-item');
@@ -370,9 +405,13 @@ class DataInconsistencyError {
 // ============================================
 // API 診斷工具
 // ============================================
+/**
+ * APIDiagnosticTools 類別
+ */
 class APIDiagnosticTools {
     /**
      * 監控網路請求
+     * @param {*} page - page 參數
      */
     static async monitorNetworkRequests(page) {
         const requests = [];
@@ -430,6 +469,7 @@ class APIDiagnosticTools {
 
     /**
      * 分類 HTTP 錯誤
+     * @param {*} status - status 參數
      */
     static categorizeHttpError(status) {
         if (status >= 400 && status < 500) {
@@ -458,6 +498,8 @@ class APIDiagnosticTools {
 
     /**
      * 計算平均響應時間
+     * @param {*} requests - requests 參數
+     * @param {*} responses - responses 參數
      */
     static calculateAvgResponseTime(requests, responses) {
         if (requests.length === 0) return 0;
@@ -478,6 +520,8 @@ class APIDiagnosticTools {
 
     /**
      * 生成 API 健康報告
+     * @param {*} page - page 參數
+     * @param {*} apiEndpoint - apiEndpoint 參數
      */
     static async generateAPIHealthReport(page, apiEndpoint) {
         const startTime = Date.now();
@@ -532,6 +576,10 @@ class APIDiagnosticTools {
         return results;
     }
 
+    /**
+     *
+     * @param {*} checks - checks 參數
+     */
     static generateHealthRecommendation(checks) {
         const failed = checks.filter(c => !c.passed);
         

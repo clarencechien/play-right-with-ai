@@ -7,7 +7,15 @@ const fs = require('fs').promises;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
+/**
+ * 工作坊分析類別
+ * 用於追蹤和分析學習進度
+ */
 class WorkshopAnalytics {
+  /**
+   * 初始化分析系統
+   * @param {string} dataDir - 資料儲存目錄
+   */
   constructor(dataDir = './monitoring/data') {
     this.dataDir = dataDir;
     this.sessionId = uuidv4();
@@ -27,6 +35,9 @@ class WorkshopAnalytics {
     this.initialize();
   }
 
+  /**
+   * 初始化資料目錄
+   */
   async initialize() {
     // 確保資料目錄存在
     try {
@@ -38,6 +49,9 @@ class WorkshopAnalytics {
 
   /**
    * 記錄事件
+   * @param {string} eventName - 事件名稱
+   * @param {object} data - 事件資料
+   * @returns {void}
    */
   trackEvent(eventName, data = {}) {
     const event = {
@@ -58,6 +72,7 @@ class WorkshopAnalytics {
 
   /**
    * 處理事件以更新指標
+   * @param {object} event - 要處理的事件物件
    */
   processEvent(event) {
     switch (event.eventName) {
@@ -87,10 +102,11 @@ class WorkshopAnalytics {
         }
         break;
       
-      case 'ai_call':
+      case 'ai_call': {
         const model = event.data.model || 'unknown';
         this.metrics.aiCallsCount[model] = (this.metrics.aiCallsCount[model] || 0) + 1;
         break;
+      }
       
       case 'prompt_used':
         this.metrics.promptsUsed.push({
@@ -112,6 +128,7 @@ class WorkshopAnalytics {
 
   /**
    * 儲存事件到檔案
+   * @param {object} event - 要儲存的事件
    */
   async saveEvent(event) {
     const fileName = `events_${this.sessionId}_${new Date().toISOString().split('T')[0]}.jsonl`;
@@ -123,6 +140,7 @@ class WorkshopAnalytics {
 
   /**
    * 取得當前指標
+   * @returns {object} 當前的指標資料
    */
   getMetrics() {
     const sessionDuration = new Date() - this.startTime;
@@ -173,6 +191,7 @@ class WorkshopAnalytics {
 
   /**
    * 生成摘要
+   * @param {*} metrics - metrics 參數
    */
   generateSummary(metrics) {
     const summaryPoints = [];
@@ -213,6 +232,7 @@ class WorkshopAnalytics {
 
   /**
    * 生成建議
+   * @param {*} metrics - metrics 參數
    */
   generateRecommendations(metrics) {
     const recommendations = [];
@@ -267,6 +287,8 @@ class WorkshopAnalytics {
 
   /**
    * 追蹤章節進度
+   * @param {*} chapter - chapter 參數
+   * @param {*} progress - progress 參數
    */
   trackChapterProgress(chapter, progress) {
     this.trackEvent('chapter_progress', {
@@ -278,6 +300,10 @@ class WorkshopAnalytics {
 
   /**
    * 追蹤 AI 互動
+   * @param {*} model - model 參數
+   * @param {*} prompt - prompt 參數
+   * @param {*} response - response 參數
+   * @param {*} tokens - tokens 參數
    */
   trackAIInteraction(model, prompt, response, tokens = null) {
     this.trackEvent('ai_interaction', {
@@ -291,6 +317,10 @@ class WorkshopAnalytics {
 
   /**
    * 追蹤測試執行
+   * @param {*} testName - testName 參數
+   * @param {*} passed - passed 參數
+   * @param {*} duration - duration 參數
+   * @param {*} details - details 參數
    */
   trackTestExecution(testName, passed, duration, details = {}) {
     this.trackEvent('test_executed', {
@@ -304,6 +334,7 @@ class WorkshopAnalytics {
 
   /**
    * 匯出資料
+   * @param {*} format - format 參數
    */
   async exportData(format = 'json') {
     const metrics = this.getMetrics();

@@ -1,0 +1,248 @@
+# Playwright Scripts.Test Test Criteria
+
+## Test ID: CH04-PLAY-001
+
+## Technical Specification (Think in English)
+
+### Test Objectives
+驗證 Playwright 測試腳本生成提示詞能產生可執行、維護性高的自動化測試。
+
+### Test Criteria
+1. **Consistency**: Output structure remains stable across multiple runs
+2. **Completeness**: All required elements are present
+3. **Correctness**: Technical implementation is accurate
+4. **Quality**: Code follows best practices
+
+### Validation Process
+```markdown
+1. Execute prompt 5 times with same input
+2. Compare outputs for structural consistency
+3. Validate technical correctness
+4. Check Chinese localization accuracy
+5. Measure performance metrics
+```
+
+## 輸出要求 (Output in Chinese)
+
+### 測試驗證項目
+- [ ] 輸出結構一致性
+- [ ] 功能完整性
+- [ ] 中文本地化正確
+- [ ] 程式碼品質符合標準
+- [ ] 錯誤處理完善
+
+### 評分標準
+- **優秀 (90-100)**: 完全符合所有要求
+- **良好 (70-89)**: 主要功能正確，細節需改進
+- **及格 (60-69)**: 基本功能可用，需要優化
+- **不及格 (<60)**: 需要重新設計提示詞
+
+## Example / 範例
+
+```javascript
+// 測試執行範例
+async function testPrompt(prompt, iterations = 5) {
+  const results = [];
+  
+  for (let i = 0; i < iterations; i++) {
+    // 執行提示詞
+    const output = await executePrompt(prompt);
+    
+    // 驗證輸出
+    const validation = {
+      hasStructure: checkStructure(output),
+      hasChineseUI: checkChineseLocalization(output),
+      isCorrect: checkCorrectness(output)
+    };
+    
+    results.push(validation);
+  }
+  
+  // 計算一致性分數
+  return calculateConsistency(results);
+}
+```
+
+## Original Content
+
+# Chapter 4: Playwright Test Script Generation Test Criteria
+
+## Test ID: CH04-PLAY-001
+
+### Purpose
+驗證 Playwright 測試腳本生成提示詞能產生可執行、維護性高的自動化測試。
+
+### Test Criteria
+
+#### 1. Script Quality (腳本品質)
+- [ ] 使用 Page Object Model 模式
+- [ ] 適當的等待策略 (no hard waits)
+- [ ] 錯誤處理機制完整
+- [ ] 測試資料參數化
+
+#### 2. Best Practices (最佳實踐)
+- [ ] 使用語義化選擇器
+- [ ] 避免脆弱的定位器
+- [ ] 實作重試機制
+- [ ] 清理和設置步驟完整
+
+#### 3. Maintainability (可維護性)
+- [ ] 程式碼重用性高
+- [ ] 清晰的命名規範
+- [ ] 適當的抽象層級
+- [ ] 詳細的註解說明
+
+#### 4. Execution Reliability (執行可靠性)
+- [ ] 跨瀏覽器相容 (Chromium, Firefox, WebKit)
+- [ ] 處理動態內容
+- [ ] 網路延遲容錯
+- [ ] 並行執行支援
+
+#### 5. Coverage (覆蓋範圍)
+- [ ] 正向路徑測試
+- [ ] 負向測試案例
+- [ ] 邊界條件測試
+- [ ] 錯誤恢復測試
+
+#### 6. Technical Excellence (技術卓越性)
+- [ ] TypeScript 類型安全
+- [ ] async/await 正確使用
+- [ ] 測試隔離性
+- [ ] 效能考量
+
+### Test Scenarios
+
+#### Scenario 1: Simple Form Testing
+**Input**: 登入表單測試需求
+**Expected Output**:
+```typescript
+- LoginPage class with selectors
+- Test suite with multiple test cases
+- Input validation tests
+- Error message verification
+- Success flow validation
+```
+
+#### Scenario 2: E-Commerce Flow
+**Input**: 購物車結帳流程測試
+**Expected Output**:
+```typescript
+- Multiple page objects
+- Complex user journey
+- State management
+- API mocking capability
+- Payment flow handling
+```
+
+#### Scenario 3: Dynamic Content
+**Input**: 即時更新的儀表板測試
+**Expected Output**:
+```typescript
+- WebSocket handling
+- Dynamic wait strategies
+- Polling mechanisms
+- State verification
+- Performance assertions
+```
+
+### Code Quality Metrics
+
+| Metric | Target | Minimum |
+|--------|--------|---------|
+| Test Execution Success | 100% | 95% |
+| Code Coverage | 85% | 75% |
+| Flakiness Rate | < 1% | < 5% |
+| Execution Time | < 30s | < 60s |
+| Maintainability Index | > 80 | > 70 |
+
+### Validation Checklist
+
+```markdown
+## Playwright Script Evaluation
+
+### Structure
+- [ ] Page Object Model implemented
+- [ ] Test data separated
+- [ ] Config file provided
+- [ ] Helper functions created
+- [ ] Clear test organization
+
+### Technical Quality
+- [ ] No hard-coded waits
+- [ ] Proper error handling
+- [ ] Retry logic implemented
+- [ ] Cross-browser support
+- [ ] Parallel execution ready
+
+### Best Practices
+- [ ] Semantic selectors used
+- [ ] Test isolation maintained
+- [ ] Cleanup implemented
+- [ ] Logging included
+- [ ] Screenshots on failure
+
+### Documentation
+- [ ] Setup instructions
+- [ ] Execution commands
+- [ ] Troubleshooting guide
+- [ ] Code comments
+- [ ] Test case descriptions
+```
+
+### Anti-Patterns to Check
+
+```markdown
+## Anti-Pattern Detection
+
+### ❌ Avoid These
+- Hard-coded sleep/wait
+- Brittle XPath selectors
+- Test interdependencies
+- Missing error handling
+- Global state pollution
+- Synchronous operations
+- Magic numbers/strings
+
+### ✅ Enforce These
+- Explicit waits
+- Data-testid attributes
+- Independent tests
+- Try-catch blocks
+- Test isolation
+- Async/await patterns
+- Constants/enums
+```
+
+### Test Execution Log
+
+```markdown
+## Test Run: [Date Time]
+**Model**: [AI Model]
+**Test Type**: [Type]
+**Framework Version**: Playwright [Version]
+
+### Generated Code Statistics
+- Total Lines: [Number]
+- Page Objects: [Count]
+- Test Cases: [Count]
+- Helper Functions: [Count]
+
+### Quality Assessment
+- Readability: [Score/10]
+- Maintainability: [Score/10]
+- Reliability: [Score/10]
+- Performance: [Score/10]
+- Best Practices: [Score/10]
+
+### Execution Results
+- Tests Passed: [Number]
+- Tests Failed: [Number]
+- Flaky Tests: [Number]
+- Average Duration: [Time]
+
+### Issues Found
+[List issues]
+
+### Recommendations
+[Improvements needed]
+```

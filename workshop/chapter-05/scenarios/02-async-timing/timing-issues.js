@@ -6,8 +6,15 @@
 // ============================================
 // 時序錯誤 1: Race Condition
 // ============================================
+/**
+ * RaceConditionError 類別
+ */
 class RaceConditionError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 同時觸發兩個非同步操作
         page.click('#load-data-1'); // 不等待
@@ -50,8 +57,15 @@ class RaceConditionError {
 // ============================================
 // 時序錯誤 2: Premature Assertion
 // ============================================
+/**
+ * PrematureAssertionError 類別
+ */
 class PrematureAssertionError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         await page.fill('#search', 'playwright');
         await page.click('#search-button');
@@ -98,8 +112,15 @@ class PrematureAssertionError {
 // ============================================
 // 時序錯誤 3: Animation Interference
 // ============================================
+/**
+ * AnimationInterferenceError 類別
+ */
 class AnimationInterferenceError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         await page.click('#show-modal');
         // 模態框有淡入動畫，但立即嘗試點擊
@@ -142,15 +163,22 @@ class AnimationInterferenceError {
 // ============================================
 // 時序錯誤 4: Debounce/Throttle Issues
 // ============================================
+/**
+ * DebounceThrottleError 類別
+ */
 class DebounceThrottleError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 搜尋輸入有 debounce 延遲
         await page.fill('#search-input', 'test');
         
         // 立即檢查搜尋是否觸發（可能還在 debounce 期間）
-        const searching = await page.locator('.searching-indicator').isVisible();
-        expect(searching).toBe(true); // 可能失敗
+        const searching = page.locator('.searching-indicator');
+        await expect(searching).toBeVisible(); // 可能失敗
     }
 
     // AI 診斷
@@ -183,16 +211,23 @@ class DebounceThrottleError {
 // ============================================
 // 時序錯誤 5: Polling Interval Mismatch
 // ============================================
+/**
+ * PollingIntervalError 類別
+ */
 class PollingIntervalError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 應用程式每 5 秒輪詢一次更新
         await page.click('#start-monitoring');
         
         // 等待 3 秒後檢查（可能還沒更新）
         await page.waitForTimeout(3000);
-        const status = await page.textContent('.status');
-        expect(status).toBe('Updated'); // 可能失敗
+        const status = page;
+        await expect(status).toHaveText('.status', 'Updated'); // 可能失敗
     }
 
     // AI 診斷
@@ -226,9 +261,15 @@ class PollingIntervalError {
 // ============================================
 // 時序輔助工具
 // ============================================
+/**
+ * TimingDiagnosticTools 類別
+ */
 class TimingDiagnosticTools {
     /**
      * 測量操作時間
+     * @param {*} page - page 參數
+     * @param {*} operation - operation 參數
+     * @param {*} description - description 參數
      */
     static async measureTiming(page, operation, description) {
         const startTime = Date.now();
@@ -255,6 +296,8 @@ class TimingDiagnosticTools {
 
     /**
      * 智能等待策略
+     * @param {*} page - page 參數
+     * @param {*} conditions - conditions 參數
      */
     static async smartWait(page, conditions) {
         const waitPromises = [];
@@ -293,6 +336,9 @@ class TimingDiagnosticTools {
 
     /**
      * 檢測潛在的時序問題
+     * @param {*} page - page 參數
+     * @param {*} testFn - testFn 參數
+     * @param {*} iterations - iterations 參數
      */
     static async detectTimingIssues(page, testFn, iterations = 5) {
         const results = [];
@@ -334,6 +380,7 @@ class TimingDiagnosticTools {
 
     /**
      * 生成 AI 分析提示
+     * @param {*} issueData - issueData 參數
      */
     static generateTimingAnalysisPrompt(issueData) {
         return `
@@ -362,9 +409,14 @@ class TimingDiagnosticTools {
 // ============================================
 // 實用等待策略集合
 // ============================================
+/**
+ * WaitStrategies 類別
+ */
 class WaitStrategies {
     /**
      * 等待多個條件中的任意一個
+     * @param {*} page - page 參數
+     * @param {*} conditions - conditions 參數
      */
     static async waitForAny(page, conditions) {
         return Promise.race(conditions.map(condition => {
@@ -377,6 +429,10 @@ class WaitStrategies {
 
     /**
      * 等待元素數量變化
+     * @param {*} page - page 參數
+     * @param {*} selector - selector 參數
+     * @param {*} initialCount - initialCount 參數
+     * @param {*} options - options 參數
      */
     static async waitForCountChange(page, selector, initialCount, options = {}) {
         return page.waitForFunction(
@@ -391,6 +447,10 @@ class WaitStrategies {
 
     /**
      * 等待文本內容改變
+     * @param {*} page - page 參數
+     * @param {*} selector - selector 參數
+     * @param {*} initialText - initialText 參數
+     * @param {*} options - options 參數
      */
     static async waitForTextChange(page, selector, initialText, options = {}) {
         return page.waitForFunction(
@@ -405,6 +465,9 @@ class WaitStrategies {
 
     /**
      * 智能重試機制
+     * @param {*} operation - operation 參數
+     * @param {*} maxRetries - maxRetries 參數
+     * @param {*} baseDelay - baseDelay 參數
      */
     static async retryWithBackoff(operation, maxRetries = 3, baseDelay = 1000) {
         for (let attempt = 1; attempt <= maxRetries; attempt++) {

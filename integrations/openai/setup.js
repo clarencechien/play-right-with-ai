@@ -7,7 +7,15 @@ const OpenAI = require('openai');
 const fs = require('fs').promises;
 const path = require('path');
 
+/**
+ * OpenAI API 整合類別
+ * 提供與 OpenAI GPT 模型互動的功能
+ */
 class OpenAIIntegration {
+  /**
+   * 初始化 OpenAI 整合
+   * @param {string} apiKey - OpenAI API 金鑰
+   */
   constructor(apiKey) {
     if (!apiKey) {
       throw new Error('需要提供 OPENAI_API_KEY');
@@ -24,7 +32,7 @@ class OpenAIIntegration {
   /**
    * 生成應用程式碼
    * @param {string} requirements - 需求描述
-   * @param {Object} options - 生成選項
+   * @param {object} options - 生成選項
    * @returns {Promise<string>} - 生成的程式碼
    */
   async generateApplication(requirements, options = {}) {
@@ -88,7 +96,7 @@ Output a complete, working application as a single HTML file.`;
   /**
    * 程式碼審查
    * @param {string} code - 要審查的程式碼
-   * @returns {Promise<Object>} - 審查結果
+   * @returns {Promise<object>} - 審查結果
    */
   async reviewCode(code) {
     const prompt = `As a senior code reviewer, perform a comprehensive review of this code.
@@ -175,8 +183,8 @@ Format in Traditional Chinese as a structured document.`;
   /**
    * 生成 Playwright 測試套件
    * @param {string} testPlan - 測試計畫
-   * @param {Object} config - 測試配置
-   * @returns {Promise<Object>} - 測試檔案內容
+   * @param {object} config - 測試配置
+   * @returns {Promise<object>} - 測試檔案內容
    */
   async generatePlaywrightSuite(testPlan, config = {}) {
     const {
@@ -242,7 +250,7 @@ Follow Playwright best practices and ensure tests are reliable and maintainable.
    * 分析測試結果
    * @param {string} testResults - 測試結果日誌
    * @param {string} testCode - 測試程式碼
-   * @returns {Promise<Object>} - 分析結果
+   * @returns {Promise<object>} - 分析結果
    */
   async analyzeTestResults(testResults, testCode) {
     const prompt = `Analyze these test results and provide actionable insights.
@@ -290,9 +298,9 @@ Format as JSON with Traditional Chinese explanations.`;
 
   /**
    * 生成修復建議
-   * @param {Object} failureAnalysis - 失敗分析
+   * @param {object} failureAnalysis - 失敗分析
    * @param {string} originalCode - 原始程式碼
-   * @returns {Promise<Object>} - 修復建議
+   * @returns {Promise<object>} - 修復建議
    */
   async generateFixSuggestions(failureAnalysis, originalCode) {
     const prompt = `Based on this failure analysis, provide specific code fixes.
@@ -351,7 +359,7 @@ Format as actionable items with code examples.`;
   /**
    * 自動修復程式碼
    * @param {string} brokenCode - 有問題的程式碼
-   * @param {Object} fixes - 修復建議
+   * @param {object} fixes - 修復建議
    * @returns {Promise<string>} - 修復後的程式碼
    */
   async autoRepair(brokenCode, fixes) {
@@ -425,7 +433,7 @@ Output the complete, repaired code.`;
    * @param {number} inputTokens - 輸入 token 數
    * @param {number} outputTokens - 輸出 token 數
    * @param {string} model - 使用的模型
-   * @returns {Object} - 成本資訊
+   * @returns {object} - 成本資訊
    */
   calculateCost(inputTokens, outputTokens, model = this.defaultModel) {
     const pricing = {

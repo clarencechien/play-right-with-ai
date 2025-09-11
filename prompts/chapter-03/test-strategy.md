@@ -1,6 +1,6 @@
 # Chapter 3: Test Strategy Creation Golden Prompt
 
-## Version: 1.0.0
+## Version: 1.1.0
 ## Last Updated: 2025-09-11
 ## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
 
@@ -11,47 +11,81 @@
 ```markdown
 You are a senior QA architect with 15+ years of experience in test strategy design and implementation.
 
-## Analytical Framework (English Thinking)
+## Technical Specification (Think in English)
 
-Let me analyze the application systematically:
+### Test Strategy Framework
 
-1. **Application Analysis**:
-   - Identify core functionalities
-   - Map user journeys and workflows
-   - Determine system boundaries
-   - Assess technical architecture
-   - Review data flow patterns
+1. **Application Analysis Protocol**:
+   ```
+   Components to analyze:
+   - Frontend: UI components, user interactions, client-side logic
+   - Backend: APIs, business logic, data processing
+   - Database: Data integrity, transactions, performance
+   - Integration: Third-party services, external dependencies
+   - Infrastructure: Deployment, scaling, monitoring
+   ```
 
-2. **Risk Assessment**:
-   - Critical business functions
-   - High-complexity areas
-   - Integration points
-   - Security vulnerabilities
-   - Performance bottlenecks
+2. **Risk Assessment Matrix**:
+   ```
+   Risk = Probability × Impact
+   
+   Probability factors:
+   - Code complexity (cyclomatic complexity > 10)
+   - Change frequency (commits per week)
+   - Developer experience (junior/senior ratio)
+   - Technical debt (code smells, outdated dependencies)
+   
+   Impact factors:
+   - User base affected (percentage)
+   - Revenue impact (direct/indirect)
+   - Data sensitivity (PII, financial)
+   - Regulatory compliance (GDPR, PCI-DSS)
+   ```
 
-3. **Test Strategy Components**:
-   - Functional testing (happy path, edge cases)
-   - Non-functional testing (performance, security, usability)
-   - Integration testing
-   - Regression testing
-   - Exploratory testing
+3. **Test Coverage Strategy**:
+   ```
+   Coverage goals:
+   - Unit tests: 80% code coverage
+   - Integration tests: All API endpoints
+   - E2E tests: Critical user journeys (top 20%)
+   - Performance tests: Peak load scenarios
+   - Security tests: OWASP Top 10
+   ```
 
-4. **Test Prioritization Matrix**:
-   - Business impact (High/Medium/Low)
-   - Technical risk (High/Medium/Low)
-   - Frequency of use
-   - Implementation complexity
+4. **Test Case Design Techniques**:
+   - **Equivalence Partitioning**: Group similar inputs
+   - **Boundary Value Analysis**: Test limits
+   - **Decision Table Testing**: Complex logic
+   - **State Transition Testing**: Workflow validation
+   - **Pairwise Testing**: Combinatorial optimization
 
-5. **Automation Strategy**:
-   - Automation candidates identification
-   - Tool selection criteria
-   - ROI analysis
-   - Maintenance considerations
+5. **Automation Decision Framework**:
+   ```
+   Automate if:
+   - Execution frequency > 5 times/sprint
+   - Test is deterministic (no random elements)
+   - ROI positive within 3 sprints
+   - Maintenance effort < 20% of manual effort
+   
+   Tools evaluation:
+   - Playwright: Modern web apps, cross-browser
+   - Cypress: Single-page applications
+   - Jest: Unit/integration testing
+   - K6: Performance testing
+   ```
+
+6. **Quality Gates Definition**:
+   ```
+   Gate 1 (Commit): Linting, unit tests
+   Gate 2 (PR): Integration tests, code review
+   Gate 3 (Staging): E2E tests, performance tests
+   Gate 4 (Production): Smoke tests, monitoring
+   ```
 
 ## Application Code to Analyze
 [INSERT APPLICATION CODE HERE]
 
-## 測試策略輸出規範 (繁體中文)
+## 輸出要求 (Output in Chinese)
 
 請提供完整的測試策略文檔，包含以下內容：
 
@@ -166,39 +200,93 @@ Let me analyze the application systematically:
 ```markdown
 As a DevOps-oriented QA strategist, create a comprehensive test strategy that integrates with modern CI/CD pipelines.
 
-## Strategic Analysis (English)
+## Technical Specification (Think in English)
 
-1. **Test Pyramid Design**:
-   - Unit tests (70%): Fast, isolated, numerous
-   - Integration tests (20%): API and service layer
-   - E2E tests (10%): Critical user journeys only
-   - Manual exploratory tests: Edge cases and UX
+### CI/CD Test Integration Architecture
 
-2. **Shift-Left Testing**:
-   - Developer testing requirements
-   - Pre-commit hooks
-   - Code review checklist
-   - Static analysis integration
+1. **Test Pyramid Implementation**:
+   ```yaml
+   # Test distribution
+   unit_tests:
+     coverage: 70%
+     execution_time: < 5 minutes
+     frequency: every commit
+     tools: [Jest, Vitest]
+   
+   integration_tests:
+     coverage: 20%
+     execution_time: < 15 minutes
+     frequency: every PR
+     tools: [Supertest, Postman]
+   
+   e2e_tests:
+     coverage: 10%
+     execution_time: < 30 minutes
+     frequency: pre-deployment
+     tools: [Playwright, Cypress]
+   ```
 
-3. **Continuous Testing Pipeline**:
-   - Smoke tests on every commit
-   - Regression suite on merge
-   - Performance tests nightly
-   - Security scans weekly
+2. **Pipeline Configuration**:
+   ```javascript
+   // Quality gates configuration
+   const qualityGates = {
+     commit: {
+       unitTestPass: 100%,
+       codeCoverage: >= 80%,
+       lintingErrors: 0
+     },
+     pullRequest: {
+       integrationTestPass: 100%,
+       performanceRegression: < 10%,
+       securityVulnerabilities: 0
+     },
+     deployment: {
+       e2eTestPass: 100%,
+       loadTestPass: true,
+       rollbackReady: true
+     }
+   }
+   ```
 
-4. **Test Environment Strategy**:
-   - Local development environment
-   - Integration environment
-   - Staging (production-like)
-   - Production monitoring
+3. **Test Environment Matrix**:
+   ```
+   Environment | Purpose | Data | Deployment
+   ------------|---------|------|------------
+   Local       | Dev testing | Mocked | Manual
+   CI          | Automated tests | Synthetic | Automatic
+   Staging     | Pre-prod validation | Sanitized prod | Scheduled
+   Production  | Monitoring | Real | Blue-green
+   ```
 
-5. **Quality Gates**:
-   - Code coverage thresholds
-   - Performance benchmarks
-   - Security scan results
-   - Accessibility compliance
+4. **Shift-Left Implementation**:
+   - Pre-commit hooks: ESLint, Prettier, unit tests
+   - IDE integration: Real-time test feedback
+   - PR templates: Test checklist enforcement
+   - Pair programming: Test-first development
+   - Documentation: Test requirements in stories
 
-## 現代化測試策略規範 (繁體中文)
+5. **Observability Strategy**:
+   ```javascript
+   metrics = {
+     testExecution: {
+       duration: histogram,
+       passRate: gauge,
+       flakyTests: counter
+     },
+     coverage: {
+       lines: percentage,
+       branches: percentage,
+       functions: percentage
+     },
+     performance: {
+       responseTime: histogram,
+       errorRate: gauge,
+       throughput: counter
+     }
+   }
+   ```
+
+## 輸出要求 (Output in Chinese)
 
 建立符合 CI/CD 的完整測試策略：
 
@@ -295,35 +383,70 @@ describe('功能模組', () => {
 
 ---
 
+## Example / 範例
+
+### English Thinking Process:
+```
+Analyzing TODO application:
+1. Core functions: Create, Read, Update, Delete todos
+2. Risk areas: Data persistence, concurrent updates
+3. Critical paths: Add todo -> Save -> Display
+4. Test priorities: CRUD operations (P1), Filters (P2), UI (P3)
+5. Automation: E2E for critical paths, unit tests for logic
+```
+
+### Chinese Output Result:
+```markdown
+# 待辦事項應用程式測試策略
+
+## 測試範圍
+### 功能測試
+- 新增待辦事項 (P1)
+- 刪除待辦事項 (P1)
+- 標記完成狀態 (P1)
+- 篩選與搜尋 (P2)
+
+## 測試案例
+### TC_TODO_001: 新增待辦事項
+前置條件: 應用程式已啟動
+測試步驟:
+1. 輸入待辦事項文字
+2. 點擊新增按鈕
+預期結果: 項目出現在列表中
+```
+
+---
+
 ## Model-Specific Tips
 
 ### Claude 3.5 Sonnet
-- Excellent at comprehensive analysis
-- Strong systematic thinking
-- May provide very detailed output
+- Naturally separates English analysis from Chinese output
+- Comprehensive test coverage recommendations
+- Strong risk assessment capabilities
 
 ### GPT-4
-- Good at structured output
-- May need prompting for Chinese sections
-- Strong at risk analysis
+- Add: "Analyze in English first, then provide strategy document in Traditional Chinese"
+- Excellent at structured test case design
+- May need reminder for Chinese terminology
 
 ### Gemini Pro
-- Benefits from explicit structure
-- May need follow-up for completeness
-- Good at technical details
+- Benefits from explicit "Think -> Output" instruction
+- Good at technical test implementation
+- Add examples for better results
 
 ---
 
 ## Usage Notes
 
-1. **Always provide actual code**: The prompt works best with real application code
-2. **Adjust scope**: Scale test cases based on application complexity
-3. **Iterate based on feedback**: Refine strategy based on team needs
-4. **Document assumptions**: Make testing assumptions explicit
-5. **Consider context**: Adapt to team's maturity and tools
+1. **Bilingual Flow**: Maintain English analysis -> Chinese documentation
+2. **Code Required**: Always include actual application code
+3. **Scope Adjustment**: Scale based on project size
+4. **Team Context**: Consider team maturity and tools
+5. **Iteration**: Refine based on execution results
 
 ---
 
 ## Version History
 
-- **1.0.0** (2025-09-11): Initial test strategy prompts with bilingual approach
+- **1.1.0** (2025-09-11): Restructured with clear bilingual separation
+- **1.0.0** (2025-09-11): Initial test strategy prompts

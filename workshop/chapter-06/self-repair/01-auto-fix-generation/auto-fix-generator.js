@@ -3,7 +3,13 @@
  * 根據錯誤類型自動生成修復代碼
  */
 
+/**
+ * AutoFixGenerator 類別
+ */
 class AutoFixGenerator {
+    /**
+     * 初始化建構函式
+     */
     constructor() {
         this.fixTemplates = new Map();
         this.initializeTemplates();
@@ -103,6 +109,8 @@ await page.waitForFunction(() => {
 
     /**
      * 生成修復代碼
+     * @param {*} error - error 參數
+     * @param {*} page - page 參數
      */
     async generateFix(error, page) {
         const errorType = this.classifyError(error);
@@ -125,6 +133,8 @@ await page.waitForFunction(() => {
 
     /**
      * 使用 AI 生成修復
+     * @param {*} error - error 參數
+     * @param {*} page - page 參數
      */
     async generateAIFix(error, page) {
         const pageContent = await page.content();
@@ -143,7 +153,7 @@ ${error.stack}
 ${pageContent.substring(0, 5000)}
 
 失敗時的頁面狀態：
-- URL: ${await page.url()}
+- URL: ${page.url()}
 - Title: ${await page.title()}
 
 請生成：
@@ -164,6 +174,7 @@ ${pageContent.substring(0, 5000)}
 
     /**
      * 分類錯誤類型
+     * @param {*} error - error 參數
      */
     classifyError(error) {
         const message = error.message.toLowerCase();
@@ -189,6 +200,8 @@ ${pageContent.substring(0, 5000)}
 
     /**
      * 計算修復信心度
+     * @param {*} errorType - errorType 參數
+     * @param {*} context - context 參數
      */
     calculateConfidence(errorType, context) {
         let confidence = 50; // 基礎信心度
@@ -218,6 +231,7 @@ ${pageContent.substring(0, 5000)}
 
     /**
      * 獲取歷史成功率
+     * @param {*} errorType - errorType 參數
      */
     getHistoricalSuccess(errorType) {
         // 模擬從資料庫獲取歷史數據
@@ -233,23 +247,39 @@ ${pageContent.substring(0, 5000)}
     }
 
     // 輔助方法
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     extractExpectedText(error) {
         // 從錯誤訊息中提取預期文字
         const match = error.message.match(/text[=~]"([^"]+)"/);
         return match ? match[1] : 'Submit';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     extractSelector(error) {
         // 從錯誤訊息中提取選擇器
         const match = error.message.match(/selector[:\s]+"([^"]+)"/);
         return match ? match[1] : '[data-testid="element"]';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     findParentSelector(error) {
         // 嘗試找到父元素選擇器
         return 'form';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     determineElementType(error) {
         // 判斷元素類型
         if (error.message.includes('button')) return 'button';
@@ -258,31 +288,55 @@ ${pageContent.substring(0, 5000)}
         return '*';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     suggestAttribute(error) {
         // 建議使用的屬性
         return 'data-testid';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     extractAttributeValue(error) {
         // 提取屬性值
         return 'submit-button';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     calculateTimeout(error) {
         // 計算建議的超時時間
         return 30000;
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     identifyApiEndpoint(error) {
         // 識別相關的 API 端點
         return '/api/data';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     determineStabilizationDelay(error) {
         // 確定穩定化延遲
         return 500;
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     identifyPrerequisites(error) {
         // 識別前置條件
         return [
@@ -293,11 +347,19 @@ ${pageContent.substring(0, 5000)}
         ];
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     generateStateCheck(error) {
         // 生成狀態檢查代碼
         return 'document.querySelector(".ready-indicator") !== null';
     }
 
+    /**
+     *
+     * @param {*} error - error 參數
+     */
     simulateAIResponse(error) {
         // 模擬 AI 生成的修復代碼
         return `
@@ -332,12 +394,17 @@ try {
  * 修復應用器
  */
 class FixApplier {
+    /**
+     * 初始化建構函式
+     */
     constructor() {
         this.appliedFixes = new Map();
     }
 
     /**
      * 應用修復
+     * @param {*} fix - fix 參數
+     * @param {*} testFile - testFile 參數
      */
     async applyFix(fix, testFile) {
         console.log(`應用修復: ${fix.type}`);
@@ -374,6 +441,7 @@ class FixApplier {
 
     /**
      * 備份測試文件
+     * @param {*} testFile - testFile 參數
      */
     async backupTestFile(testFile) {
         // 實現文件備份邏輯
@@ -382,6 +450,8 @@ class FixApplier {
 
     /**
      * 注入修復代碼
+     * @param {*} testFile - testFile 參數
+     * @param {*} fixCode - fixCode 參數
      */
     async injectFix(testFile, fixCode) {
         // 實現代碼注入邏輯
@@ -390,6 +460,7 @@ class FixApplier {
 
     /**
      * 驗證修復
+     * @param {*} code - code 參數
      */
     async validateFix(code) {
         // 實現修復驗證邏輯
@@ -404,6 +475,8 @@ class FixApplier {
 
     /**
      * 保存修復
+     * @param {*} testFile - testFile 參數
+     * @param {*} code - code 參數
      */
     async saveFix(testFile, code) {
         // 實現保存邏輯
@@ -412,6 +485,8 @@ class FixApplier {
 
     /**
      * 恢復備份
+     * @param {*} testFile - testFile 參數
+     * @param {*} backup - backup 參數
      */
     async restoreBackup(testFile, backup) {
         // 實現恢復邏輯
@@ -420,6 +495,7 @@ class FixApplier {
 
     /**
      * 記錄成功
+     * @param {*} fix - fix 參數
      */
     recordSuccess(fix) {
         const key = `${fix.type}_${Date.now()}`;
@@ -432,6 +508,8 @@ class FixApplier {
 
     /**
      * 記錄失敗
+     * @param {*} fix - fix 參數
+     * @param {*} error - error 參數
      */
     recordFailure(fix, error = null) {
         const key = `${fix.type}_${Date.now()}`;

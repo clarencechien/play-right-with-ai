@@ -1,0 +1,17 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "*.{json,md,yml,yaml,html,css,scss}": [
+    "prettier --write"
+  ],
+  "*.spec.{js,ts}": [
+    "eslint --fix",
+    "prettier --write",
+    "npm run test:related --"
+  ],
+  "package.json": [
+    "prettier --write"
+  ]
+}

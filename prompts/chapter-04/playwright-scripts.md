@@ -1,6 +1,6 @@
 # Chapter 4: Playwright Test Script Generation Golden Prompt
 
-## Version: 1.0.0
+## Version: 1.1.0
 ## Last Updated: 2025-09-11
 ## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
 
@@ -11,51 +11,101 @@
 ```markdown
 You are a senior test automation engineer specializing in Playwright with 10+ years of experience in building robust, maintainable test frameworks.
 
-## Technical Analysis (English Thinking)
+## Technical Specification (Think in English)
 
-Let me design a comprehensive Playwright test suite following best practices:
+### Test Automation Architecture
 
-1. **Architecture Design**:
+1. **Framework Design Principles**:
+   ```
+   Architecture components:
    - Page Object Model (POM) for maintainability
    - Fixture pattern for test setup/teardown
-   - Data-driven testing approach
-   - Configuration management
-   - Reporting and logging strategy
+   - Data-driven testing with external data sources
+   - Configuration management (environments, browsers)
+   - Reporting and logging infrastructure
+   
+   Quality metrics:
+   - Test execution time < 5 minutes for smoke tests
+   - Flakiness rate < 1%
+   - Maintenance effort < 20% of development time
+   ```
 
-2. **Selector Strategy**:
-   - Prefer user-facing attributes (role, text, label)
-   - Use data-testid for stable elements
-   - Avoid brittle selectors (nth-child, complex XPath)
-   - Implement selector fallback patterns
-   - Consider accessibility selectors
+2. **Selector Strategy Matrix**:
+   ```
+   Priority order:
+   1. User-facing attributes (role, text, label)
+   2. Semantic HTML (aria-label, data-testid)
+   3. CSS selectors (stable classes, IDs)
+   4. XPath (only when necessary)
+   
+   Anti-patterns to avoid:
+   - nth-child without context
+   - Deeply nested selectors
+   - Dynamic class names
+   - Absolute XPath
+   ```
 
-3. **Wait Strategy**:
-   - Use Playwright's auto-waiting
-   - Implement custom wait conditions
-   - Handle dynamic content loading
-   - Network idle states
-   - Animation completion
+3. **Synchronization Strategy**:
+   ```
+   Wait mechanisms:
+   - Auto-waiting (Playwright default)
+   - Custom wait conditions (waitForFunction)
+   - Network idle (waitForLoadState)
+   - Animation completion (waitForTimeout)
+   - Request/Response matching (waitForResponse)
+   
+   Timeout hierarchy:
+   - Global: 30s
+   - Action: 15s
+   - Assertion: 5s
+   - Navigation: 30s
+   ```
 
-4. **Error Handling**:
-   - Comprehensive try-catch blocks
-   - Screenshot on failure
-   - Detailed error logging
-   - Retry mechanisms for flaky operations
-   - Graceful degradation
+4. **Error Recovery Protocol**:
+   ```
+   Error handling layers:
+   1. Try-catch for expected failures
+   2. Retry mechanism for transient issues
+   3. Screenshot/video on failure
+   4. Detailed error logging with context
+   5. Graceful test suite continuation
+   
+   Retry strategy:
+   - Network errors: 3 retries with exponential backoff
+   - Element not found: 2 retries with DOM refresh
+   - Assertion failures: No retry (fail fast)
+   ```
 
-5. **Performance Optimization**:
-   - Parallel test execution
-   - Browser context reuse
-   - Selective screenshot/video capture
-   - API mocking for speed
-   - Resource cleanup
+5. **Performance Optimization Techniques**:
+   ```
+   Optimization areas:
+   - Parallel execution (workers = CPU cores)
+   - Browser context reuse (shared authentication)
+   - Selective media capture (failures only)
+   - API response mocking (reduce network latency)
+   - Resource preloading (cache static assets)
+   
+   Performance targets:
+   - Test startup: < 2s
+   - Page navigation: < 3s
+   - API responses: < 500ms
+   - Total suite runtime: < 10 minutes
+   ```
 
 ## Test Requirements
 [INSERT TEST PLAN OR APPLICATION DETAILS]
 
-## Playwright 測試腳本實作 (繁體中文)
+## 輸出要求 (Output in Chinese)
 
-請提供完整的 Playwright 測試套件，使用 TypeScript 和最佳實踐：
+### Playwright 測試腳本實作
+
+Based on the technical specification above, provide a complete Playwright test suite implementation in Traditional Chinese with the following requirements:
+
+1. Use TypeScript with strict typing
+2. Implement Page Object Model pattern
+3. Include comprehensive error handling
+4. Add detailed Chinese comments
+5. Follow Playwright best practices
 
 ### 1. 專案結構
 ```
@@ -505,6 +555,44 @@ export class TestHelpers {
 ```
 
 請根據具體的測試需求調整上述程式碼，確保測試的可靠性和維護性。
+```
+
+---
+
+## Example / 範例
+
+### English Thinking Process:
+```
+"I need to create a robust test for a login flow. The test should:
+1. Navigate to the login page
+2. Enter credentials with proper waiting
+3. Handle potential errors
+4. Verify successful login
+5. Include retry logic for flakiness"
+```
+
+### Chinese Output (繁體中文實作):
+```typescript
+// 登入流程測試 - 包含完整錯誤處理和重試機制
+test('使用者應該能成功登入系統', async ({ page }) => {
+  // 導航到登入頁面並等待完全載入
+  await page.goto('/login', { waitUntil: 'networkidle' });
+  
+  // 使用智慧等待策略填寫憑證
+  const emailInput = page.getByLabel('電子郵件');
+  await emailInput.waitFor({ state: 'visible' });
+  await emailInput.fill('user@example.com');
+  
+  // 實作重試邏輯處理潛在的不穩定性
+  await retryOperation(async () => {
+    await page.getByLabel('密碼').fill('password123');
+    await page.getByRole('button', { name: '登入' }).click();
+  }, { retries: 3, delay: 1000 });
+  
+  // 驗證成功登入
+  await expect(page).toHaveURL('/dashboard');
+  await expect(page.getByText('歡迎回來')).toBeVisible();
+});
 ```
 
 ---

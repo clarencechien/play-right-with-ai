@@ -1,0 +1,498 @@
+# Bilingual Prompting Strategy Comparison
+
+## Technical Specification (Think in English)
+
+```markdown
+所有使用者介面元素使用繁體中文：
+
+表單標題與標籤：
+- 頁面標題：「會員登入」
+- 使用者名稱標籤：「使用者名稱或電子郵件」
+- 密碼標籤：「密碼」
+- 記住我：「保持登入狀態」
+- 提交按鈕：「登入」
+- 註冊連結：「還沒有帳號？立即註冊」
+- 忘記密碼：「忘記密碼？」
+
+驗證訊息：
+- 必填欄位：「此欄位為必填」
+- 使用者名稱錯誤：「使用者名稱至少需要3個字元」
+- 電子郵件格式錯誤：「請輸入有效的電子郵件地址」
+- 密碼錯誤：「密碼至少需要8個字元，包含大小寫字母和數字」
+- 登入失敗：「使用者名稱或密碼錯誤，請重試」
+- 帳號鎖定：「登入嘗試次數過多，請稍後再試」
+- 網路錯誤：「網路連線失敗，請檢查您的網路設定」
+
+成功訊息：
+- 登入成功：「歡迎回來！正在跳轉...」
+- 密碼已發送：「重設密碼連結已發送至您的信箱」
+
+輔助文字：
+- 密碼提示：「使用至少8個字元，包含大小寫字母和數字」
+- 安全提示：「我們使用業界標準加密保護您的資料」
+- 載入中：「驗證中，請稍候...」
+
+程式碼註解規範：
+- 所有函數使用中文註解說明用途
+- 複雜邏輯加入步驟說明
+- 安全相關程式碼特別標註
+```
+
+## 實際效果比較
+
+### 評估維度
+
+| 評估項目 | 純中文 | 純英文 | 雙語策略 |
+|---------|--------|--------|----------|
+| **技術準確性** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **程式碼品質** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **安全性考量** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **本地化完整** | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
+| **可維護性** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **最佳實踐** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+
+### 具體差異分析
+
+#### 1. 程式碼結構
+- **純中文**：傾向生成程序式程式碼
+- **純英文**：更多物件導向和模組化
+- **雙語策略**：最佳的架構設計
+
+#### 2. 錯誤處理
+- **純中文**：基本的 try-catch
+- **純英文**：完整的錯誤處理但訊息是英文
+- **雙語策略**：完整錯誤處理 + 中文訊息
+
+#### 3. 安全性
+- **純中文**：可能忽略安全性細節
+- **純英文**：包含安全性考量
+- **雙語策略**：全面的安全性實作
+
+#### 4. 程式碼註解
+- **純中文**：中文註解但可能不夠技術性
+- **純英文**：技術性強但是英文註解
+- **雙語策略**：技術性中文註解
+
+## 最佳實踐建議
+
+### 何時使用純中文
+- 快速原型開發
+- 非技術需求討論
+- UI/UX 文案設計
+
+### 何時使用純英文
+- 純後端 API 開發
+- 開源專案（國際化）
+- 演算法實作
+
+### 何時使用雙語策略
+- 完整的應用程式開發
+- 需要本地化的專案
+- 團隊協作專案
+- 生產環境程式碼
+
+## 進階雙語技巧
+
+### 1. 分層策略
+```markdown
+```
+
+## 輸出要求 (Output in Chinese)
+
+```markdown
+所有使用者介面元素使用繁體中文：
+
+表單標題與標籤：
+- 頁面標題：「會員登入」
+- 使用者名稱標籤：「使用者名稱或電子郵件」
+- 密碼標籤：「密碼」
+- 記住我：「保持登入狀態」
+- 提交按鈕：「登入」
+- 註冊連結：「還沒有帳號？立即註冊」
+- 忘記密碼：「忘記密碼？」
+
+驗證訊息：
+- 必填欄位：「此欄位為必填」
+- 使用者名稱錯誤：「使用者名稱至少需要3個字元」
+- 電子郵件格式錯誤：「請輸入有效的電子郵件地址」
+- 密碼錯誤：「密碼至少需要8個字元，包含大小寫字母和數字」
+- 登入失敗：「使用者名稱或密碼錯誤，請重試」
+- 帳號鎖定：「登入嘗試次數過多，請稍後再試」
+- 網路錯誤：「網路連線失敗，請檢查您的網路設定」
+
+成功訊息：
+- 登入成功：「歡迎回來！正在跳轉...」
+- 密碼已發送：「重設密碼連結已發送至您的信箱」
+
+輔助文字：
+- 密碼提示：「使用至少8個字元，包含大小寫字母和數字」
+- 安全提示：「我們使用業界標準加密保護您的資料」
+- 載入中：「驗證中，請稍候...」
+
+程式碼註解規範：
+- 所有函數使用中文註解說明用途
+- 複雜邏輯加入步驟說明
+- 安全相關程式碼特別標註
+```
+
+## 實際效果比較
+
+### 評估維度
+
+| 評估項目 | 純中文 | 純英文 | 雙語策略 |
+|---------|--------|--------|----------|
+| **技術準確性** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **程式碼品質** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **安全性考量** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **本地化完整** | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
+| **可維護性** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **最佳實踐** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+
+### 具體差異分析
+
+#### 1. 程式碼結構
+- **純中文**：傾向生成程序式程式碼
+- **純英文**：更多物件導向和模組化
+- **雙語策略**：最佳的架構設計
+
+#### 2. 錯誤處理
+- **純中文**：基本的 try-catch
+- **純英文**：完整的錯誤處理但訊息是英文
+- **雙語策略**：完整錯誤處理 + 中文訊息
+
+#### 3. 安全性
+- **純中文**：可能忽略安全性細節
+- **純英文**：包含安全性考量
+- **雙語策略**：全面的安全性實作
+
+#### 4. 程式碼註解
+- **純中文**：中文註解但可能不夠技術性
+- **純英文**：技術性強但是英文註解
+- **雙語策略**：技術性中文註解
+
+## 最佳實踐建議
+
+### 何時使用純中文
+- 快速原型開發
+- 非技術需求討論
+- UI/UX 文案設計
+
+### 何時使用純英文
+- 純後端 API 開發
+- 開源專案（國際化）
+- 演算法實作
+
+### 何時使用雙語策略
+- 完整的應用程式開發
+- 需要本地化的專案
+- 團隊協作專案
+- 生產環境程式碼
+
+## 進階雙語技巧
+
+### 1. 分層策略
+```markdown
+```
+
+## Example / 範例
+
+```javascript
+// Implementation example
+// 實作範例
+```
+
+## Original Content (To Be Integrated)
+
+# Bilingual Prompting Strategy Comparison
+
+## 雙語提示策略比較研究
+
+本文件展示純中文、純英文和雙語策略的實際效果對比。
+
+### 測試案例：創建使用者登入表單
+
+## 方法 1：純中文提示
+
+```markdown
+請創建一個使用者登入表單，需要包含：
+
+功能需求：
+- 使用者名稱或電子郵件輸入框
+- 密碼輸入框（要能顯示/隱藏密碼）
+- 記住我的勾選框
+- 忘記密碼連結
+- 登入按鈕
+- 註冊新帳號連結
+
+驗證規則：
+- 使用者名稱至少3個字元
+- 密碼至少8個字元
+- 要有錯誤提示
+- 防止重複提交
+
+設計要求：
+- 現代化的視覺設計
+- 要有載入動畫
+- 響應式布局
+- 深色主題
+```
+
+### 預期問題
+- 技術實作細節可能不夠精確
+- 可能缺少安全性考量
+- 程式碼結構可能較鬆散
+
+## 方法 2：純英文提示
+
+```markdown
+Create a user login form with:
+
+Functional Requirements:
+- Username or email input field
+- Password field with show/hide toggle
+- Remember me checkbox
+- Forgot password link
+- Submit button
+- Sign up link for new users
+
+Validation Rules:
+- Username minimum 3 characters
+- Password minimum 8 characters
+- Display error messages
+- Prevent duplicate submissions
+
+Design Requirements:
+- Modern visual design
+- Loading animation
+- Responsive layout
+- Dark theme
+```
+
+### 預期問題
+- 介面文字會是英文
+- 錯誤訊息不會自動中文化
+- 需要額外步驟進行本地化
+
+## 方法 3：雙語策略提示（推薦）
+
+```markdown
+[English Technical Specification]
+Create a secure user authentication form with the following specifications:
+
+Technical Implementation:
+- Use semantic HTML5 form elements
+- Implement CSRF token protection
+- Add input sanitization for XSS prevention
+- Use bcrypt for password hashing (demonstration)
+- Implement rate limiting logic (client-side simulation)
+
+Form Fields:
+1. Username/Email Input
+   - type: email/text with detection
+   - autocomplete: username
+   - regex validation: email RFC 5322 or alphanumeric username
+   - min length: 3, max length: 50
+
+2. Password Input
+   - type: password
+   - autocomplete: current-password
+   - toggle visibility with eye icon
+   - strength indicator
+   - regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/
+
+3. Remember Me
+   - type: checkbox
+   - secure cookie implementation (httpOnly, secure, sameSite)
+
+4. Form Actions
+   - Submit with enter key support
+   - Disable during submission
+   - Show loading state
+   - Handle success/error responses
+
+Security Features:
+- Input debouncing (300ms)
+- XSS protection via DOMPurify concept
+- SQL injection prevention patterns
+- Timing attack mitigation
+- Session management best practices
+
+Accessibility:
+- ARIA labels and descriptions
+- Keyboard navigation
+- Screen reader support
+- Focus management
+- Error announcements
+
+Performance:
+- Lazy load validation library
+- Optimize critical rendering path
+- Use requestAnimationFrame for animations
+- Implement virtual keyboard detection
+
+[Chinese UI Requirements]
+所有使用者介面元素使用繁體中文：
+
+表單標題與標籤：
+- 頁面標題：「會員登入」
+- 使用者名稱標籤：「使用者名稱或電子郵件」
+- 密碼標籤：「密碼」
+- 記住我：「保持登入狀態」
+- 提交按鈕：「登入」
+- 註冊連結：「還沒有帳號？立即註冊」
+- 忘記密碼：「忘記密碼？」
+
+驗證訊息：
+- 必填欄位：「此欄位為必填」
+- 使用者名稱錯誤：「使用者名稱至少需要3個字元」
+- 電子郵件格式錯誤：「請輸入有效的電子郵件地址」
+- 密碼錯誤：「密碼至少需要8個字元，包含大小寫字母和數字」
+- 登入失敗：「使用者名稱或密碼錯誤，請重試」
+- 帳號鎖定：「登入嘗試次數過多，請稍後再試」
+- 網路錯誤：「網路連線失敗，請檢查您的網路設定」
+
+成功訊息：
+- 登入成功：「歡迎回來！正在跳轉...」
+- 密碼已發送：「重設密碼連結已發送至您的信箱」
+
+輔助文字：
+- 密碼提示：「使用至少8個字元，包含大小寫字母和數字」
+- 安全提示：「我們使用業界標準加密保護您的資料」
+- 載入中：「驗證中，請稍候...」
+
+程式碼註解規範：
+- 所有函數使用中文註解說明用途
+- 複雜邏輯加入步驟說明
+- 安全相關程式碼特別標註
+```
+
+## 實際效果比較
+
+### 評估維度
+
+| 評估項目 | 純中文 | 純英文 | 雙語策略 |
+|---------|--------|--------|----------|
+| **技術準確性** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **程式碼品質** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **安全性考量** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **本地化完整** | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
+| **可維護性** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **最佳實踐** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+
+### 具體差異分析
+
+#### 1. 程式碼結構
+- **純中文**：傾向生成程序式程式碼
+- **純英文**：更多物件導向和模組化
+- **雙語策略**：最佳的架構設計
+
+#### 2. 錯誤處理
+- **純中文**：基本的 try-catch
+- **純英文**：完整的錯誤處理但訊息是英文
+- **雙語策略**：完整錯誤處理 + 中文訊息
+
+#### 3. 安全性
+- **純中文**：可能忽略安全性細節
+- **純英文**：包含安全性考量
+- **雙語策略**：全面的安全性實作
+
+#### 4. 程式碼註解
+- **純中文**：中文註解但可能不夠技術性
+- **純英文**：技術性強但是英文註解
+- **雙語策略**：技術性中文註解
+
+## 最佳實踐建議
+
+### 何時使用純中文
+- 快速原型開發
+- 非技術需求討論
+- UI/UX 文案設計
+
+### 何時使用純英文
+- 純後端 API 開發
+- 開源專案（國際化）
+- 演算法實作
+
+### 何時使用雙語策略
+- 完整的應用程式開發
+- 需要本地化的專案
+- 團隊協作專案
+- 生產環境程式碼
+
+## 進階雙語技巧
+
+### 1. 分層策略
+```markdown
+[Layer 1: Architecture - English]
+Define system architecture and patterns
+
+[Layer 2: Implementation - English]
+Technical specifications and algorithms
+
+[Layer 3: Business Logic - Mixed]
+Business rules with domain terms
+
+[Layer 4: UI/UX - Chinese]
+User interface and messages
+```
+
+### 2. 領域驅動設計
+```markdown
+[Domain Model - English]
+Define entities, value objects, aggregates
+
+[Domain Services - English]
+Business logic implementation
+
+[Application Services - Mixed]
+Use cases and workflows
+
+[Presentation - Chinese]
+User interface and interactions
+```
+
+### 3. 漸進式本地化
+```markdown
+[Phase 1: Core Development]
+Pure English for rapid development
+
+[Phase 2: Localization]
+Add Chinese UI requirements
+
+[Phase 3: Documentation]
+Complete Chinese documentation
+```
+
+## 實驗練習
+
+### 練習 1：比較三種方法
+使用三種提示方法生成相同功能，記錄：
+- 生成時間
+- 程式碼行數
+- 功能完整度
+- 需要的修改量
+
+### 練習 2：優化提示詞
+選擇一個方法，通過 5 次迭代優化提示詞，觀察改進效果。
+
+### 練習 3：混合策略
+嘗試不同的中英文比例：
+- 90% 英文 / 10% 中文
+- 70% 英文 / 30% 中文
+- 50% 英文 / 50% 中文
+- 30% 英文 / 70% 中文
+
+## 結論
+
+雙語策略結合了兩種語言的優勢：
+- **英文的技術精確性**：利用 AI 在英文技術文件上的訓練優勢
+- **中文的本地化需求**：確保最終產品符合本地使用者需求
+
+透過合理的雙語策略，我們可以：
+1. 獲得更高品質的程式碼
+2. 減少本地化工作
+3. 提高開發效率
+4. 確保最佳實踐
+
+---
+*記住：雙語策略是一種工具，關鍵是理解何時以及如何使用它來達到最佳效果。*

@@ -34,6 +34,7 @@ export class PlaywrightMCP {
 
   /**
    * 執行 MCP 指令
+   * @param {*} command - command 參數
    */
   async execute(command: MCPCommand): Promise<MCPResponse> {
     this.history.push(command);
@@ -74,6 +75,7 @@ export class PlaywrightMCP {
 
   /**
    * 批次執行指令
+   * @param {*} commands - commands 參數
    */
   async executeBatch(commands: MCPCommand[]): Promise<MCPResponse[]> {
     const results: MCPResponse[] = [];
@@ -93,6 +95,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理點擊動作
+   * @param {*} command - command 參數
    */
   private async handleClick(command: MCPCommand): Promise<MCPResponse> {
     if (!command.target) {
@@ -109,6 +112,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理輸入動作
+   * @param {*} command - command 參數
    */
   private async handleType(command: MCPCommand): Promise<MCPResponse> {
     if (!command.target || !command.value) {
@@ -125,6 +129,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理導航動作
+   * @param {*} command - command 參數
    */
   private async handleNavigate(command: MCPCommand): Promise<MCPResponse> {
     if (!command.value) {
@@ -142,6 +147,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理等待動作
+   * @param {*} command - command 參數
    */
   private async handleWait(command: MCPCommand): Promise<MCPResponse> {
     if (command.target) {
@@ -158,6 +164,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理斷言動作
+   * @param {*} command - command 參數
    */
   private async handleAssert(command: MCPCommand): Promise<MCPResponse> {
     if (!command.target) {
@@ -190,6 +197,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理截圖動作
+   * @param {*} command - command 參數
    */
   private async handleScreenshot(command: MCPCommand): Promise<MCPResponse> {
     const screenshot = await this.page.screenshot({
@@ -208,6 +216,7 @@ export class PlaywrightMCP {
 
   /**
    * 處理資料擷取動作
+   * @param {*} command - command 參數
    */
   private async handleExtract(command: MCPCommand): Promise<MCPResponse> {
     const data = await this.page.evaluate(() => {
@@ -267,6 +276,7 @@ export class PlaywrightMCP {
   /**
    * AI 輔助定位器
    * 根據自然語言描述找到元素
+   * @param {*} description - description 參數
    */
   async aiLocate(description: string): Promise<string | null> {
     // 這裡可以整合 AI 模型來解析描述並返回選擇器
@@ -304,6 +314,7 @@ export class PlaywrightMCP {
 export class AITestGenerator {
   /**
    * 從自然語言生成測試指令
+   * @param {*} instruction - instruction 參數
    */
   static generateCommands(instruction: string): MCPCommand[] {
     const commands: MCPCommand[] = [];
@@ -363,6 +374,7 @@ export class AITestGenerator {
   
   /**
    * 生成斷言指令
+   * @param {*} expectation - expectation 參數
    */
   static generateAssertion(expectation: string): MCPCommand {
     // 解析期望值並生成斷言

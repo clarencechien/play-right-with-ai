@@ -1,0 +1,73 @@
+# CODEOWNERS 檔案
+# 此檔案定義誰負責審查特定檔案或目錄的變更
+# 當 PR 影響這些檔案時，指定的人員會自動被請求審查
+
+# 全域擁有者 - 這些人會被請求審查所有變更
+* @workshop-maintainers
+
+# 工作坊內容
+/workshop/ @workshop-maintainers @content-team
+/workshop/chapter-01/ @chapter-1-owner
+/workshop/chapter-02/ @chapter-2-owner
+/workshop/chapter-03/ @chapter-3-owner
+/workshop/chapter-04/ @chapter-4-owner
+/workshop/chapter-05/ @chapter-5-owner
+/workshop/chapter-06/ @chapter-6-owner
+/workshop/chapter-07/ @chapter-7-owner
+/workshop/chapter-08/ @chapter-8-owner
+
+# AI 提示詞
+/prompts/ @ai-prompt-experts @workshop-maintainers
+
+# 範例應用程式
+/sample-app-source/ @app-developers @workshop-maintainers
+
+# 測試相關
+*.test.js @testing-team
+*.spec.js @testing-team
+*.test.ts @testing-team
+*.spec.ts @testing-team
+/tests/ @testing-team
+/e2e/ @testing-team @playwright-experts
+
+# 文件
+*.md @documentation-team
+/docs/ @documentation-team
+README.md @workshop-maintainers @documentation-team
+CONTRIBUTING.md @workshop-maintainers
+CODE_OF_CONDUCT.md @workshop-maintainers
+
+# 設定檔案
+.github/ @workshop-maintainers @devops-team
+.github/workflows/ @devops-team
+.github/ISSUE_TEMPLATE/ @community-team
+.github/DISCUSSION_TEMPLATE/ @community-team
+
+# 依賴和設定
+package.json @workshop-maintainers @tech-leads
+package-lock.json @workshop-maintainers @tech-leads
+.env* @security-team
+*.config.js @tech-leads
+*.config.ts @tech-leads
+
+# 安全相關
+.github/SECURITY.md @security-team @workshop-maintainers
+**/security/ @security-team
+
+# 翻譯
+/translations/ @translation-team
+/translations/en/ @english-translators
+/translations/ja/ @japanese-translators
+/translations/ko/ @korean-translators
+
+# 社群範例
+/workshop/community-examples/ @community-team
+
+# 記憶庫系統
+/memory-bank/ @workshop-maintainers
+.cursorrules @workshop-maintainers
+CLAUDE.md @workshop-maintainers
+
+# 特殊檔案 - 需要額外審查
+LICENSE @workshop-maintainers @legal-team
+.github/FUNDING.yml @workshop-maintainers @finance-team

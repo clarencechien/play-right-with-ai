@@ -1,0 +1,60 @@
+{
+  "workshop": {
+    "chapters": [
+      {
+        "id": 1,
+        "title": "AI Conductor",
+        "status": "available"
+      },
+      {
+        "id": 2,
+        "title": "First Movement",
+        "status": "available"
+      },
+      {
+        "id": 3,
+        "title": "Second Movement",
+        "status": "locked"
+      },
+      {
+        "id": 4,
+        "title": "Third Movement",
+        "status": "locked"
+      },
+      {
+        "id": 5,
+        "title": "Fourth Movement",
+        "status": "locked"
+      },
+      {
+        "id": 6,
+        "title": "Final Movement",
+        "status": "locked"
+      },
+      {
+        "id": 7,
+        "title": "Variations",
+        "status": "locked"
+      },
+      {
+        "id": 8,
+        "title": "Capstone Project",
+        "status": "locked"
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "name": "測試學員",
+        "email": "test@example.com"
+      }
+    ]
+  },
+  "todoApp": {
+    "defaultTodos": [
+      "學習 Playwright",
+      "練習 AI 整合",
+      "完成工作坊"
+    ]
+  }
+}

@@ -1,87 +1,112 @@
 /**
- * 智能購物清單應用程式
- * 實現分類管理、預算追蹤等進階功能
+ * Shopping List App - Complete Implementation
+ * Features: Categories, Budget tracking, Priority, Search, Export, Share
  */
 
+/**
+ * ShoppingListApp 類別
+ */
 class ShoppingListApp {
+    /**
+     * 初始化建構函式
+     */
     constructor() {
         this.items = [];
-        this.budget = 0;
-        this.categories = ['食品', '日用品', '電子產品', '服飾', '其他'];
-        this.currentFilter = 'all';
-        this.searchTerm = '';
+        this.budgetLimit = 0;
+        this.categories = ['食品', '日用品', '其他'];
+        this.lastError = null;
         this.init();
     }
 
+    /**
+     * init 方法
+     */
     init() {
         this.loadFromStorage();
-        this.bindEvents();
+        this.setupEventListeners();
+        this.checkURLImport();
         this.render();
     }
 
-    bindEvents() {
-        // 新增商品
-        document.getElementById('addButton').addEventListener('click', () => this.addItem());
-        document.getElementById('itemName').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.addItem();
-        });
+    // Item Management
+    /**
+     *
+     * @param {*} item - item 參數
+     */
+    addItem(item) {
+        // Validation
+        if (!item.name || item.name.trim() === '') {
+            throw new Error('品項名稱為必填');
+        }
+        
+        if (item.quantity !== undefined && item.quantity <= 0) {
+            throw new Error('數量必須大於0');
+        }
+        
+        if (item.price !== undefined && item.price < 0) {
+            throw new Error('價格不能為負數');
+        }
 
-        // 搜尋與篩選
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            this.searchTerm = e.target.value;
-            this.render();
-        });
-
-        document.getElementById('categoryFilter').addEventListener('change', (e) => {
-            this.currentFilter = e.target.value;
-            this.render();
-        });
-
-        // 預算設定
-        document.getElementById('setBudget').addEventListener('click', () => this.setBudget());
-        document.getElementById('budgetInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.setBudget();
-        });
-
-        // 批量操作
-        document.getElementById('clearPurchased').addEventListener('click', () => this.clearPurchased());
-        document.getElementById('clearAll').addEventListener('click', () => this.clearAll());
-        document.getElementById('exportList').addEventListener('click', () => this.exportList());
-        document.getElementById('shareList').addEventListener('click', () => this.shareList());
-    }
-
-    addItem() {
-        const nameInput = document.getElementById('itemName');
-        const quantityInput = document.getElementById('itemQuantity');
-        const categoryInput = document.getElementById('itemCategory');
-        const priceInput = document.getElementById('itemPrice');
-
-        const name = nameInput.value.trim();
-        if (name === '') return;
-
-        const item = {
-            id: Date.now(),
-            name: this.escapeHtml(name),
-            quantity: parseInt(quantityInput.value) || 1,
-            category: categoryInput.value,
-            price: parseFloat(priceInput.value) || 0,
-            purchased: false,
+        const newItem = {
+            id: Date.now() + Math.random(),
+            name: item.name.trim(),
+            category: item.category || '其他',
+            quantity: item.quantity || 1,
+            price: item.price || 0,
+            priority: item.priority || false,
+            purchased: item.purchased || false,
             createdAt: new Date().toISOString()
         };
 
-        this.items.push(item);
+        this.items.push(newItem);
         this.saveToStorage();
         this.render();
-
-        // 清空表單
-        nameInput.value = '';
-        quantityInput.value = '1';
-        priceInput.value = '';
-        nameInput.focus();
+        
+        // Check budget after adding
+        if (this.isBudgetExceeded()) {
+            this.showBudgetWarning();
+        }
+        
+        return newItem;
     }
 
-    togglePurchased(id) {
-        const item = this.items.find(i => i.id === id);
+    /**
+     *
+     * @param {*} itemId - itemId 參數
+     */
+    deleteItem(itemId) {
+        const index = this.items.findIndex(item => item.id === itemId);
+        if (index !== -1) {
+            this.items.splice(index, 1);
+            this.saveToStorage();
+            this.render();
+        }
+    }
+
+    /**
+     *
+     * @param {*} itemId - itemId 參數
+     * @param {*} newQuantity - newQuantity 參數
+     */
+    updateQuantity(itemId, newQuantity) {
+        const item = this.items.find(i => i.id === itemId);
+        if (item && newQuantity > 0) {
+            item.quantity = newQuantity;
+            this.saveToStorage();
+            this.render();
+            
+            if (this.isBudgetExceeded()) {
+                this.showBudgetWarning();
+            }
+        }
+    }
+
+    /**
+     *
+     * @param {*} itemId - itemId 參數
+     */
+    togglePurchased(itemId) {
+        const item = this.items.find(i => i.id === itemId);
         if (item) {
             item.purchased = !item.purchased;
             if (item.purchased) {
@@ -94,243 +119,611 @@ class ShoppingListApp {
         }
     }
 
-    updateQuantity(id, delta) {
-        const item = this.items.find(i => i.id === id);
+    /**
+     *
+     * @param {*} itemId - itemId 參數
+     */
+    togglePriority(itemId) {
+        const item = this.items.find(i => i.id === itemId);
         if (item) {
-            item.quantity = Math.max(1, item.quantity + delta);
+            item.priority = !item.priority;
             this.saveToStorage();
             this.render();
         }
     }
 
-    deleteItem(id) {
-        this.items = this.items.filter(i => i.id !== id);
+    // Budget Management
+    /**
+     *
+     * @param {*} limit - limit 參數
+     */
+    setBudgetLimit(limit) {
+        this.budgetLimit = Math.max(0, limit);
         this.saveToStorage();
         this.render();
     }
 
-    setBudget() {
-        const budgetInput = document.getElementById('budgetInput');
-        const budget = parseFloat(budgetInput.value);
+    /**
+     * calculateTotal 方法
+     */
+    calculateTotal() {
+        return this.items.reduce((total, item) => {
+            return total + (item.price * item.quantity);
+        }, 0);
+    }
+
+    /**
+     * isBudgetExceeded 方法
+     */
+    isBudgetExceeded() {
+        if (this.budgetLimit === 0) return false;
+        return this.calculateTotal() > this.budgetLimit;
+    }
+
+    /**
+     * getBudgetStatus 方法
+     */
+    getBudgetStatus() {
+        const total = this.calculateTotal();
+        const remaining = this.budgetLimit - total;
         
-        if (!isNaN(budget) && budget >= 0) {
-            this.budget = budget;
-            this.saveToStorage();
-            this.updateBudgetDisplay();
-            budgetInput.value = '';
+        if (this.budgetLimit === 0) {
+            return `總計: NT$ ${total}`;
+        }
+        
+        if (remaining < 0) {
+            return `超出預算: NT$ ${Math.abs(remaining)}`;
+        }
+        
+        return `剩餘預算: NT$ ${remaining}`;
+    }
+
+    /**
+     * getRemainingBudget 方法
+     */
+    getRemainingBudget() {
+        return Math.max(0, this.budgetLimit - this.calculateTotal());
+    }
+
+    /**
+     * showBudgetWarning 方法
+     */
+    showBudgetWarning() {
+        const warning = document.querySelector('.budget-warning');
+        if (warning) {
+            warning.classList.add('active');
+            warning.textContent = '⚠️ 預算超支警告！';
+            setTimeout(() => {
+                warning.classList.remove('active');
+            }, 5000);
         }
     }
 
-    updateBudgetDisplay() {
-        document.getElementById('budgetDisplay').textContent = `預算: NT$ ${this.budget}`;
+    // Search and Filter
+    /**
+     *
+     * @param {*} category - category 參數
+     */
+    filterByCategory(category) {
+        if (category === '全部') return this.items;
+        return this.items.filter(item => item.category === category);
     }
 
-    getFilteredItems() {
-        let filtered = this.items;
+    /**
+     *
+     * @param {*} searchTerm - searchTerm 參數
+     */
+    searchItems(searchTerm) {
+        const term = searchTerm.toLowerCase();
+        return this.items.filter(item => 
+            item.name.toLowerCase().includes(term)
+        );
+    }
 
-        // 搜尋篩選
-        if (this.searchTerm) {
-            filtered = filtered.filter(item => 
-                item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    /**
+     * getPriorityItems 方法
+     */
+    getPriorityItems() {
+        return this.items.filter(item => item.priority);
+    }
+
+    /**
+     * getUnpurchasedItems 方法
+     */
+    getUnpurchasedItems() {
+        return this.items.filter(item => !item.purchased);
+    }
+
+    /**
+     * getCategoryStats 方法
+     */
+    getCategoryStats() {
+        const stats = {};
+        
+        this.categories.forEach(category => {
+            const categoryItems = this.filterByCategory(category);
+            stats[category] = {
+                count: categoryItems.length,
+                total: categoryItems.reduce((sum, item) => 
+                    sum + (item.price * item.quantity), 0
+                )
+            };
+        });
+        
+        return stats;
+    }
+
+    // Data Persistence
+    /**
+     * saveToStorage 方法
+     */
+    saveToStorage() {
+        try {
+            const data = {
+                items: this.items,
+                budgetLimit: this.budgetLimit,
+                lastSaved: new Date().toISOString()
+            };
+            localStorage.setItem('shoppingList', JSON.stringify(data));
+            this.lastError = null;
+        } catch (error) {
+            this.lastError = '儲存空間不足，無法儲存資料';
+            console.error('Storage error:', error);
+        }
+    }
+
+    /**
+     * loadFromStorage 方法
+     */
+    loadFromStorage() {
+        try {
+            const saved = localStorage.getItem('shoppingList');
+            if (saved) {
+                const data = JSON.parse(saved);
+                this.items = data.items || [];
+                this.budgetLimit = data.budgetLimit || 0;
+            }
+        } catch (error) {
+            console.error('Load error:', error);
+        }
+    }
+
+    // Export Functionality
+    /**
+     * exportToCSV 方法
+     */
+    exportToCSV() {
+        const headers = '名稱,類別,數量,單價,總價,優先,已購買';
+        const rows = this.items.map(item => {
+            return [
+                item.name,
+                item.category,
+                item.quantity,
+                item.price,
+                item.price * item.quantity,
+                item.priority ? '是' : '否',
+                item.purchased ? '是' : '否'
+            ].join(',');
+        });
+        
+        return [headers, ...rows].join('\n');
+    }
+
+    /**
+     * exportToJSON 方法
+     */
+    exportToJSON() {
+        return JSON.stringify({
+            items: this.items,
+            budgetLimit: this.budgetLimit,
+            totalBudget: this.calculateTotal(),
+            exportDate: new Date().toISOString(),
+            stats: this.getCategoryStats()
+        }, null, 2);
+    }
+
+    /**
+     *
+     * @param {*} content - content 參數
+     * @param {*} filename - filename 參數
+     * @param {*} type - type 參數
+     */
+    downloadFile(content, filename, type) {
+        const blob = new Blob([content], { type });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    /**
+     * generateShareURL 方法
+     */
+    generateShareURL() {
+        const data = {
+            items: this.items,
+            budgetLimit: this.budgetLimit
+        };
+        const encoded = btoa(JSON.stringify(data));
+        return `${window.location.origin}${window.location.pathname}?data=${encoded}`;
+    }
+
+    /**
+     *
+     * @param {*} url - url 參數
+     */
+    importFromURL(url) {
+        try {
+            const urlParams = new URLSearchParams(url.split('?')[1]);
+            const encodedData = urlParams.get('data');
+            
+            if (encodedData) {
+                const data = JSON.parse(atob(encodedData));
+                if (data.items) {
+                    data.items.forEach(item => {
+                        // Assign new IDs to avoid conflicts
+                        item.id = Date.now() + Math.random();
+                        this.items.push(item);
+                    });
+                }
+                if (data.budgetLimit) {
+                    this.budgetLimit = data.budgetLimit;
+                }
+                this.saveToStorage();
+                this.render();
+            }
+        } catch (error) {
+            console.error('Import error:', error);
+            this.lastError = '導入失敗，資料格式錯誤';
+        }
+    }
+
+    /**
+     * checkURLImport 方法
+     */
+    checkURLImport() {
+        if (window.location.search) {
+            this.importFromURL(window.location.href);
+            // Clear URL after import
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+
+    // UI Rendering
+    /**
+     * render 方法
+     */
+    render() {
+        const app = document.getElementById('app');
+        if (!app) return;
+
+        app.innerHTML = `
+            <div class="shopping-app">
+                <header class="app-header">
+                    <h1>🛒 智能購物清單</h1>
+                    <div class="budget-display">
+                        ${this.getBudgetStatus()}
+                    </div>
+                </header>
+
+                <div class="budget-warning"></div>
+
+                <div class="controls">
+                    <div class="add-item-form">
+                        <input type="text" id="item-name" placeholder="品項名稱" />
+                        <select id="item-category">
+                            ${this.categories.map(cat => 
+                                `<option value="${cat}">${cat}</option>`
+                            ).join('')}
+                        </select>
+                        <input type="number" id="item-quantity" placeholder="數量" min="1" value="1" />
+                        <input type="number" id="item-price" placeholder="單價" min="0" />
+                        <button id="add-btn" class="btn-primary">新增</button>
+                    </div>
+
+                    <div class="budget-control">
+                        <input type="number" id="budget-limit" placeholder="設定預算上限" 
+                               value="${this.budgetLimit}" min="0" />
+                        <button id="set-budget-btn" class="btn-secondary">設定預算</button>
+                    </div>
+
+                    <div class="filter-controls">
+                        <input type="text" id="search-input" placeholder="搜尋品項..." />
+                        <select id="category-filter">
+                            <option value="全部">全部類別</option>
+                            ${this.categories.map(cat => 
+                                `<option value="${cat}">${cat}</option>`
+                            ).join('')}
+                        </select>
+                        <button id="priority-filter" class="btn-filter">只顯示優先</button>
+                        <button id="unpurchased-filter" class="btn-filter">只顯示未購買</button>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    ${this.renderStats()}
+                </div>
+
+                <div class="shopping-list">
+                    ${this.renderItems()}
+                </div>
+
+                <div class="export-controls">
+                    <button id="export-csv" class="btn-export">匯出 CSV</button>
+                    <button id="export-json" class="btn-export">匯出 JSON</button>
+                    <button id="share-url" class="btn-export">分享連結</button>
+                    <button id="clear-purchased" class="btn-danger">清除已購買</button>
+                    <button id="clear-all" class="btn-danger">清除全部</button>
+                </div>
+
+                ${this.lastError ? `
+                    <div class="error-message">
+                        ${this.lastError}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+
+        this.setupEventListeners();
+    }
+
+    /**
+     * renderItems 方法
+     */
+    renderItems() {
+        if (this.items.length === 0) {
+            return '<div class="empty-state">目前沒有任何品項</div>';
+        }
+
+        const searchTerm = document.getElementById('search-input')?.value || '';
+        const categoryFilter = document.getElementById('category-filter')?.value || '全部';
+        const showPriorityOnly = document.getElementById('priority-filter')?.classList.contains('active');
+        const showUnpurchasedOnly = document.getElementById('unpurchased-filter')?.classList.contains('active');
+
+        let filteredItems = [...this.items];
+
+        // Apply filters
+        if (searchTerm) {
+            filteredItems = filteredItems.filter(item => 
+                item.name.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }
 
-        // 分類篩選
-        if (this.currentFilter !== 'all') {
-            filtered = filtered.filter(item => item.category === this.currentFilter);
+        if (categoryFilter !== '全部') {
+            filteredItems = filteredItems.filter(item => item.category === categoryFilter);
         }
 
-        return filtered;
-    }
+        if (showPriorityOnly) {
+            filteredItems = filteredItems.filter(item => item.priority);
+        }
 
-    groupByCategory(items) {
-        return items.reduce((groups, item) => {
-            if (!groups[item.category]) {
-                groups[item.category] = [];
-            }
-            groups[item.category].push(item);
-            return groups;
-        }, {});
-    }
+        if (showUnpurchasedOnly) {
+            filteredItems = filteredItems.filter(item => !item.purchased);
+        }
 
-    render() {
-        const listContainer = document.getElementById('shoppingList');
-        const filteredItems = this.getFilteredItems();
+        // Sort: priority first, then unpurchased, then by creation date
+        filteredItems.sort((a, b) => {
+            if (a.priority !== b.priority) return b.priority ? 1 : -1;
+            if (a.purchased !== b.purchased) return a.purchased ? 1 : -1;
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        });
 
-        if (filteredItems.length === 0) {
-            listContainer.innerHTML = '<div class="empty-state">購物清單是空的</div>';
-        } else {
-            const grouped = this.groupByCategory(filteredItems);
-            
-            listContainer.innerHTML = Object.entries(grouped)
-                .sort(([a], [b]) => a.localeCompare(b))
-                .map(([category, items]) => `
-                    <div class="category-section" data-testid="category-section-${category}">
-                        <h3>${category} (${items.length})</h3>
-                        <div class="items-list">
-                            ${items.map(item => this.renderItem(item)).join('')}
-                        </div>
+        return filteredItems.map(item => `
+            <div class="shopping-item ${item.purchased ? 'purchased' : ''} ${item.priority ? 'priority' : ''}"
+                 data-id="${item.id}">
+                <div class="item-checkbox">
+                    <input type="checkbox" 
+                           ${item.purchased ? 'checked' : ''} 
+                           onchange="app.togglePurchased(${item.id})" />
+                </div>
+                <div class="item-content">
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-meta">
+                        <span class="category-tag">${item.category}</span>
+                        <span class="price-tag">NT$ ${item.price}</span>
                     </div>
-                `).join('');
-        }
-
-        this.updateStats();
-        this.updateBudgetDisplay();
+                </div>
+                <div class="item-quantity">
+                    <button onclick="app.updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="app.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                </div>
+                <div class="item-total">
+                    NT$ ${item.price * item.quantity}
+                </div>
+                <div class="item-actions">
+                    <button class="btn-icon ${item.priority ? 'active' : ''}" 
+                            onclick="app.togglePriority(${item.id})"
+                            title="優先">⭐</button>
+                    <button class="btn-icon delete" 
+                            onclick="app.deleteItem(${item.id})"
+                            title="刪除">🗑️</button>
+                </div>
+            </div>
+        `).join('');
     }
 
-    renderItem(item) {
+    /**
+     * renderStats 方法
+     */
+    renderStats() {
+        const stats = this.getCategoryStats();
+        const total = this.calculateTotal();
+        const itemCount = this.items.length;
+        const purchasedCount = this.items.filter(i => i.purchased).length;
+
         return `
-            <div class="shopping-item ${item.purchased ? 'purchased' : ''}" data-testid="shopping-item">
-                <input 
-                    type="checkbox"
-                    data-testid="item-checkbox"
-                    ${item.purchased ? 'checked' : ''}
-                    onchange="shoppingApp.togglePurchased(${item.id})"
-                >
-                <div class="item-info">
-                    <span class="item-name">${item.name}</span>
-                    <span class="item-category">${item.category}</span>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">總品項</div>
+                    <div class="stat-value">${itemCount}</div>
                 </div>
-                <div class="quantity-control">
-                    <button 
-                        data-testid="decrease-quantity"
-                        onclick="shoppingApp.updateQuantity(${item.id}, -1)"
-                    >-</button>
-                    <span data-testid="quantity-display">${item.quantity}</span>
-                    <button 
-                        data-testid="increase-quantity"
-                        onclick="shoppingApp.updateQuantity(${item.id}, 1)"
-                    >+</button>
+                <div class="stat-card">
+                    <div class="stat-label">已購買</div>
+                    <div class="stat-value">${purchasedCount}/${itemCount}</div>
                 </div>
-                ${item.price > 0 ? `
-                    <span class="item-price">NT$ ${(item.price * item.quantity).toFixed(0)}</span>
-                ` : ''}
-                <button 
-                    class="delete-btn"
-                    data-testid="delete-button"
-                    onclick="shoppingApp.deleteItem(${item.id})"
-                >×</button>
+                <div class="stat-card">
+                    <div class="stat-label">總金額</div>
+                    <div class="stat-value">NT$ ${total}</div>
+                </div>
+                ${Object.entries(stats).map(([category, data]) => `
+                    <div class="stat-card">
+                        <div class="stat-label">${category}</div>
+                        <div class="stat-value">${data.count} 項 / NT$ ${data.total}</div>
+                    </div>
+                `).join('')}
             </div>
         `;
     }
 
-    updateStats() {
-        const total = this.items.length;
-        const purchased = this.items.filter(i => i.purchased).length;
-        const totalPrice = this.items.reduce((sum, item) => 
-            sum + (item.price * item.quantity), 0
-        );
+    /**
+     * setupEventListeners 方法
+     */
+    setupEventListeners() {
+        // Add item
+        const addBtn = document.getElementById('add-btn');
+        if (addBtn) {
+            addBtn.addEventListener('click', () => {
+                const name = document.getElementById('item-name').value;
+                const category = document.getElementById('item-category').value;
+                const quantity = parseInt(document.getElementById('item-quantity').value) || 1;
+                const price = parseFloat(document.getElementById('item-price').value) || 0;
 
-        document.getElementById('totalCount').textContent = `總計: ${total}`;
-        document.getElementById('purchasedCount').textContent = `已購買: ${purchased}`;
-        document.getElementById('totalPrice').textContent = `總價: NT$ ${totalPrice.toFixed(0)}`;
-
-        // 預算警告
-        if (this.budget > 0 && totalPrice > this.budget) {
-            document.getElementById('totalPrice').style.color = '#dc3545';
-        } else {
-            document.getElementById('totalPrice').style.color = '';
-        }
-    }
-
-    clearPurchased() {
-        this.items = this.items.filter(i => !i.purchased);
-        this.saveToStorage();
-        this.render();
-    }
-
-    clearAll() {
-        if (confirm('確定要清空整個購物清單嗎？')) {
-            this.items = [];
-            this.saveToStorage();
-            this.render();
-        }
-    }
-
-    exportList() {
-        const data = {
-            exported: new Date().toISOString(),
-            budget: this.budget,
-            items: this.items,
-            stats: {
-                total: this.items.length,
-                purchased: this.items.filter(i => i.purchased).length,
-                totalPrice: this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-            }
-        };
-
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `shopping-list-${Date.now()}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-    }
-
-    shareList() {
-        const text = this.items.map(item => 
-            `${item.purchased ? '✓' : '○'} ${item.name} x${item.quantity} (${item.category})`
-        ).join('\n');
-
-        if (navigator.share) {
-            navigator.share({
-                title: '我的購物清單',
-                text: text
-            }).catch(() => {
-                this.copyToClipboard(text);
+                try {
+                    this.addItem({ name, category, quantity, price });
+                    // Clear form
+                    document.getElementById('item-name').value = '';
+                    document.getElementById('item-quantity').value = '1';
+                    document.getElementById('item-price').value = '';
+                } catch (error) {
+                    alert(error.message);
+                }
             });
-        } else {
-            this.copyToClipboard(text);
         }
-    }
 
-    copyToClipboard(text) {
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('清單已複製到剪貼簿！');
+        // Set budget
+        const setBudgetBtn = document.getElementById('set-budget-btn');
+        if (setBudgetBtn) {
+            setBudgetBtn.addEventListener('click', () => {
+                const limit = parseFloat(document.getElementById('budget-limit').value) || 0;
+                this.setBudgetLimit(limit);
             });
-        } else {
-            // Fallback for older browsers
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            alert('清單已複製到剪貼簿！');
+        }
+
+        // Search
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => this.render());
+        }
+
+        // Category filter
+        const categoryFilter = document.getElementById('category-filter');
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', () => this.render());
+        }
+
+        // Priority filter
+        const priorityFilter = document.getElementById('priority-filter');
+        if (priorityFilter) {
+            priorityFilter.addEventListener('click', () => {
+                priorityFilter.classList.toggle('active');
+                this.render();
+            });
+        }
+
+        // Unpurchased filter
+        const unpurchasedFilter = document.getElementById('unpurchased-filter');
+        if (unpurchasedFilter) {
+            unpurchasedFilter.addEventListener('click', () => {
+                unpurchasedFilter.classList.toggle('active');
+                this.render();
+            });
+        }
+
+        // Export CSV
+        const exportCSV = document.getElementById('export-csv');
+        if (exportCSV) {
+            exportCSV.addEventListener('click', () => {
+                const csv = this.exportToCSV();
+                this.downloadFile(csv, `shopping-list-${Date.now()}.csv`, 'text/csv');
+            });
+        }
+
+        // Export JSON
+        const exportJSON = document.getElementById('export-json');
+        if (exportJSON) {
+            exportJSON.addEventListener('click', () => {
+                const json = this.exportToJSON();
+                this.downloadFile(json, `shopping-list-${Date.now()}.json`, 'application/json');
+            });
+        }
+
+        // Share URL
+        const shareURL = document.getElementById('share-url');
+        if (shareURL) {
+            shareURL.addEventListener('click', () => {
+                const url = this.generateShareURL();
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('分享連結已複製到剪貼簿！');
+                });
+            });
+        }
+
+        // Clear purchased
+        const clearPurchased = document.getElementById('clear-purchased');
+        if (clearPurchased) {
+            clearPurchased.addEventListener('click', () => {
+                if (confirm('確定要清除所有已購買的品項嗎？')) {
+                    this.items = this.items.filter(item => !item.purchased);
+                    this.saveToStorage();
+                    this.render();
+                }
+            });
+        }
+
+        // Clear all
+        const clearAll = document.getElementById('clear-all');
+        if (clearAll) {
+            clearAll.addEventListener('click', () => {
+                if (confirm('確定要清除所有品項嗎？此操作無法復原！')) {
+                    this.items = [];
+                    this.saveToStorage();
+                    this.render();
+                }
+            });
+        }
+
+        // Enter key to add
+        const itemName = document.getElementById('item-name');
+        if (itemName) {
+            itemName.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    addBtn?.click();
+                }
+            });
         }
     }
 
-    saveToStorage() {
-        localStorage.setItem('shoppingItems', JSON.stringify(this.items));
-        localStorage.setItem('shoppingBudget', this.budget.toString());
-    }
-
-    loadFromStorage() {
-        const savedItems = localStorage.getItem('shoppingItems');
-        const savedBudget = localStorage.getItem('shoppingBudget');
-
-        if (savedItems) {
-            try {
-                this.items = JSON.parse(savedItems);
-            } catch (e) {
-                console.error('載入購物清單失敗:', e);
-                this.items = [];
-            }
-        }
-
-        if (savedBudget) {
-            this.budget = parseFloat(savedBudget) || 0;
-        }
-    }
-
-    escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+    /**
+     * getLastError 方法
+     */
+    getLastError() {
+        return this.lastError || '';
     }
 }
 
-// 初始化應用
-const shoppingApp = new ShoppingListApp();
+// Initialize app when DOM is ready
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.app = new ShoppingListApp();
+    });
+}
+
+// Export for testing
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = ShoppingListApp;
+}

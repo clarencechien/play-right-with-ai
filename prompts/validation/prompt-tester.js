@@ -46,6 +46,12 @@ const CONFIG = {
  * 測試結果類
  */
 class TestResult {
+  /**
+   *
+   * @param {*} model - model 參數
+   * @param {*} chapter - chapter 參數
+   * @param {*} iteration - iteration 參數
+   */
   constructor(model, chapter, iteration) {
     this.model = model;
     this.chapter = chapter;
@@ -116,12 +122,16 @@ ${this.output.substring(0, 500)}...
  * Prompt 測試器
  */
 class PromptTester {
-  constructor() {
+  /**
+     * 初始化建構函式
+     */
+    constructor() {
     this.results = [];
   }
 
   /**
    * 載入 prompt
+   * @param {*} chapter - chapter 參數
    */
   async loadPrompt(chapter) {
     const chapterName = CONFIG.chapters[chapter];
@@ -139,6 +149,7 @@ class PromptTester {
 
   /**
    * 載入測試條件
+   * @param {*} chapter - chapter 參數
    */
   async loadTestCriteria(chapter) {
     const chapterName = CONFIG.chapters[chapter];
@@ -154,6 +165,7 @@ class PromptTester {
 
   /**
    * 解析測試條件
+   * @param {*} content - content 參數
    */
   parseTestCriteria(content) {
     const criteria = {
@@ -185,6 +197,7 @@ class PromptTester {
 
   /**
    * 提取檢查清單
+   * @param {*} section - section 參數
    */
   extractChecklist(section) {
     const checklistItems = [];
@@ -199,6 +212,8 @@ class PromptTester {
 
   /**
    * 模擬 AI 模型調用
+   * @param {*} model - model 參數
+   * @param {*} prompt - prompt 參數
    */
   async callModel(model, prompt) {
     // 注意：這是模擬實現
@@ -220,6 +235,8 @@ class PromptTester {
 
   /**
    * 生成模擬回應
+   * @param {*} model - model 參數
+   * @param {*} prompt - prompt 參數
    */
   generateSimulatedResponse(model, prompt) {
     // 基於 prompt 類型生成模擬回應
@@ -236,6 +253,7 @@ class PromptTester {
 
   /**
    * 生成 TODO 應用回應
+   * @param {*} model - model 參數
    */
   generateTodoAppResponse(model) {
     return `
@@ -282,6 +300,7 @@ class PromptTester {
 
   /**
    * 生成測試策略回應
+   * @param {*} model - model 參數
    */
   generateTestStrategyResponse(model) {
     return `
@@ -306,6 +325,7 @@ class PromptTester {
 
   /**
    * 生成 Playwright 回應
+   * @param {*} model - model 參數
    */
   generatePlaywrightResponse(model) {
     return `
@@ -324,6 +344,9 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 評估輸出
+   * @param {*} output - output 參數
+   * @param {*} criteria - criteria 參數
+   * @param {*} chapter - chapter 參數
    */
   async evaluateOutput(output, criteria, chapter) {
     const result = new TestResult('', chapter, 0);
@@ -352,6 +375,7 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 評估一致性
+   * @param {*} output - output 參數
    */
   evaluateConsistency(output) {
     // 簡化的評估邏輯
@@ -369,6 +393,8 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 評估完整性
+   * @param {*} output - output 參數
+   * @param {*} criteria - criteria 參數
    */
   evaluateCompleteness(output, criteria) {
     let matchedCriteria = 0;
@@ -386,6 +412,7 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 評估功能性
+   * @param {*} output - output 參數
    */
   evaluateFunctionality(output) {
     const functionalityChecks = {
@@ -402,6 +429,7 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 評估程式碼品質
+   * @param {*} output - output 參數
    */
   evaluateCodeQuality(output) {
     let score = 6; // 基礎分數
@@ -417,6 +445,7 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 評估雙語品質
+   * @param {*} output - output 參數
    */
   evaluateBilingualQuality(output) {
     const hasEnglishComments = /\/\/\s*[A-Za-z]/.test(output);
@@ -433,6 +462,9 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 執行測試
+   * @param {*} chapter - chapter 參數
+   * @param {*} model - model 參數
+   * @param {*} iterations - iterations 參數
    */
   async runTest(chapter, model, iterations) {
     console.log(`\n🧪 Testing Chapter ${chapter} with ${CONFIG.models[model].name}`);
@@ -518,6 +550,8 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 生成建議
+   * @param {*} report - report 參數
+   * @param {*} grouped - grouped 參數
    */
   generateRecommendations(report, grouped) {
     const recommendations = [];
@@ -546,6 +580,7 @@ test.describe('TODO App Tests', () => {
 
   /**
    * 保存報告
+   * @param {*} content - content 參數
    */
   async saveReport(content) {
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');

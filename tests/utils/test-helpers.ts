@@ -6,6 +6,8 @@ import { Page, expect } from '@playwright/test';
 
 /**
  * 等待並驗證頁面載入
+ * @param {*} page - page 參數
+ * @param {*} url - url 參數
  */
 export async function waitForPageLoad(page: Page, url?: string) {
   await page.waitForLoadState('domcontentloaded');
@@ -18,6 +20,10 @@ export async function waitForPageLoad(page: Page, url?: string) {
 
 /**
  * 模擬使用者輸入延遲
+ * @param {*} page - page 參數
+ * @param {*} selector - selector 參數
+ * @param {*} text - text 參數
+ * @param {*} delay - delay 參數
  */
 export async function typeWithDelay(page: Page, selector: string, text: string, delay = 50) {
   await page.locator(selector).clear();
@@ -26,6 +32,9 @@ export async function typeWithDelay(page: Page, selector: string, text: string, 
 
 /**
  * 驗證元素包含文字
+ * @param {*} page - page 參數
+ * @param {*} selector - selector 參數
+ * @param {*} text - text 參數
  */
 export async function expectTextInElement(page: Page, selector: string, text: string) {
   const element = page.locator(selector);
@@ -34,6 +43,8 @@ export async function expectTextInElement(page: Page, selector: string, text: st
 
 /**
  * 等待 API 回應
+ * @param {*} page - page 參數
+ * @param {*} urlPattern - urlPattern 參數
  */
 export async function waitForApiResponse(page: Page, urlPattern: string | RegExp) {
   return await page.waitForResponse(
@@ -49,6 +60,8 @@ export async function waitForApiResponse(page: Page, urlPattern: string | RegExp
 
 /**
  * 模擬網路錯誤
+ * @param {*} page - page 參數
+ * @param {*} urlPattern - urlPattern 參數
  */
 export async function simulateNetworkError(page: Page, urlPattern: string | RegExp) {
   await page.route(urlPattern, route => {
@@ -62,6 +75,8 @@ export async function simulateNetworkError(page: Page, urlPattern: string | RegE
 
 /**
  * 模擬慢速網路
+ * @param {*} page - page 參數
+ * @param {*} latency - latency 參數
  */
 export async function simulateSlowNetwork(page: Page, latency = 3000) {
   await page.route('**/*', async route => {
@@ -72,6 +87,7 @@ export async function simulateSlowNetwork(page: Page, latency = 3000) {
 
 /**
  * 取得所有 console 訊息
+ * @param {*} page - page 參數
  */
 export function collectConsoleMessages(page: Page): string[] {
   const messages: string[] = [];
@@ -85,6 +101,8 @@ export function collectConsoleMessages(page: Page): string[] {
 
 /**
  * 驗證無障礙性
+ * @param {*} page - page 參數
+ * @param {*} selector - selector 參數
  */
 export async function checkAccessibility(page: Page, selector?: string) {
   const target = selector ? page.locator(selector) : page;
@@ -103,6 +121,8 @@ export async function checkAccessibility(page: Page, selector?: string) {
 
 /**
  * 截圖比較
+ * @param {*} page - page 參數
+ * @param {*} name - name 參數
  */
 export async function compareScreenshots(page: Page, name: string) {
   await expect(page).toHaveScreenshot(`${name}.png`, {
@@ -113,6 +133,8 @@ export async function compareScreenshots(page: Page, name: string) {
 
 /**
  * 模擬鍵盤快捷鍵
+ * @param {*} page - page 參數
+ * @param {*} shortcut - shortcut 參數
  */
 export async function pressShortcut(page: Page, shortcut: string) {
   await page.keyboard.press(shortcut);
@@ -120,6 +142,7 @@ export async function pressShortcut(page: Page, shortcut: string) {
 
 /**
  * 取得效能指標
+ * @param {*} page - page 參數
  */
 export async function getPerformanceMetrics(page: Page) {
   return await page.evaluate(() => {
@@ -138,6 +161,8 @@ export async function getPerformanceMetrics(page: Page) {
 
 /**
  * 驗證表單驗證
+ * @param {*} page - page 參數
+ * @param {*} formSelector - formSelector 參數
  */
 export async function checkFormValidation(page: Page, formSelector: string) {
   const form = page.locator(formSelector);
@@ -153,6 +178,7 @@ export async function checkFormValidation(page: Page, formSelector: string) {
 
 /**
  * 清理測試資料
+ * @param {*} page - page 參數
  */
 export async function cleanupTestData(page: Page) {
   await page.evaluate(() => {

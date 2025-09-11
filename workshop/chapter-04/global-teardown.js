@@ -6,6 +6,10 @@
 const fs = require('fs').promises;
 const path = require('path');
 
+/**
+ *
+ * @param {*} config - config 參數
+ */
 async function globalTeardown(config) {
   console.log('\n🧹 開始全域清理...');
   

@@ -1,0 +1,148 @@
+# GitHub Pages Configuration for Play Right with AI Workshop
+
+# Site settings
+title: Play Right with AI
+description: AI 驅動的自循環開發與測試工作坊
+author: Play Right with AI Team
+email: contact@example.com
+baseurl: "/play-right-with-ai"
+url: "https://your-username.github.io"
+
+# Build settings
+theme: null
+plugins: []
+
+# Exclude from processing
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - scripts
+  - tests
+  - .github
+  - .git
+  - .gitignore
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.spec.ts"
+  - "*.test.js"
+  - .cursorrules
+  - .claude
+  - memory-bank
+  - playwright.config.ts
+  - tsconfig.json
+  - eslint.config.js
+
+# Include in processing
+include:
+  - docs
+  - _config.yml
+
+# Markdown processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Collections
+collections:
+  chapters:
+    output: true
+    permalink: /chapters/:name/
+  
+  prompts:
+    output: true
+    permalink: /prompts/:name/
+  
+  demos:
+    output: true
+    permalink: /demos/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      lang: "zh-TW"
+  
+  - scope:
+      path: "chapters"
+      type: "chapters"
+    values:
+      layout: "chapter"
+  
+  - scope:
+      path: "prompts"
+      type: "prompts"
+    values:
+      layout: "prompt"
+
+# Custom variables
+workshop:
+  version: "1.0.0"
+  chapters_count: 8
+  estimated_hours: 16
+  difficulty: "Intermediate"
+  prerequisites:
+    - "基礎 JavaScript/TypeScript 知識"
+    - "Git 基本操作"
+    - "命令列使用經驗"
+  
+  tools:
+    - name: "Playwright"
+      version: "1.40+"
+      required: true
+    
+    - name: "Claude API"
+      version: "Latest"
+      required: true
+    
+    - name: "Gemini API"
+      version: "Latest"
+      required: false
+    
+    - name: "Node.js"
+      version: "18+"
+      required: true
+
+# Analytics (optional)
+google_analytics: ""
+
+# Social links
+social:
+  github: https://github.com/your-username/play-right-with-ai
+  twitter: ""
+  linkedin: ""
+
+# SEO
+seo:
+  type: "EducationalCourse"
+  provider: "Play Right with AI"
+  keywords:
+    - "AI development"
+    - "Playwright testing"
+    - "Test automation"
+    - "AI-driven testing"
+    - "Claude API"
+    - "Gemini API"
+    - "E2E testing"
+    - "自動化測試"
+    - "AI 開發"
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false

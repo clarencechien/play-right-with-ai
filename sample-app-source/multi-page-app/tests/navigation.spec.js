@@ -143,7 +143,7 @@ test.describe('多頁面應用程式導航', () => {
     test('應該能關閉產品詳情', async ({ page }) => {
       await page.click('[data-testid="product-item"]:first-child [data-testid="view-details"]');
       await page.click('[data-testid="close-modal"]');
-      await expect(page.locator('[data-testid="product-modal"]')).not.toBeVisible();
+      await expect(page.locator('[data-testid="product-modal"]')).toBeHidden();
     });
   });
 
@@ -238,7 +238,7 @@ test.describe('多頁面應用程式導航', () => {
       await expect(hamburger).toBeVisible();
       
       const nav = page.locator('nav');
-      await expect(nav).not.toBeVisible();
+      await expect(nav).toBeHidden();
     });
 
     test('應該能開啟行動版選單', async ({ page }) => {
@@ -256,7 +256,7 @@ test.describe('多頁面應用程式導航', () => {
       await page.click('[data-nav="about"]');
       
       const nav = page.locator('nav');
-      await expect(nav).not.toBeVisible();
+      await expect(nav).toBeHidden();
     });
   });
 

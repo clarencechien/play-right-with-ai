@@ -1,0 +1,112 @@
+title: "[展示] "
+labels: ["showcase", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 展示與分享
+        
+        完成了很酷的專案？學到了有趣的技巧？在這裡與社群分享你的成果！
+        
+  - type: input
+    id: title
+    attributes:
+      label: 專案/成果名稱
+      description: 給你的分享一個吸引人的標題
+      placeholder: 我用 AI 建立了一個...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: 描述
+      description: 詳細介紹你的專案或成果
+      placeholder: |
+        我建立了什麼：
+        使用的技術：
+        學到的經驗：
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: workshop-usage
+    attributes:
+      label: 工作坊應用
+      description: 你如何應用工作坊所學？
+      options:
+        - 完成了 Capstone Project
+        - 應用到實際工作專案
+        - 擴展了工作坊範例
+        - 創建了新的應用
+        - 改進了現有流程
+        - 其他創新應用
+    validations:
+      required: true
+      
+  - type: textarea
+    id: key-learnings
+    attributes:
+      label: 關鍵學習
+      description: 分享你的關鍵學習和心得
+      placeholder: |
+        1. 最有用的技巧是...
+        2. 我發現...
+        3. 建議其他人...
+      
+  - type: textarea
+    id: code-snippets
+    attributes:
+      label: 程式碼片段或提示詞
+      description: 分享關鍵的程式碼或提示詞（可選）
+      render: javascript
+      placeholder: |
+        ```javascript
+        // 關鍵程式碼
+        ```
+        
+        或
+        
+        ```
+        特別有效的提示詞
+        ```
+      
+  - type: input
+    id: demo-link
+    attributes:
+      label: 示範連結
+      description: 如果有線上示範或程式碼庫，請提供連結
+      placeholder: https://github.com/username/project
+      
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截圖或影片
+      description: 添加視覺展示（拖放圖片或提供連結）
+      placeholder: 拖放圖片到這裡，或提供連結
+      
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: 實作難度
+      description: 你覺得這個專案的難度如何？
+      options:
+        - 初級 - 適合初學者
+        - 中級 - 需要一些經驗
+        - 進階 - 需要深入理解
+        - 專家 - 非常複雜
+      
+  - type: input
+    id: time-spent
+    attributes:
+      label: 花費時間
+      description: 完成這個專案花了多久？
+      placeholder: 例如：2天、10小時
+      
+  - type: checkboxes
+    id: permissions
+    attributes:
+      label: 分享權限
+      options:
+        - label: 我同意將這個分享加入工作坊的展示區
+        - label: 其他人可以基於我的工作進行改進

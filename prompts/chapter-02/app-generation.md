@@ -1,6 +1,6 @@
 # Chapter 2: Application Generation Golden Prompt
 
-## Version: 1.0.0
+## Version: 1.1.0
 ## Last Updated: 2025-09-11
 ## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
 
@@ -9,39 +9,50 @@
 ## Basic TODO Application Prompt
 
 ```markdown
-You are an experienced full-stack engineer specializing in modern web development. 
+You are an experienced full-stack engineer specializing in modern web development.
 
-## Thinking Process (English)
+## Technical Specification (Think in English)
 
-Let me analyze the requirements step by step:
+Analyze and implement a TODO application with the following technical requirements:
 
-1. **Architecture Planning**:
-   - Use vanilla JavaScript with ES6+ features for clean, modern code
-   - Implement MVC pattern for separation of concerns
-   - Use event delegation for dynamic element handling
-   - Design mobile-first responsive layout
+### Architecture Requirements
+- **Design Pattern**: Model-View-Controller (MVC) for separation of concerns
+- **Language**: Vanilla JavaScript ES6+ (no frameworks)
+- **Storage**: Browser localStorage with JSON serialization
+- **Performance**: Optimize for minimal DOM manipulation
 
-2. **Core Features to Implement**:
-   - Add new todo items with validation
-   - Mark items as complete/incomplete with visual feedback
-   - Delete items with confirmation
-   - Persist data using localStorage with error handling
-   - Display item count and completion status
+### Core Functionality
+1. **Data Model**:
+   - Todo item structure: { id, text, completed, createdAt, updatedAt }
+   - CRUD operations: Create, Read, Update, Delete
+   - Data validation and sanitization
+   - LocalStorage persistence with error handling
 
-3. **Technical Approach**:
-   - HTML5 semantic elements for accessibility
-   - CSS Grid and Flexbox for responsive layout
-   - JavaScript modules for code organization
-   - LocalStorage with JSON serialization
-   - Defensive programming with try-catch blocks
+2. **View Layer**:
+   - Semantic HTML5 elements
+   - Responsive CSS Grid/Flexbox layout
+   - Mobile-first design approach
+   - Accessibility features (ARIA labels, keyboard navigation)
 
-4. **Performance Considerations**:
-   - Minimize DOM manipulation
-   - Use DocumentFragment for batch updates
-   - Debounce storage operations
-   - Lazy loading for large lists
+3. **Controller Logic**:
+   - Event delegation for dynamic elements
+   - Input validation before processing
+   - State management and synchronization
+   - Error handling with user feedback
 
-## 輸出要求 (繁體中文)
+4. **Technical Implementation**:
+   - Use DocumentFragment for batch DOM updates
+   - Implement debouncing for storage operations
+   - Add try-catch blocks for defensive programming
+   - Use requestAnimationFrame for smooth animations
+
+### Non-Functional Requirements
+- **Performance**: Page load < 1 second, smooth 60fps interactions
+- **Compatibility**: Support modern browsers (Chrome, Firefox, Safari, Edge)
+- **Accessibility**: WCAG 2.1 Level AA compliance
+- **Security**: XSS prevention through input sanitization
+
+## 輸出要求 (Output in Chinese)
 
 請使用繁體中文提供一個完整的待辦事項網頁應用程式，包含以下內容：
 
@@ -80,43 +91,68 @@ Let me analyze the requirements step by step:
 ```markdown
 As a senior full-stack developer with expertise in production-ready applications, create an advanced TODO application.
 
-## Systematic Analysis (English)
+## Technical Specification (Think in English)
 
-1. **Advanced Architecture**:
-   - Component-based architecture without frameworks
-   - State management pattern
-   - Observer pattern for UI updates
-   - Factory pattern for todo items
+### System Architecture
+1. **Design Patterns**:
+   - Component-based architecture (without frameworks)
+   - Observer pattern for reactive UI updates
+   - Factory pattern for todo item creation
+   - Strategy pattern for different storage backends
+   - Command pattern for undo/redo functionality
 
-2. **Enhanced Features**:
-   - Priority levels (urgent, high, normal, low)
-   - Categories and tags
-   - Due dates with reminders
-   - Search and filter capabilities
-   - Bulk operations (select all, bulk delete)
-   - Drag-and-drop reordering
+2. **Data Architecture**:
+   ```javascript
+   // Todo item schema
+   {
+     id: string (UUID),
+     text: string,
+     priority: enum ['urgent', 'high', 'normal', 'low'],
+     category: string,
+     tags: string[],
+     dueDate: ISO8601 timestamp,
+     completed: boolean,
+     createdAt: timestamp,
+     updatedAt: timestamp,
+     attachments: array,
+     subtasks: array
+   }
+   ```
 
-3. **Production Considerations**:
-   - XSS prevention through input sanitization
-   - CSRF token simulation
-   - Rate limiting for operations
-   - Graceful degradation
-   - Progressive enhancement
+3. **Advanced Features Implementation**:
+   - **Search Algorithm**: Fuzzy search with ranking
+   - **Filter System**: Multi-criteria filtering with AND/OR logic
+   - **Drag-Drop**: HTML5 Drag and Drop API with touch support
+   - **Virtual Scrolling**: Render only visible items for performance
+   - **Bulk Operations**: Batch processing with progress indication
 
-4. **Performance Optimizations**:
-   - Virtual scrolling for large lists
-   - Indexed storage for fast retrieval
-   - Web Workers for heavy operations
-   - RequestAnimationFrame for smooth animations
+4. **Performance Strategy**:
+   - Use IndexedDB for large datasets (> 1000 items)
+   - Implement Web Workers for search/filter operations
+   - Use requestIdleCallback for non-critical updates
+   - Implement lazy loading with Intersection Observer
+   - Cache computed values with memoization
 
-5. **UX Enhancements**:
-   - Keyboard shortcuts
-   - Undo/Redo functionality
-   - Auto-save with conflict resolution
-   - Export/Import functionality
-   - Statistics dashboard
+5. **Security Measures**:
+   - Content Security Policy (CSP) headers
+   - Input sanitization with DOMPurify principles
+   - Rate limiting with token bucket algorithm
+   - Secure random ID generation
+   - Protection against prototype pollution
 
-## 專業輸出規範 (繁體中文)
+6. **State Management**:
+   ```javascript
+   // State structure
+   state = {
+     todos: Map<id, TodoItem>,
+     filters: { category, priority, status, dateRange },
+     sortOrder: { field, direction },
+     view: { mode, itemsPerPage, currentPage },
+     history: { past: [], future: [] }
+   }
+   ```
+
+## 輸出要求 (Output in Chinese)
 
 請建立一個生產級別的進階待辦事項應用程式：
 
@@ -168,36 +204,79 @@ As a senior full-stack developer with expertise in production-ready applications
 
 ---
 
+## Example / 範例
+
+### English Thinking Process:
+```
+Analyzing requirements:
+1. User needs a TODO app
+2. Must handle CRUD operations
+3. Requires persistent storage
+4. Needs responsive design
+
+Technical decisions:
+- Use MVC pattern for clean architecture
+- LocalStorage for persistence
+- Event delegation for performance
+- CSS Grid for layout
+```
+
+### Chinese Output Result:
+```html
+<!-- 完整的待辦事項應用程式 -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>待辦事項管理系統</title>
+    <!-- CSS 樣式定義 -->
+</head>
+<body>
+    <!-- 應用程式介面 -->
+    <script>
+        // 待辦事項控制器
+        class TodoController {
+            constructor() {
+                // 初始化應用程式
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+---
+
 ## Model-Specific Adjustments
 
 ### Claude 3.5 Sonnet
-- Works best with the prompts as-is
-- Excellent at bilingual output
-- Strong at maintaining consistency
+- Naturally handles bilingual structure
+- Strong technical analysis in English
+- Excellent Chinese output quality
 
 ### GPT-4
-- May need explicit reminder about Chinese output
-- Add: "記得用繁體中文輸出所有說明和註解"
-- Benefits from more structured output requirements
+- Add explicit instruction: "Think through the solution in English, then provide output in Traditional Chinese"
+- May need reminder: "所有使用者介面文字、註解、錯誤訊息請使用繁體中文"
 
 ### Gemini Pro
-- Requires more explicit structure
-- Add section headers in the prompt
-- May need follow-up for complete implementation
+- Requires clear section separation
+- Benefits from examples
+- Add: "First section: English technical analysis. Second section: Chinese implementation."
 
 ---
 
 ## Prompt Usage Guidelines
 
-1. **Basic Version**: Use for learners in early chapters
-2. **Enhanced Version**: Use for advanced learners or Chapter 7
-3. **Always Test**: Run each prompt 3+ times to verify consistency
-4. **Document Issues**: Log any model-specific quirks
-5. **Iterate**: Refine based on learner feedback
+1. **Bilingual Principle**: Always maintain English thinking -> Chinese output flow
+2. **Basic Version**: For beginners (Chapter 2-3)
+3. **Enhanced Version**: For advanced users (Chapter 4+)
+4. **Testing Protocol**: Test 5 times across 3 models
+5. **Consistency Check**: Verify technical accuracy remains constant
 
 ---
 
 ## Version History
 
-- **1.0.0** (2025-09-11): Initial golden prompts with bilingual strategy
-- Future: Add more variations based on workshop feedback
+- **1.1.0** (2025-09-11): Restructured with strict bilingual separation
+- **1.0.0** (2025-09-11): Initial golden prompts
+- Future: Add domain-specific variations

@@ -5,6 +5,7 @@ import * as path from 'path';
 /**
  * 全域清理
  * 在所有測試結束後執行
+ * @param {*} config - config 參數
  */
 async function globalTeardown(config: FullConfig) {
   console.log('\n🧹 開始全域清理...');

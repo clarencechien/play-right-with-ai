@@ -3,7 +3,14 @@
  * 實現多層次、自適應的重試機制
  */
 
+/**
+ * SmartRetryStrategy 類別
+ */
 class SmartRetryStrategy {
+    /**
+     *
+     * @param {*} options - options 參數
+     */
     constructor(options = {}) {
         this.config = {
             maxAttempts: options.maxAttempts || 3,
@@ -21,6 +28,8 @@ class SmartRetryStrategy {
 
     /**
      * 執行帶智能重試的測試
+     * @param {*} testFn - testFn 參數
+     * @param {*} context - context 參數
      */
     async executeWithSmartRetry(testFn, context = {}) {
         const startTime = Date.now();
@@ -90,6 +99,8 @@ class SmartRetryStrategy {
 
     /**
      * 執行測試並收集度量
+     * @param {*} testFn - testFn 參數
+     * @param {*} context - context 參數
      */
     async executeTest(testFn, context) {
         const startTime = Date.now();
@@ -123,6 +134,8 @@ class SmartRetryStrategy {
 
     /**
      * 分析錯誤並決定重試策略
+     * @param {*} error - error 參數
+     * @param {*} attempt - attempt 參數
      */
     async analyzeError(error, attempt) {
         const analysis = {
@@ -185,6 +198,7 @@ class SmartRetryStrategy {
 
     /**
      * 分類錯誤
+     * @param {*} error - error 參數
      */
     categorizeError(error) {
         const message = error.message.toLowerCase();
@@ -201,6 +215,7 @@ class SmartRetryStrategy {
 
     /**
      * 評估錯誤嚴重性
+     * @param {*} error - error 參數
      */
     assessSeverity(error) {
         if (error.critical) return 'CRITICAL';
@@ -211,6 +226,9 @@ class SmartRetryStrategy {
 
     /**
      * 應用修復策略
+     * @param {*} strategy - strategy 參數
+     * @param {*} context - context 參數
+     * @param {*} error - error 參數
      */
     async applyHealing(strategy, context, error) {
         switch (strategy) {
@@ -257,6 +275,8 @@ class SmartRetryStrategy {
 
     /**
      * 計算重試延遲
+     * @param {*} attempt - attempt 參數
+     * @param {*} analysis - analysis 參數
      */
     calculateDelay(attempt, analysis) {
         let delay = this.config.baseDelay;
@@ -285,6 +305,8 @@ class SmartRetryStrategy {
 
     /**
      * 準備下次重試
+     * @param {*} context - context 參數
+     * @param {*} analysis - analysis 參數
      */
     async prepareForRetry(context, analysis) {
         // 清理之前的狀態
@@ -306,6 +328,8 @@ class SmartRetryStrategy {
 
     /**
      * 應用學習到的成功模式
+     * @param {*} testId - testId 參數
+     * @param {*} context - context 參數
      */
     async applyLearnedPatterns(testId, context) {
         const patterns = this.successPatterns.get(testId);
@@ -321,6 +345,9 @@ class SmartRetryStrategy {
 
     /**
      * 記錄成功
+     * @param {*} testId - testId 參數
+     * @param {*} attempt - attempt 參數
+     * @param {*} context - context 參數
      */
     recordSuccess(testId, attempt, context) {
         this.retryHistory.push({
@@ -350,6 +377,10 @@ class SmartRetryStrategy {
 
     /**
      * 記錄失敗
+     * @param {*} testId - testId 參數
+     * @param {*} attempt - attempt 參數
+     * @param {*} error - error 參數
+     * @param {*} context - context 參數
      */
     recordFailure(testId, attempt, error, context) {
         this.retryHistory.push({
@@ -376,6 +407,7 @@ class SmartRetryStrategy {
 
     /**
      * 收集度量數據
+     * @param {*} data - data 參數
      */
     collectMetrics(data) {
         // 可以將數據發送到監控系統
@@ -386,6 +418,8 @@ class SmartRetryStrategy {
 
     /**
      * 查找替代選擇器
+     * @param {*} page - page 參數
+     * @param {*} failedSelector - failedSelector 參數
      */
     async findAlternativeSelector(page, failedSelector) {
         // 簡單實現：嘗試不同的選擇器策略
@@ -411,6 +445,7 @@ class SmartRetryStrategy {
 
     /**
      * AI 錯誤分析（模擬）
+     * @param {*} error - error 參數
      */
     async aiAnalyzeError(error) {
         // 模擬 AI 分析
@@ -430,6 +465,7 @@ class SmartRetryStrategy {
 
     /**
      * 生成測試 ID
+     * @param {*} testFn - testFn 參數
      */
     generateTestId(testFn) {
         return testFn.name || testFn.toString().substring(0, 50);
@@ -437,6 +473,7 @@ class SmartRetryStrategy {
 
     /**
      * 等待
+     * @param {*} ms - ms 參數
      */
     wait(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -500,6 +537,9 @@ class SmartRetryStrategy {
  * 重試策略預設集
  */
 class RetryPresets {
+    /**
+     *
+     */
     static get aggressive() {
         return {
             maxAttempts: 5,
@@ -509,6 +549,9 @@ class RetryPresets {
         };
     }
 
+    /**
+     *
+     */
     static get conservative() {
         return {
             maxAttempts: 2,
@@ -518,6 +561,9 @@ class RetryPresets {
         };
     }
 
+    /**
+     *
+     */
     static get balanced() {
         return {
             maxAttempts: 3,
@@ -527,6 +573,9 @@ class RetryPresets {
         };
     }
 
+    /**
+     *
+     */
     static get fast() {
         return {
             maxAttempts: 3,

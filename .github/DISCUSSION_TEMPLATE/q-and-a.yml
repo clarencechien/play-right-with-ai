@@ -1,0 +1,85 @@
+title: "[Q&A] "
+labels: ["question", "help"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 提問與解答
+        
+        有問題嗎？社群在這裡幫助你！請提供足夠的細節，讓其他人能夠理解並協助你。
+        
+  - type: textarea
+    id: question
+    attributes:
+      label: 你的問題
+      description: 清楚描述你的問題
+      placeholder: 我想知道如何...
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: chapter
+    attributes:
+      label: 相關章節
+      description: 這個問題與哪個章節相關？
+      options:
+        - 不特定章節
+        - Chapter 1 - AI Conductor
+        - Chapter 2 - First Movement
+        - Chapter 3 - Second Movement
+        - Chapter 4 - Third Movement
+        - Chapter 5 - Fourth Movement
+        - Chapter 6 - Final Movement
+        - Chapter 7 - Variations
+        - Chapter 8 - Capstone Project
+        - 環境設定
+        - 其他
+    validations:
+      required: true
+      
+  - type: textarea
+    id: tried
+    attributes:
+      label: 已嘗試的方法
+      description: 你已經試過什麼方法？
+      placeholder: |
+        1. 我嘗試了...
+        2. 我也查看了...
+        3. 但是結果是...
+      
+  - type: textarea
+    id: code
+    attributes:
+      label: 相關程式碼或提示詞
+      description: 如果有相關的程式碼或提示詞，請貼在這裡
+      render: javascript
+      placeholder: |
+        ```javascript
+        // 你的程式碼
+        ```
+        
+        或
+        
+        ```
+        你的 AI 提示詞
+        ```
+      
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境資訊
+      description: 你的開發環境資訊
+      placeholder: |
+        - OS: Windows/macOS/Linux
+        - Node.js 版本: 
+        - 使用的 AI 工具: 
+        - 其他相關資訊:
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 檢查清單
+      options:
+        - label: 我已搜尋過現有的討論和 issues
+        - label: 我已查看相關章節的文件
+        - label: 我已提供足夠的資訊供他人理解問題

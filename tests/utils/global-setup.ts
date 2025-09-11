@@ -5,6 +5,7 @@ import * as path from 'path';
 /**
  * 全域設定
  * 在所有測試開始前執行
+ * @param {*} config - config 參數
  */
 async function globalSetup(config: FullConfig) {
   console.log('🚀 開始全域設定...');

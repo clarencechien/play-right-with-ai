@@ -6,10 +6,17 @@
 // ============================================
 // 錯誤 1: Null Reference Error
 // ============================================
+/**
+ * NullReferenceError 類別
+ */
 class NullReferenceError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
-        const element = await page.locator('.non-existent');
+        const element = page.locator('.non-existent');
         const text = element.textContent(); // 忘記 await
         console.log(text.toUpperCase()); // Cannot read property of null
     }
@@ -32,8 +39,15 @@ class NullReferenceError {
 // ============================================
 // 錯誤 2: Selector Typo Error
 // ============================================
+/**
+ * SelectorTypoError 類別
+ */
 class SelectorTypoError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 選擇器拼寫錯誤
         await page.click('[data-testid="sumbit-btn"]'); // 應該是 submit-btn
@@ -56,8 +70,15 @@ class SelectorTypoError {
 // ============================================
 // 錯誤 3: Array Index Out of Bounds
 // ============================================
+/**
+ * ArrayIndexError 類別
+ */
 class ArrayIndexError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         const items = await page.locator('.item').all();
         const lastItem = items[items.length]; // 應該是 length - 1
@@ -82,8 +103,15 @@ class ArrayIndexError {
 // ============================================
 // 錯誤 4: Scope Error
 // ============================================
+/**
+ * ScopeError 類別
+ */
 class ScopeError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         if (await page.locator('#special').isVisible()) {
             const data = await page.textContent('#special-data');
@@ -111,8 +139,15 @@ class ScopeError {
 // ============================================
 // 錯誤 5: Type Coercion Error
 // ============================================
+/**
+ * TypeCoercionError 類別
+ */
 class TypeCoercionError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         const count = await page.textContent('.count'); // 返回 "5"
         const total = count + 10; // "510" 而非 15
@@ -142,8 +177,15 @@ class TypeCoercionError {
 // ============================================
 // 錯誤 6: Promise Chain Error
 // ============================================
+/**
+ * PromiseChainError 類別
+ */
 class PromiseChainError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         page.goto('/page1')
             .then(() => page.click('#button'))
@@ -169,8 +211,15 @@ class PromiseChainError {
 // ============================================
 // 錯誤 7: Event Listener Memory Leak
 // ============================================
+/**
+ * EventListenerLeak 類別
+ */
 class EventListenerLeak {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 重複添加事件監聽器
         for (let i = 0; i < 100; i++) {
@@ -201,8 +250,15 @@ class EventListenerLeak {
 // ============================================
 // 錯誤 8: Incorrect Comparison
 // ============================================
+/**
+ * ComparisonError 類別
+ */
 class ComparisonError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         const value = await page.inputValue('#age');
         if (value === 18) { // value 是字串 "18"
@@ -233,8 +289,15 @@ class ComparisonError {
 // ============================================
 // 錯誤 9: Mutation During Iteration
 // ============================================
+/**
+ * MutationError 類別
+ */
 class MutationError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         const buttons = await page.locator('button').all();
         for (const button of buttons) {
@@ -266,8 +329,15 @@ class MutationError {
 // ============================================
 // 錯誤 10: Context Loss Error
 // ============================================
+/**
+ * ContextLossError 類別
+ */
 class ContextLossError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         const frame = page.frame('iframe-name');
         await page.reload(); // 重新載入會使 frame 參考失效
@@ -290,7 +360,15 @@ class ContextLossError {
 // ============================================
 // 診斷輔助函數
 // ============================================
+/**
+ * DiagnosticHelper 類別
+ */
 class DiagnosticHelper {
+    /**
+     *
+     * @param {*} error - error 參數
+     * @param {*} context - context 參數
+     */
     static async diagnoseError(error, context) {
         const diagnosis = {
             timestamp: new Date().toISOString(),
@@ -323,6 +401,10 @@ class DiagnosticHelper {
         return diagnosis;
     }
 
+    /**
+     *
+     * @param {*} diagnosis - diagnosis 參數
+     */
     static generateAIPrompt(diagnosis) {
         return `
         請分析以下 JavaScript 錯誤：

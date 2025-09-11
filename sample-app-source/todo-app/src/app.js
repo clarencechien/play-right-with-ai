@@ -3,19 +3,32 @@
  * 實現 CRUD 操作與本地儲存
  */
 
+/**
+ * TODO 應用程式類別
+ * 管理待辦事項的 CRUD 操作
+ */
 class TodoApp {
+    /**
+     * 初始化 TodoApp
+     */
     constructor() {
         this.todos = [];
         this.currentFilter = 'all';
         this.init();
     }
 
+    /**
+     * 初始化應用程式
+     */
     init() {
         this.loadFromStorage();
         this.bindEvents();
         this.render();
     }
 
+    /**
+     * 綁定事件監聽器
+     */
     bindEvents() {
         const input = document.getElementById('todoInput');
         const addButton = document.getElementById('addButton');
@@ -41,6 +54,9 @@ class TodoApp {
         });
     }
 
+    /**
+     * 新增待辦事項
+     */
     addTodo() {
         const input = document.getElementById('todoInput');
         const text = input.value.trim();
@@ -65,6 +81,10 @@ class TodoApp {
         input.focus();
     }
 
+    /**
+     * 切換待辦事項完成狀態
+     * @param {number} id - 待辦事項 ID
+     */
     toggleTodo(id) {
         const todo = this.todos.find(t => t.id === id);
         if (todo) {
@@ -74,12 +94,20 @@ class TodoApp {
         }
     }
 
+    /**
+     * 刪除待辦事項
+     * @param {number} id - 待辦事項 ID
+     */
     deleteTodo(id) {
         this.todos = this.todos.filter(t => t.id !== id);
         this.saveToStorage();
         this.render();
     }
 
+    /**
+     * 取得篩選後的待辦事項
+     * @returns {Array} 篩選後的待辦事項陣列
+     */
     getFilteredTodos() {
         switch(this.currentFilter) {
             case 'active':
@@ -91,6 +119,9 @@ class TodoApp {
         }
     }
 
+    /**
+     * 渲染待辦事項列表
+     */
     render() {
         const todoList = document.getElementById('todoList');
         const filteredTodos = this.getFilteredTodos();
@@ -116,6 +147,9 @@ class TodoApp {
         this.updateStats();
     }
 
+    /**
+     * 更新統計資訊
+     */
     updateStats() {
         const total = this.todos.length;
         const completed = this.todos.filter(t => t.completed).length;
@@ -124,10 +158,16 @@ class TodoApp {
         document.getElementById('completedCount').textContent = `已完成: ${completed}`;
     }
 
+    /**
+     * 儲存到本地儲存
+     */
     saveToStorage() {
         localStorage.setItem('todos', JSON.stringify(this.todos));
     }
 
+    /**
+     * 從本地儲存載入資料
+     */
     loadFromStorage() {
         const saved = localStorage.getItem('todos');
         if (saved) {
@@ -140,6 +180,11 @@ class TodoApp {
         }
     }
 
+    /**
+     * 逸出 HTML 特殊字元
+     * @param {string} text - 要逸出的文字
+     * @returns {string} 逸出後的文字
+     */
     escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
@@ -148,4 +193,5 @@ class TodoApp {
 }
 
 // 初始化應用
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const todoApp = new TodoApp();

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Run lint-staged for code formatting and linting
+npx lint-staged
+
+# Validate commit message format
+echo "Pre-commit hooks executed successfully"

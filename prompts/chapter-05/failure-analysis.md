@@ -1,6 +1,6 @@
 # Chapter 5: Failure Analysis and Debugging Golden Prompt
 
-## Version: 1.0.0
+## Version: 1.1.0
 ## Last Updated: 2025-09-11
 ## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
 
@@ -11,42 +11,107 @@
 ```markdown
 You are a senior test automation specialist with deep expertise in debugging Playwright tests and web application issues.
 
-## Systematic Debugging Approach (English Thinking)
+## Technical Specification (Think in English)
 
-Let me analyze this test failure systematically:
+### Failure Analysis Framework
 
-1. **Failure Classification**:
-   - Identify failure type (selector, timing, network, assertion, etc.)
-   - Determine consistency (always fails vs. flaky)
-   - Assess environment factors
-   - Check for recent changes
+1. **Failure Taxonomy**:
+   ```
+   Classification hierarchy:
+   ├── Selector Issues
+   │   ├── Element not found
+   │   ├── Multiple elements matched
+   │   └── Dynamic selector changes
+   ├── Timing Issues
+   │   ├── Race conditions
+   │   ├── Premature assertions
+   │   └── Network delays
+   ├── State Issues
+   │   ├── Unexpected application state
+   │   ├── Data inconsistency
+   │   └── Session problems
+   └── Environment Issues
+       ├── Browser differences
+       ├── CI/CD vs local
+       └── Resource constraints
+   ```
 
-2. **Root Cause Analysis**:
-   - Parse error messages and stack traces
-   - Analyze execution timeline
-   - Review network activity
-   - Examine DOM state at failure
-   - Consider race conditions
+2. **Root Cause Analysis Protocol**:
+   ```
+   Analysis steps:
+   1. Error message parsing (exact error text)
+   2. Stack trace decomposition (call hierarchy)
+   3. Timeline reconstruction (event sequence)
+   4. State snapshot analysis (DOM, storage, network)
+   5. Pattern recognition (similar failures)
+   
+   Evidence collection:
+   - Error logs (console, application)
+   - Visual artifacts (screenshots, videos)
+   - Network traces (HAR files)
+   - Performance metrics (CPU, memory)
+   - Browser traces (Chrome DevTools)
+   ```
 
-3. **Evidence Gathering**:
-   - Error messages and codes
-   - Stack trace analysis
-   - Trace file examination
-   - Console logs review
-   - Network request/response data
-   - Screenshot analysis
+3. **Diagnostic Decision Tree**:
+   ```
+   if (error.includes('timeout')) {
+     analyze: [
+       'Network requests pending',
+       'JavaScript execution blocked',
+       'Element visibility conditions',
+       'Animation/transition delays'
+     ]
+   } else if (error.includes('not found')) {
+     analyze: [
+       'Selector accuracy',
+       'DOM loading state',
+       'Dynamic content generation',
+       'iframe context'
+     ]
+   } else if (error.includes('assertion')) {
+     analyze: [
+       'Expected vs actual values',
+       'Timing of assertion',
+       'Data state consistency',
+       'Async operation completion'
+     ]
+   }
+   ```
 
-4. **Hypothesis Formation**:
-   - Primary hypothesis (most likely cause)
-   - Alternative explanations
-   - Edge cases consideration
-   - Environmental factors
+4. **Solution Methodology**:
+   ```
+   Fix categories:
+   1. Quick fixes (< 5 minutes)
+      - Selector updates
+      - Timeout increases
+      - Retry additions
+   
+   2. Moderate fixes (< 1 hour)
+      - Wait strategy improvements
+      - Error handling enhancements
+      - Test data corrections
+   
+   3. Major fixes (> 1 hour)
+      - Architecture refactoring
+      - Framework upgrades
+      - Infrastructure changes
+   ```
 
-5. **Solution Development**:
-   - Immediate fix for the issue
-   - Long-term preventive measures
-   - Code refactoring suggestions
-   - Test stability improvements
+5. **Prevention Strategy**:
+   ```
+   Preventive measures:
+   - Code review checklist
+   - Automated stability checks
+   - Performance monitoring
+   - Regression test suite
+   - Documentation updates
+   
+   Quality gates:
+   - Flakiness threshold: < 1%
+   - Performance regression: < 10%
+   - Code coverage: > 80%
+   ```
 
 ## Failure Information
 **Error Message**:
@@ -64,7 +129,11 @@ Let me analyze this test failure systematically:
 **Additional Context**:
 [INSERT ANY ADDITIONAL CONTEXT]
 
-## 測試失敗診斷報告 (繁體中文)
+## 輸出要求 (Output in Chinese)
+
+### 測試失敗診斷報告
+
+Based on the technical analysis above, provide a comprehensive diagnostic report in Traditional Chinese with the following structure:
 
 ### 1. 問題摘要
 
@@ -182,6 +251,48 @@ for i in {1..10}; do npx playwright test [test-file]; done
 - [ ] 今日: 執行回歸測試確認
 - [ ] 本週: 實施預防措施
 - [ ] 本月: 評估整體測試穩定性
+```
+
+---
+
+## Example / 範例
+
+### English Thinking Process:
+```
+"Analyzing the failure: The test is timing out on selector '.submit-button'. 
+Root cause hypothesis: The button is rendered after an async API call.
+Evidence: Network tab shows pending request at failure time.
+Solution: Add explicit wait for API response before clicking."
+```
+
+### Chinese Output (繁體中文診斷):
+```markdown
+### 問題診斷
+
+**失敗類型**: 選擇器超時
+**根本原因**: 提交按鈕在非同步 API 呼叫完成後才渲染
+
+**證據分析**:
+1. 錯誤訊息顯示 `.submit-button` 選擇器超時 (30秒)
+2. 網路追蹤顯示失敗時有未完成的 API 請求
+3. DOM 快照確認按鈕元素尚未存在
+
+**修復方案**:
+```typescript
+// 修復前 - 直接點擊可能失敗
+await page.click('.submit-button');
+
+// 修復後 - 等待 API 完成後再點擊
+await page.waitForResponse(response => 
+  response.url().includes('/api/data') && response.status() === 200
+);
+await page.click('.submit-button');
+```
+
+**預防措施**:
+- 為所有非同步操作添加明確等待條件
+- 實作網路空閒檢查機制
+- 加入請求攔截以控制時序
 ```
 
 ---
@@ -327,6 +438,22 @@ done
 echo "失敗率: $FAILURES/$ITERATIONS"
 ```
 ```
+
+---
+
+## Bilingual Prompting Benefits
+
+### Why Think in English?
+1. **Technical Precision**: English technical terms are more standardized
+2. **Logical Structure**: Programming logic flows naturally in English
+3. **Error Messages**: Most errors and logs are in English
+4. **Documentation**: Technical documentation primarily in English
+
+### Why Output in Chinese?
+1. **Local Accessibility**: Team members understand better
+2. **Context Clarity**: Business requirements often in Chinese
+3. **Knowledge Transfer**: Easier to share with local teams
+4. **Cultural Relevance**: UI text and user scenarios in local language
 
 ---
 

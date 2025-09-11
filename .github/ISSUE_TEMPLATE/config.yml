@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/[OWNER]/play-right-with-ai/discussions
+    about: 在討論區提問、分享經驗或參與社群對話
+  - name: 📚 工作坊文件
+    url: https://github.com/[OWNER]/play-right-with-ai/blob/main/README.md
+    about: 查看完整的工作坊文件和教學指南
+  - name: 🎯 快速開始指南
+    url: https://github.com/[OWNER]/play-right-with-ai/blob/main/workshop/chapter-01/README.md
+    about: 從第一章開始你的 AI 指揮之旅
+  - name: 🤝 行為準則
+    url: https://github.com/[OWNER]/play-right-with-ai/blob/main/CODE_OF_CONDUCT.md
+    about: 了解我們的社群行為準則和價值觀

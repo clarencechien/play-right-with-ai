@@ -6,10 +6,17 @@
 // ============================================
 // DOM 錯誤 1: Stale Element Reference
 // ============================================
+/**
+ * StaleElementError 類別
+ */
 class StaleElementError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
-        const button = await page.locator('#dynamic-button');
+        const button = page.locator('#dynamic-button');
         
         // 頁面更新，按鈕被重新渲染
         await page.click('#refresh-section');
@@ -46,8 +53,15 @@ class StaleElementError {
 // ============================================
 // DOM 錯誤 2: Hidden Element Interaction
 // ============================================
+/**
+ * HiddenElementError 類別
+ */
 class HiddenElementError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 元素存在但被 CSS 隱藏
         await page.click('.hidden-button'); // 無法點擊不可見元素
@@ -88,8 +102,15 @@ class HiddenElementError {
 // ============================================
 // DOM 錯誤 3: Dynamic Content Loading
 // ============================================
+/**
+ * DynamicContentError 類別
+ */
 class DynamicContentError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         await page.click('#load-more');
         
@@ -131,8 +152,15 @@ class DynamicContentError {
 // ============================================
 // DOM 錯誤 4: Shadow DOM Access
 // ============================================
+/**
+ * ShadowDOMError 類別
+ */
 class ShadowDOMError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 嘗試直接訪問 Shadow DOM 內的元素
         await page.click('#shadow-host button'); // 找不到元素
@@ -169,8 +197,15 @@ class ShadowDOMError {
 // ============================================
 // DOM 錯誤 5: Overlapping Elements
 // ============================================
+/**
+ * OverlappingElementError 類別
+ */
 class OverlappingElementError {
     // 錯誤版本
+    /**
+     *
+     * @param {*} page - page 參數
+     */
     async buggyCode(page) {
         // 有其他元素覆蓋在目標元素上
         await page.click('#covered-button'); // 點擊被阻擋
@@ -220,9 +255,14 @@ class OverlappingElementError {
 // ============================================
 // DOM 操作輔助工具
 // ============================================
+/**
+ * DOMDiagnosticTools 類別
+ */
 class DOMDiagnosticTools {
     /**
      * 檢查元素狀態
+     * @param {*} page - page 參數
+     * @param {*} selector - selector 參數
      */
     static async checkElementState(page, selector) {
         const diagnostics = {
@@ -278,6 +318,8 @@ class DOMDiagnosticTools {
 
     /**
      * 等待 DOM 穩定
+     * @param {*} page - page 參數
+     * @param {*} options - options 參數
      */
     static async waitForDOMStable(page, options = {}) {
         const timeout = options.timeout || 5000;
@@ -311,6 +353,8 @@ class DOMDiagnosticTools {
 
     /**
      * 查找可互動元素
+     * @param {*} page - page 參數
+     * @param {*} baseSelector - baseSelector 參數
      */
     static async findInteractableElements(page, baseSelector) {
         return page.evaluate((selector) => {
@@ -349,6 +393,8 @@ class DOMDiagnosticTools {
 
     /**
      * 生成元素診斷報告
+     * @param {*} page - page 參數
+     * @param {*} selector - selector 參數
      */
     static async generateElementReport(page, selector) {
         const state = await this.checkElementState(page, selector);
@@ -372,6 +418,10 @@ ${this.generateSuggestions(state)}
         `;
     }
 
+    /**
+     *
+     * @param {*} state - state 參數
+     */
     static generateSuggestions(state) {
         const suggestions = [];
         

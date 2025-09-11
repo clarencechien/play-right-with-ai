@@ -1,0 +1,73 @@
+# Dependabot 配置檔案
+# 自動檢查和更新依賴套件
+
+version: 2
+updates:
+  # npm 依賴更新
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+      timezone: "Asia/Taipei"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "workshop-maintainers"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    ignore:
+      # 忽略主要版本更新，避免破壞性變更
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      # 將相關的依賴分組更新
+      playwright:
+        patterns:
+          - "@playwright/*"
+          - "playwright"
+      testing:
+        patterns:
+          - "jest*"
+          - "@testing-library/*"
+      linting:
+        patterns:
+          - "eslint*"
+          - "prettier*"
+
+  # GitHub Actions 更新
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+      timezone: "Asia/Taipei"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "workshop-maintainers"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+
+  # Docker 依賴更新（如果使用）
+  # - package-ecosystem: "docker"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   labels:
+  #     - "dependencies"
+  #     - "docker"
+
+# Dependabot 安全更新設定
+# 這些設定會自動套用到安全更新
+# security-updates:
+#   open-pull-requests-limit: 10

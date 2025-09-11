@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Playground - Play Right with AI</title>
+  <link rel="stylesheet" href="/docs/assets/css/main.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="/docs/" class="nav-brand">Play Right with AI</a>
+      <ul class="nav-links">
+        <li><a href="/docs/" class="nav-link">首頁</a></li>
+        <li><a href="/docs/chapters/" class="nav-link">章節</a></li>
+        <li><a href="/docs/playground/" class="nav-link">Playground</a></li>
+        <li><a href="/docs/demos/" class="nav-link">示範</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <h1>AI Prompt Playground</h1>
+    <p>在這裡測試您的 AI 提示詞，體驗雙語提示策略的效果</p>
+    
+    <div class="playground-container">
+      <div class="playground-input">
+        <h3>輸入提示詞</h3>
+        <textarea id="prompt-input" class="playground-textarea" placeholder="輸入您的提示詞...
+
+範例：
+You are a senior developer. Create a TODO application with:
+- Modern design
+- Local storage
+請用繁體中文註解"></textarea>
+        <button id="run-prompt" class="btn">執行提示</button>
+      </div>
+      
+      <div class="playground-output">
+        <h3>AI 回應</h3>
+        <div id="prompt-output">
+          <p style="color: var(--text-secondary)">等待輸入...</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="prompt-examples">
+      <h2>範例提示詞</h2>
+      <div class="examples-grid">
+        <div class="example-card">
+          <h4>應用生成</h4>
+          <pre><code>You are a senior developer. Create a calculator app with:
+- Basic operations (+, -, *, /)
+- Clean UI design
+- Error handling
+請用繁體中文註解所有功能</code></pre>
+        </div>
+        <div class="example-card">
+          <h4>測試策略</h4>
+          <pre><code>分析這個應用程式並設計測試策略：
+[應用程式碼]
+Please focus on:
+- Critical user paths
+- Edge cases
+- Performance testing</code></pre>
+        </div>
+        <div class="example-card">
+          <h4>除錯分析</h4>
+          <pre><code>Debug this test failure:
+[錯誤訊息]
+請分析可能原因並提供修復建議
+Consider browser compatibility issues</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/docs/assets/js/main.js"></script>
+</body>
+</html>
+    
