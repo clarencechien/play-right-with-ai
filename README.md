@@ -5,6 +5,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Workshop](https://img.shields.io/badge/Workshop-8%20Chapters-blue)](./workshop)
 [![Language](https://img.shields.io/badge/Language-Traditional%20Chinese-red)](./README.md)
+[![GitHub Pages](https://img.shields.io/badge/Demo-Live-success)](https://clarencechien.github.io/play-right-with-ai/)
+
+## 🌐 線上體驗
+
+🔗 **立即體驗**: [https://clarencechien.github.io/play-right-with-ai/](https://clarencechien.github.io/play-right-with-ai/)
 
 ## 🎯 工作坊願景
 
