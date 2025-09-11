@@ -1,0 +1,34 @@
+========================================
+   Play right with AI 環境檢查工具
+========================================
+
+檢查 Node.js...
+✅ Node.js v20.11.0 - 符合要求
+
+檢查 npm...
+✅ npm 10.2.4 - 符合要求
+
+檢查 VS Code...
+✅ VS Code 1.85.1 - 已安裝
+
+檢查 Git...
+✅ git version 2.43.0 - 已安裝
+
+檢查 Playwright...
+✅ Playwright ^1.40.0 - 已在專案中安裝
+
+檢查 AI 服務設定...
+✅ Claude (Anthropic) - API Key 已設定
+⚠️  Gemini (Google) - API Key 未設定 (GOOGLE_API_KEY)
+⚠️  GPT-4 (OpenAI) - API Key 未設定 (OPENAI_API_KEY)
+
+========================================
+            檢查結果摘要
+========================================
+
+通過: 6 | 警告: 2 | 失敗: 0
+
+📄 詳細報告已保存至: /Users/developer/play-right-with-ai-workspace/environment-check-report.json
+
+🎉 恭喜！您的環境已準備就緒！
+   可以開始 Play right with AI 的學習之旅了！

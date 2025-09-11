@@ -1,0 +1,327 @@
+{
+  "chapters": {
+    "chapter-01": {
+      "name": "AI Conductor",
+      "objectives": [
+        {
+          "id": "mindset",
+          "description": "理解從「編碼者」到「AI 指揮家」的思維轉變",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README",
+            "Mindset transformation content found"
+          ]
+        },
+        {
+          "id": "environment",
+          "description": "完成完整的開發環境設置",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README",
+            "Exercise file: exercise-01-environment-check.md",
+            "Environment setup instructions found"
+          ]
+        },
+        {
+          "id": "ai-setup",
+          "description": "設置並測試 AI 服務",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README"
+          ]
+        },
+        {
+          "id": "bilingual",
+          "description": "掌握雙語提示策略",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Exercise file: exercise-03-bilingual-practice.md",
+            "Bilingual strategy explained"
+          ]
+        },
+        {
+          "id": "first-task",
+          "description": "執行第一個 AI 驅動的開發任務",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README"
+          ]
+        }
+      ],
+      "score": "100.0"
+    },
+    "chapter-02": {
+      "name": "First Movement - AI Application Generation",
+      "objectives": [
+        {
+          "id": "requirements",
+          "description": "使用自然語言精確描述應用程式需求",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README",
+            "Exercise file: exercise-01-requirements-spec.md"
+          ]
+        },
+        {
+          "id": "prompt-eng",
+          "description": "掌握有效的提示詞工程技巧",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README",
+            "Prompt engineering content found"
+          ]
+        },
+        {
+          "id": "bilingual-impact",
+          "description": "理解雙語提示策略對程式碼品質的影響",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README"
+          ]
+        },
+        {
+          "id": "evaluate",
+          "description": "評估和優化 AI 生成的程式碼",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README"
+          ]
+        },
+        {
+          "id": "iterate",
+          "description": "運用迭代式改進流程",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README"
+          ]
+        }
+      ],
+      "score": "100.0"
+    },
+    "chapter-03": {
+      "name": "Second Movement - AI Test Strategy",
+      "objectives": [
+        {
+          "id": "analyze-code",
+          "description": "AI 分析應用程式碼結構",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "test-plan",
+          "description": "設計完整的測試策略",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Exercise file: 03-test-planning.md",
+            "Test strategy content found"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "description": "識別邊界案例和潛在問題",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "test-coverage",
+          "description": "評估測試覆蓋率需求",
+          "required": true,
+          "met": false,
+          "evidence": []
+        }
+      ],
+      "score": "25.0"
+    },
+    "chapter-04": {
+      "name": "Third Movement - Playwright Script Generation",
+      "objectives": [
+        {
+          "id": "mcp-usage",
+          "description": "使用 MCP 進行瀏覽器自動化",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "generate-tests",
+          "description": "AI 生成 Playwright 測試腳本",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "test-quality",
+          "description": "評估測試腳本品質",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "test-execution",
+          "description": "執行和調整測試腳本",
+          "required": true,
+          "met": false,
+          "evidence": []
+        }
+      ],
+      "score": "0.0"
+    },
+    "chapter-05": {
+      "name": "Fourth Movement - Test Analysis & Debugging",
+      "objectives": [
+        {
+          "id": "failure-analysis",
+          "description": "分析測試失敗原因",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "trace-analysis",
+          "description": "解讀 Playwright trace 文件",
+          "required": true,
+          "met": true,
+          "evidence": [
+            "Mentioned in README"
+          ]
+        },
+        {
+          "id": "root-cause",
+          "description": "識別 bug 根本原因",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "debug-strategy",
+          "description": "制定除錯策略",
+          "required": true,
+          "met": false,
+          "evidence": []
+        }
+      ],
+      "score": "25.0"
+    },
+    "chapter-06": {
+      "name": "Final Movement - Self-Repair",
+      "objectives": [
+        {
+          "id": "fix-bugs",
+          "description": "AI 自動修復識別的 bug",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "verify-fix",
+          "description": "驗證修復效果",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "regression",
+          "description": "防止迴歸問題",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "close-loop",
+          "description": "完成自循環流程",
+          "required": true,
+          "met": false,
+          "evidence": []
+        }
+      ],
+      "score": "0.0"
+    },
+    "chapter-07": {
+      "name": "Variations - Advanced Scenarios",
+      "objectives": [
+        {
+          "id": "complex-apps",
+          "description": "處理複雜多頁應用",
+          "required": false,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "optimization",
+          "description": "優化提示詞策略",
+          "required": false,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "scale",
+          "description": "擴展到大型專案",
+          "required": false,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "integration",
+          "description": "整合多個 AI 工具",
+          "required": false,
+          "met": false,
+          "evidence": []
+        }
+      ],
+      "score": "0.0"
+    },
+    "chapter-08": {
+      "name": "Capstone Project",
+      "objectives": [
+        {
+          "id": "independent",
+          "description": "獨立完成端到端專案",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "orchestrate",
+          "description": "協調 AI 工具完成複雜任務",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "demonstrate",
+          "description": "展示 AI Conductor 技能",
+          "required": true,
+          "met": false,
+          "evidence": []
+        },
+        {
+          "id": "portfolio",
+          "description": "建立作品集項目",
+          "required": false,
+          "met": false,
+          "evidence": []
+        }
+      ],
+      "score": "0.0"
+    }
+  },
+  "summary": {
+    "totalObjectives": 34,
+    "metObjectives": 12,
+    "requiredObjectives": 29,
+    "metRequiredObjectives": 12
+  }
+}

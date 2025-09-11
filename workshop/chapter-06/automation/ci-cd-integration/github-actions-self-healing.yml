@@ -1,0 +1,359 @@
+# GitHub Actions 自我修復測試工作流
+# 這個工作流展示如何在 CI/CD 中整合自我修復測試
+
+name: Self-Healing E2E Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # 每天凌晨 2 點執行
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      healing_mode:
+        description: '修復模式'
+        required: true
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - manual
+          - learning
+
+jobs:
+  self-healing-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+        shard: [1, 2, 3, 4]
+    
+    steps:
+      # 檢出代碼
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 需要完整歷史以分析變更
+      
+      # 設置 Node.js
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      # 安裝依賴
+      - name: 📦 Install Dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps ${{ matrix.browser }}
+      
+      # 分析最近變更
+      - name: 🔍 Analyze Recent Changes
+        id: changes
+        run: |
+          # 獲取最近的變更
+          CHANGES=$(git diff --name-only HEAD~1 HEAD)
+          echo "changes<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          # 判斷是否影響測試
+          if echo "$CHANGES" | grep -E "\.(js|jsx|ts|tsx)$"; then
+            echo "test_impact=high" >> $GITHUB_OUTPUT
+          else
+            echo "test_impact=low" >> $GITHUB_OUTPUT
+          fi
+      
+      # 預測可能的失敗
+      - name: 🔮 Predict Potential Failures
+        if: steps.changes.outputs.test_impact == 'high'
+        run: |
+          node scripts/predict-failures.js \
+            --changes "${{ steps.changes.outputs.changes }}" \
+            --output predictions.json
+      
+      # 執行自我修復測試
+      - name: 🧪 Run Self-Healing Tests
+        id: test
+        env:
+          BROWSER: ${{ matrix.browser }}
+          SHARD_INDEX: ${{ matrix.shard }}
+          TOTAL_SHARDS: 4
+          HEALING_MODE: ${{ github.event.inputs.healing_mode || 'auto' }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          # 執行測試並捕獲結果
+          npm run test:self-healing -- \
+            --browser=${{ matrix.browser }} \
+            --shard=${{ matrix.shard }}/4 \
+            --reporter=json,html \
+            --output=test-results-${{ matrix.browser }}-${{ matrix.shard }}.json \
+            || echo "test_failed=true" >> $GITHUB_OUTPUT
+      
+      # 分析測試失敗
+      - name: 📊 Analyze Failures
+        if: steps.test.outputs.test_failed == 'true'
+        id: analysis
+        run: |
+          node scripts/analyze-failures.js \
+            --input test-results-${{ matrix.browser }}-${{ matrix.shard }}.json \
+            --output analysis-${{ matrix.browser }}-${{ matrix.shard }}.json
+          
+          # 提取關鍵信息
+          FIXABLE=$(jq -r '.fixable_count' analysis-${{ matrix.browser }}-${{ matrix.shard }}.json)
+          echo "fixable_count=$FIXABLE" >> $GITHUB_OUTPUT
+      
+      # 應用自動修復
+      - name: 🔧 Apply Auto-Fixes
+        if: steps.analysis.outputs.fixable_count > 0
+        id: fix
+        run: |
+          node scripts/apply-fixes.js \
+            --analysis analysis-${{ matrix.browser }}-${{ matrix.shard }}.json \
+            --mode ${{ github.event.inputs.healing_mode || 'auto' }} \
+            --output fixes-applied.json
+          
+          # 檢查是否有修復被應用
+          FIXES_APPLIED=$(jq -r '.fixes_applied' fixes-applied.json)
+          echo "fixes_applied=$FIXES_APPLIED" >> $GITHUB_OUTPUT
+      
+      # 重試測試（如果有修復）
+      - name: 🔄 Retry Tests After Fixes
+        if: steps.fix.outputs.fixes_applied > 0
+        id: retry
+        run: |
+          npm run test:retry -- \
+            --browser=${{ matrix.browser }} \
+            --shard=${{ matrix.shard }}/4 \
+            --reporter=json \
+            --output=retry-results-${{ matrix.browser }}-${{ matrix.shard }}.json
+      
+      # 生成修復報告
+      - name: 📝 Generate Healing Report
+        if: always()
+        run: |
+          node scripts/generate-healing-report.js \
+            --browser ${{ matrix.browser }} \
+            --shard ${{ matrix.shard }} \
+            --test-results test-results-${{ matrix.browser }}-${{ matrix.shard }}.json \
+            --analysis analysis-${{ matrix.browser }}-${{ matrix.shard }}.json \
+            --fixes fixes-applied.json \
+            --retry-results retry-results-${{ matrix.browser }}-${{ matrix.shard }}.json \
+            --output healing-report-${{ matrix.browser }}-${{ matrix.shard }}.html
+      
+      # 上傳測試結果
+      - name: 📤 Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.browser }}-${{ matrix.shard }}
+          path: |
+            test-results-*.json
+            retry-results-*.json
+            healing-report-*.html
+            playwright-report/
+          retention-days: 30
+      
+      # 上傳修復建議
+      - name: 💡 Upload Fix Suggestions
+        if: steps.fix.outputs.fixes_applied > 0
+        uses: actions/upload-artifact@v3
+        with:
+          name: fix-suggestions-${{ matrix.browser }}-${{ matrix.shard }}
+          path: |
+            fixes-applied.json
+            suggested-patches/
+          retention-days: 7
+
+  # 聚合所有分片的結果
+  aggregate-results:
+    needs: self-healing-tests
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v3
+      
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: 📥 Download All Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts/
+      
+      - name: 📊 Aggregate Results
+        id: aggregate
+        run: |
+          node scripts/aggregate-results.js \
+            --input-dir artifacts/ \
+            --output aggregated-report.json
+          
+          # 提取總結數據
+          TOTAL_TESTS=$(jq -r '.total_tests' aggregated-report.json)
+          PASSED=$(jq -r '.passed' aggregated-report.json)
+          FAILED=$(jq -r '.failed' aggregated-report.json)
+          HEALED=$(jq -r '.healed' aggregated-report.json)
+          SUCCESS_RATE=$(jq -r '.success_rate' aggregated-report.json)
+          
+          echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
+          echo "passed=$PASSED" >> $GITHUB_OUTPUT
+          echo "failed=$FAILED" >> $GITHUB_OUTPUT
+          echo "healed=$HEALED" >> $GITHUB_OUTPUT
+          echo "success_rate=$SUCCESS_RATE" >> $GITHUB_OUTPUT
+      
+      - name: 📈 Generate Dashboard
+        run: |
+          node scripts/generate-dashboard.js \
+            --input aggregated-report.json \
+            --output dashboard.html
+      
+      - name: 📤 Upload Dashboard
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-dashboard
+          path: dashboard.html
+          retention-days: 30
+      
+      - name: 💬 Post PR Comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('aggregated-report.json', 'utf8'));
+            
+            const comment = `## 🧪 自我修復測試報告
+            
+            ### 📊 測試總結
+            - **總測試數**: ${report.total_tests}
+            - **通過**: ${report.passed} ✅
+            - **失敗**: ${report.failed} ❌
+            - **自動修復**: ${report.healed} 🔧
+            - **最終成功率**: ${report.success_rate}%
+            
+            ### 🔧 自我修復詳情
+            ${report.healing_details.map(h => `- ${h.test}: ${h.strategy} (信心度: ${h.confidence}%)`).join('\n')}
+            
+            ### 📈 趨勢分析
+            - **相比上次**: ${report.trend > 0 ? '↗️' : '↘️'} ${Math.abs(report.trend)}%
+            - **最常見失敗**: ${report.common_failures.join(', ')}
+            - **修復成功率**: ${report.healing_success_rate}%
+            
+            ### 🎯 建議
+            ${report.recommendations.map(r => `- ${r}`).join('\n')}
+            
+            [查看完整報告](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+      
+      # 更新知識庫
+      - name: 📚 Update Knowledge Base
+        if: github.ref == 'refs/heads/main'
+        env:
+          KNOWLEDGE_BASE_URL: ${{ secrets.KNOWLEDGE_BASE_URL }}
+          KNOWLEDGE_BASE_TOKEN: ${{ secrets.KNOWLEDGE_BASE_TOKEN }}
+        run: |
+          node scripts/update-knowledge-base.js \
+            --report aggregated-report.json \
+            --url $KNOWLEDGE_BASE_URL \
+            --token $KNOWLEDGE_BASE_TOKEN
+      
+      # 創建 Issue（如果需要人工介入）
+      - name: 🚨 Create Issue for Manual Intervention
+        if: steps.aggregate.outputs.failed > 0
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('aggregated-report.json', 'utf8'));
+            
+            if (report.requires_manual_intervention) {
+              const issue = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨 自我修復測試需要人工介入 (${new Date().toISOString().split('T')[0]})`,
+                body: `## 需要人工介入的測試失敗
+                
+                自我修復機制無法自動修復以下問題：
+                
+                ### 失敗測試列表
+                ${report.manual_intervention_required.map(t => `- [ ] ${t.test}: ${t.reason}`).join('\n')}
+                
+                ### 錯誤詳情
+                \`\`\`
+                ${JSON.stringify(report.error_details, null, 2)}
+                \`\`\`
+                
+                ### 建議行動
+                1. 檢查應用程式是否有重大變更
+                2. 審查測試邏輯是否需要更新
+                3. 考慮添加新的修復策略
+                
+                ### 相關連結
+                - [測試運行](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                - [提交](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+                
+                @${{ github.actor }} 請處理這些失敗的測試。
+                `,
+                labels: ['test-failure', 'needs-attention', 'self-healing'],
+                assignees: [context.actor]
+              });
+              
+              console.log(`Created issue #${issue.data.number}`);
+            }
+      
+      # 發送通知
+      - name: 📧 Send Notifications
+        if: always()
+        run: |
+          node scripts/send-notifications.js \
+            --report aggregated-report.json \
+            --webhook ${{ secrets.SLACK_WEBHOOK }} \
+            --email ${{ secrets.TEAM_EMAIL }}
+
+  # 部署測試報告到 GitHub Pages
+  deploy-reports:
+    needs: aggregate-results
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: 📥 Download Dashboard
+        uses: actions/download-artifact@v3
+        with:
+          name: test-dashboard
+          path: public/
+      
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          destination_dir: test-reports/${{ github.run_number }}
+      
+      - name: 📝 Update README Badge
+        run: |
+          # 更新 README 中的測試狀態徽章
+          SUCCESS_RATE="${{ needs.aggregate-results.outputs.success_rate }}"
+          COLOR="green"
+          if [ "$SUCCESS_RATE" -lt "90" ]; then COLOR="yellow"; fi
+          if [ "$SUCCESS_RATE" -lt "70" ]; then COLOR="red"; fi
+          
+          # 更新徽章 URL
+          echo "Test Success Rate: $SUCCESS_RATE% - Color: $COLOR"

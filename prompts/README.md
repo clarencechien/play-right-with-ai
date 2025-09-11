@@ -1,179 +1,144 @@
-# Golden Prompts Collection (黃金提示詞集)
+# Golden Prompts Library 🪄
 
-## 📚 關於本目錄
+## 概述
 
-本目錄收錄了「Play right with AI」工作坊的核心提示詞範例，這些「黃金提示詞」是本工作坊最有價值的資產之一。
+這是 "Play right with AI" 工作坊的核心提示詞庫，包含經過測試和優化的 Golden Prompts，能夠可靠地引導 AI 模型生成高品質的程式碼、測試和分析。
 
-## 🎯 核心策略：Think in English, Output in Chinese
-
-### 為什麼採用雙語策略？
-
-1. **提升推理精確度** - AI 模型在英文環境下展現更強的邏輯推理能力
-2. **改善程式碼品質** - 英文技術描述產生更結構化的程式碼
-3. **保持在地化** - 中文輸出確保台灣開發者的易讀性
-4. **最佳化效果** - 結合兩種語言的優勢，達到最佳輸出品質
-
-### 基本模式
-
-```
-[English Thinking]
-Analyze requirements → Design solution → Consider edge cases
-
-[Chinese Output]  
-請用繁體中文輸出，使用台灣慣用技術術語
-```
-
-## 📂 目錄結構
+## 目錄結構
 
 ```
 prompts/
-├── README.md                     # 本文件
-├── bilingual-prompting-guide.md  # 雙語提示詞完整指南
-├── chapter-01-setup/             # 第1章：環境設定提示詞
-├── chapter-02-app-generation/    # 第2章：應用生成提示詞
-├── chapter-03-test-strategy/     # 第3章：測試策略提示詞
-├── chapter-04-playwright/        # 第4章：Playwright腳本提示詞
-├── chapter-05-debugging/         # 第5章：除錯分析提示詞
-├── chapter-06-self-repair/       # 第6章：自動修復提示詞
-├── chapter-07-optimization/      # 第7章：進階優化提示詞
-└── chapter-08-capstone/          # 第8章：總整專案提示詞
+├── chapter-02/              # 應用程式生成
+│   ├── app-generation.md    # Golden Prompt
+│   └── app-generation.test.md # 測試條件
+├── chapter-03/              # 測試策略創建
+│   ├── test-strategy.md
+│   └── test-strategy.test.md
+├── chapter-04/              # Playwright 腳本生成
+│   ├── playwright-scripts.md
+│   └── playwright-scripts.test.md
+├── chapter-05/              # 失敗分析與除錯
+│   ├── failure-analysis.md
+│   └── failure-analysis.test.md
+├── chapter-06/              # 自動修復實施
+│   ├── self-repair.md
+│   └── self-repair.test.md
+├── validation/              # 驗證工具
+│   └── prompt-tester.js    # 自動化測試腳本
+└── README.md               # 本文檔
 ```
 
-## 🚀 快速開始
+## 雙語策略 (Think in English, Output in Chinese)
 
-### Step 1: 理解雙語模式
+### 核心原則
 
-閱讀 `bilingual-prompting-guide.md` 了解完整的雙語提示詞策略。
+所有 Golden Prompts 都採用雙語策略：
 
-### Step 2: 選擇章節
+1. **英文思考**：利用 AI 模型在英文環境下的優越推理能力
+2. **中文輸出**：確保本地開發者的可讀性和實用性
+3. **技術精確**：透過英文邏輯結構提升技術準確性
+4. **文化適應**：使用台灣常見的技術術語
 
-根據你的學習進度，選擇對應章節的提示詞範例。
+### 實施範例
 
-### Step 3: 實踐與優化
+```markdown
+## English Thinking Process
+[Analyze requirements and design solution in English]
 
-1. 複製基礎範例
-2. 根據需求調整
-3. 測試效果
-4. 持續優化
-
-## 💡 使用技巧
-
-### 初學者建議
-
-```
-// 從簡單的雙語提示開始
-Create a simple TODO app.
-請用繁體中文輸出程式碼。
+## 輸出要求 (繁體中文)
+[Provide detailed implementation in Traditional Chinese]
 ```
 
-### 進階使用者
+## 各章節 Golden Prompts
 
+### Chapter 2: Application Generation (應用程式生成)
+
+**用途**：從自然語言需求生成完整的網頁應用程式
+
+**特色**：
+- 完整的 HTML/CSS/JavaScript 實作
+- 響應式設計
+- LocalStorage 資料持久化
+- 詳細的中文註解
+
+### Chapter 3: Test Strategy (測試策略)
+
+**用途**：分析應用程式碼並創建全面的測試計劃
+
+**特色**：
+- 系統化的測試分析
+- 風險評估矩陣
+- 詳細的測試案例設計
+- 自動化建議
+
+### Chapter 4: Playwright Scripts (測試腳本)
+
+**用途**：生成專業的 Playwright 自動化測試腳本
+
+**特色**：
+- Page Object Model 架構
+- TypeScript 支援
+- 智慧等待策略
+- 錯誤處理機制
+
+### Chapter 5: Failure Analysis (失敗分析)
+
+**用途**：診斷測試失敗並提供根本原因分析
+
+**特色**：
+- 系統化的除錯方法
+- 多層次原因分析
+- 證據驅動的診斷
+- 具體的解決方案
+
+### Chapter 6: Self-Repair (自動修復)
+
+**用途**：基於診斷結果自動實施修復
+
+**特色**：
+- 最小改動原則
+- 完整的驗證流程
+- 預防措施整合
+- 知識庫更新
+
+## 使用指南
+
+### 1. 選擇適當的 Prompt
+
+根據學習者程度選擇：
+- **初學者**：使用基礎版本
+- **進階者**：使用增強版本
+- **專家**：可以自定義和擴展
+
+### 2. 模型特定調整
+
+**Claude 3.5 Sonnet**：原始 prompt 通常效果最佳
+**GPT-4**：可能需要明確提醒中文輸出
+**Gemini Pro**：需要更結構化的格式
+
+### 3. 驗證輸出品質
+
+使用測試條件檢查：
+- ✅ 一致性
+- ✅ 完整性
+- ✅ 功能性
+- ✅ 程式碼品質
+- ✅ 雙語品質
+
+## 自動化測試
+
+```bash
+# 測試單一章節
+node validation/prompt-tester.js --chapter 2 --model claude
+
+# 測試所有章節
+node validation/prompt-tester.js --all --model gpt4 --iterations 5
 ```
-// 加入更多英文思考過程
-As a senior architect, think through:
-1. System design considerations
-2. Performance optimization strategies  
-3. Security best practices
-4. Scalability patterns
 
-Based on this analysis, 請用繁體中文提供完整的實作方案。
-```
+## 版本歷史
 
-### 專家級應用
-
-```
-// 完整的 Chain of Thought
-Let me reason through this systematically:
-
-First, I'll analyze the requirements...
-Then, I'll design the architecture...
-Next, I'll consider implementation details...
-Finally, I'll plan testing strategies...
-
-請用繁體中文輸出：
-1. 架構設計文件
-2. 實作程式碼（含詳細註解）
-3. 測試計畫
-4. 部署指南
-```
-
-## 📊 效果對比
-
-| 項目 | 純中文提示 | 雙語提示 | 改善幅度 |
-|------|------------|----------|----------|
-| 程式碼結構 | ★★★☆☆ | ★★★★★ | +40% |
-| 邏輯清晰度 | ★★★☆☆ | ★★★★★ | +40% |
-| 錯誤處理 | ★★☆☆☆ | ★★★★☆ | +60% |
-| 可維護性 | ★★★☆☆ | ★★★★★ | +40% |
-| 文件品質 | ★★★★☆ | ★★★★★ | +20% |
-
-## 🔄 持續改進
-
-### 如何貢獻更好的提示詞？
-
-1. Fork 本專案
-2. 在對應章節創建你的提示詞變體
-3. 測試並記錄效果
-4. 提交 Pull Request
-
-### 評估標準
-
-- **準確性** - 輸出是否符合需求
-- **完整性** - 是否涵蓋所有要求
-- **可讀性** - 程式碼和文件的清晰度
-- **穩定性** - 多次執行的一致性
-- **效率性** - Token 使用效率
-
-## 🏆 最佳實踐範例
-
-### 本週精選提示詞
-
-```
-You're a test automation expert. Analyze this web app systematically:
-
-1. User journey mapping
-2. Critical path identification  
-3. Edge case discovery
-4. Performance bottleneck detection
-5. Security vulnerability assessment
-
-Generate comprehensive test strategy.
-
-請用繁體中文輸出完整的測試計畫，包含：
-- 測試架構設計
-- 優先級排序
-- 自動化策略
-- 風險評估
-- 資源需求
-```
-
-效果：
-- ✅ 產生結構化的測試計畫
-- ✅ 識別 95% 的關鍵測試場景
-- ✅ 提供可執行的測試腳本
-- ✅ 包含風險緩解措施
-
-## 📖 學習資源
-
-- [Prompt Engineering Guide](https://www.promptingguide.ai/)
-- [OpenAI Best Practices](https://platform.openai.com/docs/guides/prompt-engineering)
-- [Anthropic Prompt Library](https://docs.anthropic.com/claude/prompt-library)
-
-## 🤝 社群分享
-
-在 GitHub Discussions 分享你的優化提示詞，標籤：
-- `#prompt-optimization` - 提示詞優化
-- `#bilingual-strategy` - 雙語策略
-- `#success-story` - 成功案例
-- `#help-wanted` - 尋求協助
-
-## ⚠️ 注意事項
-
-1. **保護隱私** - 不要在提示詞中包含敏感資訊
-2. **版權尊重** - 確保範例程式碼不侵犯版權
-3. **安全第一** - 避免產生有安全隱患的程式碼
-4. **持續學習** - AI 模型不斷進化，定期更新提示詞
+- **v1.0.0** (2025-09-11): 初始版本，包含 5 個章節的 Golden Prompts
 
 ---
 
-💡 **記住核心原則：英文思考構建邏輯，中文輸出服務在地！**
+**Remember**: Golden Prompts 是活的文檔，會隨著 AI 技術演進持續改進！ 🚀

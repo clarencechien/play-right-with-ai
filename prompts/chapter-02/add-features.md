@@ -1,0 +1,392 @@
+# Feature Addition Prompts
+
+## 功能擴充提示詞集
+
+用於為現有應用程式增加新功能的提示詞模板。
+
+### 基礎功能擴充
+
+```markdown
+[Feature Addition Request]
+Add the following features to the existing TODO application:
+
+1. Data Import/Export
+   - Export to JSON format
+   - Export to CSV format
+   - Import from JSON with validation
+   - Import from CSV with parsing
+   - Merge strategy for duplicates
+
+2. Search and Filter
+   - Full-text search across title and description
+   - Filter by status (pending/completed)
+   - Filter by priority (high/medium/low)
+   - Filter by date range
+   - Combine multiple filters
+
+3. Bulk Operations
+   - Select all/none checkbox
+   - Bulk delete with confirmation
+   - Bulk status update
+   - Bulk priority change
+   - Bulk date assignment
+
+[Chinese UI Elements]
+新功能的中文介面：
+- 匯入/匯出：「匯入資料」、「匯出資料」、「選擇檔案」、「下載」
+- 搜尋：「搜尋任務...」、「找不到符合的結果」
+- 篩選器：「顯示全部」、「僅顯示待處理」、「僅顯示已完成」
+- 批次操作：「全選」、「取消全選」、「批次刪除」、「批次更新」
+```
+
+### 進階功能擴充
+
+```markdown
+[Advanced Features Implementation]
+
+1. Task Dependencies
+   Technical Requirements:
+   - Parent-child task relationships
+   - Dependency graph visualization
+   - Cascade completion logic
+   - Circular dependency detection
+   - Critical path highlighting
+
+   Implementation:
+   ```javascript
+   taskDependency: {
+     parentId: string | null,
+     childIds: string[],
+     blockingIds: string[],
+     blockedByIds: string[]
+   }
+   ```
+
+2. Recurring Tasks
+   Technical Requirements:
+   - Recurrence patterns (daily, weekly, monthly, yearly, custom)
+   - Exception dates handling
+   - Timezone support
+   - Next occurrence calculation
+   - Completion instance tracking
+
+   Patterns:
+   - Daily: Every N days
+   - Weekly: Specific weekdays
+   - Monthly: Day of month or Nth weekday
+   - Yearly: Specific date
+   - Custom: RRULE format support
+
+3. Collaboration Features
+   Technical Requirements:
+   - Task assignment to users
+   - Comments and mentions
+   - Activity timeline
+   - Real-time updates (WebSocket simulation)
+   - Conflict resolution
+
+[Chinese Feature Text]
+依賴關係：
+- 「父任務」、「子任務」、「相依任務」
+- 「此任務被以下任務阻擋」
+- 「完成此任務將解鎖」
+
+重複任務：
+- 「重複頻率」：每日、每週、每月、每年、自訂
+- 「結束條件」：永不結束、在特定日期後、重複N次後
+- 「跳過週末」、「跳過假日」
+
+協作功能：
+- 「指派給」、「@提及」、「留言」
+- 「XXX 正在編輯此任務」
+- 「活動紀錄」、「變更歷史」
+```
+
+### 資料視覺化功能
+
+```markdown
+[Data Visualization Features]
+
+1. Dashboard Implementation
+   Charts and Metrics:
+   - Task completion rate (line chart)
+   - Tasks by priority (pie chart)
+   - Daily activity (bar chart)
+   - Productivity trends (area chart)
+   - Overdue tasks (gauge)
+
+   Technical Stack:
+   - Use Canvas API or SVG
+   - Responsive charts
+   - Interactive tooltips
+   - Export as image
+   - Real-time updates
+
+2. Calendar View
+   Features:
+   - Month/Week/Day views
+   - Drag-drop rescheduling
+   - Task duration visualization
+   - Color coding by priority
+   - Quick task creation
+
+3. Kanban Board
+   Implementation:
+   - Customizable columns
+   - Drag-drop between columns
+   - WIP limits
+   - Swimlanes by category
+   - Card quick edit
+
+[Chinese Visualization Labels]
+圖表標題：
+- 「完成率趨勢」、「優先級分布」、「每日活動」
+- 「生產力分析」、「逾期任務警示」
+
+日曆檢視：
+- 「月檢視」、「週檢視」、「日檢視」
+- 「今天」、「本週」、「本月」
+- 「拖曳以重新安排」
+
+看板：
+- 「待辦」、「進行中」、「審核中」、「已完成」
+- 「工作限制：最多 5 項」
+- 「快速編輯」、「移至...」
+```
+
+### 智慧功能
+
+```markdown
+[Smart Features with AI Integration]
+
+1. Natural Language Input
+   Examples:
+   - "Buy milk tomorrow at 3pm" → Creates task with due date
+   - "Call John every Monday" → Creates recurring task
+   - "Finish report before meeting" → Creates dependency
+
+   Implementation:
+   - Parse natural language dates
+   - Extract task properties
+   - Suggest corrections
+   - Learn from user patterns
+
+2. Smart Suggestions
+   Features:
+   - Task title autocomplete
+   - Priority recommendation
+   - Due date suggestion
+   - Similar task detection
+   - Productivity insights
+
+3. Task Templates
+   System:
+   - Predefined templates library
+   - Custom template creation
+   - Template variables
+   - Quick apply with modifications
+   - Template sharing
+
+[Chinese Smart Features]
+自然語言輸入範例：
+- 「明天下午3點買牛奶」
+- 「每週一打電話給小明」
+- 「月底前完成報告」
+- 「提醒我星期五開會」
+
+智慧建議：
+- 「根據歷史資料，建議設為高優先級」
+- 「類似任務通常需要2天完成」
+- 「您通常在早上處理此類任務」
+
+範本庫：
+- 「會議準備」、「專案啟動」、「每日例行」
+- 「從範本建立」、「儲存為範本」、「管理範本」
+```
+
+### 整合功能
+
+```markdown
+[Integration Features]
+
+1. Calendar Integration
+   - Google Calendar sync
+   - Outlook Calendar sync
+   - iCal feed generation
+   - Two-way synchronization
+   - Conflict resolution
+
+2. Notification System
+   Features:
+   - Browser notifications
+   - Email reminders
+   - Push notifications (PWA)
+   - Customizable triggers
+   - Snooze functionality
+
+3. API Development
+   Endpoints:
+   - RESTful API design
+   - Authentication (JWT)
+   - Rate limiting
+   - Webhook support
+   - API documentation
+
+4. Backup and Sync
+   Implementation:
+   - Cloud backup (simulate)
+   - Device synchronization
+   - Version history
+   - Restore points
+   - Export formats
+
+[Chinese Integration Text]
+日曆整合：
+- 「連結 Google 日曆」、「同步到 Outlook」
+- 「匯出為 iCal」、「雙向同步已啟用」
+
+通知設定：
+- 「任務到期提醒」、「每日摘要」
+- 「重要任務通知」、「延後10分鐘」
+
+備份與同步：
+- 「自動備份」、「手動備份」、「還原點」
+- 「同步中...」、「上次同步時間」
+- 「版本歷史」、「復原變更」
+```
+
+### 效能與優化功能
+
+```markdown
+[Performance Features]
+
+1. Offline Support
+   Implementation:
+   - Service Worker setup
+   - Cache strategies
+   - Background sync
+   - Offline indicator
+   - Conflict resolution
+
+2. Progressive Web App
+   Features:
+   - App manifest
+   - Install prompt
+   - Splash screen
+   - App icon
+   - Standalone mode
+
+3. Performance Monitoring
+   Metrics:
+   - Load time tracking
+   - Interaction metrics
+   - Error logging
+   - Usage analytics
+   - Performance budgets
+
+[Chinese Performance Text]
+離線功能：
+- 「離線模式」、「資料已快取」
+- 「連線後將自動同步」
+- 「離線可用功能」
+
+PWA 安裝：
+- 「安裝應用程式」、「加到主畫面」
+- 「獲得完整體驗」
+
+效能監控：
+- 「載入時間：0.5秒」
+- 「回應時間正常」
+- 「儲存空間使用量」
+```
+
+## 使用指南
+
+### 功能優先級建議
+
+1. **必要功能**（第一階段）
+   - 搜尋和篩選
+   - 資料匯出
+   - 基本統計
+
+2. **增值功能**（第二階段）
+   - 日曆檢視
+   - 重複任務
+   - 範本系統
+
+3. **進階功能**（第三階段）
+   - 協作工具
+   - API 整合
+   - 智慧建議
+
+4. **優化功能**（第四階段）
+   - 離線支援
+   - PWA 功能
+   - 效能監控
+
+### 逐步實施策略
+
+```markdown
+# Phase 1: Core Enhancement
+Add search, filter, and export features.
+Focus on data management and accessibility.
+
+# Phase 2: Visualization
+Implement calendar and dashboard views.
+Add visual representations of data.
+
+# Phase 3: Intelligence
+Add smart features and automation.
+Implement templates and suggestions.
+
+# Phase 4: Integration
+Connect with external services.
+Add sync and backup capabilities.
+```
+
+### 測試檢查清單
+
+每個新功能都應該通過以下測試：
+
+- [ ] 功能正確性測試
+- [ ] 邊界條件處理
+- [ ] 錯誤情況處理
+- [ ] 效能影響評估
+- [ ] 使用者體驗流暢度
+- [ ] 中文顯示正確性
+- [ ] 響應式設計適配
+- [ ] 無障礙功能支援
+
+## 常見問題處理
+
+### Q: 功能太複雜，AI 無法一次生成完整程式碼
+**A:** 將功能拆分成更小的部分，逐步實現：
+```markdown
+Step 1: Create the UI structure
+Step 2: Implement the core logic
+Step 3: Add error handling
+Step 4: Optimize and refine
+```
+
+### Q: 新功能與現有程式碼衝突
+**A:** 明確指出整合點：
+```markdown
+Please integrate the new feature with existing code:
+- Maintain current data structure
+- Use existing utility functions
+- Follow established naming conventions
+- Preserve current UI style
+```
+
+### Q: 功能效能影響太大
+**A:** 要求效能優化：
+```markdown
+Optimize the feature for performance:
+- Use virtual scrolling for long lists
+- Implement lazy loading
+- Add debouncing for frequent operations
+- Use Web Workers for heavy computation
+```
+
+---
+*記住：功能擴充應該漸進式進行，確保每個階段都穩定可用。*

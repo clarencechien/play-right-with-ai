@@ -1,0 +1,635 @@
+# Chapter 4: Playwright Test Generation Golden Prompts
+
+## Prompt 1: Complete E2E Test Generation
+
+```markdown
+[Context - Technical Requirements]
+I need to create Playwright E2E tests for a TODO application.
+
+Application Features:
+- Add new tasks (text input + Enter key)
+- Mark tasks complete/incomplete (checkbox)
+- Delete tasks (delete button)
+- Edit tasks (double-click to edit)
+- Filter tasks (All/Active/Completed)
+- Clear completed tasks (button)
+- Data persistence (LocalStorage)
+
+Technical Stack:
+- Frontend: HTML/CSS/JavaScript
+- Testing: Playwright
+- Pattern: Page Object Model
+- Browsers: Chrome, Firefox, Safari
+
+[Task - Think in English for Logic]
+Generate comprehensive Playwright test suite covering:
+
+1. Test Structure:
+   - Proper test organization with describe blocks
+   - Setup and teardown hooks
+   - Test data management
+   - Error handling
+
+2. Core Functionality Tests:
+   - CRUD operations
+   - State management
+   - Data persistence
+   - UI interactions
+
+3. Advanced Scenarios:
+   - Edge cases
+   - Error conditions
+   - Performance considerations
+   - Cross-browser compatibility
+
+4. Best Practices:
+   - Use data-testid selectors
+   - Implement proper waits
+   - Add meaningful assertions
+   - Include helpful comments
+
+[Output Requirements - 繁體中文註解]
+生成完整的 Playwright 測試腳本：
+
+要求：
+- 每個測試都有清晰的中文註解
+- 使用 async/await 正確處理非同步
+- 包含錯誤處理和重試邏輯
+- 遵循 AAA 模式 (Arrange-Act-Assert)
+
+測試結構：
+```javascript
+test.describe('測試套件名稱', () => {
+  test.beforeEach(async ({ page }) => {
+    // 測試前準備
+  });
+  
+  test('測試案例描述', async ({ page }) => {
+    // Arrange - 準備
+    // Act - 執行
+    // Assert - 驗證
+  });
+});
+```
+
+包含以下測試類別：
+1. 基本功能測試 (5個)
+2. 篩選功能測試 (3個)
+3. 資料持久化測試 (2個)
+4. 邊界條件測試 (3個)
+5. 鍵盤操作測試 (2個)
+```
+
+## Prompt 2: Page Object Model Implementation
+
+```markdown
+[Context]
+TODO application requiring maintainable test architecture
+
+[Requirements - Architectural Design]
+Create Page Object Model structure:
+
+1. BasePage Class:
+   - Common navigation methods
+   - Wait strategies
+   - Screenshot capabilities
+   - Error handling
+
+2. TodoPage Class:
+   - Element selectors
+   - Action methods (add, delete, edit, toggle)
+   - Verification methods
+   - Utility methods
+
+3. Component Classes:
+   - Header component
+   - TodoItem component
+   - FilterBar component
+   - Footer component
+
+[Expected Implementation - With 中文說明]
+生成 POM 架構代碼：
+
+```javascript
+// BasePage.js - 基礎頁面類別
+class BasePage {
+  constructor(page) {
+    this.page = page;
+  }
+  
+  // 通用方法實作
+  async navigate(url) {
+    // 導航邏輯
+  }
+  
+  async waitForElement(selector) {
+    // 等待元素邏輯
+  }
+}
+
+// TodoPage.js - TODO 頁面物件
+class TodoPage extends BasePage {
+  constructor(page) {
+    super(page);
+    // 定義選擇器
+    this.selectors = {
+      todoInput: '[data-testid="todo-input"]',
+      // 更多選擇器...
+    };
+  }
+  
+  // 頁面操作方法
+  async addTodo(text) {
+    // 新增任務實作
+  }
+  
+  // 更多方法...
+}
+```
+
+每個方法都要包含：
+- JSDoc 註解
+- 錯誤處理
+- 返回值說明
+- 使用範例
+```
+
+## Prompt 3: Advanced Playwright Features
+
+```markdown
+[Context]
+Need to implement advanced Playwright testing features
+
+[Advanced Requirements]
+Implement sophisticated test scenarios using:
+
+1. Network Interception:
+   - Mock API responses
+   - Simulate network failures
+   - Test offline functionality
+
+2. Visual Testing:
+   - Screenshot comparisons
+   - Visual regression tests
+   - Responsive design tests
+
+3. Performance Testing:
+   - Measure load times
+   - Track rendering performance
+   - Monitor memory usage
+
+4. Multi-context Testing:
+   - Multiple browser contexts
+   - Parallel execution
+   - Session management
+
+5. Accessibility Testing:
+   - ARIA labels verification
+   - Keyboard navigation
+   - Screen reader compatibility
+
+[輸出需求 - 進階測試實作]
+提供進階 Playwright 測試範例：
+
+```javascript
+// 網路攔截測試
+test('處理網路錯誤', async ({ page }) => {
+  // 模擬網路失敗
+  await page.route('**/api/*', route => route.abort());
+  
+  // 測試離線功能
+  await page.context().setOffline(true);
+  
+  // 驗證錯誤處理
+});
+
+// 視覺測試
+test('視覺迴歸測試', async ({ page }) => {
+  await expect(page).toHaveScreenshot('homepage.png');
+});
+
+// 效能測試
+test('頁面載入效能', async ({ page }) => {
+  const metrics = await page.evaluate(() => ({
+    domContentLoaded: performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart,
+    loadComplete: performance.timing.loadEventEnd - performance.timing.navigationStart
+  }));
+  
+  expect(metrics.loadComplete).toBeLessThan(2000);
+});
+```
+```
+
+## Prompt 4: MCP Integration for Playwright
+
+```markdown
+[Context]
+Integrating Model Context Protocol (MCP) with Playwright tests
+
+[MCP Requirements]
+Set up MCP-enhanced testing:
+
+1. MCP Server Configuration:
+   - Install @modelcontextprotocol/server-playwright
+   - Configure Claude Desktop
+   - Set up environment
+
+2. AI-Driven Test Generation:
+   - Let AI observe browser state
+   - Generate tests based on UI
+   - Self-healing test scripts
+
+3. Intelligent Test Execution:
+   - Dynamic test adaptation
+   - Smart element detection
+   - Automatic retry strategies
+
+[Implementation - MCP 整合指南]
+配置 MCP 增強測試：
+
+1. MCP 配置檔案：
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-playwright"],
+      "env": {
+        "PLAYWRIGHT_HEADLESS": "false"
+      }
+    }
+  }
+}
+```
+
+2. AI 驅動測試生成：
+```javascript
+// 讓 AI 觀察並生成測試
+test('AI 生成的測試', async ({ page }) => {
+  // MCP 將協助 AI 理解頁面狀態
+  // AI 可以直接控制瀏覽器
+  // 自動生成適當的測試步驟
+});
+```
+
+3. 智能元素定位：
+```javascript
+// AI 協助找到最佳選擇器
+const selector = await ai.findBestSelector('新增按鈕');
+await page.click(selector);
+```
+```
+
+## Prompt 5: Cross-Browser Testing Strategy
+
+```markdown
+[Context]
+TODO app needs to work across all major browsers
+
+[Browser Testing Requirements]
+Create cross-browser test configuration:
+
+1. Browser Matrix:
+   - Chrome (latest, latest-1)
+   - Firefox (latest, latest-1)
+   - Safari (latest)
+   - Edge (latest)
+   - Mobile browsers
+
+2. Browser-Specific Tests:
+   - Handle browser differences
+   - Feature detection
+   - Polyfill verification
+
+3. Viewport Testing:
+   - Desktop (1920x1080, 1366x768)
+   - Tablet (768x1024)
+   - Mobile (375x667, 414x896)
+
+[輸出 - 跨瀏覽器測試配置]
+生成 Playwright 配置：
+
+```javascript
+// playwright.config.js
+module.exports = {
+  projects: [
+    {
+      name: 'Chrome Desktop',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 }
+      }
+    },
+    {
+      name: 'Firefox Desktop',
+      use: {
+        ...devices['Desktop Firefox'],
+        viewport: { width: 1920, height: 1080 }
+      }
+    },
+    {
+      name: 'Safari Desktop',
+      use: {
+        ...devices['Desktop Safari'],
+        viewport: { width: 1920, height: 1080 }
+      }
+    },
+    {
+      name: 'Mobile Chrome',
+      use: {
+        ...devices['iPhone 13'],
+      }
+    },
+    {
+      name: 'Mobile Safari',
+      use: {
+        ...devices['iPhone 13 Pro Max'],
+      }
+    }
+  ],
+  
+  // 測試配置
+  use: {
+    // 基礎 URL
+    baseURL: 'http://localhost:3000',
+    
+    // 追蹤設定
+    trace: 'on-first-retry',
+    
+    // 截圖設定
+    screenshot: 'only-on-failure',
+    
+    // 影片錄製
+    video: 'retain-on-failure'
+  }
+};
+```
+
+瀏覽器特定測試：
+```javascript
+test('瀏覽器相容性測試', async ({ page, browserName }) => {
+  if (browserName === 'webkit') {
+    // Safari 特定測試
+  } else if (browserName === 'firefox') {
+    // Firefox 特定測試
+  }
+});
+```
+```
+
+## Prompt 6: Test Data Management
+
+```markdown
+[Context]
+Need structured test data management for TODO app tests
+
+[Requirements]
+Design test data strategy:
+
+1. Test Data Categories:
+   - Valid inputs
+   - Invalid inputs
+   - Edge cases
+   - Special characters
+   - Performance data
+
+2. Data Generation:
+   - Random data generation
+   - Fixture files
+   - Database seeding
+   - API mocking
+
+3. Data Cleanup:
+   - After each test
+   - After test suite
+   - Failed test handling
+
+[實作 - 測試資料管理]
+創建測試資料架構：
+
+```javascript
+// fixtures/testData.js
+const testData = {
+  validTodos: [
+    '購買牛奶',
+    '完成報告',
+    '運動30分鐘'
+  ],
+  
+  edgeCases: {
+    empty: '',
+    spaces: '   ',
+    veryLong: 'a'.repeat(500),
+    special: '<script>alert("XSS")</script>',
+    unicode: '中文 English にほんご 😀'
+  },
+  
+  performance: {
+    bulkItems: Array.from({ length: 1000 }, (_, i) => `Item ${i}`)
+  },
+  
+  // 資料生成器
+  generateRandomTodo: () => {
+    const tasks = ['學習', '工作', '休息', '運動'];
+    const actions = ['完成', '準備', '計劃', '執行'];
+    return `${actions[Math.floor(Math.random() * actions.length)]} ${tasks[Math.floor(Math.random() * tasks.length)]} - ${Date.now()}`;
+  }
+};
+
+// 測試中使用
+test('批量資料測試', async ({ page }) => {
+  for (const todo of testData.performance.bulkItems.slice(0, 10)) {
+    await page.fill('[data-testid="todo-input"]', todo);
+    await page.press('[data-testid="todo-input"]', 'Enter');
+  }
+});
+```
+```
+
+## Prompt 7: Error Handling and Recovery
+
+```markdown
+[Context]
+Robust error handling for Playwright tests
+
+[Requirements]
+Implement comprehensive error handling:
+
+1. Test Failures:
+   - Capture screenshots
+   - Record videos
+   - Collect traces
+   - Log errors
+
+2. Recovery Strategies:
+   - Automatic retries
+   - Test isolation
+   - State cleanup
+   - Fallback actions
+
+3. Reporting:
+   - Detailed error messages
+   - Stack traces
+   - Environment info
+   - Reproduction steps
+
+[錯誤處理實作]
+建立強固的錯誤處理機制：
+
+```javascript
+// 錯誤處理包裝器
+async function withErrorHandling(testFn, context) {
+  const maxRetries = 3;
+  let lastError;
+  
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await testFn();
+    } catch (error) {
+      lastError = error;
+      console.log(`測試失敗 (嘗試 ${i + 1}/${maxRetries}): ${error.message}`);
+      
+      // 截圖
+      await context.page.screenshot({ 
+        path: `errors/retry-${i}-${Date.now()}.png` 
+      });
+      
+      // 清理狀態
+      await context.page.reload();
+      
+      // 等待後重試
+      if (i < maxRetries - 1) {
+        await context.page.waitForTimeout(1000 * (i + 1));
+      }
+    }
+  }
+  
+  throw lastError;
+}
+
+// 使用範例
+test('具有錯誤處理的測試', async ({ page }) => {
+  await withErrorHandling(async () => {
+    // 測試邏輯
+    await page.click('[data-testid="submit"]');
+    await expect(page.locator('.success')).toBeVisible();
+  }, { page });
+});
+```
+```
+
+## Prompt 8: CI/CD Integration
+
+```markdown
+[Context]
+Integrate Playwright tests into CI/CD pipeline
+
+[Requirements]
+Set up automated test execution:
+
+1. CI Configuration:
+   - GitHub Actions
+   - GitLab CI
+   - Jenkins
+   - CircleCI
+
+2. Test Execution:
+   - Parallel execution
+   - Sharding
+   - Selective testing
+   - Smoke tests vs full suite
+
+3. Reporting:
+   - HTML reports
+   - Allure reports
+   - Slack notifications
+   - Email alerts
+
+[CI/CD 配置範例]
+GitHub Actions 工作流程：
+
+```yaml
+# .github/workflows/playwright.yml
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shard: [1, 2, 3, 4]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Install Playwright
+      run: npx playwright install --with-deps
+    
+    - name: Run tests
+      run: npx playwright test --shard=${{ matrix.shard }}/4
+    
+    - name: Upload reports
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: playwright-report-${{ matrix.shard }}
+        path: playwright-report/
+```
+```
+
+## Tips for Optimizing Prompts
+
+### 提示詞最佳實踐
+
+1. **Context 豐富度**
+   - 提供完整的應用程式資訊
+   - 包含技術棧細節
+   - 說明測試目標
+
+2. **Requirements 明確性**
+   - 列出具體測試需求
+   - 定義預期覆蓋範圍
+   - 說明特殊考量
+
+3. **Output 結構化**
+   - 指定代碼格式
+   - 要求註解說明
+   - 定義命名規範
+
+### 迭代優化流程
+
+```mermaid
+graph LR
+    A[初始提示詞] --> B[生成結果]
+    B --> C{滿意?}
+    C -->|否| D[分析問題]
+    D --> E[調整提示詞]
+    E --> B
+    C -->|是| F[保存模板]
+```
+
+### 常見優化方向
+
+- **增加具體性**：提供更多細節
+- **改善結構**：更清晰的組織
+- **加入範例**：提供參考代碼
+- **明確約束**：說明限制條件
+
+---
+
+🚀 **進階技巧**：將成功的提示詞保存為模板，建立個人提示詞庫。
+
+🎭 **Play right with AI** - 讓 AI 成為您的測試腳本專家！

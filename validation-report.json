@@ -1,0 +1,367 @@
+{
+  "chapters": [
+    {
+      "name": "chapter-01",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": true,
+      "hasExamples": true,
+      "hasStartHere": true,
+      "issues": []
+    },
+    {
+      "name": "chapter-02",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": true,
+      "hasExamples": true,
+      "hasStartHere": true,
+      "issues": []
+    },
+    {
+      "name": "chapter-03",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": true,
+      "hasExamples": true,
+      "hasStartHere": true,
+      "issues": []
+    },
+    {
+      "name": "chapter-04",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": true,
+      "hasExamples": true,
+      "hasStartHere": true,
+      "issues": []
+    },
+    {
+      "name": "chapter-05",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": true,
+      "hasExamples": false,
+      "hasStartHere": false,
+      "issues": [
+        "README missing prerequisites",
+        "Missing example-output directory",
+        "Missing start-here directory"
+      ]
+    },
+    {
+      "name": "chapter-06",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": false,
+      "hasExamples": false,
+      "hasStartHere": false,
+      "issues": [
+        "README missing prerequisites",
+        "Missing exercises directory",
+        "Missing example-output directory",
+        "Missing start-here directory"
+      ]
+    },
+    {
+      "name": "chapter-07",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": false,
+      "hasExamples": false,
+      "hasStartHere": false,
+      "issues": [
+        "README missing prerequisites",
+        "Missing exercises directory",
+        "Missing example-output directory",
+        "Missing start-here directory"
+      ]
+    },
+    {
+      "name": "chapter-08",
+      "exists": true,
+      "hasReadme": true,
+      "hasExercises": false,
+      "hasExamples": false,
+      "hasStartHere": false,
+      "issues": [
+        "README missing prerequisites",
+        "Missing exercises directory",
+        "Missing example-output directory",
+        "Missing start-here directory"
+      ]
+    }
+  ],
+  "sampleApps": [
+    {
+      "name": "todo-app",
+      "exists": true,
+      "hasIndex": true,
+      "hasStyles": true,
+      "hasScript": true,
+      "hasBugs": false,
+      "hasSolution": false,
+      "issues": []
+    },
+    {
+      "name": "shopping-list",
+      "exists": true,
+      "hasIndex": false,
+      "hasStyles": false,
+      "hasScript": false,
+      "hasBugs": false,
+      "hasSolution": false,
+      "issues": [
+        "Missing index.html",
+        "Missing CSS file",
+        "Missing JavaScript file"
+      ]
+    },
+    {
+      "name": "multi-page-app",
+      "exists": true,
+      "hasIndex": false,
+      "hasStyles": false,
+      "hasScript": false,
+      "hasBugs": false,
+      "hasSolution": false,
+      "issues": [
+        "Missing index.html",
+        "Missing CSS file",
+        "Missing JavaScript file"
+      ]
+    },
+    {
+      "name": "capstone-starter",
+      "exists": true,
+      "hasIndex": false,
+      "hasStyles": false,
+      "hasScript": false,
+      "hasBugs": false,
+      "hasSolution": false,
+      "issues": [
+        "Missing index.html",
+        "Missing CSS file",
+        "Missing JavaScript file"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "chapter": "chapter-02",
+      "file": "add-features.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1782,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-02",
+      "file": "app-generation.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1119,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-02",
+      "file": "app-generation.test.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 546,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-02",
+      "file": "bilingual-comparison.md",
+      "hasEnglishSection": true,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1238,
+      "issues": []
+    },
+    {
+      "chapter": "chapter-02",
+      "file": "generate-todo-app.md",
+      "hasEnglishSection": true,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1244,
+      "issues": []
+    },
+    {
+      "chapter": "chapter-02",
+      "file": "refine-ui.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1539,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-02-app-generation",
+      "file": "todo-app-bilingual.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 721,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-03",
+      "file": "test-strategy.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1443,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-03",
+      "file": "test-strategy.test.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 615,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-04",
+      "file": "playwright-scripts.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 3168,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-04",
+      "file": "playwright-scripts.test.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": false,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 872,
+      "issues": [
+        "Missing English section",
+        "Missing Chinese section"
+      ]
+    },
+    {
+      "chapter": "chapter-05",
+      "file": "failure-analysis.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 1617,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-05",
+      "file": "failure-analysis.test.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": false,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 901,
+      "issues": [
+        "Missing English section",
+        "Missing Chinese section"
+      ]
+    },
+    {
+      "chapter": "chapter-06",
+      "file": "self-repair.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": true,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 2621,
+      "issues": [
+        "Missing English section"
+      ]
+    },
+    {
+      "chapter": "chapter-06",
+      "file": "self-repair.test.md",
+      "hasEnglishSection": false,
+      "hasChineseSection": false,
+      "hasCodeBlocks": true,
+      "hasExamples": false,
+      "tokenEstimate": 933,
+      "issues": [
+        "Missing English section",
+        "Missing Chinese section"
+      ]
+    }
+  ],
+  "tests": [],
+  "documentation": [
+    {
+      "file": "README.md",
+      "valid": false,
+      "size": 0
+    },
+    {
+      "file": "PRD.md",
+      "valid": true,
+      "size": 3918
+    },
+    {
+      "file": "CLAUDE.md",
+      "valid": true,
+      "size": 7283
+    },
+    {
+      "file": ".cursorrules",
+      "valid": true,
+      "size": 4600
+    }
+  ],
+  "errors": [
+    "Missing documentation: README.md"
+  ],
+  "warnings": [],
+  "metrics": {
+    "totalChapters": 8,
+    "completedChapters": 4,
+    "totalTests": 3,
+    "passedTests": 0,
+    "totalPrompts": 15,
+    "validPrompts": 2,
+    "totalApps": 4,
+    "workingApps": 1
+  }
+}

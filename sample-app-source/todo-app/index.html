@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的待辦事項</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 標題區域 -->
+        <header class="header">
+            <h1>📝 我的待辦事項</h1>
+            <div class="stats">
+                <span class="stat-item">
+                    總計: <span id="totalCount">0</span>
+                </span>
+                <span class="stat-item">
+                    已完成: <span id="completedCount">0</span>
+                </span>
+                <span class="stat-item">
+                    完成率: <span id="completionRate">0%</span>
+                </span>
+            </div>
+        </header>
+
+        <!-- 新增任務表單 -->
+        <section class="add-task-section">
+            <form id="taskForm" class="task-form">
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="taskTitle" 
+                        class="task-input" 
+                        placeholder="請輸入任務名稱..."
+                        maxlength="100"
+                        required
+                    >
+                    <select id="taskPriority" class="priority-select">
+                        <option value="low">低優先</option>
+                        <option value="medium" selected>中優先</option>
+                        <option value="high">高優先</option>
+                    </select>
+                    <button type="submit" class="add-btn">
+                        <span class="btn-icon">➕</span>
+                        新增任務
+                    </button>
+                </div>
+                <div class="form-group">
+                    <textarea 
+                        id="taskDescription" 
+                        class="task-description" 
+                        placeholder="任務描述（選填）..."
+                        maxlength="500"
+                        rows="2"
+                    ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskDueDate" class="due-date-label">
+                        到期日：
+                    </label>
+                    <input 
+                        type="datetime-local" 
+                        id="taskDueDate" 
+                        class="due-date-input"
+                    >
+                </div>
+            </form>
+        </section>
+
+        <!-- 篩選器 -->
+        <section class="filter-section">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">
+                    全部
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    待處理
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    已完成
+                </button>
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn" data-priority="all">
+                    所有優先級
+                </button>
+                <button class="filter-btn" data-priority="high">
+                    高優先
+                </button>
+                <button class="filter-btn" data-priority="medium">
+                    中優先
+                </button>
+                <button class="filter-btn" data-priority="low">
+                    低優先
+                </button>
+            </div>
+            <div class="search-group">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="🔍 搜尋任務..."
+                >
+            </div>
+        </section>
+
+        <!-- 任務列表 -->
+        <section class="tasks-section">
+            <div id="taskList" class="task-list">
+                <!-- 任務項目將動態插入這裡 -->
+            </div>
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">📋</div>
+                <p class="empty-text">目前沒有任務</p>
+                <p class="empty-subtext">點擊上方新增您的第一個任務！</p>
+            </div>
+        </section>
+
+        <!-- 批次操作 -->
+        <section class="bulk-actions" id="bulkActions" style="display: none;">
+            <button class="bulk-btn" id="selectAllBtn">
+                全選
+            </button>
+            <button class="bulk-btn" id="bulkDeleteBtn">
+                批次刪除
+            </button>
+            <button class="bulk-btn" id="bulkCompleteBtn">
+                批次完成
+            </button>
+            <button class="bulk-btn" id="clearCompletedBtn">
+                清除已完成
+            </button>
+        </section>
+
+        <!-- 底部工具列 -->
+        <footer class="footer">
+            <button class="tool-btn" id="exportBtn">
+                📥 匯出資料
+            </button>
+            <button class="tool-btn" id="importBtn">
+                📤 匯入資料
+            </button>
+            <input 
+                type="file" 
+                id="importFile" 
+                accept=".json" 
+                style="display: none;"
+            >
+            <button class="tool-btn" id="themeToggle">
+                🌙 切換主題
+            </button>
+        </footer>
+    </div>
+
+    <!-- 確認對話框 -->
+    <div id="confirmDialog" class="dialog-overlay">
+        <div class="dialog">
+            <h3 class="dialog-title">確認刪除</h3>
+            <p class="dialog-message">確定要刪除此任務嗎？此操作無法復原。</p>
+            <div class="dialog-actions">
+                <button class="dialog-btn dialog-cancel">取消</button>
+                <button class="dialog-btn dialog-confirm">確定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示訊息 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

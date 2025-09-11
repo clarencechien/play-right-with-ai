@@ -1,0 +1,253 @@
+name: Prompt Testing
+
+on:
+  push:
+    paths:
+      - 'prompts/**'
+      - 'integrations/**'
+  pull_request:
+    paths:
+      - 'prompts/**'
+      - 'integrations/**'
+  workflow_dispatch:
+    inputs:
+      test_model:
+        description: 'AI 模型選擇'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - claude
+          - gemini
+          - gpt4
+
+jobs:
+  test-claude-prompts:
+    if: github.event.inputs.test_model == 'all' || github.event.inputs.test_model == 'claude'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+    
+    - name: 安裝 Claude SDK
+      run: |
+        npm install @anthropic-ai/sdk
+    
+    - name: 測試 Claude 提示詞
+      run: |
+        node - <<'EOF'
+        const Anthropic = require('@anthropic-ai/sdk');
+        const fs = require('fs').promises;
+        const path = require('path');
+        
+        async function testPrompts() {
+          // 僅在有 API 金鑰時執行
+          if (!process.env.ANTHROPIC_API_KEY) {
+            console.log('跳過 Claude 測試 (無 API 金鑰)');
+            return;
+          }
+          
+          const anthropic = new Anthropic({
+            apiKey: process.env.ANTHROPIC_API_KEY,
+          });
+          
+          // 讀取並測試提示詞
+          const promptsDir = path.join(process.cwd(), 'prompts');
+          try {
+            const files = await fs.readdir(promptsDir);
+            
+            for (const file of files) {
+              if (file.endsWith('.md')) {
+                console.log(`測試提示詞: ${file}`);
+                const content = await fs.readFile(path.join(promptsDir, file), 'utf-8');
+                
+                // 提取第一個提示詞進行測試
+                const promptMatch = content.match(/```prompt\n([\s\S]*?)\n```/);
+                if (promptMatch) {
+                  try {
+                    const response = await anthropic.messages.create({
+                      model: 'claude-3-haiku-20240307',
+                      max_tokens: 100,
+                      messages: [{
+                        role: 'user',
+                        content: promptMatch[1].substring(0, 500) // 限制長度以節省成本
+                      }]
+                    });
+                    console.log(`✓ ${file} 測試成功`);
+                  } catch (error) {
+                    console.error(`✗ ${file} 測試失敗:`, error.message);
+                  }
+                }
+              }
+            }
+          } catch (error) {
+            console.log('prompts 目錄尚未建立');
+          }
+        }
+        
+        testPrompts().catch(console.error);
+        EOF
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+  test-gemini-prompts:
+    if: github.event.inputs.test_model == 'all' || github.event.inputs.test_model == 'gemini'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: 安裝 Gemini SDK
+      run: |
+        pip install google-generativeai
+    
+    - name: 測試 Gemini 提示詞
+      run: |
+        python - <<'EOF'
+        import os
+        import google.generativeai as genai
+        from pathlib import Path
+        import re
+        
+        def test_prompts():
+            # 僅在有 API 金鑰時執行
+            if not os.environ.get('GOOGLE_API_KEY'):
+                print('跳過 Gemini 測試 (無 API 金鑰)')
+                return
+            
+            genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
+            model = genai.GenerativeModel('gemini-pro')
+            
+            prompts_dir = Path('prompts')
+            if not prompts_dir.exists():
+                print('prompts 目錄尚未建立')
+                return
+            
+            for prompt_file in prompts_dir.glob('*.md'):
+                print(f'測試提示詞: {prompt_file.name}')
+                content = prompt_file.read_text(encoding='utf-8')
+                
+                # 提取提示詞
+                match = re.search(r'```prompt\n([\s\S]*?)\n```', content)
+                if match:
+                    prompt_text = match.group(1)[:500]  # 限制長度
+                    try:
+                        response = model.generate_content(prompt_text)
+                        print(f'✓ {prompt_file.name} 測試成功')
+                    except Exception as e:
+                        print(f'✗ {prompt_file.name} 測試失敗: {e}')
+        
+        if __name__ == '__main__':
+            test_prompts()
+        EOF
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+
+  test-openai-prompts:
+    if: github.event.inputs.test_model == 'all' || github.event.inputs.test_model == 'gpt4'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 設定 Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+    
+    - name: 安裝 OpenAI SDK
+      run: |
+        npm install openai
+    
+    - name: 測試 GPT-4 提示詞
+      run: |
+        node - <<'EOF'
+        const OpenAI = require('openai');
+        const fs = require('fs').promises;
+        const path = require('path');
+        
+        async function testPrompts() {
+          if (!process.env.OPENAI_API_KEY) {
+            console.log('跳過 OpenAI 測試 (無 API 金鑰)');
+            return;
+          }
+          
+          const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+          });
+          
+          const promptsDir = path.join(process.cwd(), 'prompts');
+          try {
+            const files = await fs.readdir(promptsDir);
+            
+            for (const file of files) {
+              if (file.endsWith('.md')) {
+                console.log(`測試提示詞: ${file}`);
+                const content = await fs.readFile(path.join(promptsDir, file), 'utf-8');
+                
+                const promptMatch = content.match(/```prompt\n([\s\S]*?)\n```/);
+                if (promptMatch) {
+                  try {
+                    const response = await openai.chat.completions.create({
+                      model: 'gpt-3.5-turbo',  // 使用較便宜的模型進行測試
+                      messages: [{
+                        role: 'user',
+                        content: promptMatch[1].substring(0, 500)
+                      }],
+                      max_tokens: 100
+                    });
+                    console.log(`✓ ${file} 測試成功`);
+                  } catch (error) {
+                    console.error(`✗ ${file} 測試失敗:`, error.message);
+                  }
+                }
+              }
+            }
+          } catch (error) {
+            console.log('prompts 目錄尚未建立');
+          }
+        }
+        
+        testPrompts().catch(console.error);
+        EOF
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+  prompt-quality-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 分析提示詞品質
+      run: |
+        # 檢查提示詞的結構和品質
+        for file in prompts/*.md; do
+          if [ -f "$file" ]; then
+            echo "分析: $file"
+            
+            # 檢查是否包含必要元素
+            grep -q "目標" "$file" || echo "  警告: 缺少目標說明"
+            grep -q "預期輸出" "$file" || echo "  警告: 缺少預期輸出說明"
+            grep -q "範例" "$file" || echo "  警告: 缺少範例"
+            
+            # 檢查提示詞長度
+            prompt_length=$(grep -A 1000 '```prompt' "$file" | grep -B 1000 '```' | wc -w)
+            if [ "$prompt_length" -lt 50 ]; then
+              echo "  警告: 提示詞可能過短 (少於 50 字)"
+            elif [ "$prompt_length" -gt 2000 ]; then
+              echo "  警告: 提示詞可能過長 (超過 2000 字)"
+            fi
+          fi
+        done

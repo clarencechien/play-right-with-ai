@@ -27,7 +27,7 @@ Transform developers into "AI Conductors" who can orchestrate complete developme
 
 ## Technical Stack
 - **Testing**: Playwright
-- **AI Tools**: Claude, Gemini, GPT-4
+- **AI Tools**: Claude, Gemini, GPT-5
 - **Integration**: Playwright MCP (Model Context Protocol)
 - **Languages**: JavaScript/TypeScript
 - **Environment**: VS Code, Node.js

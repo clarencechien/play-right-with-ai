@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO 應用程式 - AI Workshop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>我的待辦事項</h1>
+        </header>
+
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="todoInput" 
+                data-testid="todo-input"
+                placeholder="輸入待辦事項..."
+                maxlength="500"
+            >
+            <button id="addButton" data-testid="add-button">新增</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="active">進行中</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+        </div>
+
+        <ul id="todoList" data-testid="todo-list"></ul>
+
+        <div class="stats" data-testid="stats">
+            <span id="totalCount">總計: 0</span>
+            <span id="completedCount">已完成: 0</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
