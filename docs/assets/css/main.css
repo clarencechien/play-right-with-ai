@@ -364,3 +364,79 @@ code {
   padding: 80px 0;
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.95));
 }
+
+/* Copy Button Styles */
+pre {
+  position: relative;
+  background: #0d1117;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, #10b981, #059669);
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Code Block Styling */
+pre code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c9d1d9;
+}
+
+/* Step Section Code Blocks */
+.step pre {
+  margin-top: 1rem;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.step pre:hover .copy-btn {
+  opacity: 1;
+}

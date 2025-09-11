@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>計時器應用 - Play Right with AI</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .timer-app {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 3rem;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.95));
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    
+    .timer-display {
+      font-size: 4rem;
+      font-weight: 300;
+      color: #a78bfa;
+      margin: 2rem 0;
+      font-family: 'Monaco', 'Courier New', monospace;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+    }
+    
+    .timer-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .timer-btn {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 100px;
+    }
+    
+    .timer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+    
+    .timer-btn:active {
+      transform: translateY(0);
+    }
+    
+    .timer-btn.start {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+    
+    .timer-btn.pause {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+    }
+    
+    .timer-btn.reset {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    
+    .timer-tabs {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    
+    .tab-btn {
+      padding: 0.5rem 1.5rem;
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border-color: transparent;
+    }
+    
+    .countdown-inputs {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .time-input {
+      width: 80px;
+      padding: 0.5rem;
+      background: #0d1117;
+      color: white;
+      border: 1px solid #475569;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    
+    .time-input:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+    
+    .input-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .input-label span {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    
+    .laps {
+      margin-top: 2rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .lap-item {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="../" class="nav-brand">Play Right with AI</a>
+      <ul class="nav-links">
+        <li><a href="../chapters/" class="nav-link">章節</a></li>
+        <li><a href="../playground/" class="nav-link">Playground</a></li>
+        <li><a href="../demos/" class="nav-link">示範</a></li>
+        <li><a href="https://github.com/clarencechien/play-right-with-ai" class="nav-link">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>計時器應用示範</h1>
+      <p>多功能計時器應用，包含碼錶和倒數計時功能。</p>
+      
+      <div class="timer-app">
+        <div class="timer-tabs">
+          <button class="tab-btn active" onclick="switchMode('stopwatch')">碼錶</button>
+          <button class="tab-btn" onclick="switchMode('countdown')">倒數計時</button>
+        </div>
+        
+        <div id="stopwatch-section">
+          <div class="timer-display" id="stopwatch-display">00:00:00</div>
+          <div class="timer-controls">
+            <button class="timer-btn start" id="stopwatch-start" onclick="startStopwatch()">開始</button>
+            <button class="timer-btn pause" id="stopwatch-pause" onclick="pauseStopwatch()" style="display: none;">暫停</button>
+            <button class="timer-btn" onclick="lapStopwatch()">記錄</button>
+            <button class="timer-btn reset" onclick="resetStopwatch()">重置</button>
+          </div>
+          <div class="laps" id="laps"></div>
+        </div>
+        
+        <div id="countdown-section" style="display: none;">
+          <div class="countdown-inputs">
+            <div class="input-label">
+              <input type="number" class="time-input" id="hours" min="0" max="23" value="0">
+              <span>小時</span>
+            </div>
+            <div class="input-label">
+              <input type="number" class="time-input" id="minutes" min="0" max="59" value="5">
+              <span>分鐘</span>
+            </div>
+            <div class="input-label">
+              <input type="number" class="time-input" id="seconds" min="0" max="59" value="0">
+              <span>秒</span>
+            </div>
+          </div>
+          <div class="timer-display" id="countdown-display">00:05:00</div>
+          <div class="timer-controls">
+            <button class="timer-btn start" id="countdown-start" onclick="startCountdown()">開始</button>
+            <button class="timer-btn pause" id="countdown-pause" onclick="pauseCountdown()" style="display: none;">暫停</button>
+            <button class="timer-btn reset" onclick="resetCountdown()">重置</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="demo-info">
+        <h2>功能特點</h2>
+        <ul>
+          <li>✅ 碼錶功能：精確到百分之一秒</li>
+          <li>✅ 記錄圈數功能</li>
+          <li>✅ 倒數計時器：可設定小時、分鐘、秒</li>
+          <li>✅ 暫停/繼續功能</li>
+          <li>✅ 音效提醒（倒數結束時）</li>
+          <li>✅ 響應式設計</li>
+        </ul>
+        
+        <h2>AI 生成提示詞範例</h2>
+        <pre><code class="language-text">請創建一個多功能計時器應用，包含：
+1. 碼錶模式：開始、暫停、重置、記錄圈數
+2. 倒數計時模式：可設定時間，結束時提醒
+3. 使用標籤切換兩種模式
+4. 美觀的漸層色設計
+5. 流暢的動畫效果
+請用繁體中文標註所有UI元素</code></pre>
+      </div>
+      
+      <div class="navigation">
+        <a href="../demos/" class="btn btn-secondary">返回示範列表</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 Play Right with AI Workshop. 開源教學專案。</p>
+    </div>
+  </footer>
+
+  <script>
+    // 碼錶變數
+    let stopwatchInterval;
+    let stopwatchTime = 0;
+    let stopwatchRunning = false;
+    let laps = [];
+    
+    // 倒數計時變數
+    let countdownInterval;
+    let countdownTime = 0;
+    let countdownRunning = false;
+    let initialCountdownTime = 0;
+    
+    // 切換模式
+    function switchMode(mode) {
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      if (mode === 'stopwatch') {
+        tabs[0].classList.add('active');
+        document.getElementById('stopwatch-section').style.display = 'block';
+        document.getElementById('countdown-section').style.display = 'none';
+      } else {
+        tabs[1].classList.add('active');
+        document.getElementById('stopwatch-section').style.display = 'none';
+        document.getElementById('countdown-section').style.display = 'block';
+        updateCountdownDisplay();
+      }
+    }
+    
+    // 碼錶功能
+    function startStopwatch() {
+      if (!stopwatchRunning) {
+        stopwatchInterval = setInterval(() => {
+          stopwatchTime += 10;
+          updateStopwatchDisplay();
+        }, 10);
+        stopwatchRunning = true;
+        document.getElementById('stopwatch-start').style.display = 'none';
+        document.getElementById('stopwatch-pause').style.display = 'inline-block';
+      }
+    }
+    
+    function pauseStopwatch() {
+      clearInterval(stopwatchInterval);
+      stopwatchRunning = false;
+      document.getElementById('stopwatch-start').style.display = 'inline-block';
+      document.getElementById('stopwatch-pause').style.display = 'none';
+    }
+    
+    function resetStopwatch() {
+      clearInterval(stopwatchInterval);
+      stopwatchTime = 0;
+      stopwatchRunning = false;
+      laps = [];
+      updateStopwatchDisplay();
+      document.getElementById('laps').innerHTML = '';
+      document.getElementById('stopwatch-start').style.display = 'inline-block';
+      document.getElementById('stopwatch-pause').style.display = 'none';
+    }
+    
+    function lapStopwatch() {
+      if (stopwatchRunning) {
+        laps.push(stopwatchTime);
+        updateLaps();
+      }
+    }
+    
+    function updateStopwatchDisplay() {
+      const hours = Math.floor(stopwatchTime / 3600000);
+      const minutes = Math.floor((stopwatchTime % 3600000) / 60000);
+      const seconds = Math.floor((stopwatchTime % 60000) / 1000);
+      const milliseconds = Math.floor((stopwatchTime % 1000) / 10);
+      
+      document.getElementById('stopwatch-display').textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(milliseconds).padStart(2, '0')}`;
+    }
+    
+    function updateLaps() {
+      const lapsContainer = document.getElementById('laps');
+      lapsContainer.innerHTML = '';
+      laps.forEach((lap, index) => {
+        const hours = Math.floor(lap / 3600000);
+        const minutes = Math.floor((lap % 3600000) / 60000);
+        const seconds = Math.floor((lap % 60000) / 1000);
+        const milliseconds = Math.floor((lap % 1000) / 10);
+        
+        const lapDiv = document.createElement('div');
+        lapDiv.className = 'lap-item';
+        lapDiv.innerHTML = `
+          <span>圈 ${index + 1}</span>
+          <span>${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(milliseconds).padStart(2, '0')}</span>
+        `;
+        lapsContainer.appendChild(lapDiv);
+      });
+    }
+    
+    // 倒數計時功能
+    function startCountdown() {
+      if (!countdownRunning) {
+        const hours = parseInt(document.getElementById('hours').value) || 0;
+        const minutes = parseInt(document.getElementById('minutes').value) || 0;
+        const seconds = parseInt(document.getElementById('seconds').value) || 0;
+        
+        if (countdownTime === 0) {
+          countdownTime = (hours * 3600 + minutes * 60 + seconds) * 1000;
+          initialCountdownTime = countdownTime;
+        }
+        
+        if (countdownTime > 0) {
+          countdownInterval = setInterval(() => {
+            countdownTime -= 10;
+            updateCountdownDisplay();
+            
+            if (countdownTime <= 0) {
+              countdownTime = 0;
+              clearInterval(countdownInterval);
+              countdownRunning = false;
+              alert('倒數計時結束！');
+              resetCountdown();
+            }
+          }, 10);
+          
+          countdownRunning = true;
+          document.getElementById('countdown-start').style.display = 'none';
+          document.getElementById('countdown-pause').style.display = 'inline-block';
+          
+          // 禁用輸入
+          document.getElementById('hours').disabled = true;
+          document.getElementById('minutes').disabled = true;
+          document.getElementById('seconds').disabled = true;
+        }
+      }
+    }
+    
+    function pauseCountdown() {
+      clearInterval(countdownInterval);
+      countdownRunning = false;
+      document.getElementById('countdown-start').style.display = 'inline-block';
+      document.getElementById('countdown-pause').style.display = 'none';
+    }
+    
+    function resetCountdown() {
+      clearInterval(countdownInterval);
+      countdownTime = 0;
+      countdownRunning = false;
+      document.getElementById('countdown-start').style.display = 'inline-block';
+      document.getElementById('countdown-pause').style.display = 'none';
+      
+      // 啟用輸入
+      document.getElementById('hours').disabled = false;
+      document.getElementById('minutes').disabled = false;
+      document.getElementById('seconds').disabled = false;
+      
+      updateCountdownDisplay();
+    }
+    
+    function updateCountdownDisplay() {
+      let displayTime = countdownTime;
+      
+      if (displayTime === 0) {
+        const hours = parseInt(document.getElementById('hours').value) || 0;
+        const minutes = parseInt(document.getElementById('minutes').value) || 0;
+        const seconds = parseInt(document.getElementById('seconds').value) || 0;
+        displayTime = (hours * 3600 + minutes * 60 + seconds) * 1000;
+      }
+      
+      const hours = Math.floor(displayTime / 3600000);
+      const minutes = Math.floor((displayTime % 3600000) / 60000);
+      const seconds = Math.floor((displayTime % 60000) / 1000);
+      
+      document.getElementById('countdown-display').textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+    
+    // 監聽輸入變化
+    document.getElementById('hours').addEventListener('input', updateCountdownDisplay);
+    document.getElementById('minutes').addEventListener('input', updateCountdownDisplay);
+    document.getElementById('seconds').addEventListener('input', updateCountdownDisplay);
+  </script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

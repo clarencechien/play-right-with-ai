@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>計算機應用 - Play Right with AI</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .calculator {
+      max-width: 400px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.95));
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .display {
+      background: #0d1117;
+      color: #fff;
+      font-size: 2rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      text-align: right;
+      min-height: 60px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+    
+    .calc-btn {
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .calc-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+    
+    .calc-btn:active {
+      transform: translateY(0);
+    }
+    
+    .calc-btn.operator {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+    }
+    
+    .calc-btn.equals {
+      background: linear-gradient(135deg, #10b981, #059669);
+      grid-column: span 2;
+    }
+    
+    .calc-btn.clear {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    
+    .calc-btn.zero {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="../" class="nav-brand">Play Right with AI</a>
+      <ul class="nav-links">
+        <li><a href="../chapters/" class="nav-link">章節</a></li>
+        <li><a href="../playground/" class="nav-link">Playground</a></li>
+        <li><a href="../demos/" class="nav-link">示範</a></li>
+        <li><a href="https://github.com/clarencechien/play-right-with-ai" class="nav-link">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>計算機應用示範</h1>
+      <p>這是一個使用 AI 生成的計算機應用，展示基本的數學運算功能。</p>
+      
+      <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+          <button class="calc-btn clear" onclick="clearDisplay()">C</button>
+          <button class="calc-btn operator" onclick="appendOperator('/')">/</button>
+          <button class="calc-btn operator" onclick="appendOperator('*')">×</button>
+          <button class="calc-btn operator" onclick="deleteLast()">←</button>
+          
+          <button class="calc-btn" onclick="appendNumber('7')">7</button>
+          <button class="calc-btn" onclick="appendNumber('8')">8</button>
+          <button class="calc-btn" onclick="appendNumber('9')">9</button>
+          <button class="calc-btn operator" onclick="appendOperator('-')">-</button>
+          
+          <button class="calc-btn" onclick="appendNumber('4')">4</button>
+          <button class="calc-btn" onclick="appendNumber('5')">5</button>
+          <button class="calc-btn" onclick="appendNumber('6')">6</button>
+          <button class="calc-btn operator" onclick="appendOperator('+')">+</button>
+          
+          <button class="calc-btn" onclick="appendNumber('1')">1</button>
+          <button class="calc-btn" onclick="appendNumber('2')">2</button>
+          <button class="calc-btn" onclick="appendNumber('3')">3</button>
+          <button class="calc-btn" onclick="appendDecimal()">.</button>
+          
+          <button class="calc-btn zero" onclick="appendNumber('0')">0</button>
+          <button class="calc-btn equals" onclick="calculate()">=</button>
+        </div>
+      </div>
+      
+      <div class="demo-info">
+        <h2>功能特點</h2>
+        <ul>
+          <li>✅ 基本四則運算（加減乘除）</li>
+          <li>✅ 小數點運算支援</li>
+          <li>✅ 清除與退格功能</li>
+          <li>✅ 響應式設計，適配各種螢幕</li>
+          <li>✅ 流暢的動畫效果</li>
+        </ul>
+        
+        <h2>AI 生成提示詞範例</h2>
+        <pre><code class="language-text">請創建一個美觀的計算機應用，包含以下功能：
+1. 基本四則運算
+2. 清除和退格功能
+3. 支援小數點
+4. 使用漸層色按鈕設計
+5. 加入按鈕點擊動畫效果
+請用繁體中文註解程式碼</code></pre>
+      </div>
+      
+      <div class="navigation">
+        <a href="../demos/" class="btn btn-secondary">返回示範列表</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 Play Right with AI Workshop. 開源教學專案。</p>
+    </div>
+  </footer>
+
+  <script>
+    let display = document.getElementById('display');
+    let currentInput = '0';
+    let previousInput = '';
+    let operation = '';
+    let shouldResetScreen = false;
+
+    function updateDisplay() {
+      display.textContent = currentInput;
+    }
+
+    function clearDisplay() {
+      currentInput = '0';
+      previousInput = '';
+      operation = '';
+      updateDisplay();
+    }
+
+    function appendNumber(num) {
+      if (shouldResetScreen) {
+        currentInput = '';
+        shouldResetScreen = false;
+      }
+      
+      if (currentInput === '0') {
+        currentInput = num;
+      } else {
+        currentInput += num;
+      }
+      updateDisplay();
+    }
+
+    function appendOperator(op) {
+      if (operation && !shouldResetScreen) {
+        calculate();
+      }
+      previousInput = currentInput;
+      operation = op;
+      shouldResetScreen = true;
+    }
+
+    function appendDecimal() {
+      if (shouldResetScreen) {
+        currentInput = '0';
+        shouldResetScreen = false;
+      }
+      
+      if (!currentInput.includes('.')) {
+        currentInput += '.';
+        updateDisplay();
+      }
+    }
+
+    function deleteLast() {
+      if (currentInput.length > 1) {
+        currentInput = currentInput.slice(0, -1);
+      } else {
+        currentInput = '0';
+      }
+      updateDisplay();
+    }
+
+    function calculate() {
+      if (!operation || !previousInput) return;
+      
+      let result;
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+      
+      switch (operation) {
+        case '+':
+          result = prev + current;
+          break;
+        case '-':
+          result = prev - current;
+          break;
+        case '*':
+          result = prev * current;
+          break;
+        case '/':
+          if (current === 0) {
+            alert('不能除以零！');
+            return;
+          }
+          result = prev / current;
+          break;
+        default:
+          return;
+      }
+      
+      currentInput = result.toString();
+      operation = '';
+      previousInput = '';
+      shouldResetScreen = true;
+      updateDisplay();
+    }
+
+    // 鍵盤支援
+    document.addEventListener('keydown', (e) => {
+      if (e.key >= '0' && e.key <= '9') appendNumber(e.key);
+      if (e.key === '.') appendDecimal();
+      if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') appendOperator(e.key);
+      if (e.key === 'Enter' || e.key === '=') calculate();
+      if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') clearDisplay();
+      if (e.key === 'Backspace') deleteLast();
+    });
+  </script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -215,34 +215,74 @@ function addCopyButton(block) {
   
   const button = document.createElement('button');
   button.className = 'copy-btn';
-  button.textContent = '複製';
+  button.innerHTML = '<span>📋</span> 複製';
+  button.title = '點擊複製程式碼';
+  
   button.onclick = () => {
     const code = block.querySelector('code');
     if (!code) return;
     
     const text = code.textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      button.textContent = '已複製！';
-      setTimeout(() => {
-        button.textContent = '複製';
-      }, 2000);
-    }).catch(err => {
-      console.error('複製失敗:', err);
-      // 備用複製方法
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      button.textContent = '已複製！';
-      setTimeout(() => {
-        button.textContent = '複製';
-      }, 2000);
+    
+    const copyToClipboard = async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (err) {
+        // 備用複製方法
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.top = '-999px';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const success = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        return success;
+      }
+    };
+    
+    copyToClipboard().then(success => {
+      if (success) {
+        button.innerHTML = '<span>✅</span> 已複製！';
+        button.classList.add('copied');
+        
+        // 顯示浮動提示
+        const tooltip = document.createElement('div');
+        tooltip.className = 'copy-tooltip';
+        tooltip.textContent = '程式碼已複製到剪貼簿';
+        tooltip.style.cssText = `
+          position: absolute;
+          top: -35px;
+          right: 0;
+          background: #10b981;
+          color: white;
+          padding: 4px 12px;
+          border-radius: 4px;
+          font-size: 12px;
+          white-space: nowrap;
+          animation: fadeInOut 2s ease;
+          pointer-events: none;
+        `;
+        button.appendChild(tooltip);
+        
+        setTimeout(() => {
+          button.innerHTML = '<span>📋</span> 複製';
+          button.classList.remove('copied');
+          if (tooltip.parentNode) {
+            tooltip.remove();
+          }
+        }, 2500);
+      } else {
+        button.innerHTML = '<span>❌</span> 複製失敗';
+        setTimeout(() => {
+          button.innerHTML = '<span>📋</span> 複製';
+        }, 2000);
+      }
     });
   };
+  
   block.style.position = 'relative';
   block.appendChild(button);
 }
