@@ -318,7 +318,7 @@ Measure and improve:
 [Claude]
 Analyze the application architecture and suggest improvements.
 
-[GPT-4]
+[GPT]
 Review the code for security vulnerabilities.
 
 [Gemini]

@@ -75,7 +75,7 @@ fixed_code = gemini.auto_repair_code(broken_code, debug_result)
 - 除錯分析
 - 程式碼修復
 
-### 3. OpenAI (GPT-4)
+### 3. OpenAI (GPT)
 **路徑**: `/integrations/openai/`
 
 ```javascript

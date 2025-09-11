@@ -86,7 +86,7 @@ git push origin feature/your-feature-name
 
 ## 測試結果
 - Claude: ✅ 測試通過
-- GPT-4: ✅ 測試通過  
+- GPT: ✅ 測試通過  
 - Gemini: ⚠️ 需要調整
 
 ## 範例輸出

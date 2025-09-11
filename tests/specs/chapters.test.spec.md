@@ -87,8 +87,8 @@ describe('Chapter 2: First Movement', () => {
       // Assert functionality complete
     });
 
-    test('should work with GPT-4', async () => {
-      // Generate app with GPT-4
+    test('should work with GPT', async () => {
+      // Generate app with GPT
       // Assert functionality complete
     });
 

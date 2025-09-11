@@ -937,7 +937,7 @@ Consider browser compatibility issues</code></pre>
       
       <div class="demo-card">
         <h3>倒數計時器</h3>
-        <p>由 GPT-4 生成的倒數計時器，具有暫停和重置功能</p>
+        <p>由 GPT 生成的倒數計時器，具有暫停和重置功能</p>
         <a href="/docs/demos/timer.html" class="btn">查看示範</a>
       </div>
     </div>

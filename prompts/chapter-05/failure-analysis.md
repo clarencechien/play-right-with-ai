@@ -2,7 +2,7 @@
 
 ## Version: 1.1.0
 ## Last Updated: 2025-09-11
-## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
+## Tested Models: Claude 3.5 Sonnet, GPT, Gemini Pro
 
 ---
 
@@ -464,7 +464,7 @@ echo "失敗率: $FAILURES/$ITERATIONS"
 - Strong at providing multiple solutions
 - Good at explaining technical concepts
 
-### GPT-4
+### GPT
 - Strong pattern recognition
 - Good at statistical analysis
 - May need prompting for Chinese output

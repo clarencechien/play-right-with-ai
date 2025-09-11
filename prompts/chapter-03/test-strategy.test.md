@@ -39,7 +39,7 @@
 
 #### 6. Model Compatibility (模型相容性)
 - [ ] Claude: 策略完整度 > 95%
-- [ ] GPT-4: 策略完整度 > 90%
+- [ ] GPT: 策略完整度 > 90%
 - [ ] Gemini: 策略完整度 > 85%
 
 ### Test Scenarios

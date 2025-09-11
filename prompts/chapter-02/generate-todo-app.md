@@ -322,4 +322,4 @@ The generated code is good, but please:
 - 優化互動響應時間
 
 ---
-*這些提示詞經過多次測試和優化，能夠在 Claude、GPT-4 和 Gemini 上產生高品質的結果。*
+*這些提示詞經過多次測試和優化，能夠在 Claude、GPT 和 Gemini 上產生高品質的結果。*

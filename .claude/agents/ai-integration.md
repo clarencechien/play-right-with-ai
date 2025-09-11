@@ -77,7 +77,7 @@ export OPENAI_API_KEY="your-api-key"
 
 # 使用
 openai api completions.create \
-  -m gpt-4 \
+  -m gpt \
   -p "Generate a TODO app"
 ```
 
@@ -175,10 +175,10 @@ echo "分析程式碼並生成測試策略..."
 TEST_STRATEGY=$(gemini "分析以下程式碼並生成 E2E 測試策略: $APP_CODE")
 echo "$TEST_STRATEGY" > test-strategy.md
 
-# 步驟 3: 使用 GPT-4 生成 Playwright 測試
+# 步驟 3: 使用 GPT 生成 Playwright 測試
 echo "生成 Playwright 測試腳本..."
 TEST_SCRIPT=$(openai api completions.create \
-  -m gpt-4 \
+  -m gpt \
   -p "基於測試策略生成 Playwright 測試: $TEST_STRATEGY")
 echo "$TEST_SCRIPT" > test.spec.ts
 
@@ -197,8 +197,8 @@ async function parallelAIProcessing(tasks) {
         return await callClaude(task.prompt);
       case 'gemini':
         return await callGemini(task.prompt);
-      case 'gpt4':
-        return await callGPT4(task.prompt);
+      case 'gpt':
+        return await callGPT(task.prompt);
     }
   });
 
@@ -210,7 +210,7 @@ async function parallelAIProcessing(tasks) {
 const tasks = [
   { model: 'claude', prompt: '生成 HTML 結構' },
   { model: 'gemini', prompt: '生成 CSS 樣式' },
-  { model: 'gpt4', prompt: '生成 JavaScript 邏輯' }
+  { model: 'gpt', prompt: '生成 JavaScript 邏輯' }
 ];
 
 const combinedApp = await parallelAIProcessing(tasks);
@@ -224,7 +224,7 @@ class AIOrchestrator {
   private rateLimits = {
     claude: { requests: 0, resetTime: Date.now() },
     gemini: { requests: 0, resetTime: Date.now() },
-    gpt4: { requests: 0, resetTime: Date.now() }
+    gpt: { requests: 0, resetTime: Date.now() }
   };
 
   async callWithRateLimit(model: string, prompt: string) {
@@ -246,7 +246,7 @@ class AIOrchestrator {
   }
 
   private callFallbackModel(prompt: string) {
-    const fallbackOrder = ['claude', 'gemini', 'gpt4'];
+    const fallbackOrder = ['claude', 'gemini', 'gpt'];
     for (const model of fallbackOrder) {
       if (!this.isRateLimited(model)) {
         return this.callModel(model, prompt);
@@ -298,7 +298,7 @@ const chain = new PromptChain();
 await chain.execute([
   { name: '生成應用', model: 'claude', prompt: '建立待辦事項應用', saveAs: 'app.html' },
   { name: '分析程式碼', model: 'gemini', prompt: '分析應用並提出測試策略' },
-  { name: '生成測試', model: 'gpt4', prompt: '基於分析結果生成測試腳本', saveAs: 'test.spec.ts' }
+  { name: '生成測試', model: 'gpt', prompt: '基於分析結果生成測試腳本', saveAs: 'test.spec.ts' }
 ]);
 ```
 
@@ -310,7 +310,7 @@ class TokenManager {
   private usage = {
     claude: { input: 0, output: 0, cost: 0 },
     gemini: { input: 0, output: 0, cost: 0 },
-    gpt4: { input: 0, output: 0, cost: 0 }
+    gpt: { input: 0, output: 0, cost: 0 }
   };
 
   trackUsage(model: string, inputTokens: number, outputTokens: number) {
@@ -330,7 +330,7 @@ class TokenManager {
     const rates = {
       claude: { input: 0.008, output: 0.024 },
       gemini: { input: 0.00025, output: 0.0005 },
-      gpt4: { input: 0.03, output: 0.06 }
+      gpt: { input: 0.03, output: 0.06 }
     };
     
     return (input * rates[model].input + output * rates[model].output) / 1000;
@@ -388,7 +388,7 @@ fi
 **Model Selection Strategy**:
 - Claude for complex reasoning
 - Gemini for creative generation
-- GPT-4 for general tasks
+- GPT for general tasks
 - Local models for sensitive data
 - Consider cost vs quality tradeoffs
 

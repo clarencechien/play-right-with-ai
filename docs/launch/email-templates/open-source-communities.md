@@ -31,7 +31,7 @@ but lack structured approaches to integrate them effectively. This workshop brid
 【Technical Stack】
 - Frontend: Vanilla JS, React (Chapter 7)
 - Testing: Playwright + MCP Integration
-- AI Tools: Claude, Gemini, GPT-4 compatible
+- AI Tools: Claude, Gemini, GPT compatible
 - Documentation: Markdown + GitHub Pages
 
 【What Makes It Unique】

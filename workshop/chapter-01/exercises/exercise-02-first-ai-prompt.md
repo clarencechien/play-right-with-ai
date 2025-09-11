@@ -39,7 +39,7 @@
 
 ### 步驟 2：提交給 AI
 
-將上述提示詞提交給您選擇的 AI 服務（Claude、Gemini 或 GPT-4）。
+將上述提示詞提交給您選擇的 AI 服務（Claude、Gemini 或 GPT）。
 
 ### 步驟 3：保存並測試
 

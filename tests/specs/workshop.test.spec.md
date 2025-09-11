@@ -120,7 +120,7 @@ describe('Tool Integration E2E', () => {
   });
 
   test('should work with alternative AI models', async () => {
-    // Test with GPT-4
+    // Test with GPT
     // Test with Gemini
     // Test with local LLMs
     // Assert core functionality works across models
@@ -257,7 +257,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        ai-model: [claude, gpt-4, gemini]
+        ai-model: [claude, gpt, gemini]
     steps:
       - Run unit tests
       - Run integration tests

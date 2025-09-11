@@ -39,7 +39,7 @@
 ### Technical Decisions
 - **Vanilla JS First**: Start with pure JavaScript before frameworks
 - **MCP Integration**: Focus on Playwright MCP for browser automation
-- **Multi-Model Support**: Ensure prompts work with Claude, GPT-4, Gemini
+- **Multi-Model Support**: Ensure prompts work with Claude, GPT, Gemini
 
 ### Content Decisions
 - **Language Balance**: 30-70% English thinking based on complexity

@@ -2,7 +2,7 @@
 
 ## Version: 1.1.0
 ## Last Updated: 2025-09-11
-## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
+## Tested Models: Claude 3.5 Sonnet, GPT, Gemini Pro
 
 ---
 
@@ -254,7 +254,7 @@ Technical decisions:
 - Strong technical analysis in English
 - Excellent Chinese output quality
 
-### GPT-4
+### GPT
 - Add explicit instruction: "Think through the solution in English, then provide output in Traditional Chinese"
 - May need reminder: "所有使用者介面文字、註解、錯誤訊息請使用繁體中文"
 

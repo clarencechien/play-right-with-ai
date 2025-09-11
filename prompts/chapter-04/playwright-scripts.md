@@ -2,7 +2,7 @@
 
 ## Version: 1.1.0
 ## Last Updated: 2025-09-11
-## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
+## Tested Models: Claude 3.5 Sonnet, GPT, Gemini Pro
 
 ---
 
@@ -604,7 +604,7 @@ test('使用者應該能成功登入系統', async ({ page }) => {
 - Strong TypeScript typing
 - Comprehensive error handling
 
-### GPT-4
+### GPT
 - May need explicit TypeScript annotations
 - Good at test data generation
 - Strong async/await patterns

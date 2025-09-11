@@ -27,7 +27,7 @@ Create a personal finance tracker web application with:
 ```
 
 #### 執行步驟
-1. 將提示詞提交給您選擇的 AI（Claude、GPT-4 或 Gemini）
+1. 將提示詞提交給您選擇的 AI（Claude、GPT 或 Gemini）
 2. 保存生成的程式碼到 `finance-tracker-v1/` 資料夾
 3. 在瀏覽器中測試基本功能
 4. 記錄問題和不足之處

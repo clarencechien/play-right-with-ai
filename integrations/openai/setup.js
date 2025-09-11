@@ -1,5 +1,5 @@
 /**
- * OpenAI (GPT-4) API 整合設定
+ * OpenAI (GPT) API 整合設定
  * 用於 "Play right with AI" 工作坊
  */
 
@@ -25,7 +25,7 @@ class OpenAIIntegration {
       apiKey: apiKey,
     });
     
-    this.defaultModel = 'gpt-4-turbo-preview';
+    this.defaultModel = 'gpt-turbo-preview';
     this.fallbackModel = 'gpt-3.5-turbo';
   }
 
@@ -72,7 +72,7 @@ Output a complete, working application as a single HTML file.`;
 
       return response.choices[0].message.content;
     } catch (error) {
-      console.error('GPT-4 生成失敗，嘗試使用 GPT-3.5:', error.message);
+      console.error('GPT 生成失敗，嘗試使用 GPT-3.5:', error.message);
       
       // 降級到 GPT-3.5
       try {
@@ -437,8 +437,8 @@ Output the complete, repaired code.`;
    */
   calculateCost(inputTokens, outputTokens, model = this.defaultModel) {
     const pricing = {
-      'gpt-4-turbo-preview': { input: 0.01, output: 0.03 },
-      'gpt-4': { input: 0.03, output: 0.06 },
+      'gpt-turbo-preview': { input: 0.01, output: 0.03 },
+      'gpt': { input: 0.03, output: 0.06 },
       'gpt-3.5-turbo': { input: 0.0005, output: 0.0015 }
     };
 

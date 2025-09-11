@@ -2,7 +2,7 @@
 
 ## Version: 1.1.0
 ## Last Updated: 2025-09-11
-## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
+## Tested Models: Claude 3.5 Sonnet, GPT, Gemini Pro
 
 ---
 
@@ -631,7 +631,7 @@ done
 - Strong at explaining repair rationale
 - Good at preventive measures
 
-### GPT-4
+### GPT
 - Strong at code generation
 - Good at pattern recognition
 - May need Chinese output reminder

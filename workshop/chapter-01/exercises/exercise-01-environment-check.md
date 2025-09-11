@@ -54,7 +54,7 @@ console.log(`✅ npm 版本: ${npmVersion}`);
 const aiServices = {
   'ANTHROPIC_API_KEY': 'Claude',
   'GOOGLE_API_KEY': 'Gemini',
-  'OPENAI_API_KEY': 'GPT-4'
+  'OPENAI_API_KEY': 'GPT'
 };
 
 console.log('\n📊 AI 服務設定狀態:');

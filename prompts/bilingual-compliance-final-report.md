@@ -95,7 +95,7 @@ the expected implementation
 1. **Review and Approve**: Review each `.md.review` file
 2. **Replace Original Files**: After review, rename `.review` files to `.md`
 3. **Run Final Validation**: Execute `python3 validate-bilingual.py`
-4. **Test with AI Models**: Validate updated prompts with Claude, GPT-4, and Gemini
+4. **Test with AI Models**: Validate updated prompts with Claude, GPT, and Gemini
 
 ### Review Process
 ```bash
@@ -124,7 +124,7 @@ python3 validate-bilingual.py
 
 ### Testing Protocol:
 - [ ] Test with Claude 3.5 Sonnet
-- [ ] Test with GPT-4
+- [ ] Test with GPT
 - [ ] Test with Gemini Pro
 - [ ] Verify consistent output structure
 - [ ] Confirm Chinese localization quality

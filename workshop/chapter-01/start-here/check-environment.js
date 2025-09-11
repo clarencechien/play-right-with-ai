@@ -174,7 +174,7 @@ async function main() {
   const aiServices = [
     { name: 'Claude (Anthropic)', env: 'ANTHROPIC_API_KEY' },
     { name: 'Gemini (Google)', env: 'GOOGLE_API_KEY' },
-    { name: 'GPT-4 (OpenAI)', env: 'OPENAI_API_KEY' }
+    { name: 'GPT (OpenAI)', env: 'OPENAI_API_KEY' }
   ];
 
   let hasAtLeastOneAI = false;

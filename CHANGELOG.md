@@ -31,7 +31,7 @@ This is the first production-ready release of Play Right with AI, a comprehensiv
 
 #### 🤖 AI Integration
 - Full support for Claude (Anthropic)
-- Compatible with GPT-4 (OpenAI)
+- Compatible with GPT (OpenAI)
 - Experimental support for Gemini (Google)
 - MCP browser automation integration
 - Intelligent prompt optimization

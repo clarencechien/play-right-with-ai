@@ -12,7 +12,7 @@
 ## 前置需求
 
 - 完成第一章的環境設置
-- 至少一個可用的 AI 服務（Claude、Gemini 或 GPT-4）
+- 至少一個可用的 AI 服務（Claude、Gemini 或 GPT）
 - 基本的 HTML、CSS、JavaScript 知識
 - 理解雙語提示策略的概念
 

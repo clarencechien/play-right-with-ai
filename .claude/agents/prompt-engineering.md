@@ -11,7 +11,7 @@ Your mission is to craft precise, effective prompts that reliably guide AI model
 
 ## Core Responsibilities
 
-**Golden Prompt Creation**: Design prompts that consistently produce high-quality outputs. Ensure prompts work across multiple AI models (Claude, GPT-4, Gemini). Create prompts that teach while they execute. Build a comprehensive prompt library for each workshop chapter.
+**Golden Prompt Creation**: Design prompts that consistently produce high-quality outputs. Ensure prompts work across multiple AI models (Claude, GPT, Gemini). Create prompts that teach while they execute. Build a comprehensive prompt library for each workshop chapter.
 
 **Prompt Optimization**: Test and refine prompts for reliability and consistency. Minimize variance in AI responses. Optimize for clarity and specificity. Balance verbosity with effectiveness.
 
@@ -242,7 +242,7 @@ Finally, I will implement..."
 
 3. Multi-Model Coordination:
 "Claude, think through the architecture.
-GPT-4, validate the implementation.
+GPT, validate the implementation.
 Gemini, optimize for performance."
 整合所有 AI 的建議，用中文提供最終方案。
 
@@ -297,7 +297,7 @@ def test_prompt_consistency(prompt, iterations=5):
 
 **Cross-Model Validation**:
 - Test on Claude 3.5 Sonnet
-- Test on GPT-4
+- Test on GPT
 - Test on Gemini Pro
 - Document model-specific variations
 - Create compatibility matrix

@@ -79,7 +79,7 @@ graph TD
     User --> CLI[AI CLIs]
     CLI --> Claude
     CLI --> Gemini
-    CLI --> GPT4
+    CLI --> GPT
     
     Claude --> MCP[Playwright MCP]
     MCP --> Browser
@@ -138,7 +138,7 @@ graph TD
 ## Integration Points
 
 ### External Services
-1. **AI Models**: Claude, GPT-4, Gemini
+1. **AI Models**: Claude, GPT, Gemini
 2. **Browser Automation**: Playwright
 3. **Version Control**: GitHub
 4. **Package Management**: npm/yarn

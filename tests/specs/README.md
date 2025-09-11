@@ -28,7 +28,7 @@ Individual chapter testing requirements:
 
 ### 3. **prompts.test.spec.md**
 Golden prompt validation criteria:
-- Multi-model compatibility (Claude, GPT-4, Gemini)
+- Multi-model compatibility (Claude, GPT, Gemini)
 - Output consistency metrics
 - Response quality assessment
 - Bilingual (Traditional Chinese) support
@@ -140,14 +140,14 @@ npm run test:full
 
 ### Supported Models
 - **Claude 3 Opus**: Primary model for workshop
-- **GPT-4 Turbo**: Alternative model support
+- **GPT Turbo**: Alternative model support
 - **Gemini Pro**: Additional model validation
 - **Local LLMs**: Optional for offline mode
 
 ### Model Testing Strategy
 ```typescript
 // Each prompt must work with all models
-const models = ['claude', 'gpt-4', 'gemini'];
+const models = ['claude', 'gpt', 'gemini'];
 for (const model of models) {
   await testPrompt(goldenPrompt, model);
 }

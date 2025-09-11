@@ -64,8 +64,8 @@ describe('TODO App Generation Prompts', () => {
     const claudeResponse = await testWithClaude(basePrompt);
     assertTodoAppFunctionality(claudeResponse);
     
-    // Test with GPT-4
-    const gptResponse = await testWithGPT4(basePrompt);
+    // Test with GPT
+    const gptResponse = await testWithGPT(basePrompt);
     assertTodoAppFunctionality(gptResponse);
     
     // Test with Gemini
@@ -291,7 +291,7 @@ describe('Cross-Model Consistency', () => {
   test('should produce functionally equivalent outputs', async () => {
     for (const prompt of testPrompts) {
       const claudeOutput = await testClaude(prompt);
-      const gptOutput = await testGPT4(prompt);
+      const gptOutput = await testGPT(prompt);
       const geminiOutput = await testGemini(prompt);
       
       assertFunctionalEquivalence([
@@ -320,7 +320,7 @@ describe('Model-Specific Optimizations', () => {
     // Optimize for conversation memory
   });
 
-  test('should optimize for GPT-4', () => {
+  test('should optimize for GPT', () => {
     // Use clear section headers
     // Leverage code generation capabilities
     // Optimize for creative solutions

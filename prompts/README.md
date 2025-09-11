@@ -113,7 +113,7 @@ prompts/
 ### 2. 模型特定調整
 
 **Claude 3.5 Sonnet**：原始 prompt 通常效果最佳
-**GPT-4**：可能需要明確提醒中文輸出
+**GPT**：可能需要明確提醒中文輸出
 **Gemini Pro**：需要更結構化的格式
 
 ### 3. 驗證輸出品質
@@ -132,7 +132,7 @@ prompts/
 node validation/prompt-tester.js --chapter 2 --model claude
 
 # 測試所有章節
-node validation/prompt-tester.js --all --model gpt4 --iterations 5
+node validation/prompt-tester.js --all --model gpt --iterations 5
 ```
 
 ## 版本歷史

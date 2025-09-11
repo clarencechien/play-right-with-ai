@@ -46,7 +46,7 @@
    - 持續改進循環
 
 ### 工具整合
-- **AI 模型支援**：Claude、GPT-4、Gemini
+- **AI 模型支援**：Claude、GPT、Gemini
 - **測試框架**：Playwright、Jest、Vitest
 - **開發環境**：VS Code、Cursor、終端機
 - **版本控制**：Git、GitHub

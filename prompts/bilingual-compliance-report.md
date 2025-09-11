@@ -126,7 +126,7 @@ def validate_bilingual_structure(file_path):
 ### Testing Protocol
 1. Each updated prompt should be tested with:
    - Claude 3.5 Sonnet
-   - GPT-4
+   - GPT
    - Gemini Pro
 
 2. Validation criteria:

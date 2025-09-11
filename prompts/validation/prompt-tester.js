@@ -10,9 +10,6 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const { exec } = require('child_process');
-const { promisify } = require('util');
-const execAsync = promisify(exec);
 
 // 測試配置
 const CONFIG = {
@@ -22,8 +19,8 @@ const CONFIG = {
       endpoint: 'https://api.anthropic.com/v1/messages',
       apiKeyEnv: 'CLAUDE_API_KEY'
     },
-    gpt4: {
-      name: 'GPT-4',
+    gpt: {
+      name: 'GPT',
       endpoint: 'https://api.openai.com/v1/chat/completions',
       apiKeyEnv: 'OPENAI_API_KEY'
     },
@@ -226,7 +223,7 @@ class PromptTester {
     // 模擬回應
     const simulatedResponses = {
       claude: this.generateSimulatedResponse('claude', prompt),
-      gpt4: this.generateSimulatedResponse('gpt4', prompt),
+      gpt: this.generateSimulatedResponse('gpt', prompt),
       gemini: this.generateSimulatedResponse('gemini', prompt)
     };
 
@@ -253,9 +250,9 @@ class PromptTester {
 
   /**
    * 生成 TODO 應用回應
-   * @param {*} model - model 參數
+   * @param {*} _model - model 參數
    */
-  generateTodoAppResponse(model) {
+  generateTodoAppResponse(_model) {
     return `
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -300,9 +297,9 @@ class PromptTester {
 
   /**
    * 生成測試策略回應
-   * @param {*} model - model 參數
+   * @param {*} _model - model 參數
    */
-  generateTestStrategyResponse(model) {
+  generateTestStrategyResponse(_model) {
     return `
 ## 測試策略文檔
 
@@ -325,9 +322,9 @@ class PromptTester {
 
   /**
    * 生成 Playwright 回應
-   * @param {*} model - model 參數
+   * @param {*} _model - model 參數
    */
-  generatePlaywrightResponse(model) {
+  generatePlaywrightResponse(_model) {
     return `
 import { test, expect } from '@playwright/test';
 
@@ -682,14 +679,14 @@ Usage: node prompt-tester.js [options]
 
 Options:
   -c, --chapter <number>    Test specific chapter (2-6)
-  -m, --model <name>        AI model to test (claude, gpt4, gemini)
+  -m, --model <name>        AI model to test (claude, gpt, gemini)
   -i, --iterations <number> Number of test iterations (default: 3)
   -a, --all                 Test all chapters
   -h, --help               Show this help message
 
 Examples:
   node prompt-tester.js --chapter 2 --model claude
-  node prompt-tester.js --all --model gpt4 --iterations 5
+  node prompt-tester.js --all --model gpt --iterations 5
   node prompt-tester.js -c 3 -m gemini -i 10
 
 Available Chapters:
@@ -701,7 +698,7 @@ Available Chapters:
 
 Available Models:
   claude - Claude 3.5 Sonnet
-  gpt4   - GPT-4
+  gpt   - GPT
   gemini - Gemini Pro
   `);
 }

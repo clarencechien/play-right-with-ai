@@ -20,7 +20,7 @@
 檢查 AI 服務設定...
 ✅ Claude (Anthropic) - API Key 已設定
 ⚠️  Gemini (Google) - API Key 未設定 (GOOGLE_API_KEY)
-⚠️  GPT-4 (OpenAI) - API Key 未設定 (OPENAI_API_KEY)
+⚠️  GPT (OpenAI) - API Key 未設定 (OPENAI_API_KEY)
 
 ========================================
             檢查結果摘要

@@ -38,7 +38,7 @@
 
 #### 6. Cross-Model Compatibility (跨模型相容性)
 - [ ] Claude 3.5 Sonnet: 成功率 > 90%
-- [ ] GPT-4: 成功率 > 85%
+- [ ] GPT: 成功率 > 85%
 - [ ] Gemini Pro: 成功率 > 80%
 - [ ] 輸出格式在不同模型間一致
 
@@ -83,7 +83,7 @@
 
 ```markdown
 ## Test Run: [Date Time]
-**Model**: [Claude/GPT-4/Gemini]
+**Model**: [Claude/GPT/Gemini]
 **Prompt Version**: [Version Number]
 
 ### Results

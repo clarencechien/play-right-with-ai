@@ -24,7 +24,7 @@ on:
           - all
           - claude
           - gemini
-          - gpt4
+          - gpt
       test_chapter:
         description: '要測試的章節'
         required: false
@@ -89,8 +89,8 @@ jobs:
         name: gemini-prompt-results
         path: test-results/gemini/
 
-  test-gpt4-prompts:
-    if: ${{ github.event.inputs.test_model == 'all' || github.event.inputs.test_model == 'gpt4' }}
+  test-gpt-prompts:
+    if: ${{ github.event.inputs.test_model == 'all' || github.event.inputs.test_model == 'gpt' }}
     runs-on: ubuntu-latest
     
     steps:
@@ -105,21 +105,21 @@ jobs:
       run: |
         npm install openai
     
-    - name: 測試 GPT-4 提示詞
+    - name: 測試 GPT 提示詞
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        node scripts/test-prompts-gpt4.js \
+        node scripts/test-prompts-gpt.js \
           --chapter ${{ github.event.inputs.test_chapter || 'all' }}
     
     - name: 上傳測試結果
       uses: actions/upload-artifact@v4
       with:
-        name: gpt4-prompt-results
-        path: test-results/gpt4/
+        name: gpt-prompt-results
+        path: test-results/gpt/
 
   analyze-results:
-    needs: [test-claude-prompts, test-gemini-prompts, test-gpt4-prompts]
+    needs: [test-claude-prompts, test-gemini-prompts, test-gpt-prompts]
     if: always()
     runs-on: ubuntu-latest
     
@@ -422,7 +422,7 @@ def analyze_model_performance(results):
 
 def compare_models():
     """比較不同模型的表現"""
-    models = ['claude', 'gemini', 'gpt4']
+    models = ['claude', 'gemini', 'gpt']
     comparison = {}
     
     for model in models:
@@ -434,7 +434,7 @@ def compare_models():
 
 def find_problematic_prompts():
     """找出有問題的提示詞"""
-    models = ['claude', 'gemini', 'gpt4']
+    models = ['claude', 'gemini', 'gpt']
     problems = defaultdict(list)
     
     for model in models:
@@ -526,7 +526,7 @@ prompts/
     {
       "name": "generate-todo-app",
       "description": "生成 TODO 應用程式",
-      "models": ["claude", "gemini", "gpt4"],
+      "models": ["claude", "gemini", "gpt"],
       "difficulty": "medium",
       "expected_output_type": "code",
       "validation_criteria": {
@@ -554,7 +554,7 @@ schedule:
 env:
   CLAUDE_MODEL: claude-3-opus-20240229
   GEMINI_MODEL: gemini-1.5-pro
-  GPT_MODEL: gpt-4-turbo-preview
+  GPT_MODEL: gpt-turbo-preview
 ```
 
 ### 3. 效能測試

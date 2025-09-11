@@ -5,7 +5,7 @@
 完成本章後，您將能夠：
 - ✅ 理解從「編碼者」到「AI 指揮家」的思維轉變
 - ✅ 完成完整的開發環境設置（VS Code、Node.js、Playwright）
-- ✅ 設置並測試 AI 服務（Claude、Gemini、GPT-4）
+- ✅ 設置並測試 AI 服務（Claude、Gemini、GPT）
 - ✅ 掌握「Think in English, Output in Chinese」的雙語提示策略
 - ✅ 執行第一個 AI 驅動的開發任務
 
@@ -13,7 +13,7 @@
 
 - 基本的命令列操作知識
 - 可以連接網際網路的電腦
-- 至少一個 AI 服務的存取權限（Claude、Gemini 或 GPT-4）
+- 至少一個 AI 服務的存取權限（Claude、Gemini 或 GPT）
 
 ## 環境設置
 
@@ -140,7 +140,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 export GOOGLE_API_KEY="your-api-key-here"
 ```
 
-#### GPT-4 (OpenAI)
+#### GPT (OpenAI)
 1. 訪問 https://platform.openai.com/api-keys
 2. 創建 API 金鑰
 3. 設定環境變數：
@@ -280,7 +280,7 @@ Create a TODO application with the following features:
 ## 常見問題
 
 ### Q1: 一定要使用所有提到的 AI 服務嗎？
-**A:** 不需要。至少有一個 AI 服務即可開始學習。建議從 Claude 或 GPT-4 開始。
+**A:** 不需要。至少有一個 AI 服務即可開始學習。建議從 Claude 或 GPT 開始。
 
 ### Q2: 為什麼選擇 Playwright 而不是 Selenium？
 **A:** Playwright 提供更現代的 API、更好的效能、內建的等待機制，以及優秀的除錯工具。

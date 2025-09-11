@@ -187,10 +187,10 @@ export const AI_MODELS = {
     maxTokens: 4096,
     temperature: 0.7
   },
-  gpt4: {
+  gpt: {
     endpoint: process.env.OPENAI_API_URL || 'https://api.openai.com',
     apiKey: process.env.OPENAI_API_KEY,
-    model: 'gpt-4-turbo-preview',
+    model: 'gpt-turbo-preview',
     maxTokens: 4096,
     temperature: 0.7
   },
@@ -213,7 +213,7 @@ export const RATE_LIMITS = {
     retryDelay: 1000,
     maxRetries: 3
   },
-  gpt4: {
+  gpt: {
     requestsPerMinute: 60,
     tokensPerMinute: 90000,
     retryDelay: 1000,

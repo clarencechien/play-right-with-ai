@@ -434,7 +434,7 @@ Expected improvement: [Description]
 
 使用不同 AI 服務進行不同輪次：
 - Claude：架構設計和優化
-- GPT-4：功能實現和算法
+- GPT：功能實現和算法
 - Gemini：UI/UX 和創意功能
 
 ## 最佳實踐總結

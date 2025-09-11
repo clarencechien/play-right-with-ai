@@ -105,7 +105,7 @@ Fellow Developers,
 【技術架構】
 • 前端：Vanilla JS / React (Chapter 7)
 • 測試：Playwright + MCP Integration
-• AI：Claude, Gemini, GPT-4 Compatible
+• AI：Claude, Gemini, GPT Compatible
 • 方法論：TDD + AI-Driven Development
 
 【創新點】

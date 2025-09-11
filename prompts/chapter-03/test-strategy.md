@@ -2,7 +2,7 @@
 
 ## Version: 1.1.0
 ## Last Updated: 2025-09-11
-## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
+## Tested Models: Claude 3.5 Sonnet, GPT, Gemini Pro
 
 ---
 
@@ -424,7 +424,7 @@ Analyzing TODO application:
 - Comprehensive test coverage recommendations
 - Strong risk assessment capabilities
 
-### GPT-4
+### GPT
 - Add: "Analyze in English first, then provide strategy document in Traditional Chinese"
 - Excellent at structured test case design
 - May need reminder for Chinese terminology

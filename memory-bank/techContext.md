@@ -15,7 +15,7 @@
 | Service | Model | Purpose |
 |---------|-------|---------|
 | Anthropic | Claude 3.5 Sonnet | Primary AI assistant |
-| OpenAI | GPT-4 | Alternative AI model |
+| OpenAI | GPT | Alternative AI model |
 | Google | Gemini Pro | Additional AI option |
 | MCP | Playwright Integration | Browser automation AI |
 
@@ -89,7 +89,7 @@ npm test
 | Service | Rate Limit | Token Limit | Cost Estimate |
 |---------|------------|-------------|---------------|
 | Claude | 50 req/min | 100k tokens | ~$0.01/request |
-| GPT-4 | 60 req/min | 8k tokens | ~$0.03/request |
+| GPT | 60 req/min | 8k tokens | ~$0.03/request |
 | Gemini | 60 req/min | 30k tokens | ~$0.001/request |
 
 ## Dependencies

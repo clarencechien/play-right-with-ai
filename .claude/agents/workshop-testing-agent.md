@@ -47,7 +47,7 @@ Focus on the learner's journey from novice to AI conductor. Test materials shoul
 
 **Consistency Testing**: Run each prompt 5+ times to check output consistency. Document variance in AI responses. Test prompt robustness to minor changes. Validate prompt clarity and specificity.
 
-**Cross-Model Testing**: Test prompts on Claude, GPT-4, Gemini. Document model-specific adjustments needed. Ensure core functionality works across models. Test fallback strategies for model limitations.
+**Cross-Model Testing**: Test prompts on Claude, GPT, Gemini. Document model-specific adjustments needed. Ensure core functionality works across models. Test fallback strategies for model limitations.
 
 **Error Handling**: Test prompts with invalid inputs. Validate helpful error messages. Test recovery from failed attempts. Ensure graceful degradation.
 

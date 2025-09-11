@@ -108,7 +108,7 @@ Play right with AI 教育團隊
 【實戰技能培養】
 
 學生將掌握：
-✓ AI 工具實際操作（Claude, Gemini, GPT-4）
+✓ AI 工具實際操作（Claude, Gemini, GPT）
 ✓ 自動化測試實作（Playwright）
 ✓ 完整專案開發流程
 ✓ 問題解決與除錯技巧

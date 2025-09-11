@@ -87,7 +87,7 @@ All prompt files should follow this structure:
 
 ## Version: X.X.X
 ## Last Updated: YYYY-MM-DD
-## Tested Models: Claude 3.5 Sonnet, GPT-4, Gemini Pro
+## Tested Models: Claude 3.5 Sonnet, GPT, Gemini Pro
 
 ---
 
