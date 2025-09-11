@@ -106,7 +106,8 @@ npm run workshop:start
 
 ## 📂 專案結構
 
-完整專案結構詳見 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)
+完整專案結構詳見 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)  
+UX/UI 改進計畫詳見 [docs/next-step.md](./docs/next-step.md)
 
 ```
 play-right-with-ai/
@@ -264,10 +265,11 @@ Create a web application with CRUD operations...
 
 - ✅ **章節內容**: 8/8 章節完整
 - ✅ **範例應用**: 4/4 應用實作
-- ✅ **提示詞庫**: 40+ 黃金提示詞
+- ✅ **提示詞庫**: 40+ 黃金提示詞 (版本無關化)
 - ✅ **測試套件**: E2E 測試完整
 - ✅ **文檔資料**: 完整中文文檔
 - ✅ **線上部署**: GitHub Pages 運行中
+- 🎯 **UX/UI 改進**: 詳細計畫已制定 (見 [next-step.md](./docs/next-step.md))
 
 ---
 
