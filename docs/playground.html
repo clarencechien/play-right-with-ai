@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 實驗場 - Play Right with AI Workshop</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .nav-bar {
+            background: #3949ab;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            text-decoration: underline;
+        }
+        .playground-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .playground-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .playground-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .playground-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .tool-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .tool-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .tool-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        .tool-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .tool-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        .tool-button {
+            display: inline-block;
+            background: #3949ab;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .tool-button:hover {
+            background: #303f9f;
+        }
+        .prompt-tester {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .prompt-tester h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .prompt-input {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Monaco', 'Courier New', monospace;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+        .prompt-input:focus {
+            outline: none;
+            border-color: #3949ab;
+        }
+        .test-button {
+            background: #4caf50;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .test-button:hover {
+            background: #45a049;
+        }
+        .result-area {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 8px;
+            min-height: 100px;
+            display: none;
+        }
+        .result-area.show {
+            display: block;
+        }
+        .demo-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .demo-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .demo-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .demo-link {
+            display: block;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s;
+        }
+        .demo-link:hover {
+            background: #e9ecef;
+        }
+        .demo-link-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .demo-link-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="./index.html">首頁</a>
+            <a href="./chapters.html">章節</a>
+            <a href="./playground.html" class="active">實驗場</a>
+        </div>
+    </nav>
+
+    <div class="playground-container">
+        <div class="playground-header">
+            <h1>🎮 AI 實驗場</h1>
+            <p>探索、測試和體驗 AI 驅動的開發工具</p>
+        </div>
+
+        <div class="prompt-tester">
+            <h2>📝 提示詞測試器</h2>
+            <p>在這裡測試和優化您的 AI 提示詞，看看不同的表達方式如何影響結果。</p>
+            <textarea class="prompt-input" placeholder="輸入您的提示詞...
+
+範例：
+請幫我創建一個 React 的待辦事項應用，需要包含：
+1. 新增待辦事項功能
+2. 標記完成功能
+3. 刪除功能
+4. 本地存儲"></textarea>
+            <button class="test-button" onclick="testPrompt()">測試提示詞</button>
+            <div class="result-area" id="resultArea">
+                <strong>分析結果：</strong>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🤖</div>
+                <div class="tool-title">Claude 3.5 Sonnet</div>
+                <div class="tool-description">
+                    Anthropic 的先進 AI 模型，擅長代碼生成、測試編寫和問題分析。
+                </div>
+                <ul class="tool-features">
+                    <li>強大的代碼理解能力</li>
+                    <li>支援多種程式語言</li>
+                    <li>優秀的繁體中文支援</li>
+                    <li>內建 MCP 工具整合</li>
+                </ul>
+                <a href="https://claude.ai" target="_blank" class="tool-button">前往 Claude</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🎭</div>
+                <div class="tool-title">Playwright</div>
+                <div class="tool-description">
+                    現代化的端到端測試框架，支援所有主流瀏覽器的自動化測試。
+                </div>
+                <ul class="tool-features">
+                    <li>跨瀏覽器測試支援</li>
+                    <li>強大的選擇器引擎</li>
+                    <li>自動等待機制</li>
+                    <li>視覺化測試報告</li>
+                </ul>
+                <a href="https://playwright.dev" target="_blank" class="tool-button">了解 Playwright</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🔧</div>
+                <div class="tool-title">MCP Server</div>
+                <div class="tool-description">
+                    Model Context Protocol 伺服器，讓 AI 能夠直接操作 Playwright 進行測試。
+                </div>
+                <ul class="tool-features">
+                    <li>AI 與工具的橋樑</li>
+                    <li>自動化測試執行</li>
+                    <li>智能錯誤分析</li>
+                    <li>測試結果解讀</li>
+                </ul>
+                <a href="./integrations/mcp/" class="tool-button">設置 MCP</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">💎</div>
+                <div class="tool-title">Google Gemini</div>
+                <div class="tool-description">
+                    Google 的多模態 AI 模型，提供另一種 AI 驅動開發的選擇。
+                </div>
+                <ul class="tool-features">
+                    <li>多模態理解能力</li>
+                    <li>快速響應速度</li>
+                    <li>良好的推理能力</li>
+                    <li>免費使用額度</li>
+                </ul>
+                <a href="https://gemini.google.com" target="_blank" class="tool-button">試用 Gemini</a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🚀 範例應用程式</h2>
+            <div class="demo-links">
+                <a href="./demos/todo-app/" class="demo-link">
+                    <div class="demo-link-title">📋 待辦事項應用</div>
+                    <div class="demo-link-desc">基礎的 CRUD 應用，展示 AI 生成的完整功能</div>
+                </a>
+                <a href="./demos/shopping-list/" class="demo-link">
+                    <div class="demo-link-title">🛒 購物清單應用</div>
+                    <div class="demo-link-desc">包含分類和價格計算的進階範例</div>
+                </a>
+                <a href="./demos/multi-page-app/" class="demo-link">
+                    <div class="demo-link-title">📄 多頁面應用</div>
+                    <div class="demo-link-desc">展示路由和狀態管理的複雜應用</div>
+                </a>
+                <a href="./demos/test-results/" class="demo-link">
+                    <div class="demo-link-title">📊 測試報告範例</div>
+                    <div class="demo-link-desc">查看 Playwright 生成的測試報告</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📚 學習資源</h2>
+            <div class="demo-links">
+                <a href="./prompts/" class="demo-link">
+                    <div class="demo-link-title">💬 提示詞庫</div>
+                    <div class="demo-link-desc">經過驗證的高品質提示詞模板</div>
+                </a>
+                <a href="./exercises/" class="demo-link">
+                    <div class="demo-link-title">✏️ 練習題庫</div>
+                    <div class="demo-link-desc">循序漸進的實作練習</div>
+                </a>
+                <a href="../faq.html" class="demo-link">
+                    <div class="demo-link-title">❓ 常見問題</div>
+                    <div class="demo-link-desc">解答學習過程中的常見疑問</div>
+                </a>
+                <a href="https://github.com/clarencechien/play-right-with-ai" target="_blank" class="demo-link">
+                    <div class="demo-link-title">📦 GitHub 儲存庫</div>
+                    <div class="demo-link-desc">獲取源代碼和貢獻專案</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function testPrompt() {
+            const input = document.querySelector('.prompt-input').value;
+            const resultArea = document.getElementById('resultArea');
+            const resultContent = document.getElementById('resultContent');
+            
+            if (!input.trim()) {
+                alert('請輸入提示詞');
+                return;
+            }
+            
+            // 模擬分析提示詞
+            resultArea.classList.add('show');
+            
+            // 簡單的提示詞分析邏輯
+            const analysis = analyzePrompt(input);
+            resultContent.innerHTML = analysis;
+        }
+        
+        function analyzePrompt(prompt) {
+            let score = 0;
+            let feedback = [];
+            
+            // 檢查長度
+            if (prompt.length > 50) {
+                score += 20;
+                feedback.push('✅ 提示詞長度適中');
+            } else {
+                feedback.push('⚠️ 提示詞可能過短，建議提供更多細節');
+            }
+            
+            // 檢查是否有具體要求
+            if (prompt.includes('功能') || prompt.includes('需要') || prompt.includes('包含')) {
+                score += 20;
+                feedback.push('✅ 包含具體功能要求');
+            } else {
+                feedback.push('⚠️ 建議明確列出所需功能');
+            }
+            
+            // 檢查是否有技術規格
+            const techKeywords = ['React', 'Vue', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Playwright', '測試'];
+            if (techKeywords.some(keyword => prompt.includes(keyword))) {
+                score += 20;
+                feedback.push('✅ 指定了技術棧');
+            } else {
+                feedback.push('💡 可以指定使用的技術或框架');
+            }
+            
+            // 檢查是否有結構化
+            if (prompt.includes('1.') || prompt.includes('第一') || prompt.includes('-')) {
+                score += 20;
+                feedback.push('✅ 使用結構化的方式描述需求');
+            } else {
+                feedback.push('💡 使用編號或列表可以讓需求更清晰');
+            }
+            
+            // 檢查清晰度
+            if (prompt.split('\n').length > 1 || prompt.split('。').length > 2) {
+                score += 20;
+                feedback.push('✅ 提示詞結構清晰');
+            }
+            
+            // 生成結果
+            let html = `
+                <div style="margin-bottom: 1rem;">
+                    <strong>評分：</strong> ${score}/100
+                    <div style="display: inline-block; margin-left: 1rem;">
+                        ${getScoreBadge(score)}
+                    </div>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <strong>分析結果：</strong>
+                </div>
+                <ul style="list-style: none; padding: 0;">
+            `;
+            
+            feedback.forEach(item => {
+                html += `<li style="padding: 0.5rem 0;">${item}</li>`;
+            });
+            
+            html += `
+                </ul>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e0e0;">
+                    <strong>建議：</strong> 
+                    ${getRecommendation(score)}
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        function getScoreBadge(score) {
+            if (score >= 80) {
+                return '<span style="background: #4caf50; color: white; padding: 0.25rem 0.5rem; border-radius: 4px;">優秀</span>';
+            } else if (score >= 60) {
+                return '<span style="background: #ff9800; color: white; padding: 0.25rem 0.5rem; border-radius: 4px;">良好</span>';
+            } else {
+                return '<span style="background: #f44336; color: white; padding: 0.25rem 0.5rem; border-radius: 4px;">需改進</span>';
+            }
+        }
+        
+        function getRecommendation(score) {
+            if (score >= 80) {
+                return '您的提示詞結構完整，AI 應該能夠很好地理解並執行您的需求。';
+            } else if (score >= 60) {
+                return '提示詞基本完整，但可以加入更多具體細節以獲得更好的結果。';
+            } else {
+                return '建議提供更多具體的需求說明、技術規格和預期結果描述。';
+            }
+        }
+    </script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章節總覽 - Play Right with AI Workshop</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        .chapters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .chapter-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .chapter-number {
+            background: #3949ab;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .chapter-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .chapter-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .chapter-link {
+            display: inline-block;
+            background: #3949ab;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .chapter-link:hover {
+            background: #303f9f;
+        }
+        .nav-bar {
+            background: #3949ab;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="./index.html">首頁</a>
+            <a href="./chapters.html" class="active">章節</a>
+            <a href="./playground.html">實驗場</a>
+        </div>
+    </nav>
+
+    <div class="chapters-container">
+        <h1>🎼 工作坊章節總覽</h1>
+        <p>從 AI 指揮家的思維開始，逐步掌握 AI 驅動的自我循環開發與測試工作流程。</p>
+        
+        <div class="chapter-grid">
+            <div class="chapter-card">
+                <div class="chapter-number">1</div>
+                <div class="chapter-title">AI 指揮家</div>
+                <div class="chapter-description">
+                    思維轉變與環境搭建 - 建立 AI 指揮家的思維模式，搭建開發環境，準備開始 AI 驅動的開發旅程。
+                </div>
+                <a href="./chapters/chapter-01.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">2</div>
+                <div class="chapter-title">第一樂章</div>
+                <div class="chapter-description">
+                    AI 生成應用程式 - 使用自然語言需求，讓 AI 生成完整的應用程式代碼。
+                </div>
+                <a href="./chapters/chapter-02.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">3</div>
+                <div class="chapter-title">第二樂章</div>
+                <div class="chapter-description">
+                    AI 擔任測試策略師 - AI 分析代碼並制定完整的測試計劃和策略。
+                </div>
+                <a href="./chapters/chapter-03.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">4</div>
+                <div class="chapter-title">第三樂章</div>
+                <div class="chapter-description">
+                    AI 執行測試腳本編寫 - 使用 Playwright MCP 工具，AI 自動編寫端到端測試腳本。
+                </div>
+                <a href="./chapters/chapter-04.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">5</div>
+                <div class="chapter-title">第四樂章</div>
+                <div class="chapter-description">
+                    AI 分析測試失敗 - AI 深入分析測試失敗原因，提供詳細的調試信息。
+                </div>
+                <a href="./chapters/chapter-05.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">6</div>
+                <div class="chapter-title">最終樂章</div>
+                <div class="chapter-description">
+                    AI 完成自我修復 - AI 自動修復發現的問題，完成開發測試的閉環。
+                </div>
+                <a href="./chapters/chapter-06.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">7</div>
+                <div class="chapter-title">變奏曲</div>
+                <div class="chapter-description">
+                    擴展到複雜場景 - 將工作流程擴展到更複雜的實際應用場景。
+                </div>
+                <a href="./chapters/chapter-07.html" class="chapter-link">開始學習 →</a>
+            </div>
+
+            <div class="chapter-card">
+                <div class="chapter-number">8</div>
+                <div class="chapter-title">總譜</div>
+                <div class="chapter-description">
+                    獨立端到端挑戰 - 綜合運用所學，獨立完成完整的 AI 驅動開發項目。
+                </div>
+                <a href="./chapters/chapter-08.html" class="chapter-link">開始學習 →</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
