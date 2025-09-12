@@ -1,0 +1,192 @@
+# Test Configuration for Content Pipeline
+version: "1.0.0"
+language: "zh-TW"
+
+# Build settings
+build:
+  source: "content/chapters"
+  outputs:
+    - format: "html"
+      destination: "docs/chapters"
+      template: "templates/chapter.html"
+    - format: "markdown"
+      destination: "workshop"
+      template: "templates/workshop.md"
+    - format: "json"
+      destination: "api/chapters"
+
+# Processing options
+processing:
+  markdown:
+    engine: "markdown-it"
+    options:
+      html: false  # Disable raw HTML for security
+      xhtmlOut: true
+      breaks: true
+      linkify: true
+      typographer: true
+  
+  highlighting:
+    enabled: true
+    theme: "github"
+    languages:
+      - javascript
+      - typescript
+      - python
+      - bash
+      - yaml
+      - json
+  
+  toc:
+    enabled: true
+    minLevel: 2
+    maxLevel: 4
+    containerClass: "toc"
+  
+  frontmatter:
+    required:
+      - chapter
+      - title
+      - objectives
+      - prerequisites
+    optional:
+      - duration
+      - tags
+      - difficulty
+      - resources
+
+# Validation settings
+validation:
+  links:
+    checkInternal: true
+    checkExternal: true
+    whitelist:
+      - "github.com"
+      - "playwright.dev"
+      - "claude.ai"
+      - "gemini.google.com"
+      - "openai.com"
+    timeout: 5000
+    retries: 3
+    cache: true
+    cacheExpiry: 86400  # 24 hours in seconds
+  
+  content:
+    maxFileSize: 1048576  # 1MB in bytes
+    allowedExtensions:
+      - ".md"
+      - ".markdown"
+    encoding: "utf-8"
+    language: "zh-TW"
+    spellcheck: false
+  
+  metadata:
+    strict: true
+    schema: "schemas/chapter-metadata.json"
+
+# Chapter configuration
+chapters:
+  - id: "01-ai-conductor"
+    title: "AI 指揮家"
+    order: 1
+    published: true
+  
+  - id: "02-first-movement"
+    title: "第一樂章"
+    order: 2
+    published: true
+  
+  - id: "03-second-movement"
+    title: "第二樂章"
+    order: 3
+    published: true
+  
+  - id: "04-third-movement"
+    title: "第三樂章"
+    order: 4
+    published: true
+  
+  - id: "05-fourth-movement"
+    title: "第四樂章"
+    order: 5
+    published: true
+  
+  - id: "06-final-movement"
+    title: "終樂章"
+    order: 6
+    published: true
+  
+  - id: "07-variations"
+    title: "變奏"
+    order: 7
+    published: true
+  
+  - id: "08-capstone"
+    title: "總整專案"
+    order: 8
+    published: true
+
+# Performance settings
+performance:
+  parallel: true
+  maxWorkers: 4
+  cache:
+    enabled: true
+    directory: ".cache/content"
+    ttl: 3600
+  incremental: true
+  watch: false
+
+# Output settings
+output:
+  clean: true  # Clean output directories before build
+  sourceMaps: true
+  minify:
+    html: true
+    css: true
+    js: true
+  versioning:
+    enabled: true
+    strategy: "timestamp"  # or "hash"
+  
+# Deployment settings
+deployment:
+  environments:
+    development:
+      url: "http://localhost:8080"
+      debug: true
+    staging:
+      url: "https://staging.play-right-with-ai.com"
+      debug: false
+    production:
+      url: "https://play-right-with-ai.com"
+      debug: false
+  
+  cdn:
+    enabled: false
+    provider: "cloudflare"
+    purgeOnDeploy: true
+
+# Logging settings
+logging:
+  level: "info"  # debug, info, warn, error
+  file: "logs/content-pipeline.log"
+  console: true
+  timestamp: true
+
+# Plugin settings
+plugins:
+  - name: "sitemap-generator"
+    enabled: true
+    options:
+      output: "docs/sitemap.xml"
+  
+  - name: "search-index"
+    enabled: true
+    options:
+      output: "docs/search-index.json"
+  
+  - name: "rss-feed"
+    enabled: false
+    options:
+      output: "docs/feed.xml"

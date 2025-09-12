@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx jest:*)",
+      "Bash(npm test:*)",
+      "Bash(node:*)",
+      "Bash(npx playwright test:*)",
+      "Bash(npx husky init:*)",
+      "Bash(xargs ls:*)",
+      "Bash(npm run test:e2e:*)",
+      "Bash(npm run build:site:*)",
+      "Bash(npm run test:a11y:*)",
+      "Bash(npm run validate:env:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

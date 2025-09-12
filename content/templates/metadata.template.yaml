@@ -1,0 +1,162 @@
+# Chapter Metadata Template
+# 章節元資料模板
+# 
+# 使用說明：
+# 1. 複製此模板到章節目錄
+# 2. 填寫所有必要欄位
+# 3. 移除不需要的選擇性欄位
+# 4. 確保所有中文內容使用繁體中文
+
+# ============================================
+# 必要欄位 (Required Fields)
+# ============================================
+
+# 章節編號 (01-08)
+chapter: "00"
+
+# 章節標題
+title:
+  zh: "章節中文標題"
+  en: "Chapter English Title"
+
+# 學習目標 (至少 3 個)
+objectives:
+  - "目標 1：具體可測量的學習成果"
+  - "目標 2：技能或知識的獲得"
+  - "目標 3：實作能力的培養"
+
+# 前置需求
+prerequisites:
+  - "需要的基礎知識或技能"
+  - "必須完成的前置章節"
+  - "環境或工具需求"
+
+# 預估學習時間
+duration: "2 hours"
+
+# ============================================
+# 選擇性欄位 (Optional Fields)
+# ============================================
+
+# 標籤 (用於分類和搜尋)
+tags:
+  - "setup"
+  - "mindset"
+  - "environment"
+  - "testing"
+  - "automation"
+
+# 難度等級 (beginner, intermediate, advanced)
+difficulty: "beginner"
+
+# 章節簡述 (用於索引頁面)
+description:
+  zh: "本章節的簡短描述，說明主要內容和學習重點"
+  en: "Brief description of the chapter content and learning focus"
+
+# 關鍵概念
+key_concepts:
+  - concept: "概念名稱"
+    description: "概念說明"
+  - concept: "另一個概念"
+    description: "詳細解釋"
+
+# 實作練習資訊
+exercises:
+  total: 3
+  estimated_time: "1 hour"
+  difficulty_range: "beginner to intermediate"
+
+# 外部資源連結
+resources:
+  documentation:
+    - name: "Playwright 官方文件"
+      url: "https://playwright.dev"
+      description: "完整的 API 參考和指南"
+  
+  videos:
+    - name: "教學影片標題"
+      url: "https://youtube.com/..."
+      duration: "15 minutes"
+  
+  articles:
+    - name: "相關文章"
+      url: "https://..."
+      author: "作者名稱"
+
+# 導航資訊 (自動生成，但可手動覆寫)
+navigation:
+  previous:
+    chapter: "00"
+    title: "前一章標題"
+    path: "../chapter-00/"
+  
+  next:
+    chapter: "02"
+    title: "下一章標題"
+    path: "../chapter-02/"
+
+# 更新資訊
+metadata:
+  created: "2025-01-01"
+  last_updated: "2025-01-15"
+  version: "1.0.0"
+  authors:
+    - "作者名稱"
+  reviewers:
+    - "審查者名稱"
+
+# 特殊設定
+settings:
+  # 是否在目錄中顯示
+  visible: true
+  
+  # 是否為必修章節
+  required: true
+  
+  # 是否包含程式碼範例
+  has_code_examples: true
+  
+  # 是否需要 AI 服務
+  requires_ai_service: true
+  
+  # 支援的 AI 服務
+  supported_ai_services:
+    - "Claude"
+    - "Gemini"
+    - "GPT"
+
+# 評估標準
+assessment:
+  # 完成標準
+  completion_criteria:
+    - "成功設置開發環境"
+    - "完成所有練習"
+    - "理解核心概念"
+  
+  # 自我評估問題
+  self_assessment:
+    - "您能解釋 AI 指揮家的角色嗎？"
+    - "您理解雙語提示策略的優勢嗎？"
+    - "您能獨立完成環境設置嗎？"
+
+# 常見問題
+faqs:
+  - question: "常見問題 1"
+    answer: "詳細解答"
+  - question: "常見問題 2"
+    answer: "詳細解答"
+
+# 筆記和提醒
+notes:
+  important:
+    - "重要提醒事項"
+    - "關鍵注意點"
+  
+  tips:
+    - "實用技巧"
+    - "最佳實踐建議"
+  
+  warnings:
+    - "潛在問題警告"
+    - "常見錯誤提醒"

@@ -14,27 +14,29 @@
 5. Cleaned up project structure - removed bloat, organized files
 6. Created PROJECT_STRUCTURE.md for clear documentation
 7. Removed all GPT version references (GPT-4 → GPT) for version agnosticism
-8. Created comprehensive UX/UI enhancement plan in docs/next-step.md
+8. **UPDATED**: Refactored docs/next-step.md to focus on content architecture and single source of truth
+9. **NEW**: Identified critical content duplication issues across three locations
+10. **NEW**: Designed content pipeline architecture for automated synchronization
 
 ## Next Steps
 
-### Immediate (This Week)
-1. Implement Phase 1 of UX/UI enhancement plan
-2. Set up React build pipeline with Vite
-3. Create glassmorphism design system
-4. Implement mobile-first responsive design
+### Immediate (Sprint 1: Days 1-3)
+1. Create `/content/` directory structure for single source of truth
+2. Migrate first chapter as proof of concept
+3. Build basic content generation script
+4. Set up test framework with TDD approach
 
-### Short-term (Next 2 Weeks)
-1. Implement Phase 2 - Interactive learning features
-2. Add progress tracking dashboard with LocalStorage
-3. Enhance playground with Monaco Editor
-4. Create interactive content elements (quizzes, tooltips)
+### Short-term (Sprint 2: Days 4-7)
+1. Migrate all 8 chapters to single source
+2. Create metadata files for each chapter
+3. Standardize all content formats
+4. Update memory bank documentation
 
-### Medium-term (Next Month)
-1. Implement Phase 3 - Engagement and polish features
-2. Add gamification system with achievements
-3. Implement micro-animations library
-4. Complete performance optimization and PWA features
+### Medium-term (Sprint 3: Days 8-10)
+1. Implement link validation system
+2. Create CI/CD pipeline for content
+3. Add content watching for development
+4. Complete test coverage for all scripts
 
 ## Active Decisions and Considerations
 
@@ -54,13 +56,18 @@
 - **Success Tracking**: Stars, forks, completion rates
 
 ## Current Blockers
-- None identified
+- Content exists in three separate locations with no sync mechanism
+- GitHub repository link is broken (placeholder value)
+- Google Analytics ID not configured
+- No automated link validation
 
 ## Questions to Resolve
 1. Should we provide API key sponsorship for learners?
 2. How to handle version updates of AI models?
 3. Best way to track learner progress?
 4. Should we create video supplements?
+5. **NEW**: Which markdown processor to use (markdown-it vs remark)?
+6. **NEW**: Should we version content separately from code?
 
 ## Resources Needed
 1. Test environment for workshop validation

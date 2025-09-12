@@ -1,165 +1,296 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第七章：變奏曲 - 擴展 AI 工作流到複雜場景 - Play Right with AI</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章節標題 - Play Right with AI</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            margin: -20px -20px 30px -20px;
+        }
+        
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .chapter-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .chapter-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .chapter-meta {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .meta-item strong {
+            color: #495057;
+        }
+        
+        .meta-item ul {
+            margin: 0.5rem 0 0 1.5rem;
+            padding: 0;
+        }
+        
+        .chapter-body {
+            margin-bottom: 3rem;
+        }
+        
+        .chapter-body h2 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .chapter-body h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .chapter-body pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        
+        .chapter-body code {
+            background: #f6f8fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+            font-size: 0.9em;
+        }
+        
+        .chapter-body pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .chapter-body blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .chapter-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .chapter-body th,
+        .chapter-body td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        
+        .chapter-body th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .chapter-body tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .table-of-contents {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .table-of-contents h2 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 1.2rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc-list ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .toc-link {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .chapter-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-button.prev {
+            background: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .chapter-body pre {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="../" class="nav-brand">Play Right with AI</a>
-      <ul class="nav-links">
-        <li><a href="../" class="nav-link">首頁</a></li>
-        <li><a href="./" class="nav-link">章節</a></li>
-        <li><a href="../playground/" class="nav-link">Playground</a></li>
-        <li><a href="../demos/" class="nav-link">示範</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <div class="container">
-    <article class="chapter-content fade-in">
-      <h1>第七章：變奏曲 - 擴展 AI 工作流到複雜場景</h1>
-<h2>學習目標</h2>
-<p>完成本章後，你將能夠：</p>
-<ol>
-<li><strong>擴展應用</strong>：將 AI 工作流應用到多服務整合、效能測試等複雜場景</li>
-<li><strong>模式識別</strong>：識別並應用進階 AI 編排模式</li>
-<li><strong>優化策略</strong>：優化提示詞和工作流以處理大型專案</li>
-<li><strong>創新思維</strong>：探索 AI 測試的創新應用領域</li>
-</ol>
-<h2>本章概覽</h2>
-<pre><code class="language-mermaid">graph TD
-    A[基礎工作流] --&gt; B[進階場景]
-    B --&gt; C[複雜整合]
-    C --&gt; D[創新應用]
-    
-    B --&gt; E[多服務測試]
-    B --&gt; F[效能測試]
-    B --&gt; G[安全測試]
-    B --&gt; H[無障礙測試]
-    B --&gt; I[視覺迴歸測試]
-    
-    style A fill:#e1f5fe
-    style D fill:#c8e6c9
-</code></pre>
-<h2>章節結構</h2>
-<h3>7.1 多服務整合測試</h3>
-<p>學習如何讓 AI 協調複雜的微服務測試場景</p>
-<h3>7.2 AI 驅動的效能測試</h3>
-<p>使用 AI 識別效能瓶頸並生成壓力測試腳本</p>
-<h3>7.3 自動化安全測試</h3>
-<p>讓 AI 成為你的安全顧問，自動發現潛在漏洞</p>
-<h3>7.4 無障礙測試自動化</h3>
-<p>確保你的應用對所有使用者都友善</p>
-<h3>7.5 視覺迴歸測試</h3>
-<p>使用 AI 檢測視覺變化和 UI 一致性</p>
-<h2>技能檢查點</h2>
-<p>開始本章前，請確認你已經：</p>
-<ul>
-<li>✅ 掌握基本的 AI 提示詞設計</li>
-<li>✅ 能夠編排完整的測試循環</li>
-<li>✅ 理解自我修復工作流</li>
-<li>✅ 準備好挑戰更複雜的場景</li>
-</ul>
-<h2>學習路徑</h2>
-<pre><code>初級路徑（2-3小時）
-├── 7.1 多服務整合測試基礎
-└── 選擇一個進階場景深入練習
-
-進階路徑（4-5小時）
-├── 完成所有五個進階場景
-├── 實作至少兩個案例研究
-└── 創建自己的測試模式
-
-專家路徑（6+小時）
-├── 所有內容
-├── 設計新的 AI 測試模式
-└── 貢獻到社群模式庫
-</code></pre>
-<h2>本章工具箱</h2>
-<h3>新增工具和技術</h3>
-<ul>
-<li><strong>K6</strong>：效能測試</li>
-<li><strong>OWASP ZAP</strong>：安全測試</li>
-<li><strong>Axe</strong>：無障礙測試</li>
-<li><strong>Percy</strong>：視覺測試</li>
-<li><strong>Docker Compose</strong>：多服務編排</li>
-</ul>
-<h3>AI 工具進階應用</h3>
-<ul>
-<li>多模型協作（Claude + Gemini）</li>
-<li>鏈式提示詞（Chain-of-Thought）</li>
-<li>少樣本學習（Few-shot Learning）</li>
-<li>自適應提示詞優化</li>
-</ul>
-<h2>實作專案預覽</h2>
-<h3>專案 1：電商平台完整測試</h3>
-<pre><code>系統架構：
-- 前端：React SPA
-- API Gateway
-- 訂單服務
-- 庫存服務
-- 支付服務
-- 通知服務
-
-測試範圍：
-- 端到端購物流程
-- 服務間整合
-- 負載測試
-- 安全掃描
-- 無障礙合規
-</code></pre>
-<h3>專案 2：社交媒體應用測試套件</h3>
-<pre><code>測試焦點：
-- 即時通訊功能
-- 媒體上傳處理
-- 隱私設定驗證
-- 效能基準測試
-- 視覺一致性檢查
-</code></pre>
-<h2>學習資源</h2>
-<h3>必讀材料</h3>
-<ul>
-<li><a href="/workshop/chapter-07/resources/advanced-playwright.md">進階 Playwright 技巧</a></li>
-<li><a href="/workshop/chapter-07/patterns/README.md">AI 測試模式目錄</a></li>
-<li><a href="/workshop/chapter-07/resources/complex-systems.md">複雜系統測試策略</a></li>
-</ul>
-<h3>參考案例</h3>
-<ul>
-<li><a href="/workshop/chapter-07/case-studies/netflix-chaos.md">Netflix 的混沌工程實踐</a></li>
-<li><a href="/workshop/chapter-07/case-studies/amazon-testing.md">Amazon 的自動化測試策略</a></li>
-<li><a href="/workshop/chapter-07/case-studies/google-a11y.md">Google 的無障礙測試框架</a></li>
-</ul>
-<h2>開始探索</h2>
-<p>準備好將你的 AI 測試技能提升到新高度了嗎？讓我們從第一個進階場景開始：</p>
-<h3><a href="./advanced/multi-service-testing.md">→ 進入 7.1 多服務整合測試</a></h3>
-<hr>
-<h2>討論與支援</h2>
-<p>遇到挑戰？有創新想法？歡迎參與討論：</p>
-<ul>
-<li>💬 <a href="https://github.com/%5Byour-repo%5D/discussions/categories/chapter-7">GitHub Discussions - 第七章討論區</a></li>
-<li>🎯 <a href="https://github.com/%5Byour-repo%5D/issues/new?template=pattern-submission.md">提交你的測試模式</a></li>
-<li>🏆 <a href="./showcase/README.md">查看社群最佳實踐</a></li>
-</ul>
-<h2>章節導航</h2>
-<p>⬅️ <a href="../chapter-06/README.md">第六章：終章 - 自我修復循環</a>
-➡️ <a href="../chapter-08/README.md">第八章：總譜 - 獨立專案挑戰</a>
-🏠 <a href="../../README.md">回到工作坊首頁</a></p>
-
-    </article>
-    
-    <nav class="chapter-nav">
-      <div class="chapter-nav-links"><a href="/chapters/chapter-01.html" class="btn">下一章 →</a></div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Play Right with AI</a>
+            <div class="nav-links">
+                <a href="../index.html">首頁</a>
+                <a href="../chapters.html">章節</a>
+                <a href="../playground.html">實驗場</a>
+            </div>
+        </div>
     </nav>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="../assets/js/main.js"></script>
+
+    <main class="container">
+        <article class="chapter-content">
+            <header class="chapter-header">
+                <h1>Chapter 07: 章節標題</h1>
+                <p class="subtitle">Chapter Title</p>
+            </header>
+
+            <section class="chapter-meta">
+                <div class="meta-item">
+                    <strong>學習目標：</strong>
+                    <ul><li>待定義</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>前置需求：</strong>
+                    <ul><li>無</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>預計時間：</strong> 2 hours
+                </div>
+            </section>
+
+            <section class="chapter-body">
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
+<p>內容待新增…</p>
+
+            </section>
+
+            <footer class="chapter-footer">
+                <p>最後更新: 2025-09-12</p>
+            </footer>
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
-    

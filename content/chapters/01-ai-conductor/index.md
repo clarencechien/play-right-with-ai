@@ -1,25 +1,21 @@
-# Chapter 01: Untitled
-
-## 學習目標
-
-- 理解從『編碼者』到『AI 指揮家』的思維轉變
-- 完成完整的開發環境設置（VS Code、Node.js、Playwright）
-- 設置並測試 AI 服務（Claude、Gemini、GPT）
-- 掌握『Think in English, Output in Chinese』的雙語提示策略
-- 執行第一個 AI 驅動的開發任務
-
-## 前置需求
-
-- 基本的命令列操作知識
-- 可以連接網際網路的電腦
-- 至少一個 AI 服務的存取權限（Claude、Gemini 或 GPT）
-
-## 預計時間
-
-2 hours
-
 ---
-
+# Front Matter
+chapter: "01"
+title: "AI 指揮家 - 思維轉變與環境搭建"
+objectives:
+  - "理解從『編碼者』到『AI 指揮家』的思維轉變"
+  - "完成完整的開發環境設置（VS Code、Node.js、Playwright）"
+  - "設置並測試 AI 服務（Claude、Gemini、GPT）"
+  - "掌握『Think in English, Output in Chinese』的雙語提示策略"
+  - "執行第一個 AI 驅動的開發任務"
+prerequisites:
+  - "基本的命令列操作知識"
+  - "可以連接網際網路的電腦"
+  - "至少一個 AI 服務的存取權限（Claude、Gemini 或 GPT）"
+duration: "2 hours"
+difficulty: "beginner"
+tags: ["setup", "mindset", "environment", "bilingual-strategy"]
+---
 
 # 第一章：AI 指揮家 - 思維轉變與環境搭建
 

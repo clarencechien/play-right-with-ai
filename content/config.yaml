@@ -1,0 +1,192 @@
+# Play Right with AI - Content Configuration
+# 全域設定檔案，控制內容生成和建構流程
+
+project:
+  name: "Play Right with AI"
+  name_zh: "與 AI 正確協作"
+  description: "AI-driven self-cycling development and testing workflow workshop"
+  description_zh: "AI 驅動的自循環開發與測試工作流程工作坊"
+  version: "1.0.0"
+  language: "zh-TW"
+  repository: "https://github.com/your-repo/play-right-with-ai"
+
+build:
+  # 輸入與輸出路徑
+  source_dir: "/content/chapters"
+  output:
+    html: "/docs/chapters"
+    markdown: "/workshop"
+    json: "/api/chapters"
+  
+  # 建構選項
+  options:
+    minify_html: true
+    generate_toc: true
+    syntax_highlighting: true
+    link_validation: true
+    image_optimization: true
+  
+  # 支援的格式
+  formats:
+    - html
+    - markdown
+    - json
+
+content:
+  # 章節設定
+  chapters:
+    total: 8
+    prefix: "chapter"
+    
+  # 內容類型
+  types:
+    - index        # 主要章節內容
+    - exercises    # 練習題
+    - prompts      # AI 提示詞
+    - examples     # 範例程式碼
+    - solutions    # 解答
+  
+  # Markdown 處理器設定
+  markdown:
+    extensions:
+      - tables
+      - fenced_code
+      - footnotes
+      - attr_list
+      - def_list
+      - abbr
+      - meta
+    
+    # 程式碼高亮設定
+    code_highlighting:
+      theme: "github-dark"
+      languages:
+        - javascript
+        - typescript
+        - python
+        - bash
+        - json
+        - yaml
+        - markdown
+
+metadata:
+  # 必要欄位
+  required_fields:
+    - chapter
+    - title
+    - objectives
+    - prerequisites
+    - duration
+  
+  # 選擇性欄位
+  optional_fields:
+    - tags
+    - difficulty
+    - resources
+    - next_chapter
+    - previous_chapter
+
+localization:
+  # 主要語言
+  primary: "zh-TW"
+  
+  # 術語對照表
+  terminology:
+    "AI Conductor": "AI 指揮家"
+    "Self-cycling workflow": "自循環工作流程"
+    "Golden Prompts": "黃金提示詞"
+    "Test Strategy": "測試策略"
+    "Root Cause Analysis": "根本原因分析"
+    "Orchestration": "協調編排"
+    "Mindset Shift": "思維轉變"
+    "Environment Setup": "環境搭建"
+  
+  # 日期時間格式
+  datetime:
+    date_format: "YYYY年MM月DD日"
+    time_format: "HH:mm:ss"
+    timezone: "Asia/Taipei"
+
+validation:
+  # 連結驗證
+  links:
+    check_internal: true
+    check_external: true
+    timeout: 5000
+    retry_count: 3
+    whitelist:
+      - "github.com"
+      - "playwright.dev"
+      - "claude.ai"
+      - "makersuite.google.com"
+      - "platform.openai.com"
+  
+  # 格式驗證
+  format:
+    max_line_length: 120
+    enforce_trailing_newline: true
+    tab_size: 2
+    indent_style: "space"
+
+templates:
+  # 模板路徑
+  directory: "/content/templates"
+  
+  # 可用模板
+  available:
+    - chapter.template.md
+    - exercise.template.md
+    - prompt.template.md
+    - metadata.template.yaml
+
+output:
+  # HTML 生成設定
+  html:
+    template: "default"
+    include_navigation: true
+    include_toc: true
+    include_breadcrumbs: true
+    analytics_id: "GA_MEASUREMENT_ID"
+  
+  # Markdown 生成設定
+  markdown:
+    preserve_structure: true
+    include_frontmatter: true
+    line_width: 80
+  
+  # JSON API 設定
+  json:
+    pretty_print: true
+    include_metadata: true
+    api_version: "v1"
+
+development:
+  # 開發模式設定
+  watch_mode: true
+  hot_reload: true
+  verbose_logging: false
+  source_maps: true
+  
+  # 開發伺服器
+  server:
+    port: 8080
+    host: "localhost"
+    open_browser: true
+
+deployment:
+  # 部署設定
+  environments:
+    - development
+    - staging
+    - production
+  
+  # CDN 設定
+  cdn:
+    enabled: false
+    base_url: ""
+  
+  # 快取設定
+  cache:
+    html: "1h"
+    assets: "7d"
+    api: "5m"

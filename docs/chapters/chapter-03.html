@@ -1,279 +1,296 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第二樂章：AI 擔任測試策略師 🎯 - Play Right with AI</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章節標題 - Play Right with AI</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            margin: -20px -20px 30px -20px;
+        }
+        
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .chapter-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .chapter-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .chapter-meta {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .meta-item strong {
+            color: #495057;
+        }
+        
+        .meta-item ul {
+            margin: 0.5rem 0 0 1.5rem;
+            padding: 0;
+        }
+        
+        .chapter-body {
+            margin-bottom: 3rem;
+        }
+        
+        .chapter-body h2 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .chapter-body h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .chapter-body pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        
+        .chapter-body code {
+            background: #f6f8fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+            font-size: 0.9em;
+        }
+        
+        .chapter-body pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .chapter-body blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .chapter-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .chapter-body th,
+        .chapter-body td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        
+        .chapter-body th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .chapter-body tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .table-of-contents {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .table-of-contents h2 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 1.2rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc-list ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .toc-link {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .chapter-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-button.prev {
+            background: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .chapter-body pre {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="../" class="nav-brand">Play Right with AI</a>
-      <ul class="nav-links">
-        <li><a href="../" class="nav-link">首頁</a></li>
-        <li><a href="./" class="nav-link">章節</a></li>
-        <li><a href="../playground/" class="nav-link">Playground</a></li>
-        <li><a href="../demos/" class="nav-link">示範</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <div class="container">
-    <article class="chapter-content fade-in">
-      <h1>第二樂章：AI 擔任測試策略師 🎯</h1>
-<h2>學習目標</h2>
-<p>在本章節中，您將學習如何指揮 AI 成為您的測試策略師，幫助您：</p>
-<ul>
-<li>🔍 <strong>分析應用程式碼</strong>：讓 AI 深入理解程式架構與業務邏輯</li>
-<li>📋 <strong>制定測試策略</strong>：運用 AI 設計全面的測試計劃</li>
-<li>⚖️ <strong>評估風險優先級</strong>：識別關鍵路徑與高風險區域</li>
-<li>📊 <strong>規劃測試覆蓋率</strong>：確保測試的完整性與有效性</li>
-<li>🌐 <strong>雙語思維優勢</strong>：Think in English for analysis, Output in Chinese for clarity</li>
-</ul>
-<h2>前置需求</h2>
-<ul>
-<li>✅ 完成 Chapter 2：已有 TODO 應用程式的源代碼</li>
-<li>✅ 理解基本測試概念（功能測試、邊界測試、負向測試）</li>
-<li>✅ 熟悉 AI 提示詞基本技巧</li>
-</ul>
-<h2>核心概念：AI 測試策略師的角色</h2>
-<h3>傳統測試 vs AI 驅動測試策略</h3>
-<p><strong>傳統方式</strong>：</p>
-<pre><code>開發者 → 手動分析代碼 → 撰寫測試計劃 → 執行測試
-</code></pre>
-<p><strong>AI 驅動方式</strong>：</p>
-<pre><code>開發者 → AI 分析代碼 → AI 生成測試策略 → AI 建議優先級 → 人類審核確認
-</code></pre>
-<h3>雙語提示詞策略的威力</h3>
-<p>當我們使用雙語思維時，能夠獲得更好的測試策略：</p>
-<pre><code class="language-markdown">[English Thinking - Technical Analysis]
-Analyze the TODO application structure
-Identify critical user paths
-Evaluate edge cases and error boundaries
-Consider performance implications
-
-[Chinese Output - Clear Documentation]
-將分析結果轉換為清晰的中文測試文檔
-使用台灣慣用的測試術語
-提供易於理解的測試案例說明
-</code></pre>
-<h2>實作步驟</h2>
-<h3>Step 1: 準備測試分析環境</h3>
-<p>首先，確保您有 Chapter 2 生成的 TODO 應用程式碼：</p>
-<pre><code class="language-bash"># 檢查應用程式結構
-ls -la ../../chapter-02/example-output/todo-app/
-</code></pre>
-<h3>Step 2: 使用 AI 分析應用程式碼</h3>
-<p>使用以下黃金提示詞讓 AI 分析您的應用：</p>
-<pre><code class="language-markdown"># Test Strategy Analysis Prompt
-
-[Context]
-I have a TODO application with the following features:
-- Add new tasks
-- Mark tasks as complete
-- Delete tasks
-- Filter tasks (All/Active/Completed)
-- Clear completed tasks
-- Local storage persistence
-
-[Task - Think in English]
-Please analyze this application and create a comprehensive test strategy:
-1. Identify all critical user paths
-2. List potential edge cases and error scenarios
-3. Suggest test priority based on risk assessment
-4. Recommend test coverage targets
-5. Define test categories (unit, integration, E2E)
-
-[Output - 繁體中文]
-請以繁體中文輸出完整的測試策略文檔，包含：
-- 測試目標與範圍
-- 風險評估矩陣
-- 測試案例優先級
-- 覆蓋率目標
-- 資源需求評估
-</code></pre>
-<h3>Step 3: 評估測試風險矩陣</h3>
-<p>AI 將幫助您建立風險評估矩陣：</p>
-<table>
-<thead>
-<tr>
-<th>功能區域</th>
-<th>影響程度</th>
-<th>發生機率</th>
-<th>測試優先級</th>
-<th>建議覆蓋率</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>新增任務</td>
-<td>高</td>
-<td>高</td>
-<td>P0 - 關鍵</td>
-<td>95%</td>
-</tr>
-<tr>
-<td>刪除任務</td>
-<td>高</td>
-<td>中</td>
-<td>P1 - 重要</td>
-<td>90%</td>
-</tr>
-<tr>
-<td>篩選功能</td>
-<td>中</td>
-<td>高</td>
-<td>P1 - 重要</td>
-<td>85%</td>
-</tr>
-<tr>
-<td>本地儲存</td>
-<td>高</td>
-<td>低</td>
-<td>P2 - 一般</td>
-<td>80%</td>
-</tr>
-<tr>
-<td>UI 響應</td>
-<td>低</td>
-<td>中</td>
-<td>P3 - 選擇性</td>
-<td>70%</td>
-</tr>
-</tbody></table>
-<h3>Step 4: 制定測試覆蓋策略</h3>
-<pre><code class="language-mermaid">graph TD
-    A[測試覆蓋策略] --&gt; B[功能覆蓋 80%]
-    A --&gt; C[代碼覆蓋 70%]
-    A --&gt; D[邊界測試 60%]
-    A --&gt; E[錯誤處理 90%]
-    
-    B --&gt; B1[核心功能 100%]
-    B --&gt; B2[次要功能 70%]
-    
-    C --&gt; C1[關鍵路徑 90%]
-    C --&gt; C2[輔助功能 60%]
-    
-    D --&gt; D1[輸入驗證]
-    D --&gt; D2[極限值測試]
-    
-    E --&gt; E1[異常捕獲]
-    E --&gt; E2[錯誤恢復]
-</code></pre>
-<h3>Step 5: 生成測試計劃文檔</h3>
-<p>讓 AI 幫您生成專業的測試計劃：</p>
-<pre><code class="language-markdown"># Test Plan Generation Prompt
-
-Based on the risk assessment and coverage strategy, create a detailed test plan.
-
-[Requirements in English]
-- Test objectives and success criteria
-- Test scope and boundaries  
-- Resource requirements and timeline
-- Test environment setup
-- Entry and exit criteria
-- Risk mitigation strategies
-
-[輸出要求]
-生成符合 IEEE 829 標準的測試計劃文檔（繁體中文）
-</code></pre>
-<h2>練習項目</h2>
-<h3>練習 1：測試案例分析 📝</h3>
-<p><strong>檔案位置</strong>: <code>exercises/01-test-case-analysis.md</code></p>
-<p>分析 TODO 應用並識別至少 10 個關鍵測試案例。使用 AI 幫助您：</p>
-<ul>
-<li>找出正向測試案例</li>
-<li>識別負向測試案例</li>
-<li>發現邊界條件</li>
-<li>定義效能測試需求</li>
-</ul>
-<h3>練習 2：風險評估工作坊 ⚖️</h3>
-<p><strong>檔案位置</strong>: <code>exercises/02-risk-assessment.md</code></p>
-<p>使用 AI 建立完整的風險評估：</p>
-<ul>
-<li>識別技術風險</li>
-<li>評估業務影響</li>
-<li>制定緩解策略</li>
-<li>優先級排序</li>
-</ul>
-<h3>練習 3：測試計劃撰寫 📋</h3>
-<p><strong>檔案位置</strong>: <code>exercises/03-test-planning.md</code></p>
-<p>創建專業的測試計劃文檔：</p>
-<ul>
-<li>測試目標與範圍</li>
-<li>測試策略與方法</li>
-<li>資源與時程規劃</li>
-<li>風險與應變計劃</li>
-</ul>
-<h3>練習 4：覆蓋率策略設計 📊</h3>
-<p><strong>檔案位置</strong>: <code>exercises/04-coverage-strategy.md</code></p>
-<p>設計測試覆蓋率策略：</p>
-<ul>
-<li>功能覆蓋目標</li>
-<li>代碼覆蓋指標</li>
-<li>測試層級分配</li>
-<li>成本效益分析</li>
-</ul>
-<h2>範例輸出</h2>
-<p>查看 <code>example-output/</code> 目錄中的完整範例：</p>
-<ul>
-<li><code>complete-test-strategy.md</code> - 完整的測試策略文檔</li>
-<li><code>risk-assessment-matrix.xlsx</code> - 風險評估矩陣</li>
-<li><code>test-plan-template.md</code> - 測試計劃模板</li>
-<li><code>coverage-report.json</code> - 覆蓋率目標設定</li>
-</ul>
-<h2>思考與挑戰 💭</h2>
-<h3>深度思考問題</h3>
-<ol>
-<li><strong>雙語優勢</strong>：為什麼用英文思考技術邏輯，用中文輸出文檔會更有效？</li>
-<li><strong>AI 侷限性</strong>：AI 在測試策略制定中可能忽略哪些人類經驗？</li>
-<li><strong>風險平衡</strong>：如何在測試完整性與資源限制之間取得平衡？</li>
-<li><strong>持續改進</strong>：如何讓 AI 從測試結果中學習並改進策略？</li>
-</ol>
-<h3>進階挑戰</h3>
-<p>🎯 <strong>挑戰 1：複雜應用分析</strong>
-選擇一個更複雜的應用（如電商網站），使用 AI 制定完整測試策略。</p>
-<p>🎯 <strong>挑戰 2：多語言測試</strong>
-設計支援多語言界面的測試策略，考慮國際化測試需求。</p>
-<p>🎯 <strong>挑戰 3：性能測試規劃</strong>
-使用 AI 設計性能測試策略，包含負載測試、壓力測試等。</p>
-<h2>常見問題 ❓</h2>
-<h3>Q1: AI 生成的測試策略可信度如何？</h3>
-<p><strong>A</strong>: AI 提供的是基於模式識別的建議，需要人類專家審核和調整。將 AI 視為強大的助手，而非決策者。</p>
-<h3>Q2: 如何確保測試策略的完整性？</h3>
-<p><strong>A</strong>: 結合多個 AI 模型的建議，使用檢查清單驗證，並請團隊成員審核。</p>
-<h3>Q3: 雙語提示詞真的有差異嗎？</h3>
-<p><strong>A</strong>: 是的！英文在技術分析上更精確，中文在文檔表達上更清晰。這種組合能發揮各自優勢。</p>
-<h3>Q4: 測試優先級如何動態調整？</h3>
-<p><strong>A</strong>: 根據缺陷發現率、用戶反饋和業務需求變化，定期讓 AI 重新評估並調整優先級。</p>
-<h2>學習檢查點 ✅</h2>
-<p>完成本章後，您應該能夠：</p>
-<ul>
-<li><input disabled="" type="checkbox"> 使用 AI 分析應用程式並識別測試需求</li>
-<li><input disabled="" type="checkbox"> 創建風險評估矩陣並確定測試優先級</li>
-<li><input disabled="" type="checkbox"> 設計合理的測試覆蓋率目標</li>
-<li><input disabled="" type="checkbox"> 撰寫專業的測試計劃文檔</li>
-<li><input disabled="" type="checkbox"> 理解並應用雙語提示詞策略的優勢</li>
-<li><input disabled="" type="checkbox"> 評估 AI 建議並做出明智的測試決策</li>
-</ul>
-<h2>下一步</h2>
-<p>恭喜您完成了測試策略的學習！在下一章中，我們將學習如何讓 AI 將這些策略轉化為實際的 Playwright 測試腳本。</p>
-<p>➡️ <a href="../chapter-04/README.md">前往 Chapter 4: AI 執行測試腳本編寫</a></p>
-<hr>
-<p>💡 <strong>小提示</strong>: 記住，優秀的測試策略是迭代的過程。隨著對應用的理解加深，不斷優化您的測試計劃。</p>
-<p>🎭 <strong>Play right with AI</strong> - 讓 AI 成為您的測試策略師，共同演奏完美的測試樂章！</p>
-
-    </article>
-    
-    <nav class="chapter-nav">
-      <div class="chapter-nav-links"><a href="/chapters/chapter-01.html" class="btn">下一章 →</a></div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Play Right with AI</a>
+            <div class="nav-links">
+                <a href="../index.html">首頁</a>
+                <a href="../chapters.html">章節</a>
+                <a href="../playground.html">實驗場</a>
+            </div>
+        </div>
     </nav>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="../assets/js/main.js"></script>
+
+    <main class="container">
+        <article class="chapter-content">
+            <header class="chapter-header">
+                <h1>Chapter 03: 章節標題</h1>
+                <p class="subtitle">Chapter Title</p>
+            </header>
+
+            <section class="chapter-meta">
+                <div class="meta-item">
+                    <strong>學習目標：</strong>
+                    <ul><li>待定義</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>前置需求：</strong>
+                    <ul><li>無</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>預計時間：</strong> 2 hours
+                </div>
+            </section>
+
+            <section class="chapter-body">
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
+<p>內容待新增…</p>
+
+            </section>
+
+            <footer class="chapter-footer">
+                <p>最後更新: 2025-09-12</p>
+            </footer>
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
-    

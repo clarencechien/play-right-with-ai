@@ -1,0 +1,184 @@
+{
+  "timestamp": "2025-09-12T01:59:03.917Z",
+  "summary": {
+    "totalIssues": 30,
+    "missing": 14,
+    "orphaned": 16,
+    "outdated": 0,
+    "metadata": 0,
+    "structure": 0
+  },
+  "issues": {
+    "missing": [
+      {
+        "type": "source_file",
+        "chapter": "02",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/02-first-movement/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "02",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/02-first-movement/metadata.yaml"
+      },
+      {
+        "type": "source_file",
+        "chapter": "03",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/03-second-movement/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "03",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/03-second-movement/metadata.yaml"
+      },
+      {
+        "type": "source_file",
+        "chapter": "04",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/04-third-movement/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "04",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/04-third-movement/metadata.yaml"
+      },
+      {
+        "type": "source_file",
+        "chapter": "05",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/05-fourth-movement/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "05",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/05-fourth-movement/metadata.yaml"
+      },
+      {
+        "type": "source_file",
+        "chapter": "06",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/06-final-movement/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "06",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/06-final-movement/metadata.yaml"
+      },
+      {
+        "type": "source_file",
+        "chapter": "07",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/07-variations/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "07",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/07-variations/metadata.yaml"
+      },
+      {
+        "type": "source_file",
+        "chapter": "08",
+        "file": "index.md",
+        "path": "/workspace/play-right-with-ai/content/chapters/08-capstone/index.md"
+      },
+      {
+        "type": "source_file",
+        "chapter": "08",
+        "file": "metadata.yaml",
+        "path": "/workspace/play-right-with-ai/content/chapters/08-capstone/metadata.yaml"
+      }
+    ],
+    "orphaned": [
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+        "reason": "No source chapter 1"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-02.html",
+        "reason": "No source chapter 2"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-03.html",
+        "reason": "No source chapter 3"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-04.html",
+        "reason": "No source chapter 4"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-05.html",
+        "reason": "No source chapter 5"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-06.html",
+        "reason": "No source chapter 6"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-07.html",
+        "reason": "No source chapter 7"
+      },
+      {
+        "type": "html",
+        "file": "/workspace/play-right-with-ai/docs/chapters/chapter-08.html",
+        "reason": "No source chapter 8"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-01/",
+        "reason": "No source chapter 1"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-02/",
+        "reason": "No source chapter 2"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-03/",
+        "reason": "No source chapter 3"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-04/",
+        "reason": "No source chapter 4"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-05/",
+        "reason": "No source chapter 5"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-06/",
+        "reason": "No source chapter 6"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-07/",
+        "reason": "No source chapter 7"
+      },
+      {
+        "type": "workshop",
+        "file": "/workspace/play-right-with-ai/workshop/chapter-08/",
+        "reason": "No source chapter 8"
+      }
+    ],
+    "outdated": [],
+    "metadata": [],
+    "structure": []
+  }
+}

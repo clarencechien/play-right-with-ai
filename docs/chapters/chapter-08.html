@@ -1,479 +1,296 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第八章：總譜 - 獨立端到端 AI 編排挑戰 - Play Right with AI</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章節標題 - Play Right with AI</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            margin: -20px -20px 30px -20px;
+        }
+        
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .chapter-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .chapter-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .chapter-meta {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .meta-item strong {
+            color: #495057;
+        }
+        
+        .meta-item ul {
+            margin: 0.5rem 0 0 1.5rem;
+            padding: 0;
+        }
+        
+        .chapter-body {
+            margin-bottom: 3rem;
+        }
+        
+        .chapter-body h2 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .chapter-body h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .chapter-body pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        
+        .chapter-body code {
+            background: #f6f8fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+            font-size: 0.9em;
+        }
+        
+        .chapter-body pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .chapter-body blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .chapter-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .chapter-body th,
+        .chapter-body td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        
+        .chapter-body th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .chapter-body tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .table-of-contents {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .table-of-contents h2 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 1.2rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc-list ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .toc-link {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .chapter-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-button.prev {
+            background: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .chapter-body pre {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="../" class="nav-brand">Play Right with AI</a>
-      <ul class="nav-links">
-        <li><a href="../" class="nav-link">首頁</a></li>
-        <li><a href="./" class="nav-link">章節</a></li>
-        <li><a href="../playground/" class="nav-link">Playground</a></li>
-        <li><a href="../demos/" class="nav-link">示範</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <div class="container">
-    <article class="chapter-content fade-in">
-      <h1>第八章：總譜 - 獨立端到端 AI 編排挑戰</h1>
-<h2>學習目標</h2>
-<p>完成本章後，你將能夠：</p>
-<ol>
-<li><strong>獨立編排</strong>：獨立設計和執行完整的 AI 驅動開發流程</li>
-<li><strong>綜合應用</strong>：整合所有學到的技能和模式</li>
-<li><strong>創新思維</strong>：發展自己的 AI 工作流程和最佳實踐</li>
-<li><strong>專業評估</strong>：評估和優化 AI 輔助開發的效率</li>
-</ol>
-<h2>章節概覽</h2>
-<pre><code class="language-mermaid">graph TD
-    A[知識整合] --&gt; B[專案規劃]
-    B --&gt; C[獨立實作]
-    C --&gt; D[自我評估]
-    D --&gt; E[社群分享]
-    
-    style A fill:#e3f2fd
-    style E fill:#c8e6c9
-</code></pre>
-<h2>專案挑戰總覽</h2>
-<h3>🎯 核心挑戰：線上學習平台</h3>
-<p>你將獨立使用 AI 工具，從零開始構建一個完整的線上學習平台，包含：</p>
-<p><strong>功能需求</strong>：</p>
-<ul>
-<li>用戶註冊和登入系統</li>
-<li>課程瀏覽和搜尋</li>
-<li>影片播放和進度追蹤</li>
-<li>測驗和作業提交</li>
-<li>討論區和即時聊天</li>
-<li>個人學習儀表板</li>
-</ul>
-<p><strong>技術要求</strong>：</p>
-<ul>
-<li>前端：現代 JavaScript 框架</li>
-<li>後端：RESTful API 或 GraphQL</li>
-<li>資料庫：關聯式或 NoSQL</li>
-<li>測試：&gt;80% 覆蓋率</li>
-<li>部署：容器化部署方案</li>
-</ul>
-<h2>評估標準</h2>
-<h3>技術實作 (40%)</h3>
-<pre><code class="language-markdown">## 評分項目
-
-### 應用完整性 (10%)
-- [ ] 所有核心功能正常運作
-- [ ] 良好的錯誤處理
-- [ ] 資料驗證完整
-
-### 程式碼品質 (10%)
-- [ ] 清晰的程式碼結構
-- [ ] 遵循最佳實踐
-- [ ] 適當的註釋和文檔
-
-### 測試覆蓋 (10%)
-- [ ] 單元測試覆蓋率 &gt;80%
-- [ ] E2E 測試覆蓋關鍵流程
-- [ ] 效能測試基準
-
-### 技術創新 (10%)
-- [ ] 使用進階技術特性
-- [ ] 優雅的問題解決方案
-- [ ] 效能優化實作
-</code></pre>
-<h3>AI 編排能力 (40%)</h3>
-<pre><code class="language-markdown">## 評分項目
-
-### 提示詞設計 (15%)
-- [ ] 清晰、具體的提示詞
-- [ ] 有效的上下文提供
-- [ ] 迭代優化證據
-
-### 工具整合 (10%)
-- [ ] 多個 AI 工具的協同使用
-- [ ] 工具選擇的合理性
-- [ ] 工作流程的流暢性
-
-### 問題解決 (10%)
-- [ ] 獨立診斷和解決問題
-- [ ] AI 輔助的除錯過程
-- [ ] 自我修復循環實作
-
-### 效率提升 (5%)
-- [ ] 開發時間的縮短
-- [ ] 減少手動編碼量
-- [ ] 提高程式碼品質
-</code></pre>
-<h3>學習展示 (20%)</h3>
-<pre><code class="language-markdown">## 評分項目
-
-### 過程文檔 (10%)
-- [ ] 清晰的開發日誌
-- [ ] 決策過程記錄
-- [ ] 學習心得總結
-
-### 創新應用 (5%)
-- [ ] 發現新的 AI 使用模式
-- [ ] 創造性問題解決
-- [ ] 超出預期的功能
-
-### 知識分享 (5%)
-- [ ] 高品質的專案展示
-- [ ] 對社群的貢獻
-- [ ] 幫助他人學習
-</code></pre>
-<h2>專案執行指南</h2>
-<h3>第一階段：規劃與設計（建議 2 小時）</h3>
-<h4>1.1 需求分析</h4>
-<pre><code class="language-markdown">## AI 輔助需求分析模板
-
-**提示詞範例**：
-&quot;我要建立一個線上學習平台，目標用戶是程式設計初學者。
-請幫我：
-1. 細化功能需求
-2. 設計用戶故事
-3. 建議技術架構
-4. 識別潛在挑戰&quot;
-</code></pre>
-<h4>1.2 架構設計</h4>
-<pre><code class="language-mermaid">graph TB
-    subgraph &quot;前端&quot;
-        UI[React/Vue/Angular]
-        State[狀態管理]
-        Router[路由]
-    end
-    
-    subgraph &quot;後端&quot;
-        API[API 服務]
-        Auth[認證服務]
-        Media[媒體服務]
-    end
-    
-    subgraph &quot;資料層&quot;
-        DB[(資料庫)]
-        Cache[(快取)]
-        Storage[檔案儲存]
-    end
-    
-    UI --&gt; API
-    API --&gt; DB
-    API --&gt; Cache
-    Media --&gt; Storage
-</code></pre>
-<h3>第二階段：核心開發（建議 4 小時）</h3>
-<h4>2.1 基礎設施搭建</h4>
-<p><strong>任務清單</strong>：</p>
-<pre><code class="language-markdown">- [ ] 初始化專案結構
-- [ ] 設定開發環境
-- [ ] 配置版本控制
-- [ ] 建立 CI/CD 管線
-</code></pre>
-<h4>2.2 功能實作順序</h4>
-<pre><code class="language-markdown">1. **用戶系統** (1小時)
-   - 註冊/登入 API
-   - JWT 認證
-   - 用戶資料管理
-
-2. **課程管理** (1.5小時)
-   - 課程 CRUD
-   - 分類和標籤
-   - 搜尋功能
-
-3. **學習功能** (1小時)
-   - 影片播放器整合
-   - 進度追蹤
-   - 筆記功能
-
-4. **互動功能** (30分鐘)
-   - 討論區基礎
-   - 評論系統
-</code></pre>
-<h3>第三階段：測試完善（建議 2 小時）</h3>
-<h4>3.1 測試策略</h4>
-<pre><code class="language-javascript">// test-strategy.js
-const testPlan = {
-  unit: {
-    coverage: 80,
-    focus: [&#39;業務邏輯&#39;, &#39;資料驗證&#39;, &#39;工具函數&#39;]
-  },
-  integration: {
-    coverage: 60,
-    focus: [&#39;API 端點&#39;, &#39;資料庫操作&#39;, &#39;第三方整合&#39;]
-  },
-  e2e: {
-    coverage: &#39;critical paths&#39;,
-    scenarios: [
-      &#39;用戶註冊和登入流程&#39;,
-      &#39;完整的課程學習流程&#39;,
-      &#39;作業提交和評分流程&#39;
-    ]
-  },
-  performance: {
-    targets: {
-      pageLoad: &#39;&lt;3s&#39;,
-      apiResponse: &#39;&lt;500ms&#39;,
-      concurrentUsers: 100
-    }
-  }
-};
-</code></pre>
-<h4>3.2 AI 輔助測試</h4>
-<p><strong>提示詞模板</strong>：</p>
-<pre><code>分析以下程式碼並生成完整的測試套件：
-[貼上程式碼]
-
-要求：
-1. 覆蓋所有公開方法
-2. 包含正常和異常案例
-3. 測試邊界條件
-4. Mock 外部依賴
-</code></pre>
-<h3>第四階段：優化部署（建議 1 小時）</h3>
-<h4>4.1 效能優化</h4>
-<pre><code class="language-markdown">## 優化檢查清單
-
-### 前端優化
-- [ ] 程式碼分割和懶載入
-- [ ] 圖片和資源優化
-- [ ] 快取策略實作
-- [ ] CDN 配置
-
-### 後端優化
-- [ ] 資料庫查詢優化
-- [ ] API 回應快取
-- [ ] 負載均衡配置
-- [ ] 非同步處理
-
-### 部署優化
-- [ ] Docker 映像優化
-- [ ] 環境變數管理
-- [ ] 監控和日誌設定
-- [ ] 自動擴展配置
-</code></pre>
-<h3>第五階段：文檔展示（建議 1 小時）</h3>
-<h4>5.1 專案文檔模板</h4>
-<pre><code class="language-markdown"># 線上學習平台 - AI 驅動開發專案
-
-## 專案概述
-[簡短描述專案目標和成果]
-
-## 技術架構
-[架構圖和技術選型說明]
-
-## AI 工具使用
-### 使用的 AI 工具
-- Claude：程式碼生成和問題解決
-- GitHub Copilot：即時程式碼建議
-- [其他工具]
-
-### 關鍵提示詞和技巧
-[分享最有效的提示詞範例]
-
-## 開發過程
-### 時間線
-- 規劃：X 小時
-- 開發：X 小時
-- 測試：X 小時
-- 優化：X 小時
-
-### 挑戰與解決
-[記錄遇到的問題和解決方法]
-
-## 成果展示
-### 功能演示
-[截圖或影片連結]
-
-### 測試結果
-- 測試覆蓋率：X%
-- 效能指標：[列出關鍵指標]
-
-## 學習心得
-[反思 AI 輔助開發的優缺點]
-
-## 未來改進
-[列出可能的改進方向]
-</code></pre>
-<h2>自我評估工具</h2>
-<h3>評估矩陣</h3>
-<pre><code class="language-typescript">interface ProjectEvaluation {
-  technical: {
-    functionality: number;    // 0-10
-    codeQuality: number;      // 0-10
-    testing: number;          // 0-10
-    performance: number;      // 0-10
-  };
-  aiOrchestration: {
-    promptEngineering: number; // 0-10
-    toolIntegration: number;   // 0-10
-    problemSolving: number;    // 0-10
-    efficiency: number;        // 0-10
-  };
-  learning: {
-    documentation: number;     // 0-10
-    innovation: number;        // 0-10
-    sharing: number;          // 0-10
-  };
-  
-  calculateTotal(): number;
-  generateReport(): string;
-  identifyStrengths(): string[];
-  suggestImprovements(): string[];
-}
-</code></pre>
-<h3>自我檢核表</h3>
-<pre><code class="language-markdown">## 專案完成度檢核
-
-### 必要功能 ✅
-- [ ] 用戶認證系統運作正常
-- [ ] 課程瀏覽和搜尋功能完整
-- [ ] 影片播放和進度追蹤實作
-- [ ] 基本的測驗功能
-- [ ] 簡單的討論區
-
-### 進階功能 🚀
-- [ ] 即時聊天功能
-- [ ] 個人化推薦系統
-- [ ] 數據分析儀表板
-- [ ] 行動裝置優化
-- [ ] 多語言支援
-
-### AI 應用 🤖
-- [ ] 使用至少 3 個不同的 AI 工具
-- [ ] 展示提示詞迭代優化過程
-- [ ] 實作自我修復循環
-- [ ] 創新的 AI 應用場景
-
-### 品質指標 📊
-- [ ] 程式碼測試覆蓋率 &gt;80%
-- [ ] 頁面載入時間 &lt;3 秒
-- [ ] 零關鍵錯誤
-- [ ] 良好的使用者體驗
-</code></pre>
-<h2>優秀專案範例</h2>
-<h3>🏆 範例專案 1：智能學習助手</h3>
-<p><strong>特色</strong>：</p>
-<ul>
-<li>使用 AI 生成個人化學習路徑</li>
-<li>自動化的程式碼評審系統</li>
-<li>智能問答機器人</li>
-</ul>
-<p><strong>創新點</strong>：</p>
-<ul>
-<li>整合多個 AI 模型協同工作</li>
-<li>自適應的難度調整</li>
-<li>即時的學習分析</li>
-</ul>
-<p><a href="./showcase/smart-learning-assistant.md">查看完整案例 →</a></p>
-<h3>🥈 範例專案 2：協作式程式設計平台</h3>
-<p><strong>特色</strong>：</p>
-<ul>
-<li>即時協作編輯器</li>
-<li>AI 輔助的程式碼審查</li>
-<li>自動化測試和部署</li>
-</ul>
-<p><strong>創新點</strong>：</p>
-<ul>
-<li>WebRTC 即時通訊</li>
-<li>AI 配對程式設計建議</li>
-<li>智能衝突解決</li>
-</ul>
-<p><a href="./showcase/collaborative-coding-platform.md">查看完整案例 →</a></p>
-<h2>進階挑戰（選修）</h2>
-<h3>挑戰 1：多租戶架構</h3>
-<p>將平台擴展為支援多個組織/學校</p>
-<h3>挑戰 2：AI 課程生成</h3>
-<p>使用 AI 自動生成課程內容和測驗</p>
-<h3>挑戰 3：區塊鏈證書</h3>
-<p>整合區塊鏈發行課程完成證書</p>
-<h3>挑戰 4：AR/VR 學習體驗</h3>
-<p>加入沉浸式學習功能</p>
-<h2>社群參與</h2>
-<h3>分享你的專案</h3>
-<ol>
-<li><p><strong>提交專案</strong></p>
-<ul>
-<li>Fork 本倉庫</li>
-<li>在 <code>/showcase</code> 新增你的專案</li>
-<li>提交 Pull Request</li>
-</ul>
-</li>
-<li><p><strong>獲得回饋</strong></p>
-<ul>
-<li>在 Discussions 發布專案連結</li>
-<li>參與每週專案評審會議</li>
-<li>獲得導師和同儕回饋</li>
-</ul>
-</li>
-<li><p><strong>幫助他人</strong></p>
-<ul>
-<li>評審其他人的專案</li>
-<li>分享你的經驗和技巧</li>
-<li>貢獻到模式庫</li>
-</ul>
-</li>
-</ol>
-<h3>認證和獎勵</h3>
-<p>完成專案並通過評審後，你將獲得：</p>
-<ul>
-<li>🏅 <strong>AI 指揮家認證</strong>：證明你掌握了 AI 驅動開發</li>
-<li>🌟 <strong>社群貢獻者徽章</strong>：表彰你的知識分享</li>
-<li>📚 <strong>進階資源存取</strong>：獲得高級教程和工具</li>
-</ul>
-<h2>資源和支援</h2>
-<h3>技術資源</h3>
-<ul>
-<li><a href="./resources/api-docs-template.md">API 文檔模板</a></li>
-<li><a href="./resources/deployment-guide.md">部署指南</a></li>
-<li><a href="./resources/performance-checklist.md">效能優化清單</a></li>
-</ul>
-<h3>學習資源</h3>
-<ul>
-<li><a href="./resources/prompt-library.md">提示詞庫</a></li>
-<li><a href="./resources/faq.md">常見問題解答</a></li>
-<li><a href="./resources/troubleshooting.md">疑難排解指南</a></li>
-</ul>
-<h3>社群支援</h3>
-<ul>
-<li>💬 <a href="https://github.com/%5Byour-repo%5D/discussions/categories/capstone">專案討論區</a></li>
-<li>🎥 <a href="https://meet.link/office-hours">每週線上 Office Hours</a></li>
-<li>📧 <a href="mailto:mentor@example.com">導師信箱</a></li>
-</ul>
-<h2>開始你的挑戰</h2>
-<p>準備好展現你的 AI 指揮才能了嗎？</p>
-<h3><a href="./project/planning-guide.md">→ 開始專案規劃</a></h3>
-<p>記住：這不只是一個程式設計專案，而是展現你如何優雅地指揮 AI 完成複雜任務的機會。相信自己，你已經準備好了！</p>
-<hr>
-<h2>章節導航</h2>
-<p>⬅️ <a href="../chapter-07/README.md">第七章：變奏曲 - 擴展工作流</a>
-🏠 <a href="../../README.md">回到工作坊首頁</a></p>
-<h2>完成工作坊</h2>
-<p>🎉 <strong>恭喜你！</strong> 完成第八章意味著你已經掌握了 AI 驅動開發的完整流程。你現在是一位合格的 AI 指揮家了！</p>
-<h3>下一步建議</h3>
-<ol>
-<li><strong>持續實踐</strong>：在實際專案中應用所學</li>
-<li><strong>探索創新</strong>：嘗試新的 AI 工具和技術</li>
-<li><strong>知識分享</strong>：將你的經驗分享給社群</li>
-<li><strong>保持學習</strong>：AI 技術日新月異，持續關注最新發展</li>
-</ol>
-<p>感謝你參與這個學習之旅。期待看到你創造的精彩作品！</p>
-<hr>
-<p><em>&quot;The best way to predict the future is to invent it.&quot; - Alan Kay</em></p>
-<p><em>在 AI 時代，最好的創造方式是學會指揮 AI。</em></p>
-
-    </article>
-    
-    <nav class="chapter-nav">
-      <div class="chapter-nav-links"><a href="/chapters/chapter-01.html" class="btn">下一章 →</a></div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Play Right with AI</a>
+            <div class="nav-links">
+                <a href="../index.html">首頁</a>
+                <a href="../chapters.html">章節</a>
+                <a href="../playground.html">實驗場</a>
+            </div>
+        </div>
     </nav>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="../assets/js/main.js"></script>
+
+    <main class="container">
+        <article class="chapter-content">
+            <header class="chapter-header">
+                <h1>Chapter 08: 章節標題</h1>
+                <p class="subtitle">Chapter Title</p>
+            </header>
+
+            <section class="chapter-meta">
+                <div class="meta-item">
+                    <strong>學習目標：</strong>
+                    <ul><li>待定義</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>前置需求：</strong>
+                    <ul><li>無</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>預計時間：</strong> 2 hours
+                </div>
+            </section>
+
+            <section class="chapter-body">
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
+<p>內容待新增…</p>
+
+            </section>
+
+            <footer class="chapter-footer">
+                <p>最後更新: 2025-09-12</p>
+            </footer>
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
-    

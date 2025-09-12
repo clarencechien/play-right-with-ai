@@ -1,680 +1,296 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第六章：最終樂章 - AI 完成自我修復 - Play Right with AI</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章節標題 - Play Right with AI</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            margin: -20px -20px 30px -20px;
+        }
+        
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .chapter-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .chapter-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .chapter-meta {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .meta-item strong {
+            color: #495057;
+        }
+        
+        .meta-item ul {
+            margin: 0.5rem 0 0 1.5rem;
+            padding: 0;
+        }
+        
+        .chapter-body {
+            margin-bottom: 3rem;
+        }
+        
+        .chapter-body h2 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .chapter-body h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .chapter-body pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        
+        .chapter-body code {
+            background: #f6f8fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+            font-size: 0.9em;
+        }
+        
+        .chapter-body pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .chapter-body blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .chapter-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .chapter-body th,
+        .chapter-body td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        
+        .chapter-body th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .chapter-body tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .table-of-contents {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .table-of-contents h2 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 1.2rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc-list ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .toc-link {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .chapter-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-button.prev {
+            background: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .chapter-body pre {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="../" class="nav-brand">Play Right with AI</a>
-      <ul class="nav-links">
-        <li><a href="../" class="nav-link">首頁</a></li>
-        <li><a href="./" class="nav-link">章節</a></li>
-        <li><a href="../playground/" class="nav-link">Playground</a></li>
-        <li><a href="../demos/" class="nav-link">示範</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <div class="container">
-    <article class="chapter-content fade-in">
-      <h1>第六章：最終樂章 - AI 完成自我修復</h1>
-<h2>章節概述</h2>
-<p>在這個章節中，我們將學習如何建立具有自我修復能力的測試系統。透過 AI 的智能分析和自動化修復，讓測試能夠自動適應變化、修復問題，實現真正的自主測試循環。</p>
-<h2>學習目標</h2>
-<p>完成本章後，您將能夠：</p>
-<ol>
-<li><strong>自動修復生成器</strong>：讓 AI 自動生成修復代碼</li>
-<li><strong>智能重試策略</strong>：實施智能的測試重試機制</li>
-<li><strong>動態定位器</strong>：建立自適應的元素定位系統</li>
-<li><strong>容錯機制</strong>：設計健壯的錯誤處理和回退方案</li>
-</ol>
-<h2>章節架構</h2>
-<pre><code>chapter-06/
-├── README.md (本文件)
-├── self-repair/
-│   ├── 01-auto-fix-generation/    # 自動修復生成
-│   ├── 02-retry-strategies/       # 重試策略
-│   ├── 03-smart-locators/        # 智能定位器
-│   └── 04-fallback-mechanisms/   # 回退機制
-├── exercises/
-│   ├── exercise-01-self-healing.md
-│   ├── exercise-02-auto-repair.md
-│   ├── exercise-03-resilience.md
-│   └── exercise-04-integration.md
-├── automation/
-│   ├── ci-cd-integration/
-│   ├── monitoring/
-│   └── reporting/
-└── examples/
-    └── complete-workflow/
-</code></pre>
-<h2>核心概念</h2>
-<h3>1. 自我修復測試架構</h3>
-<pre><code class="language-mermaid">flowchart TD
-    A[測試執行] --&gt; B{成功?}
-    B --&gt;|是| C[記錄成功]
-    B --&gt;|否| D[錯誤分析]
-    D --&gt; E[AI 診斷]
-    E --&gt; F{可修復?}
-    F --&gt;|是| G[生成修復]
-    G --&gt; H[應用修復]
-    H --&gt; I[重新執行]
-    I --&gt; B
-    F --&gt;|否| J[人工介入]
-    J --&gt; K[更新知識庫]
-</code></pre>
-<h3>2. 自我修復能力層級</h3>
-<table>
-<thead>
-<tr>
-<th>層級</th>
-<th>能力</th>
-<th>範例</th>
-<th>實現難度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>L1</td>
-<td>基礎重試</td>
-<td>簡單重試失敗操作</td>
-<td>低</td>
-</tr>
-<tr>
-<td>L2</td>
-<td>智能等待</td>
-<td>動態調整等待策略</td>
-<td>中</td>
-</tr>
-<tr>
-<td>L3</td>
-<td>選擇器修復</td>
-<td>自動更新失效選擇器</td>
-<td>中高</td>
-</tr>
-<tr>
-<td>L4</td>
-<td>邏輯調整</td>
-<td>修改測試流程適應變化</td>
-<td>高</td>
-</tr>
-<tr>
-<td>L5</td>
-<td>自主進化</td>
-<td>學習並優化測試策略</td>
-<td>極高</td>
-</tr>
-</tbody></table>
-<h3>3. 自我修復決策樹</h3>
-<pre><code class="language-javascript">class SelfHealingDecisionTree {
-    async makeDecision(error) {
-        // 第一層：錯誤分類
-        const errorType = this.classifyError(error);
-        
-        // 第二層：修復策略選擇
-        switch(errorType) {
-            case &#39;SELECTOR_NOT_FOUND&#39;:
-                return this.healSelector(error);
-            case &#39;TIMING_ISSUE&#39;:
-                return this.healTiming(error);
-            case &#39;NETWORK_ERROR&#39;:
-                return this.healNetwork(error);
-            case &#39;STATE_ISSUE&#39;:
-                return this.healState(error);
-            default:
-                return this.escalateToHuman(error);
-        }
-    }
-}
-</code></pre>
-<h2>實戰示例</h2>
-<h3>示例 1：自動選擇器修復</h3>
-<pre><code class="language-javascript">class AutoSelectorHealer {
-    async healSelector(page, failedSelector) {
-        console.log(`選擇器失敗: ${failedSelector}`);
-        
-        // 步驟 1: 分析失敗原因
-        const diagnosis = await this.diagnoseSelector(page, failedSelector);
-        
-        // 步驟 2: 生成替代選擇器
-        const alternatives = await this.generateAlternatives(page, diagnosis);
-        
-        // 步驟 3: 驗證替代選擇器
-        for (const selector of alternatives) {
-            if (await this.validateSelector(page, selector)) {
-                console.log(`找到替代選擇器: ${selector}`);
-                return selector;
-            }
-        }
-        
-        // 步驟 4: 使用 AI 生成新選擇器
-        return await this.aiGenerateSelector(page, failedSelector);
-    }
-    
-    async diagnoseSelector(page, selector) {
-        // 分析選擇器失敗的原因
-        const analysis = {
-            selectorType: this.getSelectorType(selector),
-            possibleIssues: [],
-            pageChanges: []
-        };
-        
-        // 檢查是否是 ID 變更
-        if (selector.includes(&#39;#&#39;)) {
-            const id = selector.match(/#([^s\]]+)/)?.[1];
-            analysis.possibleIssues.push(`ID &#39;${id}&#39; 可能已變更`);
-        }
-        
-        // 檢查是否是 class 變更
-        if (selector.includes(&#39;.&#39;)) {
-            const className = selector.match(/\.([^s\]]+)/)?.[1];
-            analysis.possibleIssues.push(`Class &#39;${className}&#39; 可能已變更`);
-        }
-        
-        return analysis;
-    }
-    
-    async generateAlternatives(page, diagnosis) {
-        const alternatives = [];
-        
-        // 策略 1: 使用文字內容
-        if (diagnosis.expectedText) {
-            alternatives.push(`text=&quot;${diagnosis.expectedText}&quot;`);
-            alternatives.push(`text~=&quot;${diagnosis.expectedText}&quot;`);
-        }
-        
-        // 策略 2: 使用相對位置
-        alternatives.push(`xpath=//button[contains(@class, &#39;submit&#39;)]`);
-        alternatives.push(`css=form button[type=&quot;submit&quot;]`);
-        
-        // 策略 3: 使用 data 屬性
-        alternatives.push(`[data-testid*=&quot;submit&quot;]`);
-        alternatives.push(`[data-action=&quot;submit&quot;]`);
-        
-        return alternatives;
-    }
-    
-    async aiGenerateSelector(page, failedSelector) {
-        const prompt = `
-        原始選擇器失敗: ${failedSelector}
-        
-        頁面當前 HTML:
-        ${await page.content()}
-        
-        請生成一個新的、更穩定的選擇器來定位相同的元素。
-        優先使用:
-        1. data-testid 屬性
-        2. 語意化的 HTML 標籤
-        3. ARIA 屬性
-        4. 穩定的文字內容
-        `;
-        
-        // 呼叫 AI API
-        const newSelector = await this.callAI(prompt);
-        return newSelector;
-    }
-}
-</code></pre>
-<h3>示例 2：智能重試策略</h3>
-<pre><code class="language-javascript">class SmartRetryStrategy {
-    constructor() {
-        this.retryConfig = {
-            maxAttempts: 3,
-            baseDelay: 1000,
-            maxDelay: 30000,
-            backoffMultiplier: 2
-        };
-        
-        this.retryHistory = new Map();
-    }
-    
-    async executeWithRetry(testFn, context) {
-        const testId = this.generateTestId(testFn);
-        let lastError;
-        
-        for (let attempt = 1; attempt &lt;= this.retryConfig.maxAttempts; attempt++) {
-            try {
-                // 執行測試
-                const result = await testFn();
-                
-                // 成功，更新歷史
-                this.updateHistory(testId, { success: true, attempt });
-                return result;
-                
-            } catch (error) {
-                lastError = error;
-                console.log(`嘗試 ${attempt} 失敗: ${error.message}`);
-                
-                // 分析錯誤並決定是否重試
-                const shouldRetry = await this.analyzeAndDecide(error, attempt);
-                
-                if (!shouldRetry || attempt === this.retryConfig.maxAttempts) {
-                    this.updateHistory(testId, { success: false, attempt, error });
-                    throw error;
-                }
-                
-                // 應用修復策略
-                await this.applyHealingStrategy(error, context);
-                
-                // 計算延遲時間
-                const delay = this.calculateDelay(attempt);
-                console.log(`等待 ${delay}ms 後重試...`);
-                await this.wait(delay);
-            }
-        }
-        
-        throw lastError;
-    }
-    
-    async analyzeAndDecide(error, attempt) {
-        // 使用 AI 分析錯誤是否可重試
-        const analysis = await this.aiAnalyzeError(error);
-        
-        // 決策邏輯
-        if (analysis.isTransient) {
-            return true; // 暫時性錯誤，應該重試
-        }
-        
-        if (analysis.isFixable &amp;&amp; attempt &lt; this.retryConfig.maxAttempts) {
-            return true; // 可修復的錯誤，且還有重試次數
-        }
-        
-        if (analysis.isCritical) {
-            return false; // 關鍵錯誤，不應重試
-        }
-        
-        return attempt &lt; this.retryConfig.maxAttempts;
-    }
-    
-    async applyHealingStrategy(error, context) {
-        const errorType = this.classifyError(error);
-        
-        switch(errorType) {
-            case &#39;TIMEOUT&#39;:
-                // 增加超時時間
-                context.timeout = (context.timeout || 30000) * 1.5;
-                break;
-                
-            case &#39;ELEMENT_NOT_FOUND&#39;:
-                // 等待頁面穩定
-                await context.page.waitForLoadState(&#39;networkidle&#39;);
-                break;
-                
-            case &#39;STALE_ELEMENT&#39;:
-                // 重新獲取元素
-                context.refreshElements = true;
-                break;
-                
-            case &#39;NETWORK_ERROR&#39;:
-                // 清除快取並重試
-                await context.page.context().clearCookies();
-                break;
-        }
-    }
-    
-    calculateDelay(attempt) {
-        const exponentialDelay = this.retryConfig.baseDelay * 
-            Math.pow(this.retryConfig.backoffMultiplier, attempt - 1);
-        
-        // 加入隨機抖動
-        const jitter = Math.random() * 1000;
-        
-        return Math.min(exponentialDelay + jitter, this.retryConfig.maxDelay);
-    }
-    
-    async aiAnalyzeError(error) {
-        const prompt = `
-        分析測試錯誤：
-        ${error.message}
-        ${error.stack}
-        
-        請判斷：
-        1. 是否為暫時性錯誤 (isTransient)
-        2. 是否可修復 (isFixable)
-        3. 是否為關鍵錯誤 (isCritical)
-        4. 建議的修復策略
-        `;
-        
-        // 模擬 AI 回應
-        return {
-            isTransient: error.message.includes(&#39;timeout&#39;),
-            isFixable: !error.message.includes(&#39;critical&#39;),
-            isCritical: error.message.includes(&#39;security&#39;),
-            strategy: &#39;increase_timeout&#39;
-        };
-    }
-}
-</code></pre>
-<h3>示例 3：智能元素定位器</h3>
-<pre><code class="language-javascript">class SmartLocator {
-    constructor(page) {
-        this.page = page;
-        this.locatorCache = new Map();
-        this.fallbackStrategies = [
-            this.byTestId.bind(this),
-            this.byText.bind(this),
-            this.byRole.bind(this),
-            this.byNearby.bind(this),
-            this.byVisualSimilarity.bind(this)
-        ];
-    }
-    
-    async locate(identifier) {
-        // 檢查快取
-        if (this.locatorCache.has(identifier)) {
-            const cached = this.locatorCache.get(identifier);
-            if (await this.isValid(cached)) {
-                return cached;
-            }
-        }
-        
-        // 嘗試各種策略
-        for (const strategy of this.fallbackStrategies) {
-            try {
-                const locator = await strategy(identifier);
-                if (locator &amp;&amp; await this.isValid(locator)) {
-                    this.locatorCache.set(identifier, locator);
-                    return locator;
-                }
-            } catch (error) {
-                continue;
-            }
-        }
-        
-        // 使用 AI 作為最後手段
-        return await this.aiLocate(identifier);
-    }
-    
-    async byTestId(identifier) {
-        return this.page.locator(`[data-testid=&quot;${identifier}&quot;]`);
-    }
-    
-    async byText(identifier) {
-        // 嘗試精確匹配和模糊匹配
-        const exact = this.page.locator(`text=&quot;${identifier}&quot;`);
-        if (await exact.count() &gt; 0) return exact;
-        
-        const fuzzy = this.page.locator(`text~=&quot;${identifier}&quot;`);
-        if (await fuzzy.count() &gt; 0) return fuzzy;
-        
-        return null;
-    }
-    
-    async byRole(identifier) {
-        // 基於語義角色定位
-        const roles = [&#39;button&#39;, &#39;link&#39;, &#39;textbox&#39;, &#39;checkbox&#39;];
-        
-        for (const role of roles) {
-            const locator = this.page.getByRole(role, { 
-                name: new RegExp(identifier, &#39;i&#39;) 
-            });
-            if (await locator.count() &gt; 0) return locator;
-        }
-        
-        return null;
-    }
-    
-    async byNearby(identifier) {
-        // 基於相對位置定位
-        const landmarks = await this.findLandmarks();
-        
-        for (const landmark of landmarks) {
-            const nearby = landmark.locator(`../*[contains(., &quot;${identifier}&quot;)]`);
-            if (await nearby.count() &gt; 0) return nearby;
-        }
-        
-        return null;
-    }
-    
-    async byVisualSimilarity(identifier) {
-        // 基於視覺相似性定位（需要 AI 視覺能力）
-        const screenshot = await this.page.screenshot();
-        
-        const prompt = `
-        在這個截圖中找到與 &quot;${identifier}&quot; 相關的元素。
-        返回該元素的位置座標。
-        `;
-        
-        const coordinates = await this.aiAnalyzeVisual(screenshot, prompt);
-        if (coordinates) {
-            return this.page.locator(`[boundingBox=&quot;${coordinates}&quot;]`);
-        }
-        
-        return null;
-    }
-    
-    async aiLocate(identifier) {
-        const html = await this.page.content();
-        
-        const prompt = `
-        在以下 HTML 中找到代表 &quot;${identifier}&quot; 的元素：
-        
-        ${html}
-        
-        返回最合適的 CSS 選擇器或 XPath。
-        考慮：
-        1. 元素的語義
-        2. 周圍的上下文
-        3. 穩定性和唯一性
-        `;
-        
-        const selector = await this.callAI(prompt);
-        return this.page.locator(selector);
-    }
-}
-</code></pre>
-<h2>CI/CD 整合</h2>
-<h3>GitHub Actions 自我修復工作流</h3>
-<pre><code class="language-yaml">name: Self-Healing Tests
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: &#39;0 */6 * * *&#39;  # 每 6 小時執行一次
-
-jobs:
-  test-with-self-healing:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: &#39;18&#39;
-    
-    - name: Install dependencies
-      run: |
-        npm ci
-        npx playwright install
-    
-    - name: Run Self-Healing Tests
-      id: test
-      run: |
-        npm run test:self-healing
-      continue-on-error: true
-    
-    - name: Analyze Failures
-      if: steps.test.outcome == &#39;failure&#39;
-      run: |
-        npm run analyze:failures
-    
-    - name: Apply Auto-Fixes
-      if: steps.test.outcome == &#39;failure&#39;
-      run: |
-        npm run apply:fixes
-    
-    - name: Retry Tests
-      if: steps.test.outcome == &#39;failure&#39;
-      run: |
-        npm run test:retry
-    
-    - name: Generate Report
-      if: always()
-      run: |
-        npm run generate:report
-    
-    - name: Upload Report
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: self-healing-report
-        path: reports/
-    
-    - name: Create Issue for Manual Fixes
-      if: failure()
-      uses: actions/create-issue@v2
-      with:
-        title: &#39;Self-Healing Tests Failed - Manual Intervention Required&#39;
-        body: |
-          ## Test Failure Summary
-          
-          The self-healing mechanism couldn&#39;t automatically fix all issues.
-          
-          ### Failed Tests:
-          ${{ steps.test.outputs.failed_tests }}
-          
-          ### Attempted Fixes:
-          ${{ steps.test.outputs.attempted_fixes }}
-          
-          ### Required Actions:
-          - Review the attached report
-          - Update test selectors if needed
-          - Check for application changes
-          
-          [View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-</code></pre>
-<h2>最佳實踐</h2>
-<h3>1. 分層修復策略</h3>
-<pre><code class="language-javascript">class LayeredHealingStrategy {
-    constructor() {
-        this.layers = [
-            { name: &#39;Quick Fix&#39;, timeout: 5000, strategies: [&#39;retry&#39;, &#39;wait&#39;] },
-            { name: &#39;Smart Fix&#39;, timeout: 15000, strategies: [&#39;selector&#39;, &#39;timing&#39;] },
-            { name: &#39;Deep Fix&#39;, timeout: 30000, strategies: [&#39;ai&#39;, &#39;restructure&#39;] },
-            { name: &#39;Escalate&#39;, timeout: 0, strategies: [&#39;notify&#39;, &#39;skip&#39;] }
-        ];
-    }
-    
-    async heal(error, context) {
-        for (const layer of this.layers) {
-            console.log(`嘗試 ${layer.name} 層修復...`);
-            
-            for (const strategy of layer.strategies) {
-                if (await this.tryStrategy(strategy, error, context, layer.timeout)) {
-                    console.log(`${strategy} 策略成功！`);
-                    return true;
-                }
-            }
-        }
-        
-        return false;
-    }
-}
-</code></pre>
-<h3>2. 修復知識庫</h3>
-<pre><code class="language-javascript">class HealingKnowledgeBase {
-    constructor() {
-        this.knowledge = new Map();
-    }
-    
-    async learn(error, solution) {
-        const fingerprint = this.generateFingerprint(error);
-        
-        if (!this.knowledge.has(fingerprint)) {
-            this.knowledge.set(fingerprint, []);
-        }
-        
-        this.knowledge.get(fingerprint).push({
-            solution,
-            timestamp: Date.now(),
-            success: true
-        });
-    }
-    
-    async suggest(error) {
-        const fingerprint = this.generateFingerprint(error);
-        const solutions = this.knowledge.get(fingerprint) || [];
-        
-        // 按成功率排序
-        return solutions
-            .sort((a, b) =&gt; b.success - a.success)
-            .map(s =&gt; s.solution);
-    }
-}
-</code></pre>
-<h2>進階技巧</h2>
-<h3>1. 預測性修復</h3>
-<pre><code class="language-javascript">class PredictiveHealing {
-    async predictFailures(testSuite) {
-        // 分析測試套件和應用變更
-        const changes = await this.detectChanges();
-        const impacts = await this.analyzeImpacts(changes);
-        
-        // 預先生成修復
-        const preemptiveFixes = await this.generateFixes(impacts);
-        
-        return preemptiveFixes;
-    }
-}
-</code></pre>
-<h3>2. 自適應學習</h3>
-<pre><code class="language-javascript">class AdaptiveLearning {
-    async adapt(testResults) {
-        // 從測試結果中學習
-        const patterns = this.extractPatterns(testResults);
-        
-        // 更新策略
-        await this.updateStrategies(patterns);
-        
-        // 優化未來執行
-        await this.optimizeExecution(patterns);
-    }
-}
-</code></pre>
-<h2>下一步</h2>
-<p>恭喜您完成了自我修復測試的學習！接下來您可以：</p>
-<ol>
-<li>進入<a href="../chapter-07/README.md">第七章：變奏曲</a>，學習更複雜的場景</li>
-<li>嘗試<a href="../chapter-08/README.md">頂點專案</a>，綜合運用所學知識</li>
-<li>探索更多自動化測試的可能性</li>
-</ol>
-<h2>資源連結</h2>
-<ul>
-<li><a href="https://playwright.dev/docs/actionability">Playwright 自動等待機制</a></li>
-<li><a href="https://playwright.dev/docs/test-retries">測試重試策略</a></li>
-<li><a href="https://playwright.dev/docs/ci">CI/CD 最佳實踐</a></li>
-</ul>
-<h2>課後思考</h2>
-<ol>
-<li>自我修復的邊界在哪裡？什麼情況下不應該自動修復？</li>
-<li>如何平衡自動修復的便利性和測試的準確性？</li>
-<li>如何確保自我修復不會掩蓋真正的應用問題？</li>
-<li>團隊如何建立和維護修復知識庫？</li>
-</ol>
-<hr>
-<blockquote>
-<p>🎯 <strong>核心理念</strong>：自我修復不是為了通過測試，而是為了保持測試的有效性和價值。</p>
-</blockquote>
-
-    </article>
-    
-    <nav class="chapter-nav">
-      <div class="chapter-nav-links"><a href="/chapters/chapter-01.html" class="btn">下一章 →</a></div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Play Right with AI</a>
+            <div class="nav-links">
+                <a href="../index.html">首頁</a>
+                <a href="../chapters.html">章節</a>
+                <a href="../playground.html">實驗場</a>
+            </div>
+        </div>
     </nav>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="../assets/js/main.js"></script>
+
+    <main class="container">
+        <article class="chapter-content">
+            <header class="chapter-header">
+                <h1>Chapter 06: 章節標題</h1>
+                <p class="subtitle">Chapter Title</p>
+            </header>
+
+            <section class="chapter-meta">
+                <div class="meta-item">
+                    <strong>學習目標：</strong>
+                    <ul><li>待定義</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>前置需求：</strong>
+                    <ul><li>無</li></ul>
+                </div>
+                <div class="meta-item">
+                    <strong>預計時間：</strong> 2 hours
+                </div>
+            </section>
+
+            <section class="chapter-body">
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
+<p>內容待新增…</p>
+
+            </section>
+
+            <footer class="chapter-footer">
+                <p>最後更新: 2025-09-12</p>
+            </footer>
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
-    

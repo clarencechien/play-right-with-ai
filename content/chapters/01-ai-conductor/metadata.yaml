@@ -1,0 +1,154 @@
+# Chapter 1 Metadata
+# AI 指揮家 - 思維轉變與環境搭建
+
+# ============================================
+# 必要欄位 (Required Fields)
+# ============================================
+
+chapter: "01"
+
+title:
+  zh: "AI 指揮家 - 思維轉變與環境搭建"
+  en: "AI Conductor - Mindset Shift and Environment Setup"
+
+objectives:
+  - "理解從『編碼者』到『AI 指揮家』的思維轉變"
+  - "完成完整的開發環境設置（VS Code、Node.js、Playwright）"
+  - "設置並測試 AI 服務（Claude、Gemini、GPT）"
+  - "掌握『Think in English, Output in Chinese』的雙語提示策略"
+  - "執行第一個 AI 驅動的開發任務"
+
+prerequisites:
+  - "基本的命令列操作知識"
+  - "可以連接網際網路的電腦"
+  - "至少一個 AI 服務的存取權限（Claude、Gemini 或 GPT）"
+
+duration: "2 hours"
+
+# ============================================
+# 選擇性欄位 (Optional Fields)
+# ============================================
+
+tags:
+  - "setup"
+  - "mindset"
+  - "environment"
+  - "bilingual-strategy"
+  - "ai-conductor"
+
+difficulty: "beginner"
+
+description:
+  zh: "工作坊的起點，引導學習者完成思維轉變並建立完整的 AI 驅動開發環境"
+  en: "The starting point of the workshop, guiding learners through mindset transformation and complete AI-driven development environment setup"
+
+key_concepts:
+  - concept: "AI 指揮家"
+    description: "專注於需求設計、流程協調和品質把關的新型開發者角色"
+  - concept: "自循環工作流程"
+    description: "AI 驅動的迭代式開發流程，從需求到部署的完整閉環"
+  - concept: "雙語提示策略"
+    description: "使用英文進行技術思考，中文進行本地化輸出的最佳實踐"
+
+exercises:
+  total: 3
+  estimated_time: "1 hour"
+  difficulty_range: "beginner"
+  list:
+    - name: "環境驗證"
+      type: "setup"
+      duration: "15 minutes"
+    - name: "第一個 AI 提示"
+      type: "practice"
+      duration: "20 minutes"
+    - name: "雙語策略實踐"
+      type: "experiment"
+      duration: "25 minutes"
+
+resources:
+  documentation:
+    - name: "VS Code 官方文件"
+      url: "https://code.visualstudio.com/docs"
+      description: "完整的編輯器使用指南"
+    - name: "Playwright 官方文件"
+      url: "https://playwright.dev"
+      description: "測試框架的完整 API 參考"
+    - name: "Node.js 官方文件"
+      url: "https://nodejs.org/docs"
+      description: "Node.js 平台文件"
+  
+  tools:
+    - name: "Claude"
+      url: "https://claude.ai"
+      description: "Anthropic 的 AI 助手"
+    - name: "Gemini"
+      url: "https://makersuite.google.com"
+      description: "Google 的 AI 開發平台"
+    - name: "ChatGPT"
+      url: "https://chat.openai.com"
+      description: "OpenAI 的對話式 AI"
+
+navigation:
+  previous: null
+  next:
+    chapter: "02"
+    title: "第一樂章 - AI 生成應用程式"
+    path: "../02-first-movement/"
+
+metadata:
+  created: "2025-01-15"
+  last_updated: "2025-01-15"
+  version: "1.0.0"
+  authors:
+    - "Workshop Team"
+  reviewers:
+    - "Technical Review Team"
+
+settings:
+  visible: true
+  required: true
+  has_code_examples: true
+  requires_ai_service: true
+  supported_ai_services:
+    - "Claude"
+    - "Gemini"
+    - "GPT"
+
+assessment:
+  completion_criteria:
+    - "成功完成開發環境設置"
+    - "至少設定一個 AI 服務"
+    - "完成所有三個練習"
+    - "理解雙語提示策略的優勢"
+  
+  self_assessment:
+    - "您能解釋 AI 指揮家與傳統開發者的差異嗎？"
+    - "您理解為什麼要使用雙語提示策略嗎？"
+    - "您能獨立設置完整的開發環境嗎？"
+    - "您能寫出有效的雙語提示詞嗎？"
+
+faqs:
+  - question: "一定要使用所有提到的 AI 服務嗎？"
+    answer: "不需要。至少有一個 AI 服務即可開始學習。建議從 Claude 或 GPT 開始。"
+  - question: "為什麼選擇 Playwright 而不是 Selenium？"
+    answer: "Playwright 提供更現代的 API、更好的效能、內建的等待機制，以及優秀的除錯工具。"
+  - question: "雙語提示是否適用於所有 AI 模型？"
+    answer: "大部分現代 AI 模型都支援雙語提示。效果可能因模型而異，建議實際測試。"
+  - question: "如果環境設置遇到問題怎麼辦？"
+    answer: "請參考 check-environment.js 腳本進行診斷，或在課程討論區尋求協助。"
+
+notes:
+  important:
+    - "環境設置是整個工作坊的基礎，請確保完成所有步驟"
+    - "至少需要一個 AI 服務才能進行後續章節"
+    - "雙語提示策略是提升 AI 輸出品質的關鍵"
+  
+  tips:
+    - "建議使用 Claude 作為主要 AI 服務，它對程式碼生成支援較好"
+    - "保存成功的提示詞作為未來參考"
+    - "定期更新開發工具以獲得最佳體驗"
+  
+  warnings:
+    - "不要在提示詞中包含敏感資訊或 API 金鑰"
+    - "AI 生成的程式碼需要審查後才能使用"
+    - "確保環境變數設定正確，否則 AI 服務無法使用"

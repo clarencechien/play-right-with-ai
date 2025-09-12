@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>{{chapter_title}} - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,32 +260,30 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 02: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter {{chapter_number}}: {{chapter_title}}</h1>
+                <p class="subtitle">{{chapter_title_en}}</p>
             </header>
 
             <section class="chapter-meta">
                 <div class="meta-item">
                     <strong>學習目標：</strong>
-                    <ul><li>待定義</li></ul>
+                    <ul>{{objectives}}</ul>
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul>{{prerequisites}}</ul>
                 </div>
                 <div class="meta-item">
-                    <strong>預計時間：</strong> 2 hours
+                    <strong>預計時間：</strong> {{duration}}
                 </div>
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
-
+                {{chapter_content}}
             </section>
 
             <footer class="chapter-footer">
-                <p>最後更新: 2025-09-12</p>
+                <p>最後更新: {{updated_date}}</p>
             </footer>
         </article>
     </main>

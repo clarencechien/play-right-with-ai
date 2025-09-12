@@ -1,0 +1,1712 @@
+{
+  "timestamp": "2025-09-12T01:59:52.780Z",
+  "summary": {
+    "totalLinks": 244,
+    "filesScanned": 53,
+    "errors": 101,
+    "warnings": 64
+  },
+  "errors": [
+    {
+      "type": "external",
+      "url": "https://claude.ai",
+      "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+      "line": 252,
+      "error": "HTTP 403"
+    },
+    {
+      "type": "external",
+      "url": "https://claude.ai",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 507,
+      "error": "HTTP 403"
+    },
+    {
+      "type": "external",
+      "url": "https://claude.ai",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+      "line": 256,
+      "error": "HTTP 403"
+    },
+    {
+      "type": "internal",
+      "url": "../02-first-movement/",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 1022,
+      "error": "File not found: /workspace/play-right-with-ai/docs/02-first-movement/"
+    },
+    {
+      "type": "internal",
+      "url": "../02-first-movement/",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+      "line": 787,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/02-first-movement/"
+    },
+    {
+      "type": "internal",
+      "url": "./exercises/",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 1027,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters/exercises/"
+    },
+    {
+      "type": "internal",
+      "url": "./prompts/",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 1028,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters/prompts/"
+    },
+    {
+      "type": "internal",
+      "url": "./examples/",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 1029,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters/examples/"
+    },
+    {
+      "type": "internal",
+      "url": "../chapter-00/",
+      "file": "/workspace/play-right-with-ai/content/templates/chapter.template.md",
+      "line": 317,
+      "error": "File not found: /workspace/play-right-with-ai/content/chapter-00/"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-02.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-03.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-04.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-05.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-06.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-07.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../assets/css/styles.css",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-08.html",
+      "line": 7,
+      "error": "File not found: /workspace/play-right-with-ai/docs/assets/css/styles.css"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-02.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-03.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-04.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-05.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-06.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-07.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../chapters.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-08.html",
+      "line": 254,
+      "error": "File not found: /workspace/play-right-with-ai/docs/chapters.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-02.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-03.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-04.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-05.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-06.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-07.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "internal",
+      "url": "../playground.html",
+      "file": "/workspace/play-right-with-ai/docs/chapters/chapter-08.html",
+      "line": 255,
+      "error": "File not found: /workspace/play-right-with-ai/docs/playground.html"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/your-repo/play-right-with-ai",
+      "file": "/workspace/play-right-with-ai/docs/index.html",
+      "line": 39,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/your-repo/play-right-with-ai",
+      "file": "/workspace/play-right-with-ai/docs/privacy-policy.html",
+      "line": 35,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/your-repo/play-right-with-ai/issues",
+      "file": "/workspace/play-right-with-ai/docs/privacy-policy.html",
+      "line": 156,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/.../discussions",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+      "line": 168,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/.../discussions",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+      "line": 168,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "internal",
+      "url": "./FAQ.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+      "line": 169,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-01/FAQ.md"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/ai-assisted-dev",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-02-generate-app.md",
+      "line": 263,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/ai-assisted-dev",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-02-generate-app.md",
+      "line": 263,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000',",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-03/example-output/complete-test-strategy.md",
+      "line": 289,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000',",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/performance-testing.md",
+      "line": 239,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000',",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/exercises/README.md",
+      "line": 134,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/01-basic-commands.md",
+      "line": 53,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 91,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/01-basic-commands.md",
+      "line": 112,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/01-basic-commands.md",
+      "line": 200,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/01-basic-commands.md",
+      "line": 274,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/01-basic-commands.md",
+      "line": 309,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/02-page-object-model.md",
+      "line": 177,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+      "line": 226,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+      "line": 251,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+      "line": 153,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/performance-testing.md",
+      "line": 321,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/async-demo'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+      "line": 30,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/async-demo'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+      "line": 68,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/async-demo'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+      "line": 82,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/complex-async'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+      "line": 103,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/dynamic-content'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 30,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/dynamic-content'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 75,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/dynamic-content'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 86,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/spa-app'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 122,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/web-components'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 141,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/with-iframe'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 151,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/dynamic-page'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 201,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "https://playwright.dev/docs/selectors",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 290,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://playwright.dev/docs/selectors",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+      "line": 290,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://playwright.dev/docs/selectors",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+      "line": 768,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://playwright.dev/docs/selectors",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+      "line": 768,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/login'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+      "line": 30,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/login'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+      "line": 72,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/login'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+      "line": 146,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/error-test'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+      "line": 281,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "https://playwright.dev/docs/test-retry",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/exercise-01-error-analysis.md",
+      "line": 252,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://playwright.dev/docs/test-retry",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/exercise-01-error-analysis.md",
+      "line": 252,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/unstable-page'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+      "line": 51,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/api-endpoint'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+      "line": 123,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/flaky-endpoint'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+      "line": 254,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/adaptive-test'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+      "line": 470,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000/changing-ui'",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+      "line": 658,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "type": "internal",
+      "url": "./README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+      "line": 326,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/advanced/README.md"
+    },
+    {
+      "type": "internal",
+      "url": "./README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/performance-testing.md",
+      "line": 474,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/advanced/README.md"
+    },
+    {
+      "type": "external",
+      "url": "http://localhost:3000';",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/performance-testing.md",
+      "line": 105,
+      "error": "ERR_INVALID_URL"
+    },
+    {
+      "type": "internal",
+      "url": "./security-testing.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/performance-testing.md",
+      "line": 470,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/advanced/security-testing.md"
+    },
+    {
+      "type": "internal",
+      "url": "./hints/README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/exercises/README.md",
+      "line": 407,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/exercises/hints/README.md"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/[your-repo]/discussions",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/exercises/README.md",
+      "line": 408,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/[your-repo",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/exercises/README.md",
+      "line": 408,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "internal",
+      "url": "./videos/README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/exercises/README.md",
+      "line": 409,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/exercises/videos/README.md"
+    },
+    {
+      "type": "internal",
+      "url": "./solutions/README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/exercises/README.md",
+      "line": 416,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/exercises/solutions/README.md"
+    },
+    {
+      "type": "internal",
+      "url": "../case-studies/README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-07/patterns/README.md",
+      "line": 337,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-07/case-studies/README.md"
+    },
+    {
+      "type": "internal",
+      "url": "../showcase/README.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/project/evaluation-rubric.md",
+      "line": 669,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-08/showcase/README.md"
+    },
+    {
+      "type": "internal",
+      "url": "./tasks/01-project-setup.md",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/project/planning-guide.md",
+      "line": 463,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-08/project/tasks/01-project-setup.md"
+    },
+    {
+      "type": "internal",
+      "url": "LICENSE",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 281,
+      "error": "File not found: /workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/LICENSE"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 285,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 285,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 285,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project/issues",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 286,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project/issues",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 286,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project/discussions",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 287,
+      "error": "HTTP 404"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/username/capstone-project/discussions",
+      "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/docs/README.md",
+      "line": 287,
+      "error": "HTTP 404"
+    }
+  ],
+  "warnings": [
+    {
+      "url": "https://code.visualstudio.com/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 146
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 150
+        }
+      ]
+    },
+    {
+      "url": "https://code.visualstudio.com/download",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 160
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 164
+        }
+      ]
+    },
+    {
+      "url": "https://packages.microsoft.com/keys/microsoft.asc",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 169
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "url": "https://packages.microsoft.com/repos/code",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 171
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 175
+        }
+      ]
+    },
+    {
+      "url": "https://deb.nodesource.com/setup_lts.x",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 212
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "url": "https://console.anthropic.com",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 252
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+          "line": 507
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "url": "https://makersuite.google.com/app/apikey",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 268
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+          "line": 523
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 272
+        }
+      ]
+    },
+    {
+      "url": "https://platform.openai.com/api-keys",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/chapters/01-ai-conductor/index.md",
+          "line": 276
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+          "line": 531
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README.md",
+          "line": 280
+        }
+      ]
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/README.md",
+          "line": 336
+        },
+        {
+          "file": "/workspace/play-right-with-ai/content/README.md",
+          "line": 336
+        }
+      ]
+    },
+    {
+      "url": "https://nodejs.org",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/chapter.template.md",
+          "line": 258
+        },
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/chapter.template.md",
+          "line": 258
+        }
+      ]
+    },
+    {
+      "url": "https://www.promptingguide.ai/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/prompt.template.md",
+          "line": 270
+        },
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/prompt.template.md",
+          "line": 270
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-03-bilingual-practice.md",
+          "line": 241
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-03-bilingual-practice.md",
+          "line": 241
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+          "line": 166
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+          "line": 166
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-02-generate-app.md",
+          "line": 262
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-02-generate-app.md",
+          "line": 262
+        }
+      ]
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/prompt.template.md",
+          "line": 271
+        },
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/prompt.template.md",
+          "line": 271
+        }
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/claude/prompt-library",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/prompt.template.md",
+          "line": 272
+        },
+        {
+          "file": "/workspace/play-right-with-ai/content/templates/prompt.template.md",
+          "line": 272
+        }
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-02.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-03.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-04.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-05.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-06.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-07.html",
+          "line": 8
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-08.html",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-01.html",
+          "line": 1041
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-02.html",
+          "line": 293
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-03.html",
+          "line": 293
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-04.html",
+          "line": 293
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-05.html",
+          "line": 293
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-06.html",
+          "line": 293
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-07.html",
+          "line": 293
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/chapters/chapter-08.html",
+          "line": 293
+        }
+      ]
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/docs/index.html",
+          "line": 11
+        },
+        {
+          "file": "/workspace/play-right-with-ai/docs/privacy-policy.html",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-01-environment-check.md",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-02-first-ai-prompt.md",
+          "line": 150
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-02-first-ai-prompt.md",
+          "line": 150
+        }
+      ]
+    },
+    {
+      "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-02-first-ai-prompt.md",
+          "line": 151
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-02-first-ai-prompt.md",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "url": "https://javascript.info/events",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-02-first-ai-prompt.md",
+          "line": 152
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-02-first-ai-prompt.md",
+          "line": 152
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-03-bilingual-practice.md",
+          "line": 242
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-03-bilingual-practice.md",
+          "line": 242
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-03-bilingual-prompts.md",
+          "line": 383
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-03-bilingual-prompts.md",
+          "line": 383
+        }
+      ]
+    },
+    {
+      "url": "https://www.sonarqube.org/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-03-bilingual-practice.md",
+          "line": 243
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/exercises/exercise-03-bilingual-practice.md",
+          "line": 243
+        }
+      ]
+    },
+    {
+      "url": "https://youtube.com/...",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+          "line": 167
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "url": "https://img.shields.io/badge/新手指揮家-完成-blue",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+          "line": 193
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-01/README_ENHANCED.md",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpattonassociates.com/user-story-mapping/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-01-requirements-spec.md",
+          "line": 237
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-01-requirements-spec.md",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "url": "https://www.requirementsengineering.org/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-01-requirements-spec.md",
+          "line": 238
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-01-requirements-spec.md",
+          "line": 238
+        }
+      ]
+    },
+    {
+      "url": "https://promptengineering.org/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-01-requirements-spec.md",
+          "line": 239
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-01-requirements-spec.md",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "url": "https://dribbble.com/tags/finance_app",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-02-generate-app.md",
+          "line": 264
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-02-generate-app.md",
+          "line": 264
+        }
+      ]
+    },
+    {
+      "url": "https://huggingface.co/blog",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-03-bilingual-prompts.md",
+          "line": 385
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-03-bilingual-prompts.md",
+          "line": 385
+        }
+      ]
+    },
+    {
+      "url": "https://www.agilealliance.org/agile101/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-04-iterative-refinement.md",
+          "line": 504
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-04-iterative-refinement.md",
+          "line": 504
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/03-test-planning.md",
+          "line": 431
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/03-test-planning.md",
+          "line": 431
+        }
+      ]
+    },
+    {
+      "url": "https://www.promptingguide.ai/techniques/chaining",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-04-iterative-refinement.md",
+          "line": 505
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-04-iterative-refinement.md",
+          "line": 505
+        }
+      ]
+    },
+    {
+      "url": "https://docs.sonarqube.org/latest/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-04-iterative-refinement.md",
+          "line": 506
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-02/exercises/exercise-04-iterative-refinement.md",
+          "line": 506
+        }
+      ]
+    },
+    {
+      "url": "https://www.guru99.com/test-case.html",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/01-test-case-analysis.md",
+          "line": 215
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/01-test-case-analysis.md",
+          "line": 215
+        }
+      ]
+    },
+    {
+      "url": "https://www.geeksforgeeks.org/boundary-value-analysis/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/01-test-case-analysis.md",
+          "line": 216
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/01-test-case-analysis.md",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "url": "https://www.stickyminds.com/article/risk-based-testing",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/01-test-case-analysis.md",
+          "line": 217
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/01-test-case-analysis.md",
+          "line": 217
+        }
+      ]
+    },
+    {
+      "url": "https://www.iso.org/iso-31000-risk-management.html",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/02-risk-assessment.md",
+          "line": 333
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/02-risk-assessment.md",
+          "line": 333
+        }
+      ]
+    },
+    {
+      "url": "https://www.softwaretestinghelp.com/risk-analysis-in-software-testing/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/02-risk-assessment.md",
+          "line": 334
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/02-risk-assessment.md",
+          "line": 334
+        }
+      ]
+    },
+    {
+      "url": "https://asq.org/quality-resources/fmea",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/02-risk-assessment.md",
+          "line": 335
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/02-risk-assessment.md",
+          "line": 335
+        }
+      ]
+    },
+    {
+      "url": "https://standards.ieee.org/standard/829-2008.html",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/03-test-planning.md",
+          "line": 429
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/03-test-planning.md",
+          "line": 429
+        }
+      ]
+    },
+    {
+      "url": "https://www.istqb.org/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/03-test-planning.md",
+          "line": 430
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/03-test-planning.md",
+          "line": 430
+        }
+      ]
+    },
+    {
+      "url": "https://martinfowler.com/bliki/TestCoverage.html",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/04-coverage-strategy.md",
+          "line": 464
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/04-coverage-strategy.md",
+          "line": 464
+        }
+      ]
+    },
+    {
+      "url": "https://www.atlassian.com/continuous-delivery/software-testing/code-coverage",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/04-coverage-strategy.md",
+          "line": 465
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/04-coverage-strategy.md",
+          "line": 465
+        }
+      ]
+    },
+    {
+      "url": "https://testing.googleblog.com/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/04-coverage-strategy.md",
+          "line": 466
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-03/exercises/04-coverage-strategy.md",
+          "line": 466
+        }
+      ]
+    },
+    {
+      "url": "https://martinfowler.com/bliki/PageObject.html",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/02-page-object-model.md",
+          "line": 712
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/02-page-object-model.md",
+          "line": 712
+        }
+      ]
+    },
+    {
+      "url": "https://testautomationu.applitools.com/page-object-model/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/02-page-object-model.md",
+          "line": 714
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-04/exercises/02-page-object-model.md",
+          "line": 714
+        }
+      ]
+    },
+    {
+      "url": "https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/EventLoop",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+          "line": 186
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+          "line": 186
+        }
+      ]
+    },
+    {
+      "url": "https://javascript.info/async",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+          "line": 187
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/02-timing-debug.md",
+          "line": 187
+        }
+      ]
+    },
+    {
+      "url": "https://developer.mozilla.org/zh-TW/docs/Web/Accessibility/ARIA",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+          "line": 291
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+          "line": 291
+        }
+      ]
+    },
+    {
+      "url": "https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_Selectors",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+          "line": 292
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/03-dom-analysis.md",
+          "line": 292
+        }
+      ]
+    },
+    {
+      "url": "https://testautomationu.applitools.com/exploring-service-apis-through-test-automation/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+          "line": 370
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+          "line": 370
+        }
+      ]
+    },
+    {
+      "url": "https://mswjs.io/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+          "line": 371
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-05/exercises/04-api-debug.md",
+          "line": 371
+        }
+      ]
+    },
+    {
+      "url": "https://docs.microsoft.com/en-us/azure/architecture/patterns/retry",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+          "line": 576
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+          "line": 576
+        }
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Exponential_backoff",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+          "line": 577
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+          "line": 577
+        }
+      ]
+    },
+    {
+      "url": "https://martinfowler.com/bliki/CircuitBreaker.html",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+          "line": 578
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/02-retry-patterns.md",
+          "line": 578
+        }
+      ]
+    },
+    {
+      "url": "https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+          "line": 769
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+          "line": 769
+        }
+      ]
+    },
+    {
+      "url": "https://testautomationu.applitools.com/self-healing-tests/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+          "line": 770
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/03-selector-healing.md",
+          "line": 770
+        }
+      ]
+    },
+    {
+      "url": "https://www.selenium.dev/documentation/test_practices/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/04-ci-integration.md",
+          "line": 841
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/04-ci-integration.md",
+          "line": 841
+        }
+      ]
+    },
+    {
+      "url": "https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/04-ci-integration.md",
+          "line": 842
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-06/exercises/04-ci-integration.md",
+          "line": 842
+        }
+      ]
+    },
+    {
+      "url": "https://martinfowler.com/articles/microservice-testing/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+          "line": 314
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+          "line": 314
+        }
+      ]
+    },
+    {
+      "url": "https://sre.google/sre-book/testing-reliability/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+          "line": 315
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "url": "https://principlesofchaos.org/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+          "line": 316
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-07/advanced/multi-service-testing.md",
+          "line": 316
+        }
+      ]
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG21/quickref/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/README.md",
+          "line": 222
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/README.md",
+          "line": 222
+        }
+      ]
+    },
+    {
+      "url": "https://owasp.org/www-project-top-ten/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/README.md",
+          "line": 223
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/README.md",
+          "line": 223
+        }
+      ]
+    },
+    {
+      "url": "https://web.dev/performance/",
+      "message": "Domain not in whitelist",
+      "locations": [
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/README.md",
+          "line": 224
+        },
+        {
+          "file": "/workspace/play-right-with-ai/workshop/chapter-08/start-here/capstone-template/README.md",
+          "line": 224
+        }
+      ]
+    }
+  ]
+}
