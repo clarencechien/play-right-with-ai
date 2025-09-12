@@ -1,178 +1,418 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>章節總覽 - Play Right with AI Workshop</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/main.css" />
     <style>
-        .chapters-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .chapter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .chapter-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .chapter-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        .chapter-number {
-            background: #3949ab;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .chapter-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        .chapter-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        .chapter-link {
-            display: inline-block;
-            background: #3949ab;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-        .chapter-link:hover {
-            background: #303f9f;
-        }
-        .nav-bar {
-            background: #3949ab;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-        }
-        .nav-links {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            gap: 2rem;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
+      /* Additional styles for chapters page */
+      .chapters-hero {
+        text-align: center;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .chapters-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .chapters-hero p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .chapter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .chapter-card-detailed {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition:
+          transform 0.3s,
+          border-color 0.3s,
+          box-shadow 0.3s;
+        text-decoration: none;
+        display: block;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .chapter-card-detailed::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+
+      .chapter-card-detailed:hover::before {
+        transform: translateX(0);
+      }
+
+      .chapter-card-detailed:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary-color);
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+      }
+
+      .chapter-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .chapter-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+        line-height: 1.4;
+      }
+
+      .chapter-subtitle {
+        font-size: 1rem;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+      }
+
+      .chapter-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        font-size: 0.95rem;
+      }
+
+      .chapter-topics {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.25rem;
+      }
+
+      .chapter-topics li {
+        padding: 0.4rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .chapter-topics li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      .chapter-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: gap 0.3s;
+      }
+
+      .chapter-link:hover {
+        gap: 0.75rem;
+      }
+
+      .chapter-link::after {
+        content: '→';
+        transition: transform 0.3s;
+      }
+
+      .progress-section {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .progress-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 24px;
+        background: rgba(15, 23, 42, 0.5);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        width: 0%;
+        border-radius: 12px;
+        transition: width 1s ease;
+      }
+
+      .progress-text {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 3rem 0;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .cta-section p {
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+      }
     </style>
-</head>
-<body>
-    <nav class="nav-bar">
-        <div class="nav-links">
-            <a href="./index.html">首頁</a>
-            <a href="./chapters.html" class="active">章節</a>
-            <a href="./playground.html">實驗場</a>
-        </div>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <a href="./index.html" class="nav-brand">Play Right with AI</a>
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link">首頁</a></li>
+          <li><a href="./chapters.html" class="nav-link" style="color: var(--primary-color)">章節</a></li>
+          <li><a href="./playground.html" class="nav-link">實驗場</a></li>
+          <li><a href="https://github.com/clarencechien/play-right-with-ai" class="nav-link">GitHub</a></li>
+        </ul>
+      </div>
     </nav>
 
-    <div class="chapters-container">
-        <h1>🎼 工作坊章節總覽</h1>
-        <p>從 AI 指揮家的思維開始，逐步掌握 AI 驅動的自我循環開發與測試工作流程。</p>
-        
-        <div class="chapter-grid">
-            <div class="chapter-card">
-                <div class="chapter-number">1</div>
-                <div class="chapter-title">AI 指揮家</div>
-                <div class="chapter-description">
-                    思維轉變與環境搭建 - 建立 AI 指揮家的思維模式，搭建開發環境，準備開始 AI 驅動的開發旅程。
-                </div>
-                <a href="./chapters/chapter-01.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">2</div>
-                <div class="chapter-title">第一樂章</div>
-                <div class="chapter-description">
-                    AI 生成應用程式 - 使用自然語言需求，讓 AI 生成完整的應用程式代碼。
-                </div>
-                <a href="./chapters/chapter-02.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">3</div>
-                <div class="chapter-title">第二樂章</div>
-                <div class="chapter-description">
-                    AI 擔任測試策略師 - AI 分析代碼並制定完整的測試計劃和策略。
-                </div>
-                <a href="./chapters/chapter-03.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">4</div>
-                <div class="chapter-title">第三樂章</div>
-                <div class="chapter-description">
-                    AI 執行測試腳本編寫 - 使用 Playwright MCP 工具，AI 自動編寫端到端測試腳本。
-                </div>
-                <a href="./chapters/chapter-04.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">5</div>
-                <div class="chapter-title">第四樂章</div>
-                <div class="chapter-description">
-                    AI 分析測試失敗 - AI 深入分析測試失敗原因，提供詳細的調試信息。
-                </div>
-                <a href="./chapters/chapter-05.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">6</div>
-                <div class="chapter-title">最終樂章</div>
-                <div class="chapter-description">
-                    AI 完成自我修復 - AI 自動修復發現的問題，完成開發測試的閉環。
-                </div>
-                <a href="./chapters/chapter-06.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">7</div>
-                <div class="chapter-title">變奏曲</div>
-                <div class="chapter-description">
-                    擴展到複雜場景 - 將工作流程擴展到更複雜的實際應用場景。
-                </div>
-                <a href="./chapters/chapter-07.html" class="chapter-link">開始學習 →</a>
-            </div>
-
-            <div class="chapter-card">
-                <div class="chapter-number">8</div>
-                <div class="chapter-title">總譜</div>
-                <div class="chapter-description">
-                    獨立端到端挑戰 - 綜合運用所學，獨立完成完整的 AI 驅動開發項目。
-                </div>
-                <a href="./chapters/chapter-08.html" class="chapter-link">開始學習 →</a>
-            </div>
+    <main>
+      <div class="container">
+        <div class="chapters-hero">
+          <h1>🎼 工作坊章節總覽</h1>
+          <p>從 AI 指揮家的思維開始，逐步掌握 AI 驅動的自我循環開發與測試工作流程</p>
         </div>
-    </div>
 
+        <div class="progress-section">
+          <h2>學習進度</h2>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+          </div>
+          <p class="progress-text">開始您的 AI 驅動開發之旅</p>
+        </div>
+
+        <div class="chapter-grid">
+          <a href="./chapters/chapter-01.html" class="chapter-card-detailed">
+            <div class="chapter-badge">1</div>
+            <h3 class="chapter-title">AI 指揮家</h3>
+            <p class="chapter-subtitle">思維轉變與環境搭建</p>
+            <p class="chapter-description">建立 AI 指揮家的思維模式，搭建開發環境，準備開始 AI 驅動的開發旅程。</p>
+            <ul class="chapter-topics">
+              <li>理解 AI 指揮家的角色</li>
+              <li>環境設置與工具準備</li>
+              <li>第一個 AI 協作體驗</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-02.html" class="chapter-card-detailed">
+            <div class="chapter-badge">2</div>
+            <h3 class="chapter-title">第一樂章</h3>
+            <p class="chapter-subtitle">AI 生成應用程式</p>
+            <p class="chapter-description">使用自然語言需求，讓 AI 生成完整的應用程式代碼。</p>
+            <ul class="chapter-topics">
+              <li>撰寫有效的提示詞</li>
+              <li>AI 生成代碼實戰</li>
+              <li>代碼審查與優化</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-03.html" class="chapter-card-detailed">
+            <div class="chapter-badge">3</div>
+            <h3 class="chapter-title">第二樂章</h3>
+            <p class="chapter-subtitle">AI 擔任測試策略師</p>
+            <p class="chapter-description">AI 分析代碼並制定完整的測試計劃和策略。</p>
+            <ul class="chapter-topics">
+              <li>測試策略設計</li>
+              <li>測試案例生成</li>
+              <li>覆蓋率分析</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-04.html" class="chapter-card-detailed">
+            <div class="chapter-badge">4</div>
+            <h3 class="chapter-title">第三樂章</h3>
+            <p class="chapter-subtitle">AI 執行測試腳本編寫</p>
+            <p class="chapter-description">使用 Playwright MCP 工具，AI 自動編寫端到端測試腳本。</p>
+            <ul class="chapter-topics">
+              <li>Playwright 整合設置</li>
+              <li>MCP 協議應用</li>
+              <li>自動化測試執行</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-05.html" class="chapter-card-detailed">
+            <div class="chapter-badge">5</div>
+            <h3 class="chapter-title">第四樂章</h3>
+            <p class="chapter-subtitle">AI 分析測試失敗</p>
+            <p class="chapter-description">AI 深入分析測試失敗原因，提供詳細的調試信息。</p>
+            <ul class="chapter-topics">
+              <li>錯誤日誌分析</li>
+              <li>根本原因診斷</li>
+              <li>修復建議生成</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-06.html" class="chapter-card-detailed">
+            <div class="chapter-badge">6</div>
+            <h3 class="chapter-title">最終樂章</h3>
+            <p class="chapter-subtitle">AI 完成自我修復</p>
+            <p class="chapter-description">AI 自動修復發現的問題，完成開發測試的閉環。</p>
+            <ul class="chapter-topics">
+              <li>自動修復策略</li>
+              <li>代碼重構技巧</li>
+              <li>持續改進循環</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-07.html" class="chapter-card-detailed">
+            <div class="chapter-badge">7</div>
+            <h3 class="chapter-title">變奏曲</h3>
+            <p class="chapter-subtitle">擴展到複雜場景</p>
+            <p class="chapter-description">將工作流程擴展到更複雜的實際應用場景。</p>
+            <ul class="chapter-topics">
+              <li>多頁面應用測試</li>
+              <li>API 整合測試</li>
+              <li>性能優化策略</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+
+          <a href="./chapters/chapter-08.html" class="chapter-card-detailed">
+            <div class="chapter-badge">8</div>
+            <h3 class="chapter-title">總譜</h3>
+            <p class="chapter-subtitle">獨立端到端挑戰</p>
+            <p class="chapter-description">綜合運用所學，獨立完成完整的 AI 驅動開發項目。</p>
+            <ul class="chapter-topics">
+              <li>專案規劃與設計</li>
+              <li>完整工作流實踐</li>
+              <li>成果展示與分享</li>
+            </ul>
+            <span class="chapter-link">開始學習</span>
+          </a>
+        </div>
+
+        <div class="cta-section">
+          <h2>準備好開始了嗎？</h2>
+          <p>選擇您的學習路徑，開始 AI 驅動開發之旅</p>
+          <div class="cta-buttons">
+            <a href="./chapters/chapter-01.html" class="btn">從第一章開始</a>
+            <a href="./playground.html" class="btn btn-outline">先試試實驗場</a>
+            <a href="https://github.com/clarencechien/play-right-with-ai" class="btn btn-outline">查看源代碼</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Simulate progress animation
+      window.addEventListener('load', function () {
+        setTimeout(() => {
+          const progressBar = document.getElementById('progressBar');
+          // Get progress from localStorage or default to 0
+          const savedProgress = localStorage.getItem('workshopProgress') || '0';
+          progressBar.style.width = savedProgress + '%';
+
+          // Update progress text
+          const progressText = document.querySelector('.progress-text');
+          if (savedProgress > 0) {
+            progressText.textContent = `已完成 ${savedProgress}% 的學習內容`;
+          }
+        }, 300);
+      });
+
+      // Track chapter clicks
+      document.querySelectorAll('.chapter-card-detailed').forEach((card, index) => {
+        card.addEventListener('click', function (e) {
+          // Update progress (each chapter = 12.5%)
+          const currentProgress = parseFloat(localStorage.getItem('workshopProgress') || '0');
+          const newProgress = Math.min(100, currentProgress + 12.5);
+          localStorage.setItem('workshopProgress', newProgress.toString());
+        });
+      });
+    </script>
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>
