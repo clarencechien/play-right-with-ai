@@ -14,6 +14,10 @@
 
 ## 🎯 工作坊願景
 
+> **現在，我們讓 AI 自己寫 App，自己測 App，自己修 App。**  
+> **在「Play right with AI」工作坊，你不是寫 code 的人，你是指揮 AI 的人。**  
+> **學習 AI 自循環開發，看懂 Machine build Machine 的未來。**
+
 從「寫程式」到「指揮 AI 寫程式」- 這不只是工具的改變，而是思維模式的革命。本工作坊將帶領你掌握 AI 驅動的自循環開發流程，讓 AI 成為你的開發夥伴，自動完成：生成應用 → 撰寫測試 → 執行測試 → 分析失敗 → 自我修復的完整循環。
 
 ## 🚀 你將學到什麼
@@ -223,6 +227,20 @@ Create a web application with CRUD operations...
 - 🐛
   [Issues](https://github.com/clarencechien/play-right-with-ai/issues) - 回報問題
 - 📧 Email: workshop@playrightwithAI.com
+
+### 💖 支持專案
+
+如果這個工作坊對你有幫助，歡迎支持我們持續改進：
+
+🎁
+**[贊助支持](https://portaly.cc/clarencech/support)** - 您的支持是我們前進的動力
+
+每一份支持都將用於：
+
+- 🔧 維護和更新教材內容
+- 🌟 開發新的章節和功能
+- 🎯 提供更好的學習體驗
+- 🤖 整合最新的 AI 技術
 
 ### 貢獻指南
 
