@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 04 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 04: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 04: Chapter 04</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapter 3，擁有完整的測試策略</li>
+<li>Playwright 環境已配置完成</li>
+<li>了解基本的瀏覽器自動化概念</li>
+<li>熟悉 async/await 語法</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,576 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E5%9F%B7%E8%A1%8C%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%B7%A8%E5%AF%AB"> 第三樂章：AI 執行測試腳本編寫</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"> 核心概念</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-playwright-mcp-%E6%95%B4%E5%90%88%E6%9E%B6%E6%A7%8B"> 1. Playwright MCP 整合架構</a></li><li class="toc-item"><a class="toc-link" href="#2.-playwright-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%84%AA%E5%8B%A2"> 2. Playwright 的核心優勢</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%9A%84%E7%B5%90%E6%A7%8B%E5%8C%96%E8%A8%AD%E8%A8%88"> 3. 測試腳本的結構化設計</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E7%B7%A8%E5%AF%AB-todo-%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC"> 實作練習：編寫 TODO 應用測試腳本</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E8%A8%AD%E5%AE%9A-playwright-%E5%B0%88%E6%A1%88"> 步驟 1：設定 Playwright 專案</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E7%B7%A8%E5%AF%AB%E5%9F%BA%E7%A4%8E%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC"> 步驟 2：編寫基礎測試腳本</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E5%AF%A6%E7%8F%BE-page-object-model"> 步驟 3：實現 Page Object Model</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#playwright-mcp-%E6%95%B4%E5%90%88%E5%AF%A6%E6%88%B0"> Playwright MCP 整合實戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E8%A8%AD%E5%AE%9A-mcp-%E9%80%A3%E6%8E%A5"> 1. 設定 MCP 連接</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%99%BA%E6%85%A7%E7%AD%89%E5%BE%85%E7%AD%96%E7%95%A5"> 3. 智慧等待策略</a></li><li class="toc-item"><a class="toc-link" href="#q2%3A-%E4%B8%A6%E8%A1%8C%E6%B8%AC%E8%A9%A6%E4%BA%92%E7%9B%B8%E5%B9%B2%E6%93%BE"> Q2: 並行測試互相干擾</a></li><li class="toc-item"><a class="toc-link" href="#q3%3A-%E6%B8%AC%E8%A9%A6%E5%9F%B7%E8%A1%8C%E9%80%9F%E5%BA%A6%E6%85%A2"> Q3: 測試執行速度慢</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0"> 思考與挑戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C"> 深度思考題</a></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0"> 進階挑戰</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E5%AE%8C%E6%95%B4%E6%B8%AC%E8%A9%A6%E5%A5%97%E4%BB%B6"> 實作專案：完整測試套件</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82"> 專案需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"> 提交要求</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"> 下一步</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90"> 資源連結</a></li></ul></li></ul></nav><h1 id="%E7%AC%AC%E4%B8%89%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E5%9F%B7%E8%A1%8C%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%B7%A8%E5%AF%AB" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%B8%89%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E5%9F%B7%E8%A1%8C%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%B7%A8%E5%AF%AB">§</a> 第三樂章：AI 執行測試腳本編寫</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>有了測試策略後，現在要將策略轉化為可執行的測試腳本。本章將深入探討如何使用 Playwright MCP (Model Context Protocol) 整合，讓 AI 不僅能編寫測試腳本，還能直接執行並驗證測試結果。這是自循環工作流程中的關鍵環節。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本章節後，你將能夠：</p>
+<ul>
+<li>理解 Playwright MCP 的架構和優勢</li>
+<li>指導 AI 編寫高品質的 Playwright 測試腳本</li>
+<li>實現瀏覽器自動化測試流程</li>
+<li>掌握測試腳本的最佳實踐</li>
+<li>整合測試執行與結果分析</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapter 3，擁有完整的測試策略</li>
+<li>Playwright 環境已配置完成</li>
+<li>了解基本的瀏覽器自動化概念</li>
+<li>熟悉 async/await 語法</li>
+</ul>
+<h2 id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a> 核心概念</h2>
+<h3 id="1.-playwright-mcp-%E6%95%B4%E5%90%88%E6%9E%B6%E6%A7%8B" tabindex="-1"><a class="header-anchor" href="#1.-playwright-mcp-%E6%95%B4%E5%90%88%E6%9E%B6%E6%A7%8B">§</a> 1. Playwright MCP 整合架構</h3>
+<pre><code class="language-mermaid">graph LR
+    A[AI Assistant] --&gt; B[MCP Protocol]
+    B --&gt; C[Playwright Server]
+    C --&gt; D[Browser Instance]
+    D --&gt; E[Test Execution]
+    E --&gt; F[Results &amp; Screenshots]
+    F --&gt; A
+</code></pre>
+<h3 id="2.-playwright-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%84%AA%E5%8B%A2" tabindex="-1"><a class="header-anchor" href="#2.-playwright-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%84%AA%E5%8B%A2">§</a> 2. Playwright 的核心優勢</h3>
+<ul>
+<li><strong>跨瀏覽器支援</strong>：Chromium、Firefox、WebKit</li>
+<li><strong>自動等待機制</strong>：智慧等待元素就緒</li>
+<li><strong>強大的選擇器</strong>：支援 CSS、XPath、文字內容</li>
+<li><strong>並行執行</strong>：提升測試效率</li>
+<li><strong>內建斷言</strong>：豐富的驗證方法</li>
+<li><strong>追蹤和除錯</strong>：完整的執行記錄</li>
+</ul>
+<h3 id="3.-%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%9A%84%E7%B5%90%E6%A7%8B%E5%8C%96%E8%A8%AD%E8%A8%88" tabindex="-1"><a class="header-anchor" href="#3.-%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%9A%84%E7%B5%90%E6%A7%8B%E5%8C%96%E8%A8%AD%E8%A8%88">§</a> 3. 測試腳本的結構化設計</h3>
+<pre><code class="language-javascript"><span class="hljs-comment">// 測試套件結構</span>
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;功能模組&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">beforeEach</span>(<span class="hljs-string">&#x27;測試前準備&#x27;</span>, <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// 初始化設定</span>
+  });
+  
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;測試案例&#x27;</span>, <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// Arrange: 準備</span>
+    <span class="hljs-comment">// Act: 執行</span>
+    <span class="hljs-comment">// Assert: 驗證</span>
+  });
+  
+  <span class="hljs-title function_">afterEach</span>(<span class="hljs-string">&#x27;測試後清理&#x27;</span>, <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-comment">// 清理資源</span>
+  });
+});
+</code></pre>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E7%B7%A8%E5%AF%AB-todo-%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E7%B7%A8%E5%AF%AB-todo-%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC">§</a> 實作練習：編寫 TODO 應用測試腳本</h2>
+<h3 id="%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E8%A8%AD%E5%AE%9A-playwright-%E5%B0%88%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E8%A8%AD%E5%AE%9A-playwright-%E5%B0%88%E6%A1%88">§</a> 步驟 1：設定 Playwright 專案</h3>
+<pre><code class="language-markdown">Help me set up a Playwright project for testing the TODO application:
+
+[Project Structure]
+/tests
+  /e2e           - End-to-end tests
+  /integration   - Integration tests
+  /fixtures      - Test fixtures and helpers
+  /data          - Test data files
+playwright.config.ts - Configuration file
+
+[Configuration Requirements]
+<span class="hljs-bullet">1.</span> Support multiple browsers (Chrome, Firefox, Safari)
+<span class="hljs-bullet">2.</span> Enable screenshot on failure
+<span class="hljs-bullet">3.</span> Set up test retries
+<span class="hljs-bullet">4.</span> Configure base URL
+<span class="hljs-bullet">5.</span> Set reasonable timeouts
+
+請提供完整的配置檔案，並用繁體中文註釋重要設定。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E7%B7%A8%E5%AF%AB%E5%9F%BA%E7%A4%8E%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E7%B7%A8%E5%AF%AB%E5%9F%BA%E7%A4%8E%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC">§</a> 步驟 2：編寫基礎測試腳本</h3>
+<pre><code class="language-markdown">Create Playwright test scripts for basic TODO operations:
+
+[Test Scenarios]
+<span class="hljs-bullet">1.</span> Add a new TODO item
+<span class="hljs-bullet">2.</span> Mark TODO as complete
+<span class="hljs-bullet">3.</span> Delete a TODO item
+<span class="hljs-bullet">4.</span> Filter TODOs by status
+<span class="hljs-bullet">5.</span> Edit existing TODO
+
+[Test Requirements]
+<span class="hljs-bullet">-</span> Use Page Object Model pattern
+<span class="hljs-bullet">-</span> Include proper assertions
+<span class="hljs-bullet">-</span> Add meaningful test descriptions
+<span class="hljs-bullet">-</span> Handle async operations correctly
+<span class="hljs-bullet">-</span> Include error scenarios
+
+For each test, follow the AAA pattern:
+<span class="hljs-bullet">-</span> Arrange: Set up test conditions
+<span class="hljs-bullet">-</span> Act: Perform the action
+<span class="hljs-bullet">-</span> Assert: Verify the result
+
+請使用 TypeScript 編寫，並包含繁體中文註釋。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E5%AF%A6%E7%8F%BE-page-object-model" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E5%AF%A6%E7%8F%BE-page-object-model">§</a> 步驟 3：實現 Page Object Model</h3>
+<pre><code class="language-markdown">Implement Page Object Model for the TODO application:
+
+[Page Objects Needed]
+<span class="hljs-bullet">1.</span> TodoPage - Main page object
+<span class="hljs-bullet">2.</span> TodoItem - Individual item component
+<span class="hljs-bullet">3.</span> FilterBar - Filter controls
+<span class="hljs-bullet">4.</span> TodoForm - Add/Edit form
+
+[Methods to Include]
+<span class="hljs-bullet">-</span> Navigation methods
+<span class="hljs-bullet">-</span> Action methods (click, type, select)
+<span class="hljs-bullet">-</span> Assertion methods (verify state)
+<span class="hljs-bullet">-</span> Utility methods (wait, scroll)
+
+Example structure:
+<span class="hljs-code">```typescript
+class TodoPage {
+  constructor(private page: Page) {}
+  
+  // 定位器
+  private get addButton() {
+    return this.page.locator(&#x27;[data-testid=&quot;add-todo&quot;]&#x27;);
+  }
+  
+  // 動作方法
+  async addTodo(title: string, description?: string) {
+    // 實作新增 TODO 的邏輯
+  }
+  
+  // 驗證方法
+  async verifyTodoExists(title: string) {
+    // 驗證 TODO 是否存在
+  }
+}
+</span></code></pre>
+<p>提供完整的 Page Object 實作，包含所有必要的方法。</p>
+<pre><code>
+### 步驟 4：進階測試場景
+
+```markdown
+Write advanced test scenarios using Playwright:
+
+[Advanced Scenarios]
+1. Drag and drop reordering
+2. Keyboard navigation
+3. Accessibility testing
+4. Performance testing
+5. Visual regression testing
+
+[Code Example Request]
+For each scenario:
+- Explain the testing approach
+- Provide complete test code
+- Include assertions
+- Add error handling
+- Document edge cases
+
+使用 Playwright 的進階功能，如：
+- page.dragAndDrop()
+- page.keyboard
+- page.accessibility.snapshot()
+- page.metrics()
+- page.screenshot() for visual comparison
+</code></pre>
+<h2 id="playwright-mcp-%E6%95%B4%E5%90%88%E5%AF%A6%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#playwright-mcp-%E6%95%B4%E5%90%88%E5%AF%A6%E6%88%B0">§</a> Playwright MCP 整合實戰</h2>
+<h3 id="1.-%E8%A8%AD%E5%AE%9A-mcp-%E9%80%A3%E6%8E%A5" tabindex="-1"><a class="header-anchor" href="#1.-%E8%A8%AD%E5%AE%9A-mcp-%E9%80%A3%E6%8E%A5">§</a> 1. 設定 MCP 連接</h3>
+<pre><code class="language-markdown">Set up Playwright MCP integration:
+
+[MCP Configuration]
+<span class="hljs-code">```typescript
+import { PlaywrightMCP } from &#x27;@anthropic/playwright-mcp&#x27;;
+
+const mcp = new PlaywrightMCP({
+  // MCP 伺服器設定
+  serverUrl: &#x27;http://localhost:3000&#x27;,
+  apiKey: process.env.MCP_API_KEY,
+  
+  // Playwright 選項
+  playwright: {
+    headless: false,
+    slowMo: 100,
+    video: &#x27;on&#x27;,
+    trace: &#x27;on-first-retry&#x27;
+  }
+});
+</span></code></pre>
+<p>[Integration Points]</p>
+<ol>
+<li>Test execution triggers</li>
+<li>Result collection</li>
+<li>Screenshot capture</li>
+<li>Error reporting</li>
+<li>Performance metrics</li>
+</ol>
+<p>提供完整的 MCP 整合程式碼和使用說明。</p>
+<pre><code>
+### 2. AI 驅動的測試生成
+
+```markdown
+Create an AI-driven test generation system:
+
+[System Components]
+1. Test Specification Parser
+   - Parse natural language requirements
+   - Convert to test scenarios
+
+2. Test Code Generator
+   - Generate Playwright test code
+   - Include assertions and validations
+
+3. Test Executor
+   - Run generated tests
+   - Collect results
+
+4. Feedback Loop
+   - Analyze failures
+   - Suggest improvements
+
+[Example Workflow]
+Input: &quot;測試使用者可以新增包含中文字元的 TODO&quot;
+Output: Complete Playwright test with:
+- Unicode handling
+- Input validation
+- Display verification
+</code></pre>
+<h3 id="3.-%E6%99%BA%E6%85%A7%E7%AD%89%E5%BE%85%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#3.-%E6%99%BA%E6%85%A7%E7%AD%89%E5%BE%85%E7%AD%96%E7%95%A5">§</a> 3. 智慧等待策略</h3>
+<pre><code class="language-markdown">Implement intelligent wait strategies:
+
+[Wait Strategies]
+<span class="hljs-bullet">1.</span> Element Visibility
+<span class="hljs-code">```typescript
+await page.waitForSelector(&#x27;.todo-item&#x27;, {
+  state: &#x27;visible&#x27;,
+  timeout: 5000
+});
+</span></code></pre>
+<ol start="2">
+<li>Network Idle</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">await</span> page.<span class="hljs-title function_">waitForLoadState</span>(<span class="hljs-string">&#x27;networkidle&#x27;</span>);
+</code></pre>
+<ol start="3">
+<li>Custom Conditions</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">await</span> page.<span class="hljs-title function_">waitForFunction</span>(
+  <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.todo-item&#x27;</span>).<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>
+);
+</code></pre>
+<ol start="4">
+<li>Animation Complete</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">await</span> page.<span class="hljs-title function_">waitForTimeout</span>(<span class="hljs-number">500</span>); <span class="hljs-comment">// 等待動畫完成</span>
+</code></pre>
+<p>為不同場景選擇適當的等待策略，並說明原因。</p>
+<pre><code>
+## 測試資料管理
+
+### 1. 測試資料工廠
+
+```markdown
+Create test data factories:
+
+```typescript
+class TodoFactory {
+  static createTodo(overrides = {}) {
+    return {
+      title: faker.lorem.sentence(),
+      description: faker.lorem.paragraph(),
+      priority: faker.helpers.arrayElement(['high', 'medium', 'low']),
+      dueDate: faker.date.future(),
+      ...overrides
+    };
+  }
+  
+  static createBulkTodos(count: number) {
+    return Array.from({ length: count }, () =&gt; this.createTodo());
+  }
+  
+  static createTodoWithTags(tags: string[]) {
+    return {
+      ...this.createTodo(),
+      tags
+    };
+  }
+}
+</code></pre>
+<p>設計完整的測試資料管理系統，支援各種測試場景。</p>
+<pre><code>
+### 2. 測試環境狀態管理
+
+```markdown
+Implement test environment state management:
+
+[State Management Strategies]
+1. Database Seeding
+```typescript
+beforeEach(async () =&gt; {
+  await db.seed('todos', initialData);
+});
+</code></pre>
+<ol start="2">
+<li>LocalStorage Management</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">await</span> page.<span class="hljs-title function_">evaluate</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">&#x27;todos&#x27;</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(testData));
+});
+</code></pre>
+<ol start="3">
+<li>API Mocking</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">await</span> page.<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;**/api/todos&#x27;</span>, <span class="hljs-function"><span class="hljs-params">route</span> =&gt;</span> {
+  route.<span class="hljs-title function_">fulfill</span>({
+    <span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(mockTodos)
+  });
+});
+</code></pre>
+<ol start="4">
+<li>State Reset</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-title function_">afterEach</span>(<span class="hljs-title function_">async</span> () =&gt; {
+  <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">evaluate</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">clear</span>());
+});
+</code></pre>
+<pre><code>
+## 測試報告與分析
+
+### 1. 自訂報告器
+
+```markdown
+Create custom test reporters:
+
+```typescript
+class CustomReporter {
+  onTestBegin(test) {
+    console.log(`開始測試: ${test.title}`);
+  }
+  
+  onTestEnd(test, result) {
+    if (result.status === 'failed') {
+      // 擷取螢幕截圖
+      // 收集錯誤資訊
+      // 生成詳細報告
+    }
+  }
+  
+  async generateHTMLReport(results) {
+    // 生成 HTML 格式的測試報告
+    // 包含統計圖表
+    // 失敗案例分析
+  }
+}
+</code></pre>
+<p>實作完整的自訂報告系統。</p>
+<pre><code>
+### 2. 測試指標收集
+
+```markdown
+Collect and analyze test metrics:
+
+[Metrics to Track]
+1. Execution Time
+2. Pass/Fail Rate
+3. Flaky Test Detection
+4. Coverage Metrics
+5. Performance Benchmarks
+
+[Implementation]
+```typescript
+class TestMetrics {
+  private metrics = {
+    totalTests: 0,
+    passedTests: 0,
+    failedTests: 0,
+    averageTime: 0,
+    flakyTests: new Set(),
+    performanceData: []
+  };
+  
+  collectMetrics(testResult) {
+    // 收集測試指標
+  }
+  
+  analyzeFlakiness(testHistory) {
+    // 分析測試穩定性
+  }
+  
+  generateReport() {
+    // 生成指標報告
+  }
+}
+</code></pre>
+<pre><code>
+## 最佳實踐與模式
+
+### 1. 測試腳本組織原則
+
+</code></pre>
+<p>/tests
+/e2e
+/features        # 按功能組織
+/todo-crud    # CRUD 操作
+/todo-filter  # 過濾功能
+/todo-search  # 搜尋功能
+/page-objects     # Page Objects
+/fixtures         # 測試固件
+/helpers          # 輔助函數
+/data            # 測試資料</p>
+<pre><code>
+### 2. 選擇器策略
+
+```markdown
+Selector Best Practices:
+
+1. Priority Order:
+   - data-testid (最推薦)
+   - role attributes
+   - text content
+   - CSS classes (最不推薦)
+
+2. Examples:
+```typescript
+// 好的做法
+await page.locator('[data-testid=&quot;submit-button&quot;]').click();
+await page.getByRole('button', { name: '提交' }).click();
+
+// 避免的做法
+await page.locator('.btn-primary').click();
+await page.locator('#submit').click();
+</code></pre>
+<ol start="3">
+<li>Dynamic Selectors:</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">getTodoItem</span> = (<span class="hljs-params"><span class="hljs-attr">index</span>: <span class="hljs-built_in">number</span></span>) =&gt; 
+  page.<span class="hljs-title function_">locator</span>(<span class="hljs-string">`[data-testid=&quot;todo-item-<span class="hljs-subst">${index}</span>&quot;]`</span>);
+</code></pre>
+<pre><code>
+### 3. 斷言策略
+
+```markdown
+Assertion Strategies:
+
+1. Multiple Assertions:
+```typescript
+await expect(page).toHaveTitle(/TODO App/);
+await expect(todoItem).toBeVisible();
+await expect(todoItem).toHaveText('完成任務');
+await expect(todoItem).toHaveClass(/completed/);
+</code></pre>
+<ol start="2">
+<li>Soft Assertions:</li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-keyword">await</span> expect.<span class="hljs-title function_">soft</span>(element).<span class="hljs-title function_">toBeVisible</span>();
+<span class="hljs-comment">// 繼續執行其他測試</span>
+</code></pre>
+<ol start="3">
+<li>Custom Matchers:</li>
+</ol>
+<pre><code class="language-typescript">expect.<span class="hljs-title function_">extend</span>({
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">toHaveTodoCount</span>(<span class="hljs-params">page, count</span>) {
+    <span class="hljs-keyword">const</span> todos = <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">locator</span>(<span class="hljs-string">&#x27;.todo-item&#x27;</span>).<span class="hljs-title function_">count</span>();
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">pass</span>: todos === count,
+      <span class="hljs-attr">message</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-string">`Expected <span class="hljs-subst">${count}</span> todos, found <span class="hljs-subst">${todos}</span>`</span>
+    };
+  }
+});
+</code></pre>
+<pre><code>
+## 常見問題與解決方案
+
+### Q1: 測試執行不穩定（Flaky Tests）
+
+**解決方案**：
+```typescript
+// 1. 使用明確等待
+await page.waitForSelector('.todo-item');
+
+// 2. 重試機制
+test('flaky test', async ({ page }) =&gt; {
+  // 測試邏輯
+}).retry(3);
+
+// 3. 增加超時時間
+test.setTimeout(30000);
+
+// 4. 等待網路請求完成
+await page.waitForResponse(response =&gt; 
+  response.url().includes('/api/todos') &amp;&amp; response.status() === 200
+);
+</code></pre>
+<h3 id="q2%3A-%E4%B8%A6%E8%A1%8C%E6%B8%AC%E8%A9%A6%E4%BA%92%E7%9B%B8%E5%B9%B2%E6%93%BE" tabindex="-1"><a class="header-anchor" href="#q2%3A-%E4%B8%A6%E8%A1%8C%E6%B8%AC%E8%A9%A6%E4%BA%92%E7%9B%B8%E5%B9%B2%E6%93%BE">§</a> Q2: 並行測試互相干擾</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-comment">// 1. 使用獨立的測試資料</span>
+<span class="hljs-keyword">const</span> testId = <span class="hljs-title function_">generateUniqueId</span>();
+<span class="hljs-keyword">const</span> testData = <span class="hljs-title function_">createTestData</span>(testId);
+
+<span class="hljs-comment">// 2. 隔離測試環境</span>
+test.<span class="hljs-property">describe</span>.<span class="hljs-title function_">serial</span>(<span class="hljs-string">&#x27;Sequential tests&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-comment">// 串行執行的測試</span>
+});
+
+<span class="hljs-comment">// 3. 使用不同的使用者帳號</span>
+<span class="hljs-keyword">const</span> testUser = <span class="hljs-keyword">await</span> <span class="hljs-title function_">createTestUser</span>();
+</code></pre>
+<h3 id="q3%3A-%E6%B8%AC%E8%A9%A6%E5%9F%B7%E8%A1%8C%E9%80%9F%E5%BA%A6%E6%85%A2" tabindex="-1"><a class="header-anchor" href="#q3%3A-%E6%B8%AC%E8%A9%A6%E5%9F%B7%E8%A1%8C%E9%80%9F%E5%BA%A6%E6%85%A2">§</a> Q3: 測試執行速度慢</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-comment">// 1. 並行執行</span>
+<span class="hljs-comment">// playwright.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">workers</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-attr">fullyParallel</span>: <span class="hljs-literal">true</span>
+};
+
+<span class="hljs-comment">// 2. 重用認證狀態</span>
+<span class="hljs-keyword">const</span> authFile = <span class="hljs-string">&#x27;auth.json&#x27;</span>;
+<span class="hljs-keyword">await</span> page.<span class="hljs-title function_">context</span>().<span class="hljs-title function_">storageState</span>({ <span class="hljs-attr">path</span>: authFile });
+
+<span class="hljs-comment">// 3. 減少不必要的等待</span>
+<span class="hljs-comment">// 避免 page.waitForTimeout()</span>
+<span class="hljs-comment">// 使用具體的等待條件</span>
+</code></pre>
+<h2 id="%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0">§</a> 思考與挑戰</h2>
+<h3 id="%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C">§</a> 深度思考題</h3>
+<ol>
+<li><strong>測試維護性</strong>：如何設計測試使其易於維護？</li>
+<li><strong>測試效能</strong>：如何平衡測試覆蓋率和執行時間？</li>
+<li><strong>AI 生成的限制</strong>：哪些測試場景不適合 AI 生成？</li>
+<li><strong>團隊採用</strong>：如何說服團隊採用 AI 驅動的測試？</li>
+</ol>
+<h3 id="%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0">§</a> 進階挑戰</h3>
+<ol>
+<li><strong>跨裝置測試</strong>：實現響應式設計的自動化測試</li>
+<li><strong>無障礙測試</strong>：整合 WCAG 標準的自動化檢查</li>
+<li><strong>效能測試</strong>：實現頁面載入和互動效能測試</li>
+<li><strong>安全測試</strong>：自動化常見的安全漏洞檢測</li>
+</ol>
+<h2 id="%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E5%AE%8C%E6%95%B4%E6%B8%AC%E8%A9%A6%E5%A5%97%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E5%AE%8C%E6%95%B4%E6%B8%AC%E8%A9%A6%E5%A5%97%E4%BB%B6">§</a> 實作專案：完整測試套件</h2>
+<h3 id="%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82">§</a> 專案需求</h3>
+<p>為 TODO 應用建立完整的測試套件：</p>
+<ol>
+<li><strong>基礎功能測試</strong> (10 個測試案例)</li>
+<li><strong>進階功能測試</strong> (5 個測試案例)</li>
+<li><strong>邊界條件測試</strong> (5 個測試案例)</li>
+<li><strong>效能測試</strong> (3 個測試案例)</li>
+<li><strong>無障礙測試</strong> (3 個測試案例)</li>
+</ol>
+<h3 id="%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82">§</a> 提交要求</h3>
+<ul>
+<li>完整的測試程式碼（使用 TypeScript）</li>
+<li>Page Object Model 實作</li>
+<li>測試資料管理方案</li>
+<li>執行報告（HTML 格式）</li>
+<li>AI 互動記錄</li>
+</ul>
+<h2 id="%E4%B8%8B%E4%B8%80%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5">§</a> 下一步</h2>
+<p>恭喜你完成了第三樂章！你已經掌握了使用 AI 編寫 Playwright 測試腳本的技能。在下一章「第四樂章：AI 進行測試分析與除錯」中，我們將學習如何讓 AI 分析測試失敗的原因，並智慧地進行除錯。</p>
+<p>記住，好的測試腳本不僅能發現問題，還能清楚地指出問題所在。透過 Playwright 和 AI 的結合，我們可以創建強大而智慧的測試自動化系統。</p>
+<h2 id="%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90">§</a> 資源連結</h2>
+<ul>
+<li><a href="https://playwright.dev/docs/intro">Playwright 官方文檔</a></li>
+<li><a href="https://playwright.dev/docs/best-practices">Playwright 最佳實踐</a></li>
+<li><a href="https://playwright.dev/docs/pom">Page Object Model 模式</a></li>
+<li><a href="https://testautomationpatterns.org/">測試自動化模式</a></li>
+<li><a href="https://modelcontextprotocol.io/">MCP Protocol 規範</a></li>
+</ul>
+<hr>
+<p><em>「自動化測試的價值不在於找到 bug，而在於防止 bug 再次出現。」</em></p>
 
             </section>
 

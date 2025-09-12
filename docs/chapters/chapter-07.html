@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 07 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 07: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 07: Chapter 07</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapters 1-6 的所有內容</li>
+<li>具備完整的自循環工作流經驗</li>
+<li>了解微服務和分散式系統概念</li>
+<li>熟悉進階測試模式</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,1065 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E8%AE%8A%E5%A5%8F%E6%9B%B2%EF%BC%9A%E6%93%B4%E5%B1%95%E8%88%87%E5%84%AA%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81"> 變奏曲：擴展與優化工作流</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"> 核心概念</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E8%A4%87%E9%9B%9C%E5%BA%A6%E5%B1%A4%E7%B4%9A"> 1. 複雜度層級</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E6%93%B4%E5%B1%95%E7%AD%96%E7%95%A5%E7%9F%A9%E9%99%A3"> 2. 擴展策略矩陣</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E5%84%AA%E5%8C%96%E7%B6%AD%E5%BA%A6"> 3. 優化維度</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%A4%9A%E9%A0%81%E9%9D%A2%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6"> 實作練習：多頁面應用測試</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E8%A8%AD%E8%A8%88%E5%A4%9A%E9%A0%81%E9%9D%A2%E6%B8%AC%E8%A9%A6%E6%9E%B6%E6%A7%8B"> 步驟 1：設計多頁面測試架構</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E5%84%AA%E5%8C%96%E6%AA%A2%E6%9F%A5%E6%B8%85%E5%96%AE"> 2. 優化檢查清單</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2%E8%B7%AF%E7%B7%9A%E5%9C%96"> 3. 架構演進路線圖</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0"> 思考與挑戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C"> 深度思考題</a></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0"> 進階挑戰</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E4%BC%81%E6%A5%AD%E7%B4%9A%E6%B8%AC%E8%A9%A6%E5%B9%B3%E5%8F%B0"> 實作專案：企業級測試平台</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82"> 專案需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88"> 架構設計</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"> 提交要求</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"> 下一步</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90"> 資源連結</a></li></ul></li></ul></nav><h1 id="%E8%AE%8A%E5%A5%8F%E6%9B%B2%EF%BC%9A%E6%93%B4%E5%B1%95%E8%88%87%E5%84%AA%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81" tabindex="-1"><a class="header-anchor" href="#%E8%AE%8A%E5%A5%8F%E6%9B%B2%EF%BC%9A%E6%93%B4%E5%B1%95%E8%88%87%E5%84%AA%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81">§</a> 變奏曲：擴展與優化工作流</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>掌握了基本的自循環工作流程後，本章將探討如何將這個流程擴展到更複雜的場景。我們將學習處理多頁面應用、優化提示詞工程、實施進階測試策略，以及建立可擴展的 AI 協作架構。這是從基礎到精通的關鍵轉變。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本章節後，你將能夠：</p>
+<ul>
+<li>處理複雜的多頁面應用測試場景</li>
+<li>掌握進階的提示詞優化技術</li>
+<li>實施複雜的測試編排策略</li>
+<li>建立可擴展的 AI 工作流架構</li>
+<li>優化整體開發效率和品質</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapters 1-6 的所有內容</li>
+<li>具備完整的自循環工作流經驗</li>
+<li>了解微服務和分散式系統概念</li>
+<li>熟悉進階測試模式</li>
+</ul>
+<h2 id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a> 核心概念</h2>
+<h3 id="1.-%E8%A4%87%E9%9B%9C%E5%BA%A6%E5%B1%A4%E7%B4%9A" tabindex="-1"><a class="header-anchor" href="#1.-%E8%A4%87%E9%9B%9C%E5%BA%A6%E5%B1%A4%E7%B4%9A">§</a> 1. 複雜度層級</h3>
+<pre><code class="language-mermaid">graph TD
+    A[簡單應用] --&gt; B[多頁面應用]
+    B --&gt; C[微服務架構]
+    C --&gt; D[分散式系統]
+    
+    E[單一測試] --&gt; F[測試套件]
+    F --&gt; G[跨服務測試]
+    G --&gt; H[端到端測試]
+    
+    I[基礎提示] --&gt; J[鏈式提示]
+    J --&gt; K[動態提示]
+    K --&gt; L[自適應提示]
+</code></pre>
+<h3 id="2.-%E6%93%B4%E5%B1%95%E7%AD%96%E7%95%A5%E7%9F%A9%E9%99%A3" tabindex="-1"><a class="header-anchor" href="#2.-%E6%93%B4%E5%B1%95%E7%AD%96%E7%95%A5%E7%9F%A9%E9%99%A3">§</a> 2. 擴展策略矩陣</h3>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th>基礎</th>
+<th>進階</th>
+<th>專家</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>應用複雜度</td>
+<td>單頁應用</td>
+<td>多頁應用</td>
+<td>微服務系統</td>
+</tr>
+<tr>
+<td>測試策略</td>
+<td>功能測試</td>
+<td>整合測試</td>
+<td>混沌測試</td>
+</tr>
+<tr>
+<td>AI 協作</td>
+<td>單一 AI</td>
+<td>多 AI 協作</td>
+<td>AI 團隊</td>
+</tr>
+<tr>
+<td>自動化程度</td>
+<td>半自動</td>
+<td>全自動</td>
+<td>自適應</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3.-%E5%84%AA%E5%8C%96%E7%B6%AD%E5%BA%A6" tabindex="-1"><a class="header-anchor" href="#3.-%E5%84%AA%E5%8C%96%E7%B6%AD%E5%BA%A6">§</a> 3. 優化維度</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">OptimizationDimensions</span> {
+  <span class="hljs-attr">performance</span>: {
+    <span class="hljs-attr">executionSpeed</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">resourceUsage</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">parallelization</span>: <span class="hljs-built_in">number</span>;
+  };
+  <span class="hljs-attr">quality</span>: {
+    <span class="hljs-attr">codeQuality</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">testCoverage</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">bugDetection</span>: <span class="hljs-built_in">number</span>;
+  };
+  <span class="hljs-attr">efficiency</span>: {
+    <span class="hljs-attr">developmentTime</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">maintenanceEffort</span>: <span class="hljs-built_in">number</span>;
+    <span class="hljs-attr">learningCurve</span>: <span class="hljs-built_in">number</span>;
+  };
+}
+</code></pre>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%A4%9A%E9%A0%81%E9%9D%A2%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%A4%9A%E9%A0%81%E9%9D%A2%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6">§</a> 實作練習：多頁面應用測試</h2>
+<h3 id="%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E8%A8%AD%E8%A8%88%E5%A4%9A%E9%A0%81%E9%9D%A2%E6%B8%AC%E8%A9%A6%E6%9E%B6%E6%A7%8B" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E8%A8%AD%E8%A8%88%E5%A4%9A%E9%A0%81%E9%9D%A2%E6%B8%AC%E8%A9%A6%E6%9E%B6%E6%A7%8B">§</a> 步驟 1：設計多頁面測試架構</h3>
+<pre><code class="language-markdown">Design a multi-page application testing architecture:
+
+<span class="hljs-code">```typescript
+class MultiPageTestOrchestrator {
+  private pages: Map&lt;string, PageObject&gt; = new Map();
+  private flows: Map&lt;string, UserFlow&gt; = new Map();
+  private state: ApplicationState;
+  
+  async orchestrateTest(scenario: TestScenario) {
+    // 1. 初始化測試環境
+    await this.initializeEnvironment(scenario);
+    
+    // 2. 設定頁面物件
+    await this.setupPageObjects(scenario.pages);
+    
+    // 3. 執行使用者流程
+    const results = await this.executeUserFlows(scenario.flows);
+    
+    // 4. 驗證跨頁面狀態
+    await this.verifyCrossPageState(results);
+    
+    // 5. 清理測試環境
+    await this.cleanup();
+    
+    return this.generateReport(results);
+  }
+  
+  private async executeUserFlows(flows: UserFlow[]) {
+    const results = [];
+    
+    for (const flow of flows) {
+      // 執行複雜的多頁面流程
+      const result = await this.executeFlow(flow);
+      results.push(result);
+      
+      // 保存中間狀態
+      await this.saveIntermediateState(flow.id, result);
+    }
+    
+    return results;
+  }
+  
+  private async executeFlow(flow: UserFlow) {
+    const steps = [];
+    
+    for (const step of flow.steps) {
+      // 導航到目標頁面
+      await this.navigateToPage(step.page);
+      
+      // 執行頁面動作
+      const stepResult = await this.executeStep(step);
+      
+      // 驗證步驟結果
+      await this.validateStep(stepResult, step.expectations);
+      
+      steps.push(stepResult);
+    }
+    
+    return {
+      flowId: flow.id,
+      steps: steps,
+      overallStatus: this.calculateFlowStatus(steps)
+    };
+  }
+}
+</span></code></pre>
+<p>實作完整的多頁面測試協調器。</p>
+<pre><code>
+### 步驟 2：跨頁面狀態管理
+
+```markdown
+Implement cross-page state management:
+
+```typescript
+class CrossPageStateManager {
+  private globalState: Map&lt;string, any&gt; = new Map();
+  private pageStates: Map&lt;string, PageState&gt; = new Map();
+  
+  async syncState(fromPage: string, toPage: string) {
+    // 1. 擷取來源頁面狀態
+    const sourceState = await this.capturePageState(fromPage);
+    
+    // 2. 轉換狀態格式
+    const transferableState = this.transformState(sourceState);
+    
+    // 3. 注入到目標頁面
+    await this.injectState(toPage, transferableState);
+    
+    // 4. 驗證狀態同步
+    await this.verifyStateSync(fromPage, toPage);
+  }
+  
+  async capturePageState(pageId: string): Promise&lt;PageState&gt; {
+    const page = this.getPage(pageId);
+    
+    return {
+      url: page.url(),
+      localStorage: await page.evaluate(() =&gt; ({ ...localStorage })),
+      sessionStorage: await page.evaluate(() =&gt; ({ ...sessionStorage })),
+      cookies: await page.context().cookies(),
+      customData: await this.extractCustomData(page)
+    };
+  }
+  
+  private async extractCustomData(page: Page) {
+    // 提取應用特定的狀態資料
+    return await page.evaluate(() =&gt; {
+      // 例如：Redux store, Vuex state, 等
+      return window.__APP_STATE__ || {};
+    });
+  }
+  
+  async verifyStateConsistency(pages: string[]) {
+    const states = await Promise.all(
+      pages.map(p =&gt; this.capturePageState(p))
+    );
+    
+    // 檢查關鍵狀態的一致性
+    const inconsistencies = this.findInconsistencies(states);
+    
+    if (inconsistencies.length &gt; 0) {
+      throw new StateInconsistencyError(inconsistencies);
+    }
+  }
+}
+</code></pre>
+<p>建立跨頁面狀態管理系統。</p>
+<pre><code>
+### 步驟 3：複雜流程測試
+
+```markdown
+Create complex user journey tests:
+
+```typescript
+class ComplexJourneyTester {
+  async testE2EJourney(journey: UserJourney) {
+    const stages = [
+      this.testDiscoveryStage,
+      this.testRegistrationStage,
+      this.testOnboardingStage,
+      this.testCoreFeatureStage,
+      this.testCheckoutStage,
+      this.testPostPurchaseStage
+    ];
+    
+    const results = [];
+    let context = {};
+    
+    for (const stage of stages) {
+      const stageResult = await stage.call(this, journey, context);
+      results.push(stageResult);
+      
+      // 累積上下文
+      context = { ...context, ...stageResult.context };
+      
+      // 檢查是否應該繼續
+      if (!stageResult.success &amp;&amp; journey.stopOnFailure) {
+        break;
+      }
+    }
+    
+    return this.analyzeJourneyResults(results);
+  }
+  
+  private async testDiscoveryStage(journey: UserJourney, context: Context) {
+    // 測試使用者發現產品的流程
+    return {
+      success: true,
+      metrics: {
+        timeToFirstInteraction: 1500,
+        bounceRate: 0.15,
+        engagementScore: 85
+      },
+      context: {
+        entryPoint: 'organic-search',
+        landingPage: '/features'
+      }
+    };
+  }
+  
+  private async testCoreFeatureStage(journey: UserJourney, context: Context) {
+    // 測試核心功能使用流程
+    const scenarios = [
+      'create-first-item',
+      'edit-existing-item',
+      'share-with-team',
+      'export-data'
+    ];
+    
+    const results = await Promise.all(
+      scenarios.map(s =&gt; this.testScenario(s, context))
+    );
+    
+    return {
+      success: results.every(r =&gt; r.success),
+      metrics: this.aggregateMetrics(results),
+      context: {
+        featuresUsed: scenarios,
+        userSegment: this.identifyUserSegment(results)
+      }
+    };
+  }
+}
+</code></pre>
+<p>實作複雜使用者旅程測試。</p>
+<pre><code>
+## 進階提示詞優化
+
+### 1. 動態提示詞生成
+
+```markdown
+Implement dynamic prompt generation:
+
+```typescript
+class DynamicPromptGenerator {
+  async generatePrompt(context: TestContext, objective: TestObjective) {
+    // 1. 分析上下文
+    const contextAnalysis = await this.analyzeContext(context);
+    
+    // 2. 選擇提示詞模板
+    const template = await this.selectTemplate(contextAnalysis, objective);
+    
+    // 3. 填充動態內容
+    const prompt = await this.populateTemplate(template, {
+      context: contextAnalysis,
+      objective: objective,
+      history: await this.getRelevantHistory(context),
+      examples: await this.selectExamples(objective)
+    });
+    
+    // 4. 優化提示詞
+    return await this.optimizePrompt(prompt);
+  }
+  
+  private async optimizePrompt(prompt: string): Promise&lt;string&gt; {
+    // 使用 AI 優化提示詞
+    const optimizationPrompt = `
+      Optimize this prompt for clarity and effectiveness:
+      
+      Original Prompt:
+      ${prompt}
+      
+      Optimization Goals:
+      1. Clarity: Remove ambiguity
+      2. Specificity: Add precise requirements
+      3. Structure: Improve organization
+      4. Examples: Add if helpful
+      5. Constraints: Clarify boundaries
+      
+      Return the optimized prompt:
+    `;
+    
+    return await this.callAI(optimizationPrompt);
+  }
+  
+  async chainPrompts(prompts: Prompt[]): Promise&lt;ChainedPromptResult&gt; {
+    const results = [];
+    let context = {};
+    
+    for (const prompt of prompts) {
+      // 使用前一個結果作為上下文
+      const enrichedPrompt = this.enrichWithContext(prompt, context);
+      
+      // 執行提示詞
+      const result = await this.executePrompt(enrichedPrompt);
+      results.push(result);
+      
+      // 更新上下文
+      context = this.updateContext(context, result);
+    }
+    
+    return {
+      individualResults: results,
+      finalOutput: this.consolidateResults(results),
+      context: context
+    };
+  }
+}
+</code></pre>
+<p>建立動態提示詞生成系統。</p>
+<pre><code>
+### 2. 提示詞效能評估
+
+```markdown
+Create prompt performance evaluation system:
+
+```typescript
+class PromptPerformanceEvaluator {
+  async evaluatePrompt(prompt: Prompt, testCases: TestCase[]) {
+    const metrics = {
+      accuracy: 0,
+      consistency: 0,
+      completeness: 0,
+      efficiency: 0,
+      clarity: 0
+    };
+    
+    const results = [];
+    
+    for (const testCase of testCases) {
+      const result = await this.runTestCase(prompt, testCase);
+      results.push(result);
+    }
+    
+    // 計算各項指標
+    metrics.accuracy = this.calculateAccuracy(results);
+    metrics.consistency = this.calculateConsistency(results);
+    metrics.completeness = this.calculateCompleteness(results);
+    metrics.efficiency = this.calculateEfficiency(results);
+    metrics.clarity = await this.assessClarity(prompt);
+    
+    return {
+      metrics: metrics,
+      overallScore: this.calculateOverallScore(metrics),
+      recommendations: this.generateRecommendations(metrics),
+      comparisons: await this.compareWithBaseline(metrics)
+    };
+  }
+  
+  private calculateConsistency(results: TestResult[]): number {
+    // 對相同輸入的多次執行結果進行比較
+    const groups = this.groupBySimilarInput(results);
+    let totalConsistency = 0;
+    
+    for (const group of groups) {
+      const similarity = this.calculateSimilarity(group);
+      totalConsistency += similarity;
+    }
+    
+    return totalConsistency / groups.length;
+  }
+  
+  async optimizePromptIteratively(
+    initialPrompt: Prompt,
+    targetMetrics: TargetMetrics
+  ): Promise&lt;OptimizedPrompt&gt; {
+    let currentPrompt = initialPrompt;
+    let iteration = 0;
+    const maxIterations = 10;
+    
+    while (iteration &lt; maxIterations) {
+      // 評估當前提示詞
+      const evaluation = await this.evaluatePrompt(currentPrompt, this.testCases);
+      
+      // 檢查是否達到目標
+      if (this.meetsTargets(evaluation.metrics, targetMetrics)) {
+        break;
+      }
+      
+      // 生成改進建議
+      const improvements = await this.generateImprovements(
+        currentPrompt,
+        evaluation,
+        targetMetrics
+      );
+      
+      // 應用改進
+      currentPrompt = await this.applyImprovements(currentPrompt, improvements);
+      
+      iteration++;
+    }
+    
+    return {
+      prompt: currentPrompt,
+      iterations: iteration,
+      finalMetrics: await this.evaluatePrompt(currentPrompt, this.testCases)
+    };
+  }
+}
+</code></pre>
+<p>實作提示詞效能評估系統。</p>
+<pre><code>
+### 3. 多模型協作
+
+```markdown
+Implement multi-model collaboration:
+
+```typescript
+class MultiModelOrchestrator {
+  private models = {
+    claude: new ClaudeModel(),
+    gemini: new GeminiModel(),
+    gpt: new GPTModel()
+  };
+  
+  async collaborativeGeneration(task: GenerationTask) {
+    // 1. 任務分解
+    const subtasks = await this.decomposeTask(task);
+    
+    // 2. 分配給最適合的模型
+    const assignments = await this.assignToModels(subtasks);
+    
+    // 3. 並行執行
+    const results = await Promise.all(
+      assignments.map(a =&gt; this.executeAssignment(a))
+    );
+    
+    // 4. 結果整合
+    const integrated = await this.integrateResults(results);
+    
+    // 5. 品質檢查
+    return await this.qualityCheck(integrated);
+  }
+  
+  private async assignToModels(subtasks: Subtask[]) {
+    const assignments = [];
+    
+    for (const subtask of subtasks) {
+      // 根據任務特性選擇最適合的模型
+      const model = await this.selectBestModel(subtask);
+      
+      assignments.push({
+        subtask: subtask,
+        model: model,
+        prompt: await this.generateModelSpecificPrompt(subtask, model)
+      });
+    }
+    
+    return assignments;
+  }
+  
+  async consensusGeneration(prompt: string) {
+    // 讓多個模型生成結果，然後取共識
+    const responses = await Promise.all([
+      this.models.claude.generate(prompt),
+      this.models.gemini.generate(prompt),
+      this.models.gpt.generate(prompt)
+    ]);
+    
+    // 分析共識和差異
+    const analysis = this.analyzeResponses(responses);
+    
+    if (analysis.consensus &gt; 0.8) {
+      return analysis.consensusResponse;
+    } else {
+      // 需要進一步協調
+      return await this.negotiateConsensus(responses, analysis);
+    }
+  }
+  
+  private async negotiateConsensus(
+    responses: ModelResponse[],
+    analysis: ConsensusAnalysis
+  ) {
+    // 識別分歧點
+    const disagreements = analysis.disagreements;
+    
+    // 對每個分歧點進行深入分析
+    for (const disagreement of disagreements) {
+      const resolution = await this.resolveDisagreement(disagreement, responses);
+      disagreement.resolution = resolution;
+    }
+    
+    // 整合解決方案
+    return this.synthesizeFinalResponse(responses, disagreements);
+  }
+}
+</code></pre>
+<p>建立多模型協作系統。</p>
+<pre><code>
+## 測試編排優化
+
+### 1. 智慧測試排程
+
+```markdown
+Create intelligent test scheduling:
+
+```typescript
+class IntelligentTestScheduler {
+  async scheduleTests(tests: Test[], constraints: ScheduleConstraints) {
+    // 1. 分析測試依賴關係
+    const dependencies = this.analyzeDependencies(tests);
+    
+    // 2. 計算優先級
+    const priorities = await this.calculatePriorities(tests);
+    
+    // 3. 資源分配
+    const resources = await this.allocateResources(tests, constraints);
+    
+    // 4. 生成執行計劃
+    const schedule = await this.generateSchedule({
+      tests,
+      dependencies,
+      priorities,
+      resources
+    });
+    
+    // 5. 優化並行執行
+    return this.optimizeParallelExecution(schedule);
+  }
+  
+  private async calculatePriorities(tests: Test[]) {
+    const priorities = new Map();
+    
+    for (const test of tests) {
+      const priority = await this.calculateTestPriority({
+        businessImpact: test.metadata.businessImpact,
+        failureHistory: await this.getFailureHistory(test.id),
+        executionTime: test.estimatedDuration,
+        lastRunTime: test.lastRun,
+        dependencies: test.dependencies.length,
+        riskLevel: test.metadata.riskLevel
+      });
+      
+      priorities.set(test.id, priority);
+    }
+    
+    return priorities;
+  }
+  
+  private optimizeParallelExecution(schedule: TestSchedule) {
+    // 使用圖算法優化並行執行
+    const graph = this.buildDependencyGraph(schedule);
+    const criticalPath = this.findCriticalPath(graph);
+    const parallelGroups = this.identifyParallelGroups(graph, criticalPath);
+    
+    return {
+      criticalPath,
+      parallelGroups,
+      estimatedDuration: this.calculateTotalDuration(parallelGroups),
+      resourceUtilization: this.calculateResourceUtilization(parallelGroups)
+    };
+  }
+}
+</code></pre>
+<p>實作智慧測試排程系統。</p>
+<pre><code>
+### 2. 自適應測試策略
+
+```markdown
+Implement adaptive testing strategy:
+
+```typescript
+class AdaptiveTestStrategy {
+  async adaptStrategy(
+    currentResults: TestResults,
+    historicalData: HistoricalData,
+    systemState: SystemState
+  ) {
+    // 1. 分析當前狀況
+    const analysis = await this.analyzeCurrentSituation({
+      failureRate: currentResults.failureRate,
+      failurePatterns: this.identifyPatterns(currentResults),
+      systemLoad: systemState.load,
+      recentChanges: systemState.recentChanges
+    });
+    
+    // 2. 預測未來趨勢
+    const predictions = await this.predictTrends(analysis, historicalData);
+    
+    // 3. 調整測試策略
+    const adjustments = await this.determineAdjustments(analysis, predictions);
+    
+    // 4. 應用調整
+    return await this.applyAdjustments(adjustments);
+  }
+  
+  private async determineAdjustments(
+    analysis: SituationAnalysis,
+    predictions: TrendPredictions
+  ) {
+    const adjustments = {
+      testSelection: [],
+      executionOrder: [],
+      parallelism: 1,
+      retryStrategy: {},
+      focusAreas: []
+    };
+    
+    // 根據失敗率調整
+    if (analysis.failureRate &gt; 0.2) {
+      adjustments.retryStrategy = {
+        maxRetries: 3,
+        backoff: 'exponential'
+      };
+      adjustments.parallelism = Math.max(1, adjustments.parallelism - 2);
+    }
+    
+    // 根據預測調整重點區域
+    if (predictions.highRiskAreas.length &gt; 0) {
+      adjustments.focusAreas = predictions.highRiskAreas;
+      adjustments.testSelection = this.selectFocusedTests(predictions.highRiskAreas);
+    }
+    
+    // 根據系統負載調整並行度
+    if (analysis.systemLoad &gt; 0.8) {
+      adjustments.parallelism = Math.ceil(adjustments.parallelism * 0.5);
+    }
+    
+    return adjustments;
+  }
+}
+</code></pre>
+<p>建立自適應測試策略系統。</p>
+<pre><code>
+## 效能優化技術
+
+### 1. 測試執行優化
+
+```markdown
+Optimize test execution performance:
+
+```typescript
+class TestExecutionOptimizer {
+  async optimizeExecution(testSuite: TestSuite) {
+    // 1. 測試分組優化
+    const groups = await this.optimizeTestGroups(testSuite);
+    
+    // 2. 資源池管理
+    const resourcePool = await this.setupResourcePool(groups);
+    
+    // 3. 快取策略
+    const cacheStrategy = await this.determineCacheStrategy(testSuite);
+    
+    // 4. 執行優化
+    return await this.executeOptimized(groups, resourcePool, cacheStrategy);
+  }
+  
+  private async optimizeTestGroups(testSuite: TestSuite) {
+    // 基於多個因素對測試進行分組
+    const factors = {
+      dataRequirements: this.analyzeDataRequirements(testSuite),
+      resourceNeeds: this.analyzeResourceNeeds(testSuite),
+      executionTime: this.estimateExecutionTimes(testSuite),
+      dependencies: this.analyzeDependencies(testSuite)
+    };
+    
+    // 使用聚類算法優化分組
+    return this.clusterTests(testSuite.tests, factors);
+  }
+  
+  private async setupResourcePool(groups: TestGroup[]) {
+    const pool = {
+      browsers: new BrowserPool({
+        min: 2,
+        max: 10,
+        idleTimeout: 30000
+      }),
+      databases: new DatabasePool({
+        min: 1,
+        max: 5,
+        resetOnReturn: true
+      }),
+      apiClients: new APIClientPool({
+        min: 5,
+        max: 20,
+        reuseConnections: true
+      })
+    };
+    
+    // 預熱資源池
+    await this.warmupPool(pool, groups);
+    
+    return pool;
+  }
+}
+</code></pre>
+<p>實作測試執行優化器。</p>
+<pre><code>
+### 2. 記憶體和資源管理
+
+```markdown
+Implement memory and resource management:
+
+```typescript
+class ResourceManager {
+  private resources = new Map&lt;string, Resource&gt;();
+  private usage = new Map&lt;string, ResourceUsage&gt;();
+  
+  async manageResources(execution: TestExecution) {
+    // 1. 監控資源使用
+    const monitor = this.startMonitoring();
+    
+    // 2. 動態分配
+    execution.on('resource-request', async (request) =&gt; {
+      await this.allocateResource(request);
+    });
+    
+    // 3. 自動回收
+    execution.on('test-complete', async (test) =&gt; {
+      await this.releaseResources(test);
+    });
+    
+    // 4. 記憶體優化
+    execution.on('memory-pressure', async () =&gt; {
+      await this.optimizeMemory();
+    });
+    
+    return monitor;
+  }
+  
+  private async optimizeMemory() {
+    // 清理未使用的資源
+    await this.cleanupUnusedResources();
+    
+    // 壓縮大型資料結構
+    await this.compressLargeDataStructures();
+    
+    // 觸發垃圾回收
+    if (global.gc) {
+      global.gc();
+    }
+    
+    // 調整快取策略
+    await this.adjustCacheStrategy();
+  }
+  
+  async profileResourceUsage(testRun: TestRun) {
+    return {
+      memory: {
+        peak: this.usage.get('memory').peak,
+        average: this.usage.get('memory').average,
+        leaks: await this.detectMemoryLeaks()
+      },
+      cpu: {
+        peak: this.usage.get('cpu').peak,
+        average: this.usage.get('cpu').average,
+        bottlenecks: this.identifyCPUBottlenecks()
+      },
+      io: {
+        reads: this.usage.get('io').reads,
+        writes: this.usage.get('io').writes,
+        networkCalls: this.usage.get('network').calls
+      },
+      recommendations: this.generateOptimizationRecommendations()
+    };
+  }
+}
+</code></pre>
+<p>建立資源管理系統。</p>
+<pre><code>
+## 可擴展架構設計
+
+### 1. 插件系統
+
+```markdown
+Create extensible plugin system:
+
+```typescript
+interface Plugin {
+  name: string;
+  version: string;
+  hooks: PluginHooks;
+  config?: PluginConfig;
+}
+
+class PluginSystem {
+  private plugins: Map&lt;string, Plugin&gt; = new Map();
+  private hooks: Map&lt;string, Set&lt;HookHandler&gt;&gt; = new Map();
+  
+  async registerPlugin(plugin: Plugin) {
+    // 驗證插件
+    await this.validatePlugin(plugin);
+    
+    // 註冊鉤子
+    for (const [hookName, handler] of Object.entries(plugin.hooks)) {
+      this.registerHook(hookName, handler);
+    }
+    
+    // 初始化插件
+    if (plugin.initialize) {
+      await plugin.initialize(this.context);
+    }
+    
+    this.plugins.set(plugin.name, plugin);
+  }
+  
+  async executeHook(hookName: string, ...args: any[]) {
+    const handlers = this.hooks.get(hookName) || new Set();
+    const results = [];
+    
+    for (const handler of handlers) {
+      try {
+        const result = await handler(...args);
+        results.push(result);
+      } catch (error) {
+        console.error(`Hook execution failed: ${hookName}`, error);
+      }
+    }
+    
+    return results;
+  }
+  
+  createPlugin(definition: PluginDefinition): Plugin {
+    return {
+      name: definition.name,
+      version: definition.version,
+      hooks: {
+        'before-test': async (test) =&gt; {
+          // 測試前處理
+        },
+        'after-test': async (test, result) =&gt; {
+          // 測試後處理
+        },
+        'on-failure': async (failure) =&gt; {
+          // 失敗處理
+        },
+        'on-repair': async (repair) =&gt; {
+          // 修復處理
+        }
+      }
+    };
+  }
+}
+</code></pre>
+<p>建立可擴展的插件系統。</p>
+<pre><code>
+### 2. 微服務整合
+
+```markdown
+Implement microservices integration:
+
+```typescript
+class MicroservicesTestOrchestrator {
+  private services: Map&lt;string, ServiceClient&gt; = new Map();
+  private mesh: ServiceMesh;
+  
+  async orchestrateMicroservicesTest(scenario: MicroservicesScenario) {
+    // 1. 服務發現
+    await this.discoverServices(scenario.namespace);
+    
+    // 2. 建立服務網格
+    this.mesh = await this.setupServiceMesh();
+    
+    // 3. 注入測試流量
+    const traffic = await this.injectTestTraffic(scenario.traffic);
+    
+    // 4. 監控服務互動
+    const interactions = await this.monitorInteractions(traffic);
+    
+    // 5. 驗證端到端流程
+    const validation = await this.validateE2EFlow(interactions);
+    
+    // 6. 混沌測試
+    if (scenario.chaosEnabled) {
+      await this.performChaosTest(scenario.chaosConfig);
+    }
+    
+    return this.generateMicroservicesReport(validation);
+  }
+  
+  private async performChaosTest(config: ChaosConfig) {
+    const experiments = [
+      this.injectLatency(config.latency),
+      this.simulateFailure(config.failureRate),
+      this.throttleTraffic(config.throttling),
+      this.corruptData(config.dataCorruption)
+    ];
+    
+    const results = await Promise.allSettled(experiments);
+    
+    return {
+      resilience: this.assessResilience(results),
+      recovery: this.measureRecovery(results),
+      impact: this.assessBusinessImpact(results)
+    };
+  }
+}
+</code></pre>
+<p>實作微服務測試協調器。</p>
+<pre><code>
+## 最佳實踐總結
+
+### 1. 擴展原則
+
+```markdown
+Scaling Principles:
+
+1. **漸進式擴展**
+   - 從簡單開始，逐步增加複雜度
+   - 驗證每個階段的穩定性
+   - 保持向後相容
+
+2. **模組化設計**
+   - 保持元件獨立性
+   - 明確定義介面
+   - 支援熱插拔
+
+3. **效能優先**
+   - 監控關鍵指標
+   - 及早優化瓶頸
+   - 實施快取策略
+
+4. **容錯設計**
+   - 預期失敗情況
+   - 實施重試機制
+   - 提供降級策略
+</code></pre>
+<h3 id="2.-%E5%84%AA%E5%8C%96%E6%AA%A2%E6%9F%A5%E6%B8%85%E5%96%AE" tabindex="-1"><a class="header-anchor" href="#2.-%E5%84%AA%E5%8C%96%E6%AA%A2%E6%9F%A5%E6%B8%85%E5%96%AE">§</a> 2. 優化檢查清單</h3>
+<ul>
+<li>[ ] 測試執行時間 &lt; 目標時間</li>
+<li>[ ] 資源使用率 &lt; 80%</li>
+<li>[ ] 並行效率 &gt; 70%</li>
+<li>[ ] 測試穩定性 &gt; 95%</li>
+<li>[ ] 程式碼覆蓋率 &gt; 80%</li>
+<li>[ ] 維護成本降低 &gt; 30%</li>
+</ul>
+<h3 id="3.-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2%E8%B7%AF%E7%B7%9A%E5%9C%96" tabindex="-1"><a class="header-anchor" href="#3.-%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2%E8%B7%AF%E7%B7%9A%E5%9C%96">§</a> 3. 架構演進路線圖</h3>
+<pre><code class="language-mermaid">graph LR
+    A[單體測試] --&gt; B[模組化測試]
+    B --&gt; C[服務化測試]
+    C --&gt; D[雲原生測試]
+    D --&gt; E[智慧化測試]
+    
+    F[手動優化] --&gt; G[半自動優化]
+    G --&gt; H[自動優化]
+    H --&gt; I[自適應優化]
+    I --&gt; J[AI 驅動優化]
+</code></pre>
+<h2 id="%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0">§</a> 思考與挑戰</h2>
+<h3 id="%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C">§</a> 深度思考題</h3>
+<ol>
+<li><strong>規模化挑戰</strong>：如何處理千萬級測試案例的管理？</li>
+<li><strong>成本效益</strong>：擴展的投資回報如何量化？</li>
+<li><strong>技術債務</strong>：如何避免過度優化帶來的複雜性？</li>
+<li><strong>團隊能力</strong>：如何培養團隊的進階技能？</li>
+</ol>
+<h3 id="%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0">§</a> 進階挑戰</h3>
+<ol>
+<li><strong>全球化測試</strong>：實現跨地域的分散式測試</li>
+<li><strong>實時優化</strong>：建立實時自適應優化系統</li>
+<li><strong>預測性測試</strong>：基於 AI 的預測性測試策略</li>
+<li><strong>零停機部署</strong>：實現測試驅動的零停機部署</li>
+</ol>
+<h2 id="%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E4%BC%81%E6%A5%AD%E7%B4%9A%E6%B8%AC%E8%A9%A6%E5%B9%B3%E5%8F%B0" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E4%BC%81%E6%A5%AD%E7%B4%9A%E6%B8%AC%E8%A9%A6%E5%B9%B3%E5%8F%B0">§</a> 實作專案：企業級測試平台</h2>
+<h3 id="%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82">§</a> 專案需求</h3>
+<p>建立一個企業級的 AI 驅動測試平台：</p>
+<ol>
+<li><strong>多專案支援</strong>：同時管理多個專案的測試</li>
+<li><strong>團隊協作</strong>：支援多團隊協作測試</li>
+<li><strong>資源調度</strong>：智慧資源分配和調度</li>
+<li><strong>報告中心</strong>：統一的報告和分析中心</li>
+<li><strong>知識庫</strong>：測試知識和模式共享</li>
+</ol>
+<h3 id="%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88" tabindex="-1"><a class="header-anchor" href="#%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88">§</a> 架構設計</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">EnterpriseTestPlatform</span> {
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">projects</span>: <span class="hljs-title class_">ProjectManager</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">teams</span>: <span class="hljs-title class_">TeamManager</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">resources</span>: <span class="hljs-title class_">ResourceScheduler</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">analytics</span>: <span class="hljs-title class_">AnalyticsEngine</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">knowledge</span>: <span class="hljs-title class_">KnowledgeBase</span>;
+  
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">initialize</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// 完整的企業級平台初始化</span>
+  }
+}
+</code></pre>
+<h3 id="%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82">§</a> 提交要求</h3>
+<ul>
+<li>平台原始碼和架構文檔</li>
+<li>部署指南和配置說明</li>
+<li>API 文檔和整合指南</li>
+<li>效能基準測試報告</li>
+<li>使用案例和最佳實踐</li>
+</ul>
+<h2 id="%E4%B8%8B%E4%B8%80%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5">§</a> 下一步</h2>
+<p>恭喜你完成了變奏曲章節！你已經掌握了如何將基礎的自循環工作流程擴展到企業級應用。在最後一章「Capstone 專案」中，你將獨立完成一個綜合性的專案，展示你作為 AI 指揮家的全部技能。</p>
+<p>記住，優化是一個持續的過程，而不是一個終點。保持學習和改進的心態。</p>
+<h2 id="%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90">§</a> 資源連結</h2>
+<ul>
+<li><a href="https://martinfowler.com/articles/microservice-testing/">Microservices Testing Strategies</a></li>
+<li><a href="https://www.guru99.com/performance-testing.html">Performance Testing Best Practices</a></li>
+<li><a href="https://principlesofchaos.org/">Chaos Engineering Principles</a></li>
+<li><a href="https://www.microsoft.com/en-us/research/publication/distributed-systems-testing/">Distributed Systems Testing</a></li>
+</ul>
+<hr>
+<p><em>「真正的大師不是掌握所有技術的人，而是知道何時使用哪種技術的人。」</em></p>
 
             </section>
 

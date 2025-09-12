@@ -1,21 +1,3 @@
-# Chapter 02: Untitled
-
-## 學習目標
-
-
-## 前置需求
-
-- 完成 Chapter 1 的環境設置
-- 具備基本的 JavaScript/TypeScript 知識
-- 已配置好 AI 工具（Claude、Gemini 或 GPT）
-- 準備好 VS Code 開發環境
-
-## 預計時間
-
-2 hours
-
----
-
 # 第一樂章：AI 生成應用程式
 
 ## 章節概述

@@ -10,17 +10,18 @@ const yaml = require('js-yaml');
 
 describe('Build System', () => {
   let BuildSystem;
-  let ContentPipeline;
+  // ContentPipeline is defined but not used in current tests
+  // let ContentPipeline;
   
   beforeAll(() => {
     // These will be the actual modules when implemented
     try {
       BuildSystem = require('../../scripts/build-system');
-      ContentPipeline = require('../../scripts/content-pipeline');
+      // ContentPipeline = require('../../scripts/content-pipeline');
     } catch {
       // Use mocks from setup.js
       BuildSystem = jest.requireMock('../../scripts/build-system');
-      ContentPipeline = jest.requireMock('../../scripts/content-pipeline');
+      // ContentPipeline = jest.requireMock('../../scripts/content-pipeline');
     }
   });
   
@@ -400,10 +401,9 @@ Content`;
     test('should detect file changes in watch mode', async (done) => {
       const buildSystem = new BuildSystem({ watch: true });
       
-      let changeDetected = false;
+      // changeDetected variable removed as it's not used
       
       buildSystem.on('change', (file) => {
-        changeDetected = true;
         expect(file).toContain('watch-test.md');
         buildSystem.stop();
         done();
@@ -442,7 +442,8 @@ Content`;
     test('should rollback on build failure', async () => {
       const buildSystem = new BuildSystem({ atomic: true });
       
-      const backupDir = path.join(__dirname, '../../tmp/backup');
+      // backupDir is not used in the test
+      // const backupDir = path.join(__dirname, '../../tmp/backup');
       const outputDir = path.join(__dirname, '../../tmp/output');
       
       // Create initial state
@@ -450,28 +451,28 @@ Content`;
       fs.writeFileSync(path.join(outputDir, 'existing.html'), 'Original', 'utf8');
       
       // Attempt build that will fail
-      try {
-        await buildSystem.build({
+      await expect(
+        buildSystem.build({
           chapters: ['01-ai-conductor', 'invalid-chapter']
-        });
-      } catch (error) {
-        // Build failed - check rollback
-        const content = fs.readFileSync(path.join(outputDir, 'existing.html'), 'utf8');
-        expect(content).toBe('Original'); // Should be unchanged
-      }
+        })
+      ).rejects.toThrow();
+      
+      // Build failed - check rollback
+      const content = fs.readFileSync(path.join(outputDir, 'existing.html'), 'utf8');
+      expect(content).toBe('Original'); // Should be unchanged
     });
     
     test('should provide detailed error reporting', async () => {
       const buildSystem = new BuildSystem();
       
-      try {
-        await buildSystem.processContent('---\ninvalid: yaml: content\n---');
-      } catch (error) {
-        expect(error.message).toContain('YAML');
-        expect(error.file).toBeDefined();
-        expect(error.line).toBeDefined();
-        expect(error.column).toBeDefined();
-      }
+      await expect(
+        buildSystem.processContent('---\ninvalid: yaml: content\n---')
+      ).rejects.toMatchObject({
+        message: expect.stringContaining('YAML'),
+        file: expect.anything(),
+        line: expect.anything(),
+        column: expect.anything()
+      });
     });
     
     test('should handle out of memory gracefully', async () => {

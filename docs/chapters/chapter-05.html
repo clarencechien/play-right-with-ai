@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 05 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 05: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 05: Chapter 05</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapter 4，擁有運行的測試套件</li>
+<li>了解基本的除錯概念</li>
+<li>熟悉瀏覽器開發者工具</li>
+<li>具備日誌分析基礎</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,776 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E9%80%B2%E8%A1%8C%E6%B8%AC%E8%A9%A6%E5%88%86%E6%9E%90%E8%88%87%E9%99%A4%E9%8C%AF"> 第四樂章：AI 進行測試分析與除錯</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"> 核心概念</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-ai-%E9%99%A4%E9%8C%AF%E7%9A%84%E5%84%AA%E5%8B%A2"> 1. AI 除錯的優勢</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E6%B8%AC%E8%A9%A6%E5%A4%B1%E6%95%97%E7%9A%84%E9%A1%9E%E5%9E%8B%E5%88%86%E6%9E%90"> 2. 測試失敗的類型分析</a></li><li class="toc-item"><a class="toc-link" href="#3.-playwright-%E8%BF%BD%E8%B9%A4%E5%88%86%E6%9E%90%E6%9E%B6%E6%A7%8B"> 3. Playwright 追蹤分析架構</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E6%99%BA%E6%85%A7%E6%B8%AC%E8%A9%A6%E5%88%86%E6%9E%90"> 實作練習：智慧測試分析</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%95%85%E6%84%8F%E5%BC%95%E5%85%A5%E9%8C%AF%E8%AA%A4"> 步驟 1：故意引入錯誤</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E6%94%B6%E9%9B%86%E5%A4%B1%E6%95%97%E8%B3%87%E8%A8%8A"> 步驟 2：收集失敗資訊</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#test-failure-information"> Test Failure Information</a></li><li class="toc-item"><a class="toc-link" href="#available-data"> Available Data</a></li><li class="toc-item"><a class="toc-link" href="#analysis-tasks"> Analysis Tasks</a></li><li class="toc-item"><a class="toc-link" href="#output-format"> Output Format</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-4%EF%BC%9A%E8%BF%BD%E8%B9%A4%E6%AA%94%E6%A1%88%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90"> 步驟 4：追蹤檔案深度分析</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E9%8C%AF%E8%AA%A4%E5%88%86%E9%A1%9E%E7%B3%BB%E7%B5%B1"> 2. 錯誤分類系統</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E9%99%A4%E9%8C%AF%E8%B3%87%E8%A8%8A%E5%84%AA%E5%85%88%E7%B4%9A"> 3. 除錯資訊優先級</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"> 常見問題與解決方案</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#q1%3A-ai-%E5%88%86%E6%9E%90%E4%B8%8D%E6%BA%96%E7%A2%BA"> Q1: AI 分析不準確</a></li><li class="toc-item"><a class="toc-link" href="#q2%3A-%E8%BF%BD%E8%B9%A4%E6%AA%94%E6%A1%88%E5%A4%AA%E5%A4%A7"> Q2: 追蹤檔案太大</a></li><li class="toc-item"><a class="toc-link" href="#q3%3A-%E9%99%A4%E9%8C%AF%E8%B3%87%E8%A8%8A%E9%81%8E%E8%BC%89"> Q3: 除錯資訊過載</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0"> 思考與挑戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C"> 深度思考題</a></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0"> 進階挑戰</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E6%99%BA%E6%85%A7%E9%99%A4%E9%8C%AF%E7%B3%BB%E7%B5%B1"> 實作專案：智慧除錯系統</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82"> 專案需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"> 提交要求</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"> 下一步</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90"> 資源連結</a></li></ul></li></ul></nav><h1 id="%E7%AC%AC%E5%9B%9B%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E9%80%B2%E8%A1%8C%E6%B8%AC%E8%A9%A6%E5%88%86%E6%9E%90%E8%88%87%E9%99%A4%E9%8C%AF" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E5%9B%9B%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E9%80%B2%E8%A1%8C%E6%B8%AC%E8%A9%A6%E5%88%86%E6%9E%90%E8%88%87%E9%99%A4%E9%8C%AF">§</a> 第四樂章：AI 進行測試分析與除錯</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>測試失敗是開發過程中的常態，關鍵在於如何快速找出問題根源並修復。本章將探討如何利用 AI 的分析能力，解讀測試失敗、分析追蹤檔案、定位問題根源，並提供修復建議。這是實現自循環工作流程的關鍵能力。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本章節後，你將能夠：</p>
+<ul>
+<li>指導 AI 分析測試失敗報告</li>
+<li>利用 Playwright 追蹤檔案進行深度分析</li>
+<li>實施根本原因分析（RCA）方法</li>
+<li>建立智慧除錯工作流程</li>
+<li>預測和預防潛在問題</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapter 4，擁有運行的測試套件</li>
+<li>了解基本的除錯概念</li>
+<li>熟悉瀏覽器開發者工具</li>
+<li>具備日誌分析基礎</li>
+</ul>
+<h2 id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a> 核心概念</h2>
+<h3 id="1.-ai-%E9%99%A4%E9%8C%AF%E7%9A%84%E5%84%AA%E5%8B%A2" tabindex="-1"><a class="header-anchor" href="#1.-ai-%E9%99%A4%E9%8C%AF%E7%9A%84%E5%84%AA%E5%8B%A2">§</a> 1. AI 除錯的優勢</h3>
+<p>傳統除錯 vs AI 輔助除錯：</p>
+<table>
+<thead>
+<tr>
+<th>傳統方式</th>
+<th>AI 輔助方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>手動檢查錯誤訊息</td>
+<td>自動解析錯誤模式</td>
+</tr>
+<tr>
+<td>逐行追蹤程式碼</td>
+<td>智慧定位問題範圍</td>
+</tr>
+<tr>
+<td>憑經驗猜測原因</td>
+<td>基於數據分析原因</td>
+</tr>
+<tr>
+<td>單一角度分析</td>
+<td>多維度綜合分析</td>
+</tr>
+<tr>
+<td>重複性工作多</td>
+<td>自動化分析流程</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2.-%E6%B8%AC%E8%A9%A6%E5%A4%B1%E6%95%97%E7%9A%84%E9%A1%9E%E5%9E%8B%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#2.-%E6%B8%AC%E8%A9%A6%E5%A4%B1%E6%95%97%E7%9A%84%E9%A1%9E%E5%9E%8B%E5%88%86%E6%9E%90">§</a> 2. 測試失敗的類型分析</h3>
+<pre><code class="language-mermaid">graph TD
+    A[測試失敗] --&gt; B[功能性失敗]
+    A --&gt; C[環境相關失敗]
+    A --&gt; D[時序相關失敗]
+    A --&gt; E[資料相關失敗]
+    
+    B --&gt; B1[邏輯錯誤]
+    B --&gt; B2[UI 變更]
+    
+    C --&gt; C1[網路問題]
+    C --&gt; C2[依賴服務]
+    
+    D --&gt; D1[競態條件]
+    D --&gt; D2[超時問題]
+    
+    E --&gt; E1[測試資料]
+    E --&gt; E2[狀態污染]
+</code></pre>
+<h3 id="3.-playwright-%E8%BF%BD%E8%B9%A4%E5%88%86%E6%9E%90%E6%9E%B6%E6%A7%8B" tabindex="-1"><a class="header-anchor" href="#3.-playwright-%E8%BF%BD%E8%B9%A4%E5%88%86%E6%9E%90%E6%9E%B6%E6%A7%8B">§</a> 3. Playwright 追蹤分析架構</h3>
+<pre><code class="language-typescript"><span class="hljs-comment">// 追蹤檔案包含的資訊</span>
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">TraceData</span> {
+  <span class="hljs-attr">screenshots</span>: <span class="hljs-title class_">Screenshot</span>[];      <span class="hljs-comment">// 截圖時間線</span>
+  <span class="hljs-attr">network</span>: <span class="hljs-title class_">NetworkRequest</span>[];      <span class="hljs-comment">// 網路請求</span>
+  <span class="hljs-attr">console</span>: <span class="hljs-title class_">ConsoleMessage</span>[];      <span class="hljs-comment">// 控制台輸出</span>
+  <span class="hljs-attr">sources</span>: <span class="hljs-title class_">SourceCode</span>[];          <span class="hljs-comment">// 源代碼</span>
+  <span class="hljs-attr">actions</span>: <span class="hljs-title class_">UserAction</span>[];          <span class="hljs-comment">// 使用者動作</span>
+  <span class="hljs-attr">errors</span>: <span class="hljs-title class_">ErrorInfo</span>[];            <span class="hljs-comment">// 錯誤資訊</span>
+  <span class="hljs-attr">timeline</span>: <span class="hljs-title class_">TimelineEvent</span>[];      <span class="hljs-comment">// 時間線事件</span>
+}
+</code></pre>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E6%99%BA%E6%85%A7%E6%B8%AC%E8%A9%A6%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E6%99%BA%E6%85%A7%E6%B8%AC%E8%A9%A6%E5%88%86%E6%9E%90">§</a> 實作練習：智慧測試分析</h2>
+<h3 id="%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%95%85%E6%84%8F%E5%BC%95%E5%85%A5%E9%8C%AF%E8%AA%A4" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%95%85%E6%84%8F%E5%BC%95%E5%85%A5%E9%8C%AF%E8%AA%A4">§</a> 步驟 1：故意引入錯誤</h3>
+<pre><code class="language-markdown">Introduce intentional bugs in the TODO application for testing:
+
+[Bug Categories to Introduce]
+<span class="hljs-bullet">1.</span> Logic Errors
+<span class="hljs-bullet">   -</span> Incorrect data validation
+<span class="hljs-bullet">   -</span> Wrong calculation in statistics
+<span class="hljs-bullet">   -</span> Faulty filter logic
+
+<span class="hljs-bullet">2.</span> UI Issues
+<span class="hljs-bullet">   -</span> Missing elements
+<span class="hljs-bullet">   -</span> Incorrect styling
+<span class="hljs-bullet">   -</span> Broken responsive layout
+
+<span class="hljs-bullet">3.</span> Async Problems
+<span class="hljs-bullet">   -</span> Race conditions
+<span class="hljs-bullet">   -</span> Timeout issues
+<span class="hljs-bullet">   -</span> Promise rejection
+
+<span class="hljs-bullet">4.</span> Data Issues
+<span class="hljs-bullet">   -</span> localStorage corruption
+<span class="hljs-bullet">   -</span> Invalid data format
+<span class="hljs-bullet">   -</span> Missing required fields
+
+[Implementation]
+For each bug:
+<span class="hljs-bullet">-</span> Describe the bug clearly
+<span class="hljs-bullet">-</span> Show the buggy code
+<span class="hljs-bullet">-</span> Explain expected vs actual behavior
+<span class="hljs-bullet">-</span> Provide reproduction steps
+
+請建立一個包含多種類型錯誤的測試版本，用於練習除錯。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E6%94%B6%E9%9B%86%E5%A4%B1%E6%95%97%E8%B3%87%E8%A8%8A" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E6%94%B6%E9%9B%86%E5%A4%B1%E6%95%97%E8%B3%87%E8%A8%8A">§</a> 步驟 2：收集失敗資訊</h3>
+<pre><code class="language-markdown">Create a comprehensive failure collection system:
+
+<span class="hljs-code">```typescript
+class FailureCollector {
+  async collectFailureData(testInfo: TestInfo) {
+    const data = {
+      // 基本資訊
+      testName: testInfo.title,
+      testFile: testInfo.file,
+      timestamp: new Date().toISOString(),
+      
+      // 錯誤詳情
+      error: {
+        message: testInfo.error?.message,
+        stack: testInfo.error?.stack,
+        type: this.classifyError(testInfo.error)
+      },
+      
+      // 環境資訊
+      environment: {
+        browser: testInfo.project.name,
+        viewport: testInfo.viewport,
+        userAgent: await page.evaluate(() =&gt; navigator.userAgent)
+      },
+      
+      // 執行上下文
+      context: {
+        screenshot: await page.screenshot(),
+        html: await page.content(),
+        url: page.url(),
+        cookies: await page.context().cookies(),
+        localStorage: await page.evaluate(() =&gt; ({ ...localStorage }))
+      },
+      
+      // 追蹤資料
+      trace: {
+        file: testInfo.attachments.find(a =&gt; a.name === &#x27;trace&#x27;)?.path,
+        video: testInfo.attachments.find(a =&gt; a.name === &#x27;video&#x27;)?.path
+      }
+    };
+    
+    return data;
+  }
+  
+  private classifyError(error: Error): string {
+    // 錯誤分類邏輯
+    if (error.message.includes(&#x27;TimeoutError&#x27;)) return &#x27;timeout&#x27;;
+    if (error.message.includes(&#x27;not found&#x27;)) return &#x27;element-missing&#x27;;
+    if (error.message.includes(&#x27;Network&#x27;)) return &#x27;network&#x27;;
+    // ... 更多分類
+    return &#x27;unknown&#x27;;
+  }
+}
+</span></code></pre>
+<p>實作完整的失敗資訊收集系統。</p>
+<pre><code>
+### 步驟 3：AI 分析提示詞設計
+
+```markdown
+Analyze test failure using AI:
+
+[Analysis Prompt Template]
+</code></pre>
+<p>You are an expert QA engineer analyzing a test failure. Please perform comprehensive root cause analysis.</p>
+<h2 id="test-failure-information" tabindex="-1"><a class="header-anchor" href="#test-failure-information">§</a> Test Failure Information</h2>
+<ul>
+<li>Test Name: {testName}</li>
+<li>Error Message: {errorMessage}</li>
+<li>Error Stack: {errorStack}</li>
+<li>Browser: {browser}</li>
+<li>URL: {url}</li>
+</ul>
+<h2 id="available-data" tabindex="-1"><a class="header-anchor" href="#available-data">§</a> Available Data</h2>
+<ol>
+<li>Screenshot at failure point</li>
+<li>HTML content</li>
+<li>Console logs</li>
+<li>Network requests</li>
+<li>Trace file</li>
+</ol>
+<h2 id="analysis-tasks" tabindex="-1"><a class="header-anchor" href="#analysis-tasks">§</a> Analysis Tasks</h2>
+<ol>
+<li>Identify the root cause</li>
+<li>Classify the failure type</li>
+<li>Suggest fix approaches</li>
+<li>Predict similar issues</li>
+<li>Recommend prevention strategies</li>
+</ol>
+<h2 id="output-format" tabindex="-1"><a class="header-anchor" href="#output-format">§</a> Output Format</h2>
+<p>Provide analysis in Traditional Chinese with:</p>
+<ul>
+<li>問題摘要 (Problem Summary)</li>
+<li>根本原因 (Root Cause)</li>
+<li>影響範圍 (Impact Scope)</li>
+<li>修復建議 (Fix Recommendations)</li>
+<li>預防措施 (Prevention Measures)</li>
+</ul>
+<p>請提供詳細的分析報告。</p>
+<pre><code>
+建立標準化的 AI 分析流程。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-4%EF%BC%9A%E8%BF%BD%E8%B9%A4%E6%AA%94%E6%A1%88%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-4%EF%BC%9A%E8%BF%BD%E8%B9%A4%E6%AA%94%E6%A1%88%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90">§</a> 步驟 4：追蹤檔案深度分析</h3>
+<pre><code class="language-markdown">Implement trace file analysis:
+
+<span class="hljs-code">```typescript
+class TraceAnalyzer {
+  async analyzeTrace(tracePath: string) {
+    const trace = await parseTrace(tracePath);
+    
+    return {
+      // 時間線分析
+      timeline: this.analyzeTimeline(trace.events),
+      
+      // 效能分析
+      performance: this.analyzePerformance(trace.metrics),
+      
+      // 網路分析
+      network: this.analyzeNetwork(trace.network),
+      
+      // 錯誤分析
+      errors: this.analyzeErrors(trace.errors),
+      
+      // 關鍵路徑分析
+      criticalPath: this.findCriticalPath(trace.events)
+    };
+  }
+  
+  private analyzeTimeline(events: TimelineEvent[]) {
+    return {
+      totalDuration: events[events.length - 1].timestamp - events[0].timestamp,
+      slowestAction: this.findSlowestAction(events),
+      bottlenecks: this.identifyBottlenecks(events),
+      unusualPatterns: this.detectAnomalies(events)
+    };
+  }
+  
+  private analyzePerformance(metrics: PerformanceMetrics) {
+    return {
+      renderTime: metrics.firstContentfulPaint,
+      interactionTime: metrics.timeToInteractive,
+      memoryUsage: metrics.jsHeapUsedSize,
+      recommendations: this.generatePerformanceRecommendations(metrics)
+    };
+  }
+  
+  private analyzeNetwork(requests: NetworkRequest[]) {
+    return {
+      failedRequests: requests.filter(r =&gt; r.status &gt;= 400),
+      slowRequests: requests.filter(r =&gt; r.duration &gt; 1000),
+      totalDataTransferred: requests.reduce((sum, r) =&gt; sum + r.size, 0),
+      suggestions: this.generateNetworkOptimizations(requests)
+    };
+  }
+}
+</span></code></pre>
+<p>實作完整的追蹤檔案分析系統。</p>
+<pre><code>
+## 進階除錯技術
+
+### 1. 智慧斷點設定
+
+```markdown
+Implement intelligent breakpoint system:
+
+```typescript
+class SmartDebugger {
+  async setIntelligentBreakpoints(page: Page, errorInfo: ErrorInfo) {
+    // 基於錯誤類型設定斷點
+    const breakpoints = await this.analyzeErrorForBreakpoints(errorInfo);
+    
+    for (const bp of breakpoints) {
+      await page.evaluateOnNewDocument((bp) =&gt; {
+        // 在瀏覽器中設定條件斷點
+        if (bp.condition) {
+          Object.defineProperty(window, bp.variable, {
+            get() {
+              if (eval(bp.condition)) {
+                debugger;
+              }
+              return this._value;
+            },
+            set(value) {
+              this._value = value;
+            }
+          });
+        }
+      }, bp);
+    }
+  }
+  
+  private async analyzeErrorForBreakpoints(errorInfo: ErrorInfo) {
+    // 使用 AI 分析錯誤並建議斷點位置
+    const prompt = `
+      Based on this error: ${errorInfo.message}
+      Stack trace: ${errorInfo.stack}
+      
+      Suggest strategic breakpoint locations:
+      1. Variable watch points
+      2. Function entry/exit points
+      3. Conditional breakpoints
+      4. Event listeners
+    `;
+    
+    // AI 回應處理
+    return this.parseAIBreakpointSuggestions(await askAI(prompt));
+  }
+}
+</code></pre>
+<p>建立智慧斷點系統，自動在關鍵位置設定斷點。</p>
+<pre><code>
+### 2. 錯誤模式識別
+
+```markdown
+Create error pattern recognition system:
+
+```typescript
+class ErrorPatternRecognizer {
+  private patterns = new Map&lt;string, ErrorPattern&gt;();
+  
+  async recognizePattern(error: Error, context: TestContext) {
+    const features = this.extractFeatures(error, context);
+    const matchedPattern = this.findMatchingPattern(features);
+    
+    if (matchedPattern) {
+      return {
+        pattern: matchedPattern,
+        confidence: this.calculateConfidence(features, matchedPattern),
+        previousOccurrences: this.getPatternHistory(matchedPattern.id),
+        suggestedFix: matchedPattern.commonFixes
+      };
+    }
+    
+    // 如果沒有匹配，創建新模式
+    return this.createNewPattern(features);
+  }
+  
+  private extractFeatures(error: Error, context: TestContext) {
+    return {
+      errorType: error.constructor.name,
+      messageKeywords: this.extractKeywords(error.message),
+      stackPattern: this.analyzeStackTrace(error.stack),
+      contextualInfo: {
+        browser: context.browser,
+        testType: context.testType,
+        lastAction: context.lastAction
+      }
+    };
+  }
+  
+  private findMatchingPattern(features: ErrorFeatures): ErrorPattern | null {
+    // 使用機器學習或規則引擎匹配模式
+    for (const [id, pattern] of this.patterns) {
+      if (this.matchesPattern(features, pattern)) {
+        return pattern;
+      }
+    }
+    return null;
+  }
+}
+</code></pre>
+<p>實作錯誤模式識別系統，學習並記住常見錯誤模式。</p>
+<pre><code>
+### 3. 自動修復建議
+
+```markdown
+Generate automatic fix suggestions:
+
+```typescript
+class AutoFixSuggester {
+  async suggestFixes(analysis: FailureAnalysis) {
+    const fixes = [];
+    
+    // 基於錯誤類型提供修復建議
+    switch (analysis.errorType) {
+      case 'element-not-found':
+        fixes.push(await this.suggestSelectorFix(analysis));
+        break;
+      
+      case 'timeout':
+        fixes.push(await this.suggestTimingFix(analysis));
+        break;
+      
+      case 'assertion-failed':
+        fixes.push(await this.suggestAssertionFix(analysis));
+        break;
+      
+      case 'network-error':
+        fixes.push(await this.suggestNetworkFix(analysis));
+        break;
+    }
+    
+    // 使用 AI 生成額外建議
+    const aiSuggestions = await this.getAISuggestions(analysis);
+    fixes.push(...aiSuggestions);
+    
+    return this.rankFixesByLikelihood(fixes);
+  }
+  
+  private async suggestSelectorFix(analysis: FailureAnalysis) {
+    return {
+      type: 'selector-update',
+      description: '更新元素選擇器',
+      oldSelector: analysis.failedSelector,
+      suggestedSelectors: [
+        `[data-testid=&quot;${analysis.elementId}&quot;]`,
+        `text=&quot;${analysis.elementText}&quot;`,
+        `css=&quot;${this.generateRobustSelector(analysis.html)}&quot;`
+      ],
+      confidence: 0.85,
+      implementation: `
+        // 將選擇器從
+        await page.locator('${analysis.failedSelector}')
+        // 改為
+        await page.locator('[data-testid=&quot;${analysis.elementId}&quot;]')
+      `
+    };
+  }
+}
+</code></pre>
+<p>建立自動修復建議系統。</p>
+<pre><code>
+## 視覺化除錯工具
+
+### 1. 測試執行時間線
+
+```markdown
+Create visual timeline for test execution:
+
+```typescript
+class TestTimeline {
+  generateTimeline(events: TimelineEvent[]) {
+    const timeline = {
+      title: '測試執行時間線',
+      events: events.map(event =&gt; ({
+        time: event.timestamp,
+        type: event.type,
+        description: event.description,
+        duration: event.duration,
+        status: event.status,
+        screenshot: event.screenshot
+      })),
+      statistics: {
+        totalDuration: this.calculateTotalDuration(events),
+        slowestStep: this.findSlowestStep(events),
+        failurePoint: this.identifyFailurePoint(events)
+      }
+    };
+    
+    return this.renderAsHTML(timeline);
+  }
+  
+  private renderAsHTML(timeline: Timeline): string {
+    return `
+      &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;測試執行時間線&lt;/title&gt;
+        &lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div id=&quot;timeline&quot;&gt;&lt;/div&gt;
+        &lt;script&gt;
+          const data = ${JSON.stringify(timeline)};
+          // Plotly 視覺化程式碼
+          Plotly.newPlot('timeline', data);
+        &lt;/script&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+    `;
+  }
+}
+</code></pre>
+<p>實作測試執行的視覺化時間線。</p>
+<pre><code>
+### 2. 錯誤熱點圖
+
+```markdown
+Generate error heatmap:
+
+```typescript
+class ErrorHeatmap {
+  generateHeatmap(errors: ErrorData[]) {
+    const heatmapData = {
+      // 按元件分組錯誤
+      byComponent: this.groupByComponent(errors),
+      
+      // 按時間分布
+      byTime: this.groupByTime(errors),
+      
+      // 按錯誤類型
+      byType: this.groupByType(errors),
+      
+      // 按嚴重程度
+      bySeverity: this.groupBySeverity(errors)
+    };
+    
+    return {
+      visualization: this.createD3Heatmap(heatmapData),
+      insights: this.generateInsights(heatmapData),
+      recommendations: this.generateRecommendations(heatmapData)
+    };
+  }
+  
+  private generateInsights(data: HeatmapData) {
+    return {
+      mostProblematicComponent: this.findMostProblematic(data.byComponent),
+      peakErrorTime: this.findPeakTime(data.byTime),
+      commonErrorPattern: this.findCommonPattern(data.byType),
+      criticalAreas: this.identifyCriticalAreas(data)
+    };
+  }
+}
+</code></pre>
+<p>建立錯誤熱點圖視覺化系統。</p>
+<pre><code>
+## 預測性分析
+
+### 1. 潛在問題預測
+
+```markdown
+Implement predictive analysis for potential issues:
+
+```typescript
+class PredictiveAnalyzer {
+  async predictPotentialIssues(codeChanges: CodeChange[], testHistory: TestHistory) {
+    const predictions = [];
+    
+    // 分析程式碼變更影響
+    const impactAnalysis = await this.analyzeChangeImpact(codeChanges);
+    
+    // 基於歷史數據預測
+    const historicalPatterns = this.analyzeHistoricalFailures(testHistory);
+    
+    // 使用 AI 預測潛在問題
+    const aiPredictions = await this.getAIPredictions({
+      changes: codeChanges,
+      history: testHistory,
+      currentState: await this.getCurrentSystemState()
+    });
+    
+    // 綜合所有預測
+    return this.consolidatePredictions([
+      ...impactAnalysis.predictions,
+      ...historicalPatterns.predictions,
+      ...aiPredictions
+    ]);
+  }
+  
+  private async analyzeChangeImpact(changes: CodeChange[]) {
+    return {
+      affectedComponents: this.identifyAffectedComponents(changes),
+      riskLevel: this.calculateRiskLevel(changes),
+      predictions: this.generateImpactPredictions(changes)
+    };
+  }
+}
+</code></pre>
+<p>建立預測性分析系統，提前發現潛在問題。</p>
+<pre><code>
+### 2. 測試穩定性分析
+
+```markdown
+Analyze test stability:
+
+```typescript
+class TestStabilityAnalyzer {
+  analyzeStability(testRuns: TestRun[]) {
+    return {
+      // 計算 flakiness 分數
+      flakinessScore: this.calculateFlakinessScore(testRuns),
+      
+      // 識別不穩定測試
+      unstableTests: this.identifyUnstableTests(testRuns),
+      
+      // 分析失敗模式
+      failurePatterns: this.analyzeFailurePatterns(testRuns),
+      
+      // 環境相關性分析
+      environmentalFactors: this.analyzeEnvironmentalFactors(testRuns),
+      
+      // 穩定性趨勢
+      stabilityTrend: this.calculateStabilityTrend(testRuns),
+      
+      // 改進建議
+      improvements: this.suggestStabilityImprovements(testRuns)
+    };
+  }
+  
+  private calculateFlakinessScore(testRuns: TestRun[]): number {
+    // Flakiness = (不一致結果數 / 總執行數) * 100
+    const inconsistentResults = this.countInconsistentResults(testRuns);
+    return (inconsistentResults / testRuns.length) * 100;
+  }
+}
+</code></pre>
+<p>實作測試穩定性分析系統。</p>
+<pre><code>
+## 最佳實踐
+
+### 1. 除錯工作流程
+
+```mermaid
+graph TD
+    A[測試失敗] --&gt; B[自動收集資訊]
+    B --&gt; C[AI 初步分析]
+    C --&gt; D{需要人工介入?}
+    D --&gt;|否| E[自動修復]
+    D --&gt;|是| F[生成詳細報告]
+    F --&gt; G[人工審查]
+    G --&gt; H[確認修復]
+    E --&gt; I[驗證修復]
+    H --&gt; I
+    I --&gt; J{修復成功?}
+    J --&gt;|是| K[更新測試]
+    J --&gt;|否| C
+</code></pre>
+<h3 id="2.-%E9%8C%AF%E8%AA%A4%E5%88%86%E9%A1%9E%E7%B3%BB%E7%B5%B1" tabindex="-1"><a class="header-anchor" href="#2.-%E9%8C%AF%E8%AA%A4%E5%88%86%E9%A1%9E%E7%B3%BB%E7%B5%B1">§</a> 2. 錯誤分類系統</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">ErrorCategory</span> {
+  <span class="hljs-variable constant_">FUNCTIONAL</span> = <span class="hljs-string">&#x27;functional&#x27;</span>,      <span class="hljs-comment">// 功能錯誤</span>
+  <span class="hljs-variable constant_">PERFORMANCE</span> = <span class="hljs-string">&#x27;performance&#x27;</span>,    <span class="hljs-comment">// 效能問題</span>
+  <span class="hljs-variable constant_">COMPATIBILITY</span> = <span class="hljs-string">&#x27;compatibility&#x27;</span>, <span class="hljs-comment">// 相容性問題</span>
+  <span class="hljs-variable constant_">SECURITY</span> = <span class="hljs-string">&#x27;security&#x27;</span>,          <span class="hljs-comment">// 安全問題</span>
+  <span class="hljs-variable constant_">USABILITY</span> = <span class="hljs-string">&#x27;usability&#x27;</span>,        <span class="hljs-comment">// 可用性問題</span>
+  <span class="hljs-variable constant_">DATA</span> = <span class="hljs-string">&#x27;data&#x27;</span>,                  <span class="hljs-comment">// 資料問題</span>
+  <span class="hljs-variable constant_">NETWORK</span> = <span class="hljs-string">&#x27;network&#x27;</span>,            <span class="hljs-comment">// 網路問題</span>
+  <span class="hljs-variable constant_">ENVIRONMENT</span> = <span class="hljs-string">&#x27;environment&#x27;</span>     <span class="hljs-comment">// 環境問題</span>
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ErrorClassifier</span> {
+  <span class="hljs-title function_">classify</span>(<span class="hljs-attr">error</span>: <span class="hljs-title class_">Error</span>, <span class="hljs-attr">context</span>: <span class="hljs-title class_">TestContext</span>): <span class="hljs-title class_">ErrorCategory</span> {
+    <span class="hljs-comment">// 實作分類邏輯</span>
+  }
+}
+</code></pre>
+<h3 id="3.-%E9%99%A4%E9%8C%AF%E8%B3%87%E8%A8%8A%E5%84%AA%E5%85%88%E7%B4%9A" tabindex="-1"><a class="header-anchor" href="#3.-%E9%99%A4%E9%8C%AF%E8%B3%87%E8%A8%8A%E5%84%AA%E5%85%88%E7%B4%9A">§</a> 3. 除錯資訊優先級</h3>
+<pre><code class="language-markdown">Debug Information Priority:
+
+Priority 1 (Critical):
+<span class="hljs-bullet">-</span> Error message and stack trace
+<span class="hljs-bullet">-</span> Screenshot at failure
+<span class="hljs-bullet">-</span> Last successful step
+
+Priority 2 (Important):
+<span class="hljs-bullet">-</span> Browser console logs
+<span class="hljs-bullet">-</span> Network requests
+<span class="hljs-bullet">-</span> DOM state
+
+Priority 3 (Helpful):
+<span class="hljs-bullet">-</span> Performance metrics
+<span class="hljs-bullet">-</span> Memory usage
+<span class="hljs-bullet">-</span> Full trace file
+
+Priority 4 (Optional):
+<span class="hljs-bullet">-</span> Historical data
+<span class="hljs-bullet">-</span> Similar past issues
+<span class="hljs-bullet">-</span> System resources
+</code></pre>
+<h2 id="%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88">§</a> 常見問題與解決方案</h2>
+<h3 id="q1%3A-ai-%E5%88%86%E6%9E%90%E4%B8%8D%E6%BA%96%E7%A2%BA" tabindex="-1"><a class="header-anchor" href="#q1%3A-ai-%E5%88%86%E6%9E%90%E4%B8%8D%E6%BA%96%E7%A2%BA">§</a> Q1: AI 分析不準確</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-markdown">Improve AI analysis accuracy:
+
+<span class="hljs-bullet">1.</span> Provide more context:
+<span class="hljs-bullet">   -</span> Include relevant code snippets
+<span class="hljs-bullet">   -</span> Add business logic explanation
+<span class="hljs-bullet">   -</span> Share test history
+
+<span class="hljs-bullet">2.</span> Use structured prompts:
+<span class="hljs-bullet">   -</span> Clear problem statement
+<span class="hljs-bullet">   -</span> Specific analysis requirements
+<span class="hljs-bullet">   -</span> Expected output format
+
+<span class="hljs-bullet">3.</span> Iterative refinement:
+<span class="hljs-bullet">   -</span> Start with broad analysis
+<span class="hljs-bullet">   -</span> Narrow down based on results
+<span class="hljs-bullet">   -</span> Validate findings
+</code></pre>
+<h3 id="q2%3A-%E8%BF%BD%E8%B9%A4%E6%AA%94%E6%A1%88%E5%A4%AA%E5%A4%A7" tabindex="-1"><a class="header-anchor" href="#q2%3A-%E8%BF%BD%E8%B9%A4%E6%AA%94%E6%A1%88%E5%A4%AA%E5%A4%A7">§</a> Q2: 追蹤檔案太大</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-comment">// 優化追蹤檔案大小</span>
+<span class="hljs-keyword">const</span> traceOptions = {
+  <span class="hljs-attr">screenshots</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">snapshots</span>: <span class="hljs-literal">false</span>,  <span class="hljs-comment">// 關閉 DOM 快照</span>
+  <span class="hljs-attr">sources</span>: <span class="hljs-literal">false</span>,    <span class="hljs-comment">// 關閉源碼收集</span>
+  
+  <span class="hljs-comment">// 只在失敗時保存</span>
+  <span class="hljs-attr">onlyOnFailure</span>: <span class="hljs-literal">true</span>,
+  
+  <span class="hljs-comment">// 壓縮選項</span>
+  <span class="hljs-attr">compress</span>: <span class="hljs-literal">true</span>
+};
+</code></pre>
+<h3 id="q3%3A-%E9%99%A4%E9%8C%AF%E8%B3%87%E8%A8%8A%E9%81%8E%E8%BC%89" tabindex="-1"><a class="header-anchor" href="#q3%3A-%E9%99%A4%E9%8C%AF%E8%B3%87%E8%A8%8A%E9%81%8E%E8%BC%89">§</a> Q3: 除錯資訊過載</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">DebugInfoFilter</span> {
+  <span class="hljs-title function_">filter</span>(<span class="hljs-attr">info</span>: <span class="hljs-title class_">DebugInfo</span>, <span class="hljs-attr">level</span>: <span class="hljs-title class_">DebugLevel</span>): <span class="hljs-title class_">FilteredInfo</span> {
+    <span class="hljs-keyword">switch</span>(level) {
+      <span class="hljs-keyword">case</span> <span class="hljs-title class_">DebugLevel</span>.<span class="hljs-property">ESSENTIAL</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getEssentialInfo</span>(info);
+      <span class="hljs-keyword">case</span> <span class="hljs-title class_">DebugLevel</span>.<span class="hljs-property">DETAILED</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getDetailedInfo</span>(info);
+      <span class="hljs-keyword">case</span> <span class="hljs-title class_">DebugLevel</span>.<span class="hljs-property">COMPLETE</span>:
+        <span class="hljs-keyword">return</span> info;
+    }
+  }
+}
+</code></pre>
+<h2 id="%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0">§</a> 思考與挑戰</h2>
+<h3 id="%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C">§</a> 深度思考題</h3>
+<ol>
+<li><strong>自動化極限</strong>：哪些除錯任務永遠需要人類判斷？</li>
+<li><strong>成本效益</strong>：如何評估 AI 除錯的投資回報率？</li>
+<li><strong>知識傳承</strong>：如何將 AI 學到的除錯知識傳承給團隊？</li>
+<li><strong>隱私安全</strong>：如何在 AI 分析中保護敏感資訊？</li>
+</ol>
+<h3 id="%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0">§</a> 進階挑戰</h3>
+<ol>
+<li><strong>跨團隊除錯知識庫</strong>：建立共享的錯誤模式庫</li>
+<li><strong>即時除錯助手</strong>：開發 IDE 整合的即時除錯 AI</li>
+<li><strong>預防性維護</strong>：基於分析結果預防未來問題</li>
+<li><strong>自適應測試</strong>：根據錯誤模式自動調整測試策略</li>
+</ol>
+<h2 id="%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E6%99%BA%E6%85%A7%E9%99%A4%E9%8C%AF%E7%B3%BB%E7%B5%B1" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E6%99%BA%E6%85%A7%E9%99%A4%E9%8C%AF%E7%B3%BB%E7%B5%B1">§</a> 實作專案：智慧除錯系統</h2>
+<h3 id="%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82">§</a> 專案需求</h3>
+<p>建立一個完整的 AI 驅動除錯系統：</p>
+<ol>
+<li><strong>錯誤收集器</strong>：自動收集所有相關資訊</li>
+<li><strong>AI 分析器</strong>：智慧分析錯誤原因</li>
+<li><strong>修復建議器</strong>：提供具體修復方案</li>
+<li><strong>視覺化工具</strong>：直觀展示分析結果</li>
+<li><strong>知識庫</strong>：累積除錯經驗</li>
+</ol>
+<h3 id="%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82">§</a> 提交要求</h3>
+<ul>
+<li>完整的除錯系統程式碼</li>
+<li>AI 提示詞模板集</li>
+<li>視覺化報告範例</li>
+<li>錯誤模式文檔</li>
+<li>使用說明書</li>
+</ul>
+<h2 id="%E4%B8%8B%E4%B8%80%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5">§</a> 下一步</h2>
+<p>恭喜你完成了第四樂章！你已經掌握了使用 AI 進行測試分析和除錯的技能。在下一章「最終樂章：AI 完成自我修復閉環」中，我們將學習如何讓 AI 自動修復發現的問題，完成整個自循環工作流程。</p>
+<p>記住，優秀的除錯不只是修復錯誤，更是理解錯誤背後的原因，預防類似問題再次發生。</p>
+<h2 id="%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90">§</a> 資源連結</h2>
+<ul>
+<li><a href="https://chromedevtools.github.io/devtools-protocol/">Chrome DevTools Protocol</a></li>
+<li><a href="https://playwright.dev/docs/trace-viewer">Playwright Trace Viewer</a></li>
+<li><a href="https://docs.sentry.io/product/issues/">Error Monitoring Best Practices</a></li>
+<li><a href="https://www.atlassian.com/incident-management/postmortem/root-cause-analysis">Root Cause Analysis Guide</a></li>
+</ul>
+<hr>
+<p><em>「除錯的藝術不在於修復問題，而在於理解為什麼會出現問題。」</em></p>
 
             </section>
 

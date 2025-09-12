@@ -45,7 +45,13 @@ md.use(require('markdown-it-anchor'), {
   linkClass: 'toc-link'
 });
 
+/**
+ * ChapterBuilder class handles the build process for workshop chapters
+ */
 class ChapterBuilder {
+  /**
+   * Initialize a new ChapterBuilder instance
+   */
   constructor() {
     this.contentDir = path.join(process.cwd(), 'content', 'chapters');
     this.htmlOutputDir = path.join(process.cwd(), 'docs', 'chapters');
@@ -56,8 +62,12 @@ class ChapterBuilder {
     this.errors = [];
   }
 
+  /**
+   * Build all chapters from source content
+   * @returns {Promise<void>}
+   */
   async build() {
-    console.log(chalk.blue('\n📚 Starting Chapter Build Process...\n'));
+    console.info(chalk.blue('\n📚 Starting Chapter Build Process...\n'));
 
     try {
       // Ensure output directories exist
@@ -83,13 +93,17 @@ class ChapterBuilder {
         process.exit(1);
       }
 
-      console.log(chalk.green('\n✅ Build completed successfully!\n'));
+      console.info(chalk.green('\n✅ Build completed successfully!\n'));
     } catch (error) {
       console.error(chalk.red(`\n❌ Build failed: ${error.message}`));
       process.exit(1);
     }
   }
 
+  /**
+   * Ensure all required output directories exist
+   * @returns {Promise<void>}
+   */
   async ensureDirectories() {
     const dirs = [
       this.htmlOutputDir,
@@ -101,6 +115,10 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Load all chapters from the content directory
+   * @returns {Promise<void>}
+   */
   async loadChapters() {
     const chapterDirs = await glob('*/', { cwd: this.contentDir });
     
@@ -131,9 +149,14 @@ class ChapterBuilder {
 
     // Sort chapters by number
     this.chapters.sort((a, b) => parseInt(a.number) - parseInt(b.number));
-    console.log(chalk.cyan(`Loaded ${this.chapters.length} chapters`));
+    console.info(chalk.cyan(`Loaded ${this.chapters.length} chapters`));
   }
 
+  /**
+   * Load metadata from a chapter directory
+   * @param {string} chapterPath - Path to the chapter directory
+   * @returns {Promise<object>} The metadata object
+   */
   async loadMetadata(chapterPath) {
     const metadataPath = path.join(chapterPath, 'metadata.yaml');
     
@@ -151,6 +174,11 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Load content from a chapter's index.md file
+   * @param {string} chapterPath - Path to the chapter directory
+   * @returns {Promise<object>} The parsed content with frontmatter
+   */
   async loadContent(chapterPath) {
     const contentPath = path.join(chapterPath, 'index.md');
     
@@ -166,8 +194,13 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Process a single chapter
+   * @param {object} chapter - Chapter data object
+   * @returns {Promise<void>}
+   */
   async processChapter(chapter) {
-    console.log(chalk.blue(`Processing Chapter ${chapter.number}: ${chapter.metadata.title?.zh || 'Untitled'}`));
+    console.info(chalk.blue(`Processing Chapter ${chapter.number}: ${chapter.metadata.title?.zh || 'Untitled'}`));
 
     try {
       // Generate HTML
@@ -179,13 +212,18 @@ class ChapterBuilder {
       // Copy exercises and examples if they exist
       await this.copyChapterAssets(chapter);
       
-      console.log(chalk.green(`  ✓ Chapter ${chapter.number} processed successfully`));
+      console.info(chalk.green(`  ✓ Chapter ${chapter.number} processed successfully`));
     } catch (error) {
       this.errors.push(`Chapter ${chapter.number}: ${error.message}`);
       console.error(chalk.red(`  ✗ Failed to process chapter ${chapter.number}: ${error.message}`));
     }
   }
 
+  /**
+   * Generate HTML output for a chapter
+   * @param {object} chapter - Chapter data object
+   * @returns {Promise<void>}
+   */
   async generateHTML(chapter) {
     const template = await this.loadTemplate('chapter.html');
     
@@ -220,6 +258,11 @@ class ChapterBuilder {
     await fs.writeFile(outputPath, html, 'utf-8');
   }
 
+  /**
+   * Generate workshop README for a chapter
+   * @param {object} chapter - Chapter data object
+   * @returns {Promise<void>}
+   */
   async generateWorkshopReadme(chapter) {
     const workshopDir = path.join(this.workshopOutputDir, `chapter-${chapter.number.padStart(2, '0')}`);
     await fs.mkdir(workshopDir, { recursive: true });
@@ -238,6 +281,11 @@ class ChapterBuilder {
     await fs.mkdir(exampleOutputDir, { recursive: true });
   }
 
+  /**
+   * Generate markdown content for workshop
+   * @param {object} chapter - Chapter data object
+   * @returns {string} Markdown content
+   */
   generateWorkshopMarkdown(chapter) {
     const metadata = {
       ...chapter.metadata,
@@ -274,6 +322,11 @@ class ChapterBuilder {
     return markdown;
   }
 
+  /**
+   * Copy chapter assets to workshop directory
+   * @param {object} chapter - Chapter data object
+   * @returns {Promise<void>}
+   */
   async copyChapterAssets(chapter) {
     const sourceDir = chapter.path;
     const workshopDir = path.join(this.workshopOutputDir, `chapter-${chapter.number.padStart(2, '0')}`);
@@ -300,6 +353,12 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Recursively copy a directory
+   * @param {string} source - Source directory path
+   * @param {string} target - Target directory path
+   * @returns {Promise<void>}
+   */
   async copyDirectory(source, target) {
     await fs.mkdir(target, { recursive: true });
     const files = await fs.readdir(source);
@@ -317,8 +376,12 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Update the main index.html file with chapter list
+   * @returns {Promise<void>}
+   */
   async updateMainIndex() {
-    console.log(chalk.blue('\nUpdating main index.html...'));
+    console.info(chalk.blue('\nUpdating main index.html...'));
     
     try {
       let indexContent = await fs.readFile(this.indexPath, 'utf-8');
@@ -340,12 +403,16 @@ class ChapterBuilder {
       }
 
       await fs.writeFile(this.indexPath, indexContent, 'utf-8');
-      console.log(chalk.green('  ✓ Main index updated'));
+      console.info(chalk.green('  ✓ Main index updated'));
     } catch (error) {
       this.errors.push(`Failed to update index.html: ${error.message}`);
     }
   }
 
+  /**
+   * Generate HTML for chapter list
+   * @returns {string} HTML content for chapter list
+   */
   generateChapterListHTML() {
     let html = '';
     
@@ -371,16 +438,31 @@ class ChapterBuilder {
     return html;
   }
 
+  /**
+   * Render objectives as HTML list items
+   * @param {Array<string>} objectives - List of objectives
+   * @returns {string} HTML list items
+   */
   renderObjectives(objectives) {
     if (!objectives || objectives.length === 0) return '<li>待定義</li>';
     return objectives.map(obj => `<li>${obj}</li>`).join('\n');
   }
 
+  /**
+   * Render prerequisites as HTML list items
+   * @param {Array<string>} prerequisites - List of prerequisites
+   * @returns {string} HTML list items
+   */
   renderPrerequisites(prerequisites) {
     if (!prerequisites || prerequisites.length === 0) return '<li>無</li>';
     return prerequisites.map(req => `<li>${req}</li>`).join('\n');
   }
 
+  /**
+   * Load a template file
+   * @param {string} templateName - Name of the template file
+   * @returns {Promise<string>} Template content
+   */
   async loadTemplate(templateName) {
     const templatePath = path.join(this.templatesDir, templateName);
     
@@ -392,6 +474,10 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Get the default HTML template
+   * @returns {string} Default HTML template
+   */
   getDefaultTemplate() {
     return `<!DOCTYPE html>
 <html lang="zh-TW">
@@ -451,6 +537,11 @@ class ChapterBuilder {
 </html>`;
   }
 
+  /**
+   * Check if a file or directory exists
+   * @param {string} path - Path to check
+   * @returns {Promise<boolean>} True if exists, false otherwise
+   */
   async exists(path) {
     try {
       await fs.access(path);
@@ -460,17 +551,21 @@ class ChapterBuilder {
     }
   }
 
+  /**
+   * Generate and display build report
+   * @returns {void}
+   */
   generateReport() {
-    console.log(chalk.cyan('\n📊 Build Report:'));
-    console.log(chalk.cyan('================'));
-    console.log(chalk.white(`  Total chapters processed: ${this.chapters.length}`));
-    console.log(chalk.white(`  HTML files generated: ${this.chapters.length}`));
-    console.log(chalk.white(`  Workshop folders created: ${this.chapters.length}`));
+    console.info(chalk.cyan('\n📊 Build Report:'));
+    console.info(chalk.cyan('================'));
+    console.info(chalk.white(`  Total chapters processed: ${this.chapters.length}`));
+    console.info(chalk.white(`  HTML files generated: ${this.chapters.length}`));
+    console.info(chalk.white(`  Workshop folders created: ${this.chapters.length}`));
     
     if (this.errors.length > 0) {
-      console.log(chalk.red(`  Errors encountered: ${this.errors.length}`));
+      console.error(chalk.red(`  Errors encountered: ${this.errors.length}`));
     } else {
-      console.log(chalk.green(`  Errors encountered: 0`));
+      console.info(chalk.green(`  Errors encountered: 0`));
     }
   }
 }

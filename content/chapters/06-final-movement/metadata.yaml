@@ -1,0 +1,74 @@
+chapter:
+  number: 6
+  title: "最終樂章：AI 完成自我修復閉環"
+  slug: "final-movement"
+  description: "建立完整的自我修復系統，實現從問題發現到自動修復的閉環流程"
+  
+learning_objectives:
+  - "建立自動化的問題修復流程"
+  - "實施程式碼修復的驗證機制"
+  - "完成自循環工作流程的整合"
+  - "掌握修復品質保證技術"
+  - "建立持續改進的回饋循環"
+
+prerequisites:
+  - "完成 Chapter 5，掌握測試分析技能"
+  - "理解版本控制（Git）基礎"
+  - "熟悉 CI/CD 概念"
+  - "具備程式碼審查經驗"
+
+estimated_time: "4 hours"
+
+difficulty: "advanced"
+
+tags:
+  - "self-healing"
+  - "auto-repair"
+  - "closed-loop"
+  - "continuous-improvement"
+  - "automation"
+
+tools_required:
+  - "Claude/Gemini/GPT"
+  - "Git"
+  - "VS Code"
+  - "CI/CD Platform"
+  - "Testing Framework"
+
+deliverables:
+  - "Self-repair system implementation"
+  - "Repair validation framework"
+  - "Quality assurance metrics"
+  - "Continuous learning system"
+  - "Complete workflow integration"
+
+assessment_criteria:
+  - "Repair success rate"
+  - "Code quality maintenance"
+  - "System reliability"
+  - "Learning effectiveness"
+  - "End-to-end automation"
+
+resources:
+  - title: "Continuous Integration"
+    url: "https://www.atlassian.com/continuous-delivery/continuous-integration"
+    type: "best-practices"
+  - title: "Self-Healing Systems"
+    url: "https://www.oreilly.com/library/view/self-healing-systems/9781491980545/"
+    type: "book"
+  - title: "Automated Program Repair"
+    url: "https://program-repair.org/"
+    type: "research"
+  - title: "AI Code Review"
+    url: "https://github.com/features/copilot"
+    type: "tool"
+
+next_chapter:
+  number: 7
+  title: "變奏曲：擴展與優化工作流"
+  slug: "variations"
+
+previous_chapter:
+  number: 5
+  title: "第四樂章：AI 進行測試分析與除錯"
+  slug: "fourth-movement"

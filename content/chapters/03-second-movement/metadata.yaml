@@ -1,0 +1,69 @@
+chapter:
+  number: 3
+  title: "第二樂章：AI 擔任測試策略師"
+  slug: "second-movement"
+  description: "學習如何讓 AI 分析程式碼、理解功能，並制定全面的端到端測試策略"
+  
+learning_objectives:
+  - "引導 AI 分析程式碼並理解應用架構"
+  - "讓 AI 制定完整的端到端測試策略"
+  - "理解測試覆蓋率的重要性和計算方法"
+  - "評估 AI 生成的測試計劃品質"
+  - "掌握測試優先級和風險評估技巧"
+
+prerequisites:
+  - "完成 Chapter 2，擁有一個可運行的 TODO 應用"
+  - "理解基本的軟體測試概念"
+  - "熟悉 JavaScript/TypeScript"
+  - "準備好 Playwright 測試環境"
+
+estimated_time: "2.5 hours"
+
+difficulty: "intermediate"
+
+tags:
+  - "test-strategy"
+  - "test-planning"
+  - "risk-assessment"
+  - "coverage-analysis"
+  - "e2e-testing"
+
+tools_required:
+  - "Claude/Gemini/GPT"
+  - "VS Code"
+  - "Playwright"
+  - "Web Browser"
+
+deliverables:
+  - "Complete test strategy document"
+  - "Test case specifications"
+  - "Risk assessment matrix"
+  - "Test priority matrix"
+
+assessment_criteria:
+  - "Test strategy completeness"
+  - "Risk identification accuracy"
+  - "Test case quality"
+  - "Coverage analysis depth"
+  - "Documentation clarity"
+
+resources:
+  - title: "Software Testing Fundamentals"
+    url: "https://www.guru99.com/software-testing.html"
+    type: "guide"
+  - title: "Test Pyramid"
+    url: "https://martinfowler.com/articles/practical-test-pyramid.html"
+    type: "article"
+  - title: "Risk-Based Testing"
+    url: "https://www.softwaretestinghelp.com/risk-based-testing/"
+    type: "tutorial"
+
+next_chapter:
+  number: 4
+  title: "第三樂章：AI 執行測試腳本編寫"
+  slug: "third-movement"
+
+previous_chapter:
+  number: 2
+  title: "第一樂章：AI 生成應用程式"
+  slug: "first-movement"

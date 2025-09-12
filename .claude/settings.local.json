@@ -15,7 +15,10 @@
       "Bash(npm run test:e2e:*)",
       "Bash(npm run build:site:*)",
       "Bash(npm run test:a11y:*)",
-      "Bash(npm run validate:env:*)"
+      "Bash(npm run validate:env:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npm run build:chapters:*)",
+      "Bash(npm run sync:content:*)"
     ],
     "deny": [],
     "ask": []

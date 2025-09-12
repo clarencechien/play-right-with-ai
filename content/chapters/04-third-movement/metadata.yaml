@@ -1,0 +1,74 @@
+chapter:
+  number: 4
+  title: "第三樂章：AI 執行測試腳本編寫"
+  slug: "third-movement"
+  description: "深入探討 Playwright MCP 整合，讓 AI 編寫並執行高品質的自動化測試腳本"
+  
+learning_objectives:
+  - "理解 Playwright MCP 的架構和優勢"
+  - "指導 AI 編寫高品質的 Playwright 測試腳本"
+  - "實現瀏覽器自動化測試流程"
+  - "掌握測試腳本的最佳實踐"
+  - "整合測試執行與結果分析"
+
+prerequisites:
+  - "完成 Chapter 3，擁有完整的測試策略"
+  - "Playwright 環境已配置完成"
+  - "了解基本的瀏覽器自動化概念"
+  - "熟悉 async/await 語法"
+
+estimated_time: "3.5 hours"
+
+difficulty: "intermediate-advanced"
+
+tags:
+  - "playwright"
+  - "test-automation"
+  - "mcp-integration"
+  - "page-object-model"
+  - "browser-automation"
+
+tools_required:
+  - "Playwright"
+  - "VS Code"
+  - "Claude/Gemini/GPT"
+  - "Node.js"
+  - "TypeScript"
+
+deliverables:
+  - "Complete Playwright test suite"
+  - "Page Object Model implementation"
+  - "Test data management system"
+  - "Custom test reporter"
+  - "Test execution reports"
+
+assessment_criteria:
+  - "Test script quality and maintainability"
+  - "Proper use of Page Object Model"
+  - "Effective wait strategies"
+  - "Comprehensive test coverage"
+  - "Clear test organization"
+
+resources:
+  - title: "Playwright Documentation"
+    url: "https://playwright.dev/docs/intro"
+    type: "documentation"
+  - title: "Playwright Best Practices"
+    url: "https://playwright.dev/docs/best-practices"
+    type: "guide"
+  - title: "Page Object Model"
+    url: "https://playwright.dev/docs/pom"
+    type: "pattern"
+  - title: "MCP Protocol"
+    url: "https://modelcontextprotocol.io/"
+    type: "specification"
+
+next_chapter:
+  number: 5
+  title: "第四樂章：AI 進行測試分析與除錯"
+  slug: "fourth-movement"
+
+previous_chapter:
+  number: 3
+  title: "第二樂章：AI 擔任測試策略師"
+  slug: "second-movement"

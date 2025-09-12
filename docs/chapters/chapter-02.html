@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 02 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 02: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 02: Chapter 02</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapter 1 的環境設置</li>
+<li>具備基本的 JavaScript/TypeScript 知識</li>
+<li>已配置好 AI 工具（Claude、Gemini 或 GPT）</li>
+<li>準備好 VS Code 開發環境</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,381 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E7%94%9F%E6%88%90%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F"> 第一樂章：AI 生成應用程式</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"> 核心概念</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E5%BE%9E%E9%9C%80%E6%B1%82%E5%88%B0%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%9A%84%E8%BD%89%E6%8F%9B"> 1. 從需求到程式碼的轉換</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E9%9B%99%E8%AA%9E%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%AD%96%E7%95%A5%E7%9A%84%E5%A8%81%E5%8A%9B"> 2. 雙語提示詞策略的威力</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E3%80%8C%E8%8B%B1%E6%96%87%E6%80%9D%E8%80%83%E3%80%8D%EF%BC%9F"> 為什麼要「英文思考」？</a></li><li class="toc-item"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E3%80%8C%E4%B8%AD%E6%96%87%E8%BC%B8%E5%87%BA%E3%80%8D%EF%BC%9F"> 為什麼要「中文輸出」？</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#3.-%E5%AF%A6%E4%BE%8B%E6%AF%94%E8%BC%83%EF%BC%9A%E7%B4%94%E4%B8%AD%E6%96%87-vs-%E9%9B%99%E8%AA%9E%E7%AD%96%E7%95%A5"> 3. 實例比較：純中文 vs 雙語策略</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%B4%94%E4%B8%AD%E6%96%87%E6%8F%90%E7%A4%BA%E8%A9%9E"> 純中文提示詞</a></li><li class="toc-item"><a class="toc-link" href="#%E9%9B%99%E8%AA%9E%E7%AD%96%E7%95%A5%E6%8F%90%E7%A4%BA%E8%A9%9E"> 雙語策略提示詞</a></li></ul></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E7%94%9F%E6%88%90-todo-%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F"> 實作練習：生成 TODO 應用程式</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%BA%96%E5%82%99%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0"> 步驟 1：準備需求描述</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E6%A7%8B%E5%BB%BA%E9%BB%83%E9%87%91%E6%8F%90%E7%A4%BA%E8%A9%9E"> 步驟 2：構建黃金提示詞</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E8%A9%95%E4%BC%B0%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC"> 步驟 3：評估生成的程式碼</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%95%B4%E6%80%A7%E6%AA%A2%E6%9F%A5"> 功能完整性檢查</a></li><li class="toc-item"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%93%81%E8%B3%AA%E8%A9%95%E4%BC%B0"> 程式碼品質評估</a></li><li class="toc-item"><a class="toc-link" href="#%E5%8F%AF%E7%B6%AD%E8%AD%B7%E6%80%A7%E8%80%83%E9%87%8F"> 可維護性考量</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-4%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%84%AA%E5%8C%96%E6%8A%80%E5%B7%A7"> 步驟 4：迭代優化技巧</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E5%85%B7%E9%AB%94%E5%8C%96%E6%94%B9%E9%80%B2%E8%AB%8B%E6%B1%82"> 1. 具體化改進請求</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E5%88%86%E6%AD%A5%E9%A9%9F%E9%87%8D%E6%A7%8B"> 2. 分步驟重構</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%8F%90%E4%BE%9B%E7%AF%84%E4%BE%8B%E5%8F%83%E8%80%83"> 3. 提供範例參考</a></li></ul></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8A%80%E5%B7%A7"> 進階技巧</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E6%9E%B6%E6%A7%8B%E6%A8%A1%E5%BC%8F%E6%8C%87%E5%B0%8E"> 1. 架構模式指導</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96%E6%8C%87%E5%BC%95"> 2. 效能優化指引</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%B8%AC%E8%A9%A6%E5%B0%8E%E5%90%91%E9%96%8B%E7%99%BC"> 3. 測試導向開發</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E6%88%B0%E6%BC%94%E7%B7%B4%EF%BC%9A%E6%93%B4%E5%B1%95%E5%8A%9F%E8%83%BD"> 實戰演練：擴展功能</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%B7%B4%E7%BF%92-1%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%84%AA%E5%85%88%E7%B4%9A%E5%8A%9F%E8%83%BD"> 練習 1：添加優先級功能</a></li><li class="toc-item"><a class="toc-link" href="#%E7%B7%B4%E7%BF%92-2%EF%BC%9A%E5%8D%94%E4%BD%9C%E5%8A%9F%E8%83%BD"> 練習 2：協作功能</a></li><li class="toc-item"><a class="toc-link" href="#%E7%B7%B4%E7%BF%92-3%EF%BC%9A%E6%99%BA%E6%85%A7%E5%BB%BA%E8%AD%B0"> 練習 3：智慧建議</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"> 常見問題與解決方案</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#q1%3A-ai-%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%B5%90%E6%A7%8B%E6%B7%B7%E4%BA%82%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"> Q1: AI 生成的程式碼結構混亂怎麼辦？</a></li><li class="toc-item"><a class="toc-link" href="#q2%3A-%E5%A6%82%E4%BD%95%E7%A2%BA%E4%BF%9D%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%AE%89%E5%85%A8%EF%BC%9F"> Q2: 如何確保生成的程式碼安全？</a></li><li class="toc-item"><a class="toc-link" href="#q3%3A-ai-%E4%B8%8D%E7%90%86%E8%A7%A3%E8%A4%87%E9%9B%9C%E7%9A%84%E6%A5%AD%E5%8B%99%E9%82%8F%E8%BC%AF%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"> Q3: AI 不理解複雜的業務邏輯怎麼辦？</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AF%A6%E8%B8%90%E7%B8%BD%E7%B5%90"> 最佳實踐總結</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%B7%A8%E5%AF%AB%E5%8E%9F%E5%89%87"> 1. 提示詞編寫原則</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E7%A8%8B%E5%BC%8F%E7%A2%BC%E8%A9%95%E4%BC%B0%E6%A8%99%E6%BA%96"> 2. 程式碼評估標準</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E8%BF%AD%E4%BB%A3%E5%84%AA%E5%8C%96%E6%B5%81%E7%A8%8B"> 3. 迭代優化流程</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0"> 思考與挑戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C"> 深度思考題</a></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0"> 進階挑戰</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"> 下一步</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90"> 資源連結</a></li><li class="toc-item"><a class="toc-link" href="#%E6%9C%AC%E7%AB%A0%E4%BD%9C%E6%A5%AD"> 本章作業</a></li></ul></li></ul></nav><h1 id="%E7%AC%AC%E4%B8%80%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E7%94%9F%E6%88%90%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%B8%80%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E7%94%9F%E6%88%90%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F">§</a> 第一樂章：AI 生成應用程式</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>在這個章節中，我們將學習如何從「AI 指揮家」的角度，使用自然語言描述需求，引導 AI 生成完整的應用程式。這是自循環工作流程的第一步，也是最關鍵的基礎。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本章節後，你將能夠：</p>
+<ul>
+<li>理解如何將業務需求轉換為清晰的自然語言描述</li>
+<li>掌握「英文思考，中文輸出」的雙語提示詞策略</li>
+<li>學會評估和驗證 AI 生成的程式碼品質</li>
+<li>運用迭代優化技術改進生成結果</li>
+<li>建立對 AI 程式碼生成能力的正確期待</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapter 1 的環境設置</li>
+<li>具備基本的 JavaScript/TypeScript 知識</li>
+<li>已配置好 AI 工具（Claude、Gemini 或 GPT）</li>
+<li>準備好 VS Code 開發環境</li>
+</ul>
+<h2 id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a> 核心概念</h2>
+<h3 id="1.-%E5%BE%9E%E9%9C%80%E6%B1%82%E5%88%B0%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%9A%84%E8%BD%89%E6%8F%9B" tabindex="-1"><a class="header-anchor" href="#1.-%E5%BE%9E%E9%9C%80%E6%B1%82%E5%88%B0%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%9A%84%E8%BD%89%E6%8F%9B">§</a> 1. 從需求到程式碼的轉換</h3>
+<p>傳統開發流程中，我們需要：</p>
+<ol>
+<li>理解需求</li>
+<li>設計架構</li>
+<li>編寫程式碼</li>
+<li>測試驗證</li>
+</ol>
+<p>作為 AI 指揮家，我們將這個流程轉變為：</p>
+<ol>
+<li><strong>清晰描述</strong>需求給 AI</li>
+<li><strong>引導</strong> AI 生成架構和程式碼</li>
+<li><strong>評估</strong>生成結果</li>
+<li><strong>迭代</strong>優化</li>
+</ol>
+<h3 id="2.-%E9%9B%99%E8%AA%9E%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%AD%96%E7%95%A5%E7%9A%84%E5%A8%81%E5%8A%9B" tabindex="-1"><a class="header-anchor" href="#2.-%E9%9B%99%E8%AA%9E%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%AD%96%E7%95%A5%E7%9A%84%E5%A8%81%E5%8A%9B">§</a> 2. 雙語提示詞策略的威力</h3>
+<h4 id="%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E3%80%8C%E8%8B%B1%E6%96%87%E6%80%9D%E8%80%83%E3%80%8D%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E3%80%8C%E8%8B%B1%E6%96%87%E6%80%9D%E8%80%83%E3%80%8D%EF%BC%9F">§</a> 為什麼要「英文思考」？</h4>
+<p>AI 模型在英文訓練資料上有更豐富的程式設計範例，使用英文描述技術需求能夠：</p>
+<ul>
+<li>獲得更精確的程式碼結構</li>
+<li>減少歧義和誤解</li>
+<li>利用 AI 的最佳能力範圍</li>
+</ul>
+<h4 id="%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E3%80%8C%E4%B8%AD%E6%96%87%E8%BC%B8%E5%87%BA%E3%80%8D%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E3%80%8C%E4%B8%AD%E6%96%87%E8%BC%B8%E5%87%BA%E3%80%8D%EF%BC%9F">§</a> 為什麼要「中文輸出」？</h4>
+<p>保持中文輸出確保：</p>
+<ul>
+<li>團隊成員易於理解</li>
+<li>註釋和文檔符合本地需求</li>
+<li>降低溝通成本</li>
+</ul>
+<h3 id="3.-%E5%AF%A6%E4%BE%8B%E6%AF%94%E8%BC%83%EF%BC%9A%E7%B4%94%E4%B8%AD%E6%96%87-vs-%E9%9B%99%E8%AA%9E%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#3.-%E5%AF%A6%E4%BE%8B%E6%AF%94%E8%BC%83%EF%BC%9A%E7%B4%94%E4%B8%AD%E6%96%87-vs-%E9%9B%99%E8%AA%9E%E7%AD%96%E7%95%A5">§</a> 3. 實例比較：純中文 vs 雙語策略</h3>
+<p>讓我們通過一個簡單的 TODO 應用來比較兩種方法：</p>
+<h4 id="%E7%B4%94%E4%B8%AD%E6%96%87%E6%8F%90%E7%A4%BA%E8%A9%9E" tabindex="-1"><a class="header-anchor" href="#%E7%B4%94%E4%B8%AD%E6%96%87%E6%8F%90%E7%A4%BA%E8%A9%9E">§</a> 純中文提示詞</h4>
+<pre><code>請幫我創建一個待辦事項應用程式，需要有新增、刪除、標記完成的功能。
+</code></pre>
+<h4 id="%E9%9B%99%E8%AA%9E%E7%AD%96%E7%95%A5%E6%8F%90%E7%A4%BA%E8%A9%9E" tabindex="-1"><a class="header-anchor" href="#%E9%9B%99%E8%AA%9E%E7%AD%96%E7%95%A5%E6%8F%90%E7%A4%BA%E8%A9%9E">§</a> 雙語策略提示詞</h4>
+<pre><code>[Technical Requirements in English]
+Create a TODO application with the following features:
+- Add new todo items with title and description
+- Mark items as complete/incomplete with checkbox
+- Delete items with confirmation
+- Filter by status (all/active/completed)
+- Persist data in localStorage
+- Responsive design with mobile support
+
+[Output Requirements in Chinese]
+請使用繁體中文編寫所有註釋、變數名稱和使用者介面文字。
+程式碼結構要清晰，包含適當的錯誤處理。
+</code></pre>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E7%94%9F%E6%88%90-todo-%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E7%94%9F%E6%88%90-todo-%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F">§</a> 實作練習：生成 TODO 應用程式</h2>
+<h3 id="%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%BA%96%E5%82%99%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%BA%96%E5%82%99%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0">§</a> 步驟 1：準備需求描述</h3>
+<p>創建一個清晰、結構化的需求文檔：</p>
+<pre><code class="language-markdown"><span class="hljs-section"># TODO Application Requirements</span>
+
+<span class="hljs-section">## Functional Requirements</span>
+<span class="hljs-bullet">1.</span> User can add new todo items
+<span class="hljs-bullet">2.</span> User can mark items as complete/incomplete
+<span class="hljs-bullet">3.</span> User can delete items
+<span class="hljs-bullet">4.</span> User can filter items by status
+<span class="hljs-bullet">5.</span> Data persists across sessions
+
+<span class="hljs-section">## Technical Requirements</span>
+<span class="hljs-bullet">-</span> Pure JavaScript/HTML/CSS (no frameworks initially)
+<span class="hljs-bullet">-</span> localStorage for data persistence
+<span class="hljs-bullet">-</span> Responsive design
+<span class="hljs-bullet">-</span> Clean code architecture
+<span class="hljs-bullet">-</span> Error handling
+
+<span class="hljs-section">## UI/UX Requirements</span>
+<span class="hljs-bullet">-</span> Clean, modern interface
+<span class="hljs-bullet">-</span> Intuitive interactions
+<span class="hljs-bullet">-</span> Visual feedback for actions
+<span class="hljs-bullet">-</span> Mobile-friendly layout
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E6%A7%8B%E5%BB%BA%E9%BB%83%E9%87%91%E6%8F%90%E7%A4%BA%E8%A9%9E" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E6%A7%8B%E5%BB%BA%E9%BB%83%E9%87%91%E6%8F%90%E7%A4%BA%E8%A9%9E">§</a> 步驟 2：構建黃金提示詞</h3>
+<pre><code class="language-markdown">You are an expert full-stack developer. Please create a TODO application based on the following requirements:
+
+[Core Features]
+<span class="hljs-bullet">1.</span> Add TODO items with:
+<span class="hljs-bullet">   -</span> Title (required)
+<span class="hljs-bullet">   -</span> Description (optional)
+<span class="hljs-bullet">   -</span> Created timestamp
+<span class="hljs-bullet">   -</span> Unique ID
+
+<span class="hljs-bullet">2.</span> Item Management:
+<span class="hljs-bullet">   -</span> Toggle complete/incomplete status
+<span class="hljs-bullet">   -</span> Delete with confirmation dialog
+<span class="hljs-bullet">   -</span> Edit existing items
+<span class="hljs-bullet">   -</span> Display completion percentage
+
+<span class="hljs-bullet">3.</span> Filtering &amp; Sorting:
+<span class="hljs-bullet">   -</span> Filter by: All, Active, Completed
+<span class="hljs-bullet">   -</span> Sort by: Date created, Alphabetical
+<span class="hljs-bullet">   -</span> Search by keyword
+
+<span class="hljs-bullet">4.</span> Data Persistence:
+<span class="hljs-bullet">   -</span> Use localStorage API
+<span class="hljs-bullet">   -</span> Handle storage errors gracefully
+<span class="hljs-bullet">   -</span> Data validation before saving
+
+[Technical Implementation]
+<span class="hljs-bullet">-</span> Use vanilla JavaScript with ES6+ features
+<span class="hljs-bullet">-</span> Implement MVC or similar pattern for organization
+<span class="hljs-bullet">-</span> Add proper error handling and user feedback
+<span class="hljs-bullet">-</span> Ensure cross-browser compatibility
+<span class="hljs-bullet">-</span> Mobile-responsive design
+
+[Code Quality]
+<span class="hljs-bullet">-</span> Clear variable and function names
+<span class="hljs-bullet">-</span> Comprehensive comments in Traditional Chinese
+<span class="hljs-bullet">-</span> Modular, reusable code structure
+<span class="hljs-bullet">-</span> Follow JavaScript best practices
+
+請使用繁體中文為所有使用者介面文字、註釋和文檔。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E8%A9%95%E4%BC%B0%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E8%A9%95%E4%BC%B0%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC">§</a> 步驟 3：評估生成的程式碼</h3>
+<p>當 AI 生成程式碼後，使用以下檢查清單評估：</p>
+<h4 id="%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%95%B4%E6%80%A7%E6%AA%A2%E6%9F%A5" tabindex="-1"><a class="header-anchor" href="#%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%95%B4%E6%80%A7%E6%AA%A2%E6%9F%A5">§</a> 功能完整性檢查</h4>
+<ul>
+<li>[ ] 所有需求功能都已實現</li>
+<li>[ ] 使用者介面直觀易用</li>
+<li>[ ] 資料持久化正常運作</li>
+<li>[ ] 錯誤處理機制完善</li>
+</ul>
+<h4 id="%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%93%81%E8%B3%AA%E8%A9%95%E4%BC%B0" tabindex="-1"><a class="header-anchor" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%93%81%E8%B3%AA%E8%A9%95%E4%BC%B0">§</a> 程式碼品質評估</h4>
+<ul>
+<li>[ ] 程式碼結構清晰</li>
+<li>[ ] 命名規範一致</li>
+<li>[ ] 註釋充分且有意義</li>
+<li>[ ] 無明顯的效能問題</li>
+</ul>
+<h4 id="%E5%8F%AF%E7%B6%AD%E8%AD%B7%E6%80%A7%E8%80%83%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E7%B6%AD%E8%AD%B7%E6%80%A7%E8%80%83%E9%87%8F">§</a> 可維護性考量</h4>
+<ul>
+<li>[ ] 模組化設計</li>
+<li>[ ] 易於擴展新功能</li>
+<li>[ ] 程式碼可讀性高</li>
+<li>[ ] 遵循最佳實踐</li>
+</ul>
+<h3 id="%E6%AD%A5%E9%A9%9F-4%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%84%AA%E5%8C%96%E6%8A%80%E5%B7%A7" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-4%EF%BC%9A%E8%BF%AD%E4%BB%A3%E5%84%AA%E5%8C%96%E6%8A%80%E5%B7%A7">§</a> 步驟 4：迭代優化技巧</h3>
+<p>如果初次生成的結果不理想，使用以下策略優化：</p>
+<h4 id="1.-%E5%85%B7%E9%AB%94%E5%8C%96%E6%94%B9%E9%80%B2%E8%AB%8B%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#1.-%E5%85%B7%E9%AB%94%E5%8C%96%E6%94%B9%E9%80%B2%E8%AB%8B%E6%B1%82">§</a> 1. 具體化改進請求</h4>
+<pre><code>The current implementation lacks proper error handling. 
+Please add:
+1. Try-catch blocks for localStorage operations
+2. User-friendly error messages in Traditional Chinese
+3. Fallback behavior when storage is full
+4. Input validation with clear feedback
+</code></pre>
+<h4 id="2.-%E5%88%86%E6%AD%A5%E9%A9%9F%E9%87%8D%E6%A7%8B" tabindex="-1"><a class="header-anchor" href="#2.-%E5%88%86%E6%AD%A5%E9%A9%9F%E9%87%8D%E6%A7%8B">§</a> 2. 分步驟重構</h4>
+<pre><code>Let's refactor the code step by step:
+Step 1: Extract the data layer into a separate module
+Step 2: Implement a proper event system
+Step 3: Add unit tests for core functions
+Step 4: Optimize for performance
+</code></pre>
+<h4 id="3.-%E6%8F%90%E4%BE%9B%E7%AF%84%E4%BE%8B%E5%8F%83%E8%80%83" tabindex="-1"><a class="header-anchor" href="#3.-%E6%8F%90%E4%BE%9B%E7%AF%84%E4%BE%8B%E5%8F%83%E8%80%83">§</a> 3. 提供範例參考</h4>
+<pre><code>Please refactor the TODO item component to follow this pattern:
+
+class TodoItem {
+  constructor(data) {
+    this.id = data.id;
+    this.title = data.title;
+    // ... other properties
+  }
+  
+  render() {
+    // Return HTML string or DOM element
+  }
+  
+  update(newData) {
+    // Update internal state and re-render
+  }
+}
+</code></pre>
+<h2 id="%E9%80%B2%E9%9A%8E%E6%8A%80%E5%B7%A7" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8A%80%E5%B7%A7">§</a> 進階技巧</h2>
+<h3 id="1.-%E6%9E%B6%E6%A7%8B%E6%A8%A1%E5%BC%8F%E6%8C%87%E5%B0%8E" tabindex="-1"><a class="header-anchor" href="#1.-%E6%9E%B6%E6%A7%8B%E6%A8%A1%E5%BC%8F%E6%8C%87%E5%B0%8E">§</a> 1. 架構模式指導</h3>
+<p>教導 AI 使用特定的架構模式：</p>
+<pre><code>Please implement the TODO app using the MVC pattern:
+- Model: Handle data and business logic
+- View: Manage UI rendering and updates
+- Controller: Coordinate between Model and View
+
+Ensure clear separation of concerns and use event-driven communication.
+</code></pre>
+<h3 id="2.-%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96%E6%8C%87%E5%BC%95" tabindex="-1"><a class="header-anchor" href="#2.-%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96%E6%8C%87%E5%BC%95">§</a> 2. 效能優化指引</h3>
+<pre><code>Optimize the application for performance:
+1. Implement virtual scrolling for large lists
+2. Use debouncing for search input
+3. Lazy load non-critical features
+4. Minimize DOM manipulations
+</code></pre>
+<h3 id="3.-%E6%B8%AC%E8%A9%A6%E5%B0%8E%E5%90%91%E9%96%8B%E7%99%BC" tabindex="-1"><a class="header-anchor" href="#3.-%E6%B8%AC%E8%A9%A6%E5%B0%8E%E5%90%91%E9%96%8B%E7%99%BC">§</a> 3. 測試導向開發</h3>
+<pre><code>Before implementing features, write test cases:
+1. Define expected behavior
+2. Create test scenarios
+3. Implement code to pass tests
+4. Refactor for quality
+</code></pre>
+<h2 id="%E5%AF%A6%E6%88%B0%E6%BC%94%E7%B7%B4%EF%BC%9A%E6%93%B4%E5%B1%95%E5%8A%9F%E8%83%BD" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E6%88%B0%E6%BC%94%E7%B7%B4%EF%BC%9A%E6%93%B4%E5%B1%95%E5%8A%9F%E8%83%BD">§</a> 實戰演練：擴展功能</h2>
+<h3 id="%E7%B7%B4%E7%BF%92-1%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%84%AA%E5%85%88%E7%B4%9A%E5%8A%9F%E8%83%BD" tabindex="-1"><a class="header-anchor" href="#%E7%B7%B4%E7%BF%92-1%EF%BC%9A%E6%B7%BB%E5%8A%A0%E5%84%AA%E5%85%88%E7%B4%9A%E5%8A%9F%E8%83%BD">§</a> 練習 1：添加優先級功能</h3>
+<p>擴展 TODO 應用，加入優先級管理：</p>
+<pre><code>Extend the TODO app with priority levels:
+- High, Medium, Low priority options
+- Color coding for visual distinction
+- Sort by priority
+- Priority-based notifications
+
+保持所有使用者介面文字使用繁體中文。
+</code></pre>
+<h3 id="%E7%B7%B4%E7%BF%92-2%EF%BC%9A%E5%8D%94%E4%BD%9C%E5%8A%9F%E8%83%BD" tabindex="-1"><a class="header-anchor" href="#%E7%B7%B4%E7%BF%92-2%EF%BC%9A%E5%8D%94%E4%BD%9C%E5%8A%9F%E8%83%BD">§</a> 練習 2：協作功能</h3>
+<p>加入簡單的協作特性：</p>
+<pre><code>Add collaboration features:
+- Export/Import TODO lists as JSON
+- Share lists via URL
+- Basic conflict resolution
+- Activity history log
+
+確保匯出的資料格式清晰且易於理解。
+</code></pre>
+<h3 id="%E7%B7%B4%E7%BF%92-3%EF%BC%9A%E6%99%BA%E6%85%A7%E5%BB%BA%E8%AD%B0" tabindex="-1"><a class="header-anchor" href="#%E7%B7%B4%E7%BF%92-3%EF%BC%9A%E6%99%BA%E6%85%A7%E5%BB%BA%E8%AD%B0">§</a> 練習 3：智慧建議</h3>
+<p>整合 AI 輔助功能：</p>
+<pre><code>Implement smart suggestions:
+- Auto-categorize TODOs
+- Suggest due dates based on patterns
+- Provide completion time estimates
+- Generate task breakdowns for complex items
+
+使用繁體中文顯示所有建議內容。
+</code></pre>
+<h2 id="%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88">§</a> 常見問題與解決方案</h2>
+<h3 id="q1%3A-ai-%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%B5%90%E6%A7%8B%E6%B7%B7%E4%BA%82%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#q1%3A-ai-%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%B5%90%E6%A7%8B%E6%B7%B7%E4%BA%82%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F">§</a> Q1: AI 生成的程式碼結構混亂怎麼辦？</h3>
+<p><strong>解決方案</strong>：</p>
+<ol>
+<li>在提示詞中明確指定檔案結構</li>
+<li>要求使用特定的設計模式</li>
+<li>提供程式碼組織範例</li>
+<li>分步驟請求重構</li>
+</ol>
+<p>範例：</p>
+<pre><code>Please organize the code into the following structure:
+/src
+  /models     - Data models and business logic
+  /views      - UI components and templates
+  /controllers - Application logic and event handlers
+  /utils      - Helper functions and utilities
+  /styles     - CSS files
+index.html    - Main HTML file
+app.js        - Application entry point
+</code></pre>
+<h3 id="q2%3A-%E5%A6%82%E4%BD%95%E7%A2%BA%E4%BF%9D%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%AE%89%E5%85%A8%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#q2%3A-%E5%A6%82%E4%BD%95%E7%A2%BA%E4%BF%9D%E7%94%9F%E6%88%90%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%AE%89%E5%85%A8%EF%BC%9F">§</a> Q2: 如何確保生成的程式碼安全？</h3>
+<p><strong>解決方案</strong>：</p>
+<ol>
+<li>明確要求安全措施</li>
+<li>指定輸入驗證規則</li>
+<li>要求處理邊界情況</li>
+<li>請求安全性檢查</li>
+</ol>
+<p>範例：</p>
+<pre><code>Ensure the application is secure:
+1. Sanitize all user inputs
+2. Validate data before saving
+3. Implement XSS protection
+4. Add CSRF token for forms
+5. Use Content Security Policy
+</code></pre>
+<h3 id="q3%3A-ai-%E4%B8%8D%E7%90%86%E8%A7%A3%E8%A4%87%E9%9B%9C%E7%9A%84%E6%A5%AD%E5%8B%99%E9%82%8F%E8%BC%AF%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#q3%3A-ai-%E4%B8%8D%E7%90%86%E8%A7%A3%E8%A4%87%E9%9B%9C%E7%9A%84%E6%A5%AD%E5%8B%99%E9%82%8F%E8%BC%AF%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F">§</a> Q3: AI 不理解複雜的業務邏輯怎麼辦？</h3>
+<p><strong>解決方案</strong>：</p>
+<ol>
+<li>將複雜邏輯分解為小步驟</li>
+<li>提供具體的業務規則範例</li>
+<li>使用流程圖或偽代碼說明</li>
+<li>逐步驗證理解</li>
+</ol>
+<p>範例：</p>
+<pre><code>Let me explain the business logic step by step:
+
+1. When user creates a TODO:
+   - Check if similar task exists
+   - If yes, suggest merging
+   - If no, create new with auto-generated ID
+
+2. For recurring tasks:
+   - Daily: Create new instance each day at 00:00
+   - Weekly: Create on specified weekday
+   - Monthly: Create on specified date
+
+3. Completion rules:
+   - Single task: Mark as done
+   - Recurring: Complete current instance only
+   - Project: Update parent progress
+</code></pre>
+<h2 id="%E6%9C%80%E4%BD%B3%E5%AF%A6%E8%B8%90%E7%B8%BD%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E6%9C%80%E4%BD%B3%E5%AF%A6%E8%B8%90%E7%B8%BD%E7%B5%90">§</a> 最佳實踐總結</h2>
+<h3 id="1.-%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%B7%A8%E5%AF%AB%E5%8E%9F%E5%89%87" tabindex="-1"><a class="header-anchor" href="#1.-%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%B7%A8%E5%AF%AB%E5%8E%9F%E5%89%87">§</a> 1. 提示詞編寫原則</h3>
+<ul>
+<li><strong>具體明確</strong>：避免模糊的描述</li>
+<li><strong>結構化</strong>：使用清晰的章節和編號</li>
+<li><strong>漸進式</strong>：從簡單到複雜逐步構建</li>
+<li><strong>包含範例</strong>：提供期望輸出的範例</li>
+</ul>
+<h3 id="2.-%E7%A8%8B%E5%BC%8F%E7%A2%BC%E8%A9%95%E4%BC%B0%E6%A8%99%E6%BA%96" tabindex="-1"><a class="header-anchor" href="#2.-%E7%A8%8B%E5%BC%8F%E7%A2%BC%E8%A9%95%E4%BC%B0%E6%A8%99%E6%BA%96">§</a> 2. 程式碼評估標準</h3>
+<ul>
+<li><strong>功能性</strong>：是否滿足所有需求</li>
+<li><strong>可讀性</strong>：程式碼是否易於理解</li>
+<li><strong>可維護性</strong>：是否易於修改和擴展</li>
+<li><strong>效能</strong>：是否有明顯的效能問題</li>
+<li><strong>安全性</strong>：是否有安全漏洞</li>
+</ul>
+<h3 id="3.-%E8%BF%AD%E4%BB%A3%E5%84%AA%E5%8C%96%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#3.-%E8%BF%AD%E4%BB%A3%E5%84%AA%E5%8C%96%E6%B5%81%E7%A8%8B">§</a> 3. 迭代優化流程</h3>
+<ol>
+<li><strong>初次生成</strong>：獲得基本實現</li>
+<li><strong>功能驗證</strong>：確認核心功能運作</li>
+<li><strong>品質提升</strong>：改進程式碼結構</li>
+<li><strong>效能優化</strong>：處理效能瓶頸</li>
+<li><strong>安全加固</strong>：修復安全問題</li>
+</ol>
+<h2 id="%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0">§</a> 思考與挑戰</h2>
+<h3 id="%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C">§</a> 深度思考題</h3>
+<ol>
+<li><strong>架構選擇</strong>：為什麼某些架構模式更適合 AI 生成？</li>
+<li><strong>提示詞優化</strong>：如何量化提示詞的效果？</li>
+<li><strong>品質保證</strong>：如何建立 AI 生成程式碼的品質標準？</li>
+<li><strong>團隊協作</strong>：如何在團隊中推廣 AI 指揮家方法？</li>
+</ol>
+<h3 id="%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0">§</a> 進階挑戰</h3>
+<ol>
+<li><strong>多語言支援</strong>：擴展應用支援英文、簡體中文介面</li>
+<li><strong>離線功能</strong>：實現完整的離線工作能力</li>
+<li><strong>資料同步</strong>：加入雲端同步功能</li>
+<li><strong>AI 整合</strong>：整合 AI API 提供智慧功能</li>
+</ol>
+<h2 id="%E4%B8%8B%E4%B8%80%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5">§</a> 下一步</h2>
+<p>恭喜你完成了第一樂章！你已經學會了如何指揮 AI 生成應用程式。在下一章「第二樂章：AI 擔任測試策略師」中，我們將學習如何讓 AI 為生成的程式碼制定全面的測試策略。</p>
+<p>記住，成為優秀的 AI 指揮家需要不斷練習。多嘗試不同類型的應用，探索各種提示詞技巧，逐步建立自己的「黃金提示詞」庫。</p>
+<h2 id="%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90">§</a> 資源連結</h2>
+<ul>
+<li><a href="https://playwright.dev">Playwright 官方文檔</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript">JavaScript MDN 文檔</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Storage_API">Web Storage API</a></li>
+<li><a href="https://github.com/bendc/frontend-guidelines">前端最佳實踐</a></li>
+</ul>
+<h2 id="%E6%9C%AC%E7%AB%A0%E4%BD%9C%E6%A5%AD" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E7%AB%A0%E4%BD%9C%E6%A5%AD">§</a> 本章作業</h2>
+<ol>
+<li><strong>基礎任務</strong>：使用本章學到的技巧，生成一個完整的 TODO 應用</li>
+<li><strong>進階任務</strong>：加入至少三個額外功能（如標籤、提醒、統計）</li>
+<li><strong>挑戰任務</strong>：將應用改造為 Progressive Web App (PWA)</li>
+</ol>
+<p>提交作業時，請包含：</p>
+<ul>
+<li>完整的源代碼</li>
+<li>使用的提示詞記錄</li>
+<li>迭代優化的過程說明</li>
+<li>學習心得分享</li>
+</ul>
+<hr>
+<p><em>「優秀的指揮家不是自己演奏每個樂器，而是引導每個樂器發揮最佳表現。」</em></p>
 
             </section>
 

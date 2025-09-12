@@ -1,21 +1,3 @@
-# Chapter 03: Untitled
-
-## 學習目標
-
-
-## 前置需求
-
-- 完成 Chapter 2，擁有一個可運行的 TODO 應用
-- 理解基本的軟體測試概念
-- 熟悉 JavaScript/TypeScript
-- 準備好 Playwright 測試環境
-
-## 預計時間
-
-2 hours
-
----
-
 # 第二樂章：AI 擔任測試策略師
 
 ## 章節概述

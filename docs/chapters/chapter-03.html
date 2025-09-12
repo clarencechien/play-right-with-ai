@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 03 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 03: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 03: Chapter 03</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapter 2，擁有一個可運行的 TODO 應用</li>
+<li>理解基本的軟體測試概念</li>
+<li>熟悉 JavaScript/TypeScript</li>
+<li>準備好 Playwright 測試環境</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,421 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E6%93%94%E4%BB%BB%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%B8%AB"> 第二樂章：AI 擔任測試策略師</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"> 核心概念</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-ai-%E4%BD%9C%E7%82%BA%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%B8%AB%E7%9A%84%E5%84%AA%E5%8B%A2"> 1. AI 作為測試策略師的優勢</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E6%B8%AC%E8%A9%A6%E9%87%91%E5%AD%97%E5%A1%94%E8%88%87-ai-%E7%9A%84%E7%B5%90%E5%90%88"> 2. 測試金字塔與 AI 的結合</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E7%B5%84%E6%88%90%E8%A6%81%E7%B4%A0"> 3. 測試策略的組成要素</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%88%B6%E5%AE%9A-todo-%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5"> 實作練習：制定 TODO 應用測試策略</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%BA%96%E5%82%99%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%88%86%E6%9E%90%E6%8F%90%E7%A4%BA%E8%A9%9E"> 步驟 1：準備程式碼分析提示詞</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E5%8A%9F%E8%83%BD%E5%88%86%E8%A7%A3%E8%88%87%E6%B8%AC%E8%A9%A6%E6%98%A0%E5%B0%84"> 步驟 2：功能分解與測試映射</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E7%94%9F%E6%88%90%E8%A9%B3%E7%B4%B0%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B"> 步驟 3：生成詳細測試案例</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%96%B0%E5%A2%9E-todo-%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B"> 範例：新增 TODO 功能的測試案例</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-4%EF%BC%9Ae2e-%E6%B8%AC%E8%A9%A6%E5%A0%B4%E6%99%AF%E8%A8%AD%E8%A8%88"> 步驟 4：E2E 測試場景設計</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E6%8A%80%E5%B7%A7"> 進階測試策略技巧</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E9%A2%A8%E9%9A%AA%E5%B0%8E%E5%90%91%E6%B8%AC%E8%A9%A6-(risk-based-testing)"> 1. 風險導向測試 (Risk-Based Testing)</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99%E7%AD%96%E7%95%A5"> 2. 測試資料策略</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E7%8E%87%E5%88%86%E6%9E%90"> 3. 測試覆蓋率分析</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E6%88%B0%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%A4%87%E9%9B%9C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5"> 實戰案例：複雜功能的測試策略</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%B8%AC%E8%A9%A6"> 案例 1：批量操作測試</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2%EF%BC%9A%E5%8D%B3%E6%99%82%E5%8D%94%E4%BD%9C%E6%B8%AC%E8%A9%A6"> 案例 2：即時協作測試</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-3%EF%BC%9A%E6%99%BA%E6%85%A7%E5%8A%9F%E8%83%BD%E6%B8%AC%E8%A9%A6"> 案例 3：智慧功能測試</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6%E8%A8%88%E5%8A%83%E8%A9%95%E4%BC%B0%E6%AA%A2%E6%9F%A5%E8%A1%A8"> 測試計劃評估檢查表</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E6%AA%A2%E6%9F%A5"> 完整性檢查</a></li><li class="toc-item"><a class="toc-link" href="#%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%A9%95%E4%BC%B0"> 可行性評估</a></li><li class="toc-item"><a class="toc-link" href="#%E5%93%81%E8%B3%AA%E6%8C%87%E6%A8%99"> 品質指標</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"> 常見問題與解決方案</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#q1%3A-ai-%E7%94%9F%E6%88%90%E7%9A%84%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%E5%A4%AA%E7%B1%A0%E7%B5%B1%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"> Q1: AI 生成的測試案例太籠統怎麼辦？</a></li><li class="toc-item"><a class="toc-link" href="#q2%3A-%E5%A6%82%E4%BD%95%E7%A2%BA%E4%BF%9D%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%EF%BC%9F"> Q2: 如何確保測試策略的完整性？</a></li><li class="toc-item"><a class="toc-link" href="#q3%3A-%E5%A6%82%E4%BD%95%E5%B9%B3%E8%A1%A1%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E7%8E%87%E5%92%8C%E6%95%88%E7%8E%87%EF%BC%9F"> Q3: 如何平衡測試覆蓋率和效率？</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AF%A6%E8%B8%90%E7%B8%BD%E7%B5%90"> 最佳實踐總結</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%8E%9F%E5%89%87"> 1. 測試策略原則</a></li><li class="toc-item"><a class="toc-link" href="#2.-ai-%E6%8F%90%E7%A4%BA%E8%A9%9E%E6%8A%80%E5%B7%A7"> 2. AI 提示詞技巧</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%B8%AC%E8%A9%A6%E5%84%AA%E5%85%88%E7%B4%9A%E6%A1%86%E6%9E%B6"> 3. 測試優先級框架</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0"> 思考與挑戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C"> 深度思考題</a></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0"> 進階挑戰</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E6%96%87%E6%AA%94"> 實作練習：測試策略文檔</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%B7%B4%E7%BF%92%E7%9B%AE%E6%A8%99"> 練習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"> 提交要求</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"> 下一步</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90"> 資源連結</a></li></ul></li></ul></nav><h1 id="%E7%AC%AC%E4%BA%8C%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E6%93%94%E4%BB%BB%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%B8%AB" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%BA%8C%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E6%93%94%E4%BB%BB%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%B8%AB">§</a> 第二樂章：AI 擔任測試策略師</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>在上一章中，我們學會了如何指揮 AI 生成應用程式。現在，我們要讓 AI 轉換角色，成為專業的測試策略師。AI 將分析程式碼、理解功能，並制定全面的測試計劃，確保應用程式的品質和可靠性。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本章節後，你將能夠：</p>
+<ul>
+<li>引導 AI 分析程式碼並理解應用架構</li>
+<li>讓 AI 制定完整的端到端測試策略</li>
+<li>理解測試覆蓋率的重要性和計算方法</li>
+<li>評估 AI 生成的測試計劃品質</li>
+<li>掌握測試優先級和風險評估技巧</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapter 2，擁有一個可運行的 TODO 應用</li>
+<li>理解基本的軟體測試概念</li>
+<li>熟悉 JavaScript/TypeScript</li>
+<li>準備好 Playwright 測試環境</li>
+</ul>
+<h2 id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a> 核心概念</h2>
+<h3 id="1.-ai-%E4%BD%9C%E7%82%BA%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%B8%AB%E7%9A%84%E5%84%AA%E5%8B%A2" tabindex="-1"><a class="header-anchor" href="#1.-ai-%E4%BD%9C%E7%82%BA%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%B8%AB%E7%9A%84%E5%84%AA%E5%8B%A2">§</a> 1. AI 作為測試策略師的優勢</h3>
+<p>傳統測試策略制定需要：</p>
+<ul>
+<li>深入理解業務需求</li>
+<li>分析程式碼結構</li>
+<li>識別關鍵路徑</li>
+<li>評估風險區域</li>
+<li>設計測試案例</li>
+</ul>
+<p>AI 測試策略師能夠：</p>
+<ul>
+<li><strong>快速分析</strong>整個程式碼庫</li>
+<li><strong>識別</strong>潛在的邊界情況</li>
+<li><strong>生成</strong>全面的測試場景</li>
+<li><strong>優先排序</strong>測試重要性</li>
+<li><strong>預測</strong>可能的失敗點</li>
+</ul>
+<h3 id="2.-%E6%B8%AC%E8%A9%A6%E9%87%91%E5%AD%97%E5%A1%94%E8%88%87-ai-%E7%9A%84%E7%B5%90%E5%90%88" tabindex="-1"><a class="header-anchor" href="#2.-%E6%B8%AC%E8%A9%A6%E9%87%91%E5%AD%97%E5%A1%94%E8%88%87-ai-%E7%9A%84%E7%B5%90%E5%90%88">§</a> 2. 測試金字塔與 AI 的結合</h3>
+<pre><code>        /\
+       /E2E\      &lt;- AI 擅長設計使用者旅程
+      /______\
+     /整合測試\    &lt;- AI 識別元件互動
+    /__________\
+   /  單元測試   \  &lt;- AI 確保函數正確性
+  /______________\
+</code></pre>
+<h3 id="3.-%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E7%B5%84%E6%88%90%E8%A6%81%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#3.-%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E7%B5%84%E6%88%90%E8%A6%81%E7%B4%A0">§</a> 3. 測試策略的組成要素</h3>
+<p>一個完整的測試策略應包含：</p>
+<ol>
+<li><strong>測試範圍</strong> (Test Scope)</li>
+<li><strong>測試類型</strong> (Test Types)</li>
+<li><strong>測試優先級</strong> (Test Priority)</li>
+<li><strong>測試資料</strong> (Test Data)</li>
+<li><strong>預期結果</strong> (Expected Results)</li>
+<li><strong>風險評估</strong> (Risk Assessment)</li>
+</ol>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%88%B6%E5%AE%9A-todo-%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%88%B6%E5%AE%9A-todo-%E6%87%89%E7%94%A8%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5">§</a> 實作練習：制定 TODO 應用測試策略</h2>
+<h3 id="%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%BA%96%E5%82%99%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%88%86%E6%9E%90%E6%8F%90%E7%A4%BA%E8%A9%9E" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E6%BA%96%E5%82%99%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%88%86%E6%9E%90%E6%8F%90%E7%A4%BA%E8%A9%9E">§</a> 步驟 1：準備程式碼分析提示詞</h3>
+<pre><code class="language-markdown">You are an expert QA strategist and test architect. Please analyze the following TODO application code and create a comprehensive test strategy.
+
+[Code Analysis Request]
+<span class="hljs-bullet">1.</span> Review the application architecture
+<span class="hljs-bullet">2.</span> Identify key functionalities
+<span class="hljs-bullet">3.</span> Locate critical user paths
+<span class="hljs-bullet">4.</span> Find potential failure points
+<span class="hljs-bullet">5.</span> Assess data flow and state management
+
+[Test Strategy Requirements]
+Please provide:
+<span class="hljs-bullet">1.</span> Test scope definition
+<span class="hljs-bullet">2.</span> Test types breakdown (unit, integration, E2E)
+<span class="hljs-bullet">3.</span> Priority matrix for test cases
+<span class="hljs-bullet">4.</span> Test data requirements
+<span class="hljs-bullet">5.</span> Risk assessment and mitigation
+
+[Output Format]
+Present the strategy in Traditional Chinese with:
+<span class="hljs-bullet">-</span> Executive summary
+<span class="hljs-bullet">-</span> Detailed test plan
+<span class="hljs-bullet">-</span> Test case specifications
+<span class="hljs-bullet">-</span> Risk matrix
+<span class="hljs-bullet">-</span> Implementation roadmap
+
+請使用繁體中文撰寫完整的測試策略文檔。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E5%8A%9F%E8%83%BD%E5%88%86%E8%A7%A3%E8%88%87%E6%B8%AC%E8%A9%A6%E6%98%A0%E5%B0%84" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E5%8A%9F%E8%83%BD%E5%88%86%E8%A7%A3%E8%88%87%E6%B8%AC%E8%A9%A6%E6%98%A0%E5%B0%84">§</a> 步驟 2：功能分解與測試映射</h3>
+<p>讓 AI 創建功能到測試的映射表：</p>
+<pre><code class="language-markdown">Create a function-to-test mapping for the TODO application:
+
+[Core Functions]
+<span class="hljs-bullet">1.</span> Create TODO
+<span class="hljs-bullet">2.</span> Update TODO
+<span class="hljs-bullet">3.</span> Delete TODO
+<span class="hljs-bullet">4.</span> Mark Complete/Incomplete
+<span class="hljs-bullet">5.</span> Filter TODOs
+<span class="hljs-bullet">6.</span> Search TODOs
+<span class="hljs-bullet">7.</span> Data Persistence
+<span class="hljs-bullet">8.</span> UI Interactions
+
+For each function, specify:
+<span class="hljs-bullet">-</span> Happy path scenarios
+<span class="hljs-bullet">-</span> Edge cases
+<span class="hljs-bullet">-</span> Error conditions
+<span class="hljs-bullet">-</span> Performance considerations
+<span class="hljs-bullet">-</span> Security concerns
+
+輸出格式請使用表格，並以繁體中文說明每個測試案例。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E7%94%9F%E6%88%90%E8%A9%B3%E7%B4%B0%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-3%EF%BC%9A%E7%94%9F%E6%88%90%E8%A9%B3%E7%B4%B0%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B">§</a> 步驟 3：生成詳細測試案例</h3>
+<h4 id="%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%96%B0%E5%A2%9E-todo-%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E7%AF%84%E4%BE%8B%EF%BC%9A%E6%96%B0%E5%A2%9E-todo-%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B">§</a> 範例：新增 TODO 功能的測試案例</h4>
+<pre><code class="language-markdown">Generate detailed test cases for the &quot;Add TODO&quot; functionality:
+
+[Test Case Template]
+<span class="hljs-bullet">-</span> Test ID
+<span class="hljs-bullet">-</span> Test Name
+<span class="hljs-bullet">-</span> Description
+<span class="hljs-bullet">-</span> Preconditions
+<span class="hljs-bullet">-</span> Test Steps
+<span class="hljs-bullet">-</span> Expected Results
+<span class="hljs-bullet">-</span> Test Data
+<span class="hljs-bullet">-</span> Priority (Critical/High/Medium/Low)
+
+[Scenarios to Cover]
+<span class="hljs-bullet">1.</span> Valid input scenarios
+<span class="hljs-bullet">2.</span> Invalid input handling
+<span class="hljs-bullet">3.</span> Boundary conditions
+<span class="hljs-bullet">4.</span> Concurrent operations
+<span class="hljs-bullet">5.</span> Storage limitations
+<span class="hljs-bullet">6.</span> UI responsiveness
+
+請為每個場景生成至少 3 個具體的測試案例，使用繁體中文描述。
+</code></pre>
+<h3 id="%E6%AD%A5%E9%A9%9F-4%EF%BC%9Ae2e-%E6%B8%AC%E8%A9%A6%E5%A0%B4%E6%99%AF%E8%A8%AD%E8%A8%88" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-4%EF%BC%9Ae2e-%E6%B8%AC%E8%A9%A6%E5%A0%B4%E6%99%AF%E8%A8%AD%E8%A8%88">§</a> 步驟 4：E2E 測試場景設計</h3>
+<pre><code class="language-markdown">Design comprehensive E2E test scenarios that simulate real user journeys:
+
+[User Journeys]
+<span class="hljs-bullet">1.</span> First-time user experience
+<span class="hljs-bullet">2.</span> Power user workflow
+<span class="hljs-bullet">3.</span> Mobile user interaction
+<span class="hljs-bullet">4.</span> Accessibility navigation
+<span class="hljs-bullet">5.</span> Error recovery flow
+
+[E2E Test Scenario Structure]
+<span class="hljs-bullet">-</span> Scenario name
+<span class="hljs-bullet">-</span> User persona
+<span class="hljs-bullet">-</span> Initial state
+<span class="hljs-bullet">-</span> Action sequence
+<span class="hljs-bullet">-</span> Verification points
+<span class="hljs-bullet">-</span> Expected outcome
+
+為每個使用者旅程創建詳細的 E2E 測試腳本，包含具體的操作步驟和驗證點。
+</code></pre>
+<h2 id="%E9%80%B2%E9%9A%8E%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E6%8A%80%E5%B7%A7" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E6%8A%80%E5%B7%A7">§</a> 進階測試策略技巧</h2>
+<h3 id="1.-%E9%A2%A8%E9%9A%AA%E5%B0%8E%E5%90%91%E6%B8%AC%E8%A9%A6-(risk-based-testing)" tabindex="-1"><a class="header-anchor" href="#1.-%E9%A2%A8%E9%9A%AA%E5%B0%8E%E5%90%91%E6%B8%AC%E8%A9%A6-(risk-based-testing)">§</a> 1. 風險導向測試 (Risk-Based Testing)</h3>
+<p>教導 AI 識別和評估風險：</p>
+<pre><code class="language-markdown">Perform risk analysis for the TODO application:
+
+[Risk Categories]
+<span class="hljs-bullet">1.</span> Data Loss Risk
+<span class="hljs-bullet">2.</span> Security Vulnerabilities
+<span class="hljs-bullet">3.</span> Performance Bottlenecks
+<span class="hljs-bullet">4.</span> Usability Issues
+<span class="hljs-bullet">5.</span> Compatibility Problems
+
+[Risk Assessment Matrix]
+For each identified risk:
+<span class="hljs-bullet">-</span> Probability (High/Medium/Low)
+<span class="hljs-bullet">-</span> Impact (Critical/Major/Minor)
+<span class="hljs-bullet">-</span> Detection Difficulty
+<span class="hljs-bullet">-</span> Mitigation Strategy
+<span class="hljs-bullet">-</span> Test Coverage Required
+
+創建風險矩陣並提供測試優先級建議。
+</code></pre>
+<h3 id="2.-%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#2.-%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99%E7%AD%96%E7%95%A5">§</a> 2. 測試資料策略</h3>
+<pre><code class="language-markdown">Design a comprehensive test data strategy:
+
+[Data Categories]
+<span class="hljs-bullet">1.</span> Valid Data Sets
+<span class="hljs-bullet">   -</span> Typical user data
+<span class="hljs-bullet">   -</span> Boundary values
+<span class="hljs-bullet">   -</span> International characters
+
+<span class="hljs-bullet">2.</span> Invalid Data Sets
+<span class="hljs-bullet">   -</span> Malformed inputs
+<span class="hljs-bullet">   -</span> SQL injection attempts
+<span class="hljs-bullet">   -</span> XSS payloads
+
+<span class="hljs-bullet">3.</span> Performance Data Sets
+<span class="hljs-bullet">   -</span> Large volume data
+<span class="hljs-bullet">   -</span> Concurrent access patterns
+<span class="hljs-bullet">   -</span> Storage limit scenarios
+
+<span class="hljs-bullet">4.</span> Edge Case Data
+<span class="hljs-bullet">   -</span> Empty values
+<span class="hljs-bullet">   -</span> Special characters
+<span class="hljs-bullet">   -</span> Maximum length inputs
+
+為每個類別提供具體的測試資料範例和使用場景。
+</code></pre>
+<h3 id="3.-%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E7%8E%87%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#3.-%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E7%8E%87%E5%88%86%E6%9E%90">§</a> 3. 測試覆蓋率分析</h3>
+<pre><code class="language-markdown">Analyze and recommend test coverage targets:
+
+[Coverage Metrics]
+<span class="hljs-bullet">1.</span> Code Coverage
+<span class="hljs-bullet">   -</span> Line coverage: target 80%
+<span class="hljs-bullet">   -</span> Branch coverage: target 75%
+<span class="hljs-bullet">   -</span> Function coverage: target 90%
+
+<span class="hljs-bullet">2.</span> Functional Coverage
+<span class="hljs-bullet">   -</span> Feature coverage: 100%
+<span class="hljs-bullet">   -</span> User story coverage: 95%
+<span class="hljs-bullet">   -</span> Edge case coverage: 80%
+
+<span class="hljs-bullet">3.</span> Requirements Coverage
+<span class="hljs-bullet">   -</span> Business requirements: 100%
+<span class="hljs-bullet">   -</span> Technical requirements: 90%
+<span class="hljs-bullet">   -</span> Non-functional requirements: 85%
+
+提供達成這些覆蓋率目標的具體策略。
+</code></pre>
+<h2 id="%E5%AF%A6%E6%88%B0%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%A4%87%E9%9B%9C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E6%88%B0%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%A4%87%E9%9B%9C%E5%8A%9F%E8%83%BD%E7%9A%84%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5">§</a> 實戰案例：複雜功能的測試策略</h2>
+<h3 id="%E6%A1%88%E4%BE%8B-1%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%B8%AC%E8%A9%A6" tabindex="-1"><a class="header-anchor" href="#%E6%A1%88%E4%BE%8B-1%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%B8%AC%E8%A9%A6">§</a> 案例 1：批量操作測試</h3>
+<p>為批量操作功能制定測試策略：</p>
+<pre><code class="language-markdown">Create a test strategy for bulk operations:
+
+[Bulk Operations]
+<span class="hljs-bullet">-</span> Select multiple TODOs
+<span class="hljs-bullet">-</span> Bulk delete
+<span class="hljs-bullet">-</span> Bulk status update
+<span class="hljs-bullet">-</span> Bulk export/import
+
+[Test Considerations]
+<span class="hljs-bullet">1.</span> Performance with large selections
+<span class="hljs-bullet">2.</span> Partial failure handling
+<span class="hljs-bullet">3.</span> Undo/Redo functionality
+<span class="hljs-bullet">4.</span> Progress indication
+<span class="hljs-bullet">5.</span> Concurrent user actions
+
+設計完整的測試方案，包含效能基準和失敗恢復測試。
+</code></pre>
+<h3 id="%E6%A1%88%E4%BE%8B-2%EF%BC%9A%E5%8D%B3%E6%99%82%E5%8D%94%E4%BD%9C%E6%B8%AC%E8%A9%A6" tabindex="-1"><a class="header-anchor" href="#%E6%A1%88%E4%BE%8B-2%EF%BC%9A%E5%8D%B3%E6%99%82%E5%8D%94%E4%BD%9C%E6%B8%AC%E8%A9%A6">§</a> 案例 2：即時協作測試</h3>
+<p>為即時協作功能設計測試：</p>
+<pre><code class="language-markdown">Design test strategy for real-time collaboration:
+
+[Collaboration Features]
+<span class="hljs-bullet">-</span> Multiple users editing
+<span class="hljs-bullet">-</span> Conflict resolution
+<span class="hljs-bullet">-</span> Change synchronization
+<span class="hljs-bullet">-</span> Offline/Online transitions
+
+[Test Scenarios]
+<span class="hljs-bullet">1.</span> Simultaneous edits
+<span class="hljs-bullet">2.</span> Network interruption
+<span class="hljs-bullet">3.</span> Data consistency
+<span class="hljs-bullet">4.</span> Race conditions
+<span class="hljs-bullet">5.</span> Session management
+
+創建詳細的測試矩陣，涵蓋所有協作場景。
+</code></pre>
+<h3 id="%E6%A1%88%E4%BE%8B-3%EF%BC%9A%E6%99%BA%E6%85%A7%E5%8A%9F%E8%83%BD%E6%B8%AC%E8%A9%A6" tabindex="-1"><a class="header-anchor" href="#%E6%A1%88%E4%BE%8B-3%EF%BC%9A%E6%99%BA%E6%85%A7%E5%8A%9F%E8%83%BD%E6%B8%AC%E8%A9%A6">§</a> 案例 3：智慧功能測試</h3>
+<p>為 AI 輔助功能制定測試策略：</p>
+<pre><code class="language-markdown">Develop test strategy for AI-powered features:
+
+[AI Features]
+<span class="hljs-bullet">-</span> Smart categorization
+<span class="hljs-bullet">-</span> Due date prediction
+<span class="hljs-bullet">-</span> Task prioritization
+<span class="hljs-bullet">-</span> Natural language input
+
+[Test Challenges]
+<span class="hljs-bullet">1.</span> Non-deterministic outputs
+<span class="hljs-bullet">2.</span> Model accuracy validation
+<span class="hljs-bullet">3.</span> Edge case handling
+<span class="hljs-bullet">4.</span> Performance benchmarks
+<span class="hljs-bullet">5.</span> Fallback mechanisms
+
+設計能夠有效驗證 AI 功能的測試方法。
+</code></pre>
+<h2 id="%E6%B8%AC%E8%A9%A6%E8%A8%88%E5%8A%83%E8%A9%95%E4%BC%B0%E6%AA%A2%E6%9F%A5%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E6%B8%AC%E8%A9%A6%E8%A8%88%E5%8A%83%E8%A9%95%E4%BC%B0%E6%AA%A2%E6%9F%A5%E8%A1%A8">§</a> 測試計劃評估檢查表</h2>
+<h3 id="%E5%AE%8C%E6%95%B4%E6%80%A7%E6%AA%A2%E6%9F%A5" tabindex="-1"><a class="header-anchor" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E6%AA%A2%E6%9F%A5">§</a> 完整性檢查</h3>
+<ul>
+<li>[ ] 涵蓋所有主要功能</li>
+<li>[ ] 包含正向和負向測試</li>
+<li>[ ] 考慮邊界條件</li>
+<li>[ ] 包含效能測試</li>
+<li>[ ] 涵蓋安全測試</li>
+</ul>
+<h3 id="%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%A9%95%E4%BC%B0" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%A9%95%E4%BC%B0">§</a> 可行性評估</h3>
+<ul>
+<li>[ ] 測試案例可執行</li>
+<li>[ ] 測試資料可準備</li>
+<li>[ ] 時間估算合理</li>
+<li>[ ] 資源需求明確</li>
+<li>[ ] 自動化可能性評估</li>
+</ul>
+<h3 id="%E5%93%81%E8%B3%AA%E6%8C%87%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%93%81%E8%B3%AA%E6%8C%87%E6%A8%99">§</a> 品質指標</h3>
+<ul>
+<li>[ ] 測試案例清晰明確</li>
+<li>[ ] 預期結果可驗證</li>
+<li>[ ] 優先級設定合理</li>
+<li>[ ] 風險覆蓋充分</li>
+<li>[ ] 可維護性考量</li>
+</ul>
+<h2 id="%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88">§</a> 常見問題與解決方案</h2>
+<h3 id="q1%3A-ai-%E7%94%9F%E6%88%90%E7%9A%84%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%E5%A4%AA%E7%B1%A0%E7%B5%B1%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#q1%3A-ai-%E7%94%9F%E6%88%90%E7%9A%84%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%E5%A4%AA%E7%B1%A0%E7%B5%B1%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F">§</a> Q1: AI 生成的測試案例太籠統怎麼辦？</h3>
+<p><strong>解決方案</strong>：
+提供更具體的上下文和範例：</p>
+<pre><code class="language-markdown">Don&#x27;t just say &quot;test input validation&quot;
+Instead, specify:
+<span class="hljs-bullet">-</span> Test with empty string: &quot;&quot;
+<span class="hljs-bullet">-</span> Test with spaces only: &quot;   &quot;
+<span class="hljs-bullet">-</span> Test with special chars: &quot;!@#$%&quot;
+<span class="hljs-bullet">-</span> Test with Unicode: &quot;測試🎉&quot;
+<span class="hljs-bullet">-</span> Test with max length: 256 chars
+<span class="hljs-bullet">-</span> Test with script tags: &quot;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span>alert(&#x27;xss&#x27;)<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>&quot;
+</code></pre>
+<h3 id="q2%3A-%E5%A6%82%E4%BD%95%E7%A2%BA%E4%BF%9D%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#q2%3A-%E5%A6%82%E4%BD%95%E7%A2%BA%E4%BF%9D%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%EF%BC%9F">§</a> Q2: 如何確保測試策略的完整性？</h3>
+<p><strong>解決方案</strong>：
+使用結構化的檢查清單：</p>
+<pre><code class="language-markdown">Ensure test strategy covers:
+□ Functional Requirements
+<span class="hljs-bullet">  -</span> All user stories
+<span class="hljs-bullet">  -</span> Acceptance criteria
+<span class="hljs-bullet">  -</span> Business rules
+□ Non-Functional Requirements
+<span class="hljs-bullet">  -</span> Performance (response &lt; 2s)
+<span class="hljs-bullet">  -</span> Security (OWASP Top 10)
+<span class="hljs-bullet">  -</span> Accessibility (WCAG 2.1)
+□ Integration Points
+<span class="hljs-bullet">  -</span> API endpoints
+<span class="hljs-bullet">  -</span> Database operations
+<span class="hljs-bullet">  -</span> Third-party services
+</code></pre>
+<h3 id="q3%3A-%E5%A6%82%E4%BD%95%E5%B9%B3%E8%A1%A1%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E7%8E%87%E5%92%8C%E6%95%88%E7%8E%87%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#q3%3A-%E5%A6%82%E4%BD%95%E5%B9%B3%E8%A1%A1%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E7%8E%87%E5%92%8C%E6%95%88%E7%8E%87%EF%BC%9F">§</a> Q3: 如何平衡測試覆蓋率和效率？</h3>
+<p><strong>解決方案</strong>：
+採用風險導向的優先級：</p>
+<pre><code class="language-markdown">Prioritize tests based on:
+<span class="hljs-bullet">1.</span> Business Impact (Critical/High/Medium/Low)
+<span class="hljs-bullet">2.</span> Failure Probability (Likely/Possible/Unlikely)
+<span class="hljs-bullet">3.</span> User Frequency (Always/Often/Sometimes/Rarely)
+
+Formula: Priority = Impact × Probability × Frequency
+
+Focus on high-priority tests first.
+</code></pre>
+<h2 id="%E6%9C%80%E4%BD%B3%E5%AF%A6%E8%B8%90%E7%B8%BD%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E6%9C%80%E4%BD%B3%E5%AF%A6%E8%B8%90%E7%B8%BD%E7%B5%90">§</a> 最佳實踐總結</h2>
+<h3 id="1.-%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%8E%9F%E5%89%87" tabindex="-1"><a class="header-anchor" href="#1.-%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%8E%9F%E5%89%87">§</a> 1. 測試策略原則</h3>
+<ul>
+<li><strong>全面性</strong>：覆蓋功能、效能、安全各面向</li>
+<li><strong>可追溯性</strong>：每個測試連結到需求</li>
+<li><strong>可執行性</strong>：測試步驟具體可操作</li>
+<li><strong>可維護性</strong>：易於更新和擴展</li>
+</ul>
+<h3 id="2.-ai-%E6%8F%90%E7%A4%BA%E8%A9%9E%E6%8A%80%E5%B7%A7" tabindex="-1"><a class="header-anchor" href="#2.-ai-%E6%8F%90%E7%A4%BA%E8%A9%9E%E6%8A%80%E5%B7%A7">§</a> 2. AI 提示詞技巧</h3>
+<ul>
+<li><strong>提供上下文</strong>：包含程式碼結構和業務邏輯</li>
+<li><strong>明確期望</strong>：指定輸出格式和詳細程度</li>
+<li><strong>迭代改進</strong>：根據結果調整提示詞</li>
+<li><strong>範例引導</strong>：提供期望的測試案例範例</li>
+</ul>
+<h3 id="3.-%E6%B8%AC%E8%A9%A6%E5%84%AA%E5%85%88%E7%B4%9A%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#3.-%E6%B8%AC%E8%A9%A6%E5%84%AA%E5%85%88%E7%B4%9A%E6%A1%86%E6%9E%B6">§</a> 3. 測試優先級框架</h3>
+<pre><code>優先級 = 業務價值 × 失敗風險 × 使用頻率
+
+P0 - 關鍵路徑，必須測試
+P1 - 重要功能，應該測試  
+P2 - 次要功能，建議測試
+P3 - 邊緣案例，選擇測試
+</code></pre>
+<h2 id="%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0">§</a> 思考與挑戰</h2>
+<h3 id="%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C">§</a> 深度思考題</h3>
+<ol>
+<li><strong>測試策略演進</strong>：如何讓測試策略隨著應用發展而演進？</li>
+<li><strong>AI 的局限</strong>：哪些測試策略決策不適合交給 AI？</li>
+<li><strong>團隊協作</strong>：如何整合 AI 測試策略到現有團隊流程？</li>
+<li><strong>ROI 分析</strong>：如何量化 AI 輔助測試的投資回報？</li>
+</ol>
+<h3 id="%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0">§</a> 進階挑戰</h3>
+<ol>
+<li><strong>跨瀏覽器測試策略</strong>：設計支援多瀏覽器的測試方案</li>
+<li><strong>效能基準測試</strong>：建立效能測試基準和監控策略</li>
+<li><strong>安全測試整合</strong>：將安全測試納入常規測試流程</li>
+<li><strong>視覺回歸測試</strong>：設計 UI 視覺變化的測試策略</li>
+</ol>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E6%96%87%E6%AA%94" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E6%96%87%E6%AA%94">§</a> 實作練習：測試策略文檔</h2>
+<h3 id="%E7%B7%B4%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E7%B7%B4%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 練習目標</h3>
+<p>為你的 TODO 應用創建完整的測試策略文檔，包含：</p>
+<ol>
+<li><strong>執行摘要</strong> (Executive Summary)</li>
+<li><strong>測試範圍</strong> (Test Scope)</li>
+<li><strong>測試方法</strong> (Test Approach)</li>
+<li><strong>測試案例</strong> (Test Cases)</li>
+<li><strong>風險評估</strong> (Risk Assessment)</li>
+<li><strong>資源需求</strong> (Resource Requirements)</li>
+<li><strong>時程規劃</strong> (Timeline)</li>
+</ol>
+<h3 id="%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82">§</a> 提交要求</h3>
+<ul>
+<li>完整的測試策略文檔（Markdown 格式）</li>
+<li>AI 互動記錄和提示詞歷史</li>
+<li>測試優先級矩陣</li>
+<li>風險評估報告</li>
+</ul>
+<h2 id="%E4%B8%8B%E4%B8%80%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5">§</a> 下一步</h2>
+<p>恭喜你完成了第二樂章！你已經學會如何讓 AI 擔任測試策略師，制定全面的測試計劃。在下一章「第三樂章：AI 執行測試腳本編寫」中，我們將學習如何讓 AI 將這些測試策略轉化為可執行的 Playwright 測試腳本。</p>
+<p>記住，優秀的測試策略是高品質軟體的基石。透過 AI 的幫助，我們可以更快速、更全面地識別測試需求，確保應用程式的可靠性。</p>
+<h2 id="%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90">§</a> 資源連結</h2>
+<ul>
+<li><a href="https://www.guru99.com/software-testing.html">軟體測試基礎</a></li>
+<li><a href="https://martinfowler.com/articles/practical-test-pyramid.html">測試金字塔概念</a></li>
+<li><a href="https://www.softwaretestinghelp.com/risk-based-testing/">風險導向測試</a></li>
+<li><a href="https://www.istqb.org/">ISTQB 測試認證</a></li>
+</ul>
+<hr>
+<p><em>「最好的測試策略不是找到所有 bug，而是找到最重要的 bug。」</em></p>
 
             </section>
 

@@ -1,0 +1,98 @@
+chapter:
+  number: 8
+  title: "Capstone 專案：指揮一場 AI 開發交響樂"
+  slug: "capstone"
+  description: "獨立完成端到端的複雜應用開發專案，展示作為 AI 指揮家的完整技能"
+  
+learning_objectives:
+  - "獨立規劃和執行完整的 AI 驅動開發專案"
+  - "整合所有學到的技術和方法"
+  - "處理真實世界的複雜需求"
+  - "建立可重用的工作流程模板"
+  - "成為合格的 AI 開發指揮家"
+
+prerequisites:
+  - "完成 Chapters 1-7 的所有內容和練習"
+  - "準備好完整的開發環境"
+  - "具備獨立解決問題的能力"
+  - "至少 8 小時的專注時間"
+
+estimated_time: "14 hours"
+
+difficulty: "expert"
+
+tags:
+  - "capstone-project"
+  - "full-stack"
+  - "end-to-end"
+  - "certification"
+  - "ai-orchestration"
+
+tools_required:
+  - "Claude/Gemini/GPT"
+  - "Playwright"
+  - "VS Code"
+  - "Git"
+  - "Docker"
+  - "Node.js"
+
+deliverables:
+  - "Complete EduFlow learning platform"
+  - "Comprehensive test suite"
+  - "Architecture documentation"
+  - "API documentation"
+  - "Demo video and presentation"
+  - "Learning journal"
+
+assessment_criteria:
+  - "Code quality and maintainability"
+  - "Test coverage (>80%)"
+  - "Automation completeness"
+  - "Performance metrics achievement"
+  - "Documentation quality"
+  - "Innovation in approach"
+  - "Effective AI utilization"
+
+project_requirements:
+  functional:
+    - "User management system"
+    - "Course management"
+    - "Learning features"
+    - "Assessment system"
+    - "Interactive features"
+    - "Analytics dashboard"
+  non_functional:
+    - "Page load < 2 seconds"
+    - "Support 1000+ concurrent users"
+    - "99.9% uptime"
+    - "WCAG 2.1 AA compliance"
+    - "Cross-browser support"
+
+certification_levels:
+  bronze:
+    score_range: "160-170"
+    description: "掌握基本技能"
+  silver:
+    score_range: "171-185"
+    description: "熟練運用技能"
+  gold:
+    score_range: "186-200"
+    description: "精通所有技能"
+
+resources:
+  - title: "Project Template"
+    url: "https://github.com/play-right-with-ai/capstone-template"
+    type: "template"
+  - title: "Community Forum"
+    url: "https://github.com/play-right-with-ai/discussions"
+    type: "support"
+  - title: "FAQ"
+    url: "https://github.com/play-right-with-ai/FAQ"
+    type: "reference"
+
+previous_chapter:
+  number: 7
+  title: "變奏曲：擴展與優化工作流"
+  slug: "variations"
+
+is_final_chapter: true

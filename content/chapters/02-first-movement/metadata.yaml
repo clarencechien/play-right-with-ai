@@ -1,0 +1,69 @@
+chapter:
+  number: 2
+  title: "第一樂章：AI 生成應用程式"
+  slug: "first-movement"
+  description: "學習如何使用自然語言描述需求，引導 AI 生成完整的應用程式，掌握雙語提示詞策略的精髓"
+  
+learning_objectives:
+  - "理解如何將業務需求轉換為清晰的自然語言描述"
+  - "掌握「英文思考，中文輸出」的雙語提示詞策略"
+  - "學會評估和驗證 AI 生成的程式碼品質"
+  - "運用迭代優化技術改進生成結果"
+  - "建立對 AI 程式碼生成能力的正確期待"
+
+prerequisites:
+  - "完成 Chapter 1 的環境設置"
+  - "具備基本的 JavaScript/TypeScript 知識"
+  - "已配置好 AI 工具（Claude、Gemini 或 GPT）"
+  - "準備好 VS Code 開發環境"
+
+estimated_time: "3 hours"
+
+difficulty: "intermediate"
+
+tags:
+  - "code-generation"
+  - "prompt-engineering"
+  - "bilingual-strategy"
+  - "todo-app"
+  - "iterative-refinement"
+
+tools_required:
+  - "Claude/Gemini/GPT"
+  - "VS Code"
+  - "Web Browser"
+  - "Git"
+
+deliverables:
+  - "Complete TODO application"
+  - "Prompt history documentation"
+  - "Code evaluation report"
+  - "Iteration notes"
+
+assessment_criteria:
+  - "Application functionality completeness"
+  - "Code quality and organization"
+  - "Effective use of bilingual prompting"
+  - "Successful iterative improvements"
+  - "Documentation quality"
+
+resources:
+  - title: "Prompt Engineering Guide"
+    url: "https://www.promptingguide.ai/"
+    type: "guide"
+  - title: "JavaScript Best Practices"
+    url: "https://developer.mozilla.org/zh-TW/docs/Web/JavaScript"
+    type: "documentation"
+  - title: "localStorage API"
+    url: "https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage"
+    type: "reference"
+
+next_chapter:
+  number: 3
+  title: "第二樂章：AI 擔任測試策略師"
+  slug: "second-movement"
+
+previous_chapter:
+  number: 1
+  title: "AI 指揮家：思維轉變與環境搭建"
+  slug: "ai-conductor"

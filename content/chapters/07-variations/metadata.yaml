@@ -1,0 +1,74 @@
+chapter:
+  number: 7
+  title: "變奏曲：擴展與優化工作流"
+  slug: "variations"
+  description: "將自循環工作流程擴展到複雜場景，掌握進階提示詞優化和測試編排策略"
+  
+learning_objectives:
+  - "處理複雜的多頁面應用測試場景"
+  - "掌握進階的提示詞優化技術"
+  - "實施複雜的測試編排策略"
+  - "建立可擴展的 AI 工作流架構"
+  - "優化整體開發效率和品質"
+
+prerequisites:
+  - "完成 Chapters 1-6 的所有內容"
+  - "具備完整的自循環工作流經驗"
+  - "了解微服務和分散式系統概念"
+  - "熟悉進階測試模式"
+
+estimated_time: "4 hours"
+
+difficulty: "expert"
+
+tags:
+  - "scaling"
+  - "optimization"
+  - "multi-page-testing"
+  - "prompt-engineering"
+  - "microservices"
+
+tools_required:
+  - "Claude/Gemini/GPT (Multiple)"
+  - "Playwright"
+  - "Docker/Kubernetes"
+  - "Performance Monitoring Tools"
+  - "VS Code"
+
+deliverables:
+  - "Multi-page test orchestrator"
+  - "Dynamic prompt generator"
+  - "Performance optimization framework"
+  - "Plugin system implementation"
+  - "Enterprise test platform design"
+
+assessment_criteria:
+  - "System scalability"
+  - "Performance improvements"
+  - "Architecture quality"
+  - "Integration completeness"
+  - "Innovation in approach"
+
+resources:
+  - title: "Microservices Testing"
+    url: "https://martinfowler.com/articles/microservice-testing/"
+    type: "article"
+  - title: "Performance Testing"
+    url: "https://www.guru99.com/performance-testing.html"
+    type: "guide"
+  - title: "Chaos Engineering"
+    url: "https://principlesofchaos.org/"
+    type: "principles"
+  - title: "Distributed Systems Testing"
+    url: "https://www.microsoft.com/en-us/research/publication/distributed-systems-testing/"
+    type: "research"
+
+next_chapter:
+  number: 8
+  title: "Capstone 專案：指揮一場 AI 開發交響樂"
+  slug: "capstone"
+
+previous_chapter:
+  number: 6
+  title: "最終樂章：AI 完成自我修復閉環"
+  slug: "final-movement"

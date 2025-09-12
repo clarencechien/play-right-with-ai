@@ -1,0 +1,74 @@
+chapter:
+  number: 5
+  title: "第四樂章：AI 進行測試分析與除錯"
+  slug: "fourth-movement"
+  description: "利用 AI 分析測試失敗、解讀追蹤檔案、定位問題根源，建立智慧除錯工作流程"
+  
+learning_objectives:
+  - "指導 AI 分析測試失敗報告"
+  - "利用 Playwright 追蹤檔案進行深度分析"
+  - "實施根本原因分析（RCA）方法"
+  - "建立智慧除錯工作流程"
+  - "預測和預防潛在問題"
+
+prerequisites:
+  - "完成 Chapter 4，擁有運行的測試套件"
+  - "了解基本的除錯概念"
+  - "熟悉瀏覽器開發者工具"
+  - "具備日誌分析基礎"
+
+estimated_time: "3 hours"
+
+difficulty: "advanced"
+
+tags:
+  - "debugging"
+  - "root-cause-analysis"
+  - "trace-analysis"
+  - "error-patterns"
+  - "predictive-analysis"
+
+tools_required:
+  - "Playwright Trace Viewer"
+  - "Claude/Gemini/GPT"
+  - "VS Code"
+  - "Chrome DevTools"
+  - "Log Analysis Tools"
+
+deliverables:
+  - "Failure analysis system"
+  - "Trace analyzer implementation"
+  - "Error pattern library"
+  - "Auto-fix suggestions"
+  - "Debug visualization tools"
+
+assessment_criteria:
+  - "Analysis accuracy and depth"
+  - "Root cause identification speed"
+  - "Fix suggestion quality"
+  - "Visualization effectiveness"
+  - "Knowledge accumulation"
+
+resources:
+  - title: "Playwright Trace Viewer"
+    url: "https://playwright.dev/docs/trace-viewer"
+    type: "tool"
+  - title: "Chrome DevTools Protocol"
+    url: "https://chromedevtools.github.io/devtools-protocol/"
+    type: "reference"
+  - title: "Root Cause Analysis"
+    url: "https://www.atlassian.com/incident-management/postmortem/root-cause-analysis"
+    type: "guide"
+  - title: "Error Monitoring"
+    url: "https://docs.sentry.io/product/issues/"
+    type: "best-practices"
+
+next_chapter:
+  number: 6
+  title: "最終樂章：AI 完成自我修復閉環"
+  slug: "final-movement"
+
+previous_chapter:
+  number: 4
+  title: "第三樂章：AI 執行測試腳本編寫"
+  slug: "third-movement"

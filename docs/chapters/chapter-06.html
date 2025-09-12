@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 06 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 06: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 06: Chapter 06</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapter 5，掌握測試分析技能</li>
+<li>理解版本控制（Git）基礎</li>
+<li>熟悉 CI/CD 概念</li>
+<li>具備程式碼審查經驗</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,926 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%9C%80%E7%B5%82%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E5%AE%8C%E6%88%90%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E9%96%89%E7%92%B0"> 最終樂章：AI 完成自我修復閉環</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"> 核心概念</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E9%96%89%E7%92%B0%E6%9E%B6%E6%A7%8B"> 1. 自我修復閉環架構</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E5%B1%A4%E7%B4%9A"> 2. 修復策略層級</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E8%A9%95%E5%88%86"> 3. 修復信心評分</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%BB%BA%E7%AB%8B%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E7%B3%BB%E7%B5%B1"> 實作練習：建立自我修復系統</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E7%94%9F%E6%88%90"> 步驟 1：修復策略生成</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E7%9F%A9%E9%99%A3"> 2. 修復信心矩陣</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E5%9B%9E%E6%BB%BE%E7%AD%96%E7%95%A5"> 3. 回滾策略</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"> 常見問題與解決方案</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#q1%3A-%E4%BF%AE%E5%BE%A9%E5%B0%8E%E8%87%B4%E6%96%B0%E5%95%8F%E9%A1%8C"> Q1: 修復導致新問題</a></li><li class="toc-item"><a class="toc-link" href="#q2%3A-%E4%BF%AE%E5%BE%A9%E5%BE%AA%E7%92%B0%EF%BC%88%E4%BF%AE%E5%BE%A9a%E5%B0%8E%E8%87%B4b%EF%BC%8C%E4%BF%AE%E5%BE%A9b%E5%B0%8E%E8%87%B4a%EF%BC%89"> Q2: 修復循環（修復A導致B，修復B導致A）</a></li><li class="toc-item"><a class="toc-link" href="#q3%3A-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E4%B8%8D%E8%B6%B3"> Q3: 修復信心不足</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0"> 思考與挑戰</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C"> 深度思考題</a></li><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0"> 進階挑戰</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E5%AE%8C%E6%95%B4%E8%87%AA%E5%BE%AA%E7%92%B0%E7%B3%BB%E7%B5%B1"> 實作專案：完整自循環系統</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82"> 專案需求</a></li><li class="toc-item"><a class="toc-link" href="#%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B"> 系統架構</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"> 提交要求</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"> 下一步</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90"> 資源連結</a></li></ul></li></ul></nav><h1 id="%E6%9C%80%E7%B5%82%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E5%AE%8C%E6%88%90%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E9%96%89%E7%92%B0" tabindex="-1"><a class="header-anchor" href="#%E6%9C%80%E7%B5%82%E6%A8%82%E7%AB%A0%EF%BC%9Aai-%E5%AE%8C%E6%88%90%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E9%96%89%E7%92%B0">§</a> 最終樂章：AI 完成自我修復閉環</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>這是整個自循環工作流程的高潮——讓 AI 不僅能發現和分析問題，還能自動修復它們。本章將探討如何建立完整的自我修復系統，實現從問題發現到自動修復的閉環流程，真正實現「自循環」的開發測試工作流。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本章節後，你將能夠：</p>
+<ul>
+<li>建立自動化的問題修復流程</li>
+<li>實施程式碼修復的驗證機制</li>
+<li>完成自循環工作流程的整合</li>
+<li>掌握修復品質保證技術</li>
+<li>建立持續改進的回饋循環</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapter 5，掌握測試分析技能</li>
+<li>理解版本控制（Git）基礎</li>
+<li>熟悉 CI/CD 概念</li>
+<li>具備程式碼審查經驗</li>
+</ul>
+<h2 id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a> 核心概念</h2>
+<h3 id="1.-%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E9%96%89%E7%92%B0%E6%9E%B6%E6%A7%8B" tabindex="-1"><a class="header-anchor" href="#1.-%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E9%96%89%E7%92%B0%E6%9E%B6%E6%A7%8B">§</a> 1. 自我修復閉環架構</h3>
+<pre><code class="language-mermaid">graph LR
+    A[生成程式碼] --&gt; B[執行測試]
+    B --&gt; C{測試通過?}
+    C --&gt;|否| D[分析失敗]
+    D --&gt; E[生成修復]
+    E --&gt; F[驗證修復]
+    F --&gt; G{修復有效?}
+    G --&gt;|是| H[提交變更]
+    G --&gt;|否| I[人工介入]
+    H --&gt; B
+    I --&gt; E
+    C --&gt;|是| J[部署就緒]
+</code></pre>
+<h3 id="2.-%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E5%B1%A4%E7%B4%9A" tabindex="-1"><a class="header-anchor" href="#2.-%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E5%B1%A4%E7%B4%9A">§</a> 2. 修復策略層級</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">RepairStrategy</span> {
+  <span class="hljs-variable constant_">QUICK_FIX</span> = <span class="hljs-string">&#x27;quick&#x27;</span>,      <span class="hljs-comment">// 快速修復：簡單的程式碼調整</span>
+  <span class="hljs-variable constant_">REFACTOR</span> = <span class="hljs-string">&#x27;refactor&#x27;</span>,    <span class="hljs-comment">// 重構：改善程式碼結構</span>
+  <span class="hljs-variable constant_">REDESIGN</span> = <span class="hljs-string">&#x27;redesign&#x27;</span>,    <span class="hljs-comment">// 重新設計：架構層面調整</span>
+  <span class="hljs-variable constant_">WORKAROUND</span> = <span class="hljs-string">&#x27;workaround&#x27;</span>, <span class="hljs-comment">// 暫時方案：繞過問題</span>
+  <span class="hljs-variable constant_">ROLLBACK</span> = <span class="hljs-string">&#x27;rollback&#x27;</span>     <span class="hljs-comment">// 回滾：恢復到穩定版本</span>
+}
+</code></pre>
+<h3 id="3.-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E8%A9%95%E5%88%86" tabindex="-1"><a class="header-anchor" href="#3.-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E8%A9%95%E5%88%86">§</a> 3. 修復信心評分</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">RepairConfidence</span> {
+  <span class="hljs-attr">score</span>: <span class="hljs-built_in">number</span>;          <span class="hljs-comment">// 0-100 信心分數</span>
+  <span class="hljs-attr">factors</span>: {
+    <span class="hljs-attr">testCoverage</span>: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// 測試覆蓋率</span>
+    <span class="hljs-attr">complexity</span>: <span class="hljs-built_in">number</span>;   <span class="hljs-comment">// 修復複雜度</span>
+    <span class="hljs-attr">impact</span>: <span class="hljs-built_in">number</span>;       <span class="hljs-comment">// 影響範圍</span>
+    <span class="hljs-attr">history</span>: <span class="hljs-built_in">number</span>;      <span class="hljs-comment">// 歷史成功率</span>
+  };
+  <span class="hljs-attr">recommendation</span>: <span class="hljs-string">&#x27;auto-apply&#x27;</span> | <span class="hljs-string">&#x27;review-required&#x27;</span> | <span class="hljs-string">&#x27;manual-only&#x27;</span>;
+}
+</code></pre>
+<h2 id="%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%BB%BA%E7%AB%8B%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E7%B3%BB%E7%B5%B1" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E7%B7%B4%E7%BF%92%EF%BC%9A%E5%BB%BA%E7%AB%8B%E8%87%AA%E6%88%91%E4%BF%AE%E5%BE%A9%E7%B3%BB%E7%B5%B1">§</a> 實作練習：建立自我修復系統</h2>
+<h3 id="%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E7%94%9F%E6%88%90" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E7%94%9F%E6%88%90">§</a> 步驟 1：修復策略生成</h3>
+<pre><code class="language-markdown">Create an AI-powered repair strategy generator:
+
+<span class="hljs-code">```typescript
+class RepairStrategyGenerator {
+  async generateStrategy(failure: TestFailure, analysis: RootCauseAnalysis) {
+    // 使用 AI 生成修復策略
+    const prompt = `
+      Based on the following test failure and root cause analysis:
+      
+      Failure: ${failure.description}
+      Root Cause: ${analysis.rootCause}
+      Error Type: ${analysis.errorType}
+      Affected Code: ${analysis.affectedCode}
+      
+      Generate repair strategies:
+      1. Identify the specific code that needs modification
+      2. Propose multiple fix approaches
+      3. Evaluate each approach&#x27;s risk and benefit
+      4. Recommend the best strategy
+      
+      Output format:
+      - Primary Strategy: [detailed fix description]
+      - Alternative Strategies: [list of alternatives]
+      - Code Changes: [specific modifications]
+      - Risk Assessment: [potential side effects]
+      - Confidence Score: [0-100]
+      
+      請提供詳細的修復策略，包含具體的程式碼修改建議。
+    `;
+    
+    const aiResponse = await this.callAI(prompt);
+    return this.parseRepairStrategy(aiResponse);
+  }
+  
+  private parseRepairStrategy(response: string): RepairStrategy {
+    // 解析 AI 回應並結構化
+    return {
+      primary: this.extractPrimaryStrategy(response),
+      alternatives: this.extractAlternatives(response),
+      codeChanges: this.extractCodeChanges(response),
+      riskAssessment: this.extractRiskAssessment(response),
+      confidence: this.calculateConfidence(response)
+    };
+  }
+}
+</span></code></pre>
+<p>實作完整的修復策略生成系統。</p>
+<pre><code>
+### 步驟 2：自動修復執行
+
+```markdown
+Implement automatic repair execution:
+
+```typescript
+class AutoRepairExecutor {
+  async executeRepair(strategy: RepairStrategy, options: RepairOptions = {}) {
+    const result = {
+      success: false,
+      changes: [],
+      validation: null,
+      rollbackPoint: null
+    };
+    
+    try {
+      // 1. 創建回滾點
+      result.rollbackPoint = await this.createRollbackPoint();
+      
+      // 2. 應用修復
+      for (const change of strategy.codeChanges) {
+        const applied = await this.applyCodeChange(change);
+        result.changes.push(applied);
+      }
+      
+      // 3. 驗證修復
+      result.validation = await this.validateRepair(strategy);
+      
+      // 4. 確認修復成功
+      if (result.validation.passed) {
+        result.success = true;
+        await this.commitChanges(result.changes);
+      } else {
+        await this.rollback(result.rollbackPoint);
+      }
+      
+    } catch (error) {
+      // 錯誤處理和回滾
+      await this.handleRepairError(error, result.rollbackPoint);
+    }
+    
+    return result;
+  }
+  
+  private async applyCodeChange(change: CodeChange) {
+    const file = await this.readFile(change.filePath);
+    const modified = this.applyModification(file, change);
+    await this.writeFile(change.filePath, modified);
+    
+    return {
+      file: change.filePath,
+      diff: this.generateDiff(file, modified),
+      timestamp: new Date()
+    };
+  }
+  
+  private async validateRepair(strategy: RepairStrategy) {
+    // 執行多層驗證
+    const validations = await Promise.all([
+      this.runUnitTests(),
+      this.runIntegrationTests(),
+      this.runE2ETests(),
+      this.performStaticAnalysis(),
+      this.checkPerformance()
+    ]);
+    
+    return {
+      passed: validations.every(v =&gt; v.passed),
+      details: validations,
+      confidence: this.calculateValidationConfidence(validations)
+    };
+  }
+}
+</code></pre>
+<p>建立自動修復執行系統。</p>
+<pre><code>
+### 步驟 3：修復驗證機制
+
+```markdown
+Create comprehensive repair validation system:
+
+```typescript
+class RepairValidator {
+  async validate(repair: RepairResult, originalFailure: TestFailure) {
+    const validation = {
+      functional: await this.validateFunctional(repair),
+      regression: await this.checkRegression(repair),
+      performance: await this.validatePerformance(repair),
+      security: await this.validateSecurity(repair),
+      codeQuality: await this.validateCodeQuality(repair)
+    };
+    
+    return {
+      passed: this.allValidationsPassed(validation),
+      score: this.calculateValidationScore(validation),
+      report: this.generateValidationReport(validation),
+      recommendations: this.generateRecommendations(validation)
+    };
+  }
+  
+  private async validateFunctional(repair: RepairResult) {
+    // 功能驗證
+    const tests = await this.runTestSuite();
+    return {
+      passed: tests.failed === 0,
+      coverage: tests.coverage,
+      failedTests: tests.failures,
+      successRate: (tests.passed / tests.total) * 100
+    };
+  }
+  
+  private async checkRegression(repair: RepairResult) {
+    // 回歸測試
+    const baseline = await this.getBaselineResults();
+    const current = await this.getCurrentResults();
+    
+    return {
+      passed: !this.hasRegression(baseline, current),
+      affectedFeatures: this.identifyAffectedFeatures(baseline, current),
+      regressionRisk: this.calculateRegressionRisk(baseline, current)
+    };
+  }
+  
+  private async validatePerformance(repair: RepairResult) {
+    // 效能驗證
+    const metrics = await this.measurePerformance();
+    const baseline = await this.getPerformanceBaseline();
+    
+    return {
+      passed: this.meetsPerformanceThresholds(metrics, baseline),
+      metrics: metrics,
+      comparison: this.compareWithBaseline(metrics, baseline),
+      bottlenecks: this.identifyBottlenecks(metrics)
+    };
+  }
+}
+</code></pre>
+<p>實作完整的修復驗證系統。</p>
+<pre><code>
+### 步驟 4：整合自循環工作流
+
+```markdown
+Integrate the complete self-cycling workflow:
+
+```typescript
+class SelfCyclingOrchestrator {
+  private generator: CodeGenerator;
+  private tester: TestRunner;
+  private analyzer: FailureAnalyzer;
+  private repairer: AutoRepairer;
+  private validator: RepairValidator;
+  
+  async runCycle(requirements: Requirements, options: CycleOptions = {}) {
+    const cycleResult = {
+      iterations: [],
+      finalCode: null,
+      success: false,
+      metrics: {}
+    };
+    
+    let iteration = 0;
+    let code = await this.generator.generate(requirements);
+    
+    while (iteration &lt; options.maxIterations || 10) {
+      console.log(`🔄 循環迭代 #${iteration + 1}`);
+      
+      // 1. 執行測試
+      const testResults = await this.tester.run(code);
+      
+      if (testResults.allPassed) {
+        cycleResult.success = true;
+        cycleResult.finalCode = code;
+        break;
+      }
+      
+      // 2. 分析失敗
+      const analysis = await this.analyzer.analyze(testResults.failures);
+      
+      // 3. 生成修復
+      const repair = await this.repairer.repair(analysis);
+      
+      // 4. 驗證修復
+      const validation = await this.validator.validate(repair);
+      
+      if (validation.passed) {
+        code = repair.modifiedCode;
+        cycleResult.iterations.push({
+          number: iteration + 1,
+          failure: testResults.failures,
+          repair: repair,
+          validation: validation
+        });
+      } else {
+        // 需要人工介入
+        if (options.allowManualIntervention) {
+          code = await this.requestManualFix(analysis);
+        } else {
+          break;
+        }
+      }
+      
+      iteration++;
+    }
+    
+    cycleResult.metrics = this.calculateCycleMetrics(cycleResult);
+    return cycleResult;
+  }
+  
+  private calculateCycleMetrics(result: CycleResult) {
+    return {
+      totalIterations: result.iterations.length,
+      autoFixRate: this.calculateAutoFixRate(result),
+      averageFixTime: this.calculateAverageFixTime(result),
+      codeQualityImprovement: this.measureQualityImprovement(result),
+      testCoverage: this.measureFinalCoverage(result),
+      confidenceScore: this.calculateOverallConfidence(result)
+    };
+  }
+}
+</code></pre>
+<p>實作完整的自循環協調器。</p>
+<pre><code>
+## 進階修復技術
+
+### 1. 智慧程式碼生成
+
+```markdown
+Implement intelligent code generation for repairs:
+
+```typescript
+class IntelligentCodeRepairer {
+  async generateRepairCode(
+    buggyCode: string,
+    analysis: RootCauseAnalysis,
+    context: CodeContext
+  ) {
+    // 使用 AI 生成修復程式碼
+    const prompt = `
+      You are an expert developer fixing a bug. Here's the context:
+      
+      ## Buggy Code
+      \`\`\`javascript
+      ${buggyCode}
+      \`\`\`
+      
+      ## Root Cause Analysis
+      ${JSON.stringify(analysis, null, 2)}
+      
+      ## Code Context
+      - Dependencies: ${context.dependencies}
+      - Related Files: ${context.relatedFiles}
+      - Test Requirements: ${context.testRequirements}
+      
+      ## Task
+      1. Fix the identified issue
+      2. Maintain backward compatibility
+      3. Follow existing code style
+      4. Add necessary error handling
+      5. Include inline comments explaining the fix
+      
+      Generate the repaired code with Traditional Chinese comments.
+    `;
+    
+    const repairedCode = await this.callAI(prompt);
+    
+    // 驗證生成的程式碼
+    return await this.validateGeneratedCode(repairedCode, context);
+  }
+  
+  private async validateGeneratedCode(code: string, context: CodeContext) {
+    const validation = {
+      syntaxValid: await this.checkSyntax(code),
+      typesValid: await this.checkTypes(code, context),
+      testsPass: await this.runTestsAgainst(code),
+      styleCompliant: await this.checkCodeStyle(code),
+      securityScan: await this.performSecurityScan(code)
+    };
+    
+    if (Object.values(validation).every(v =&gt; v === true)) {
+      return { valid: true, code };
+    } else {
+      // 嘗試自動修正驗證問題
+      return await this.attemptAutoCorrection(code, validation);
+    }
+  }
+}
+</code></pre>
+<p>建立智慧程式碼修復生成器。</p>
+<pre><code>
+### 2. 修復模式學習
+
+```markdown
+Create a repair pattern learning system:
+
+```typescript
+class RepairPatternLearner {
+  private patterns: Map&lt;string, RepairPattern&gt; = new Map();
+  
+  async learnFromRepair(
+    failure: TestFailure,
+    repair: RepairResult,
+    outcome: RepairOutcome
+  ) {
+    const pattern = this.extractPattern(failure, repair);
+    
+    if (outcome.successful) {
+      // 成功的修復模式
+      this.reinforcePattern(pattern);
+      await this.saveToKnowledgeBase(pattern);
+    } else {
+      // 失敗的修復模式
+      this.penalizePattern(pattern);
+      await this.analyzeFailureReason(pattern, outcome);
+    }
+    
+    // 更新模式匹配算法
+    await this.updatePatternMatcher();
+  }
+  
+  async suggestRepairFromPatterns(failure: TestFailure): RepairSuggestion[] {
+    const matchedPatterns = await this.findMatchingPatterns(failure);
+    
+    return matchedPatterns
+      .sort((a, b) =&gt; b.successRate - a.successRate)
+      .slice(0, 5)
+      .map(pattern =&gt; ({
+        pattern: pattern,
+        confidence: pattern.successRate,
+        previousApplications: pattern.applications,
+        suggestedFix: this.adaptPatternToContext(pattern, failure)
+      }));
+  }
+  
+  private extractPattern(failure: TestFailure, repair: RepairResult): RepairPattern {
+    return {
+      id: this.generatePatternId(),
+      errorSignature: this.computeErrorSignature(failure),
+      repairStrategy: this.abstractRepairStrategy(repair),
+      contextFeatures: this.extractContextFeatures(failure),
+      codeTransformation: this.extractTransformation(repair),
+      successRate: 0,
+      applications: []
+    };
+  }
+}
+</code></pre>
+<p>實作修復模式學習系統。</p>
+<pre><code>
+### 3. 多策略修復協調
+
+```markdown
+Implement multi-strategy repair coordination:
+
+```typescript
+class MultiStrategyRepairer {
+  private strategies = [
+    new QuickFixStrategy(),
+    new RefactorStrategy(),
+    new WorkaroundStrategy(),
+    new RollbackStrategy()
+  ];
+  
+  async repair(failure: TestFailure, options: RepairOptions) {
+    const candidates = await this.generateCandidates(failure);
+    const ranked = await this.rankCandidates(candidates);
+    
+    for (const candidate of ranked) {
+      console.log(`嘗試修復策略: ${candidate.strategy.name}`);
+      
+      const result = await this.tryRepair(candidate);
+      
+      if (result.success) {
+        return result;
+      }
+      
+      // 從失敗中學習
+      await this.learnFromFailure(candidate, result);
+    }
+    
+    // 所有策略都失敗，需要人工介入
+    return this.requestManualIntervention(failure, candidates);
+  }
+  
+  private async generateCandidates(failure: TestFailure) {
+    const candidates = [];
+    
+    for (const strategy of this.strategies) {
+      if (await strategy.isApplicable(failure)) {
+        const candidate = await strategy.generateCandidate(failure);
+        candidates.push(candidate);
+      }
+    }
+    
+    return candidates;
+  }
+  
+  private async rankCandidates(candidates: RepairCandidate[]) {
+    // 多維度評分
+    for (const candidate of candidates) {
+      candidate.score = await this.calculateScore(candidate, {
+        successProbability: 0.3,
+        implementationCost: 0.2,
+        sideEffectRisk: 0.2,
+        performanceImpact: 0.15,
+        maintainability: 0.15
+      });
+    }
+    
+    return candidates.sort((a, b) =&gt; b.score - a.score);
+  }
+}
+</code></pre>
+<p>建立多策略修復協調系統。</p>
+<pre><code>
+## 品質保證機制
+
+### 1. 修復品質評分
+
+```markdown
+Create repair quality scoring system:
+
+```typescript
+class RepairQualityScorer {
+  scoreRepair(original: Code, repaired: Code, testResults: TestResults) {
+    const metrics = {
+      // 功能性指標
+      functionality: this.scoreFunctionality(testResults),
+      
+      // 程式碼品質指標
+      codeQuality: this.scoreCodeQuality(original, repaired),
+      
+      // 效能指標
+      performance: this.scorePerformance(original, repaired),
+      
+      // 可維護性指標
+      maintainability: this.scoreMaintainability(repaired),
+      
+      // 安全性指標
+      security: this.scoreSecurity(repaired)
+    };
+    
+    const overallScore = this.calculateOverallScore(metrics);
+    
+    return {
+      score: overallScore,
+      metrics: metrics,
+      grade: this.assignGrade(overallScore),
+      recommendations: this.generateRecommendations(metrics)
+    };
+  }
+  
+  private scoreCodeQuality(original: Code, repaired: Code) {
+    return {
+      complexity: this.compareComplexity(original, repaired),
+      readability: this.assessReadability(repaired),
+      duplication: this.checkDuplication(repaired),
+      standards: this.checkCodingStandards(repaired),
+      documentation: this.assessDocumentation(repaired)
+    };
+  }
+  
+  private assignGrade(score: number): string {
+    if (score &gt;= 90) return 'A - 優秀';
+    if (score &gt;= 80) return 'B - 良好';
+    if (score &gt;= 70) return 'C - 及格';
+    if (score &gt;= 60) return 'D - 需改進';
+    return 'F - 不及格';
+  }
+}
+</code></pre>
+<p>實作修復品質評分系統。</p>
+<pre><code>
+### 2. 回歸防護
+
+```markdown
+Implement regression protection:
+
+```typescript
+class RegressionProtector {
+  async protectAgainstRegression(repair: RepairResult) {
+    // 1. 建立回歸測試套件
+    const regressionSuite = await this.createRegressionSuite(repair);
+    
+    // 2. 執行全面測試
+    const results = await this.runComprehensiveTests(regressionSuite);
+    
+    // 3. 比較基準線
+    const comparison = await this.compareWithBaseline(results);
+    
+    // 4. 檢測潛在回歸
+    const regressions = this.detectRegressions(comparison);
+    
+    if (regressions.length &gt; 0) {
+      // 處理檢測到的回歸
+      return await this.handleRegressions(regressions, repair);
+    }
+    
+    // 更新基準線
+    await this.updateBaseline(results);
+    
+    return {
+      protected: true,
+      testSuite: regressionSuite,
+      baseline: results
+    };
+  }
+  
+  private async createRegressionSuite(repair: RepairResult) {
+    return {
+      // 原有測試
+      existingTests: await this.getAllExistingTests(),
+      
+      // 新增測試（針對修復）
+      repairTests: await this.generateRepairSpecificTests(repair),
+      
+      // 邊界測試
+      boundaryTests: await this.generateBoundaryTests(repair),
+      
+      // 整合測試
+      integrationTests: await this.generateIntegrationTests(repair)
+    };
+  }
+}
+</code></pre>
+<p>建立回歸防護系統。</p>
+<pre><code>
+## 監控與回饋
+
+### 1. 修復效果監控
+
+```markdown
+Create repair effectiveness monitoring:
+
+```typescript
+class RepairMonitor {
+  async monitorRepairEffectiveness(repair: RepairResult) {
+    const monitoring = {
+      immediate: await this.checkImmediateEffects(repair),
+      shortTerm: await this.scheduleShortTermChecks(repair),
+      longTerm: await this.scheduleLongTermChecks(repair)
+    };
+    
+    // 設定警報
+    await this.setupAlerts({
+      onRegression: async (issue) =&gt; {
+        await this.handleRegression(issue);
+      },
+      onPerformanceDegradation: async (metrics) =&gt; {
+        await this.handlePerformanceIssue(metrics);
+      },
+      onNewFailure: async (failure) =&gt; {
+        await this.analyzeNewFailure(failure, repair);
+      }
+    });
+    
+    return monitoring;
+  }
+  
+  private async checkImmediateEffects(repair: RepairResult) {
+    return {
+      testsPassing: await this.verifyTestsPassing(),
+      performanceMetrics: await this.measurePerformance(),
+      errorRate: await this.checkErrorRate(),
+      userImpact: await this.assessUserImpact()
+    };
+  }
+}
+</code></pre>
+<p>實作修復效果監控系統。</p>
+<pre><code>
+### 2. 持續學習機制
+
+```markdown
+Implement continuous learning mechanism:
+
+```typescript
+class ContinuousLearner {
+  async learn(cycleResult: CycleResult) {
+    // 1. 提取學習資料
+    const learningData = this.extractLearningData(cycleResult);
+    
+    // 2. 更新知識庫
+    await this.updateKnowledgeBase(learningData);
+    
+    // 3. 改進 AI 模型
+    await this.improveAIModels(learningData);
+    
+    // 4. 優化策略
+    await this.optimizeStrategies(learningData);
+    
+    // 5. 生成洞察報告
+    const insights = await this.generateInsights(learningData);
+    
+    return {
+      learned: learningData,
+      improvements: await this.measureImprovements(),
+      insights: insights,
+      recommendations: await this.generateRecommendations()
+    };
+  }
+  
+  private extractLearningData(cycleResult: CycleResult) {
+    return {
+      successfulPatterns: this.identifySuccessPatterns(cycleResult),
+      failurePatterns: this.identifyFailurePatterns(cycleResult),
+      performanceData: this.extractPerformanceData(cycleResult),
+      codeEvolution: this.trackCodeEvolution(cycleResult),
+      testEvolution: this.trackTestEvolution(cycleResult)
+    };
+  }
+}
+</code></pre>
+<p>建立持續學習機制。</p>
+<pre><code>
+## 最佳實踐
+
+### 1. 修復決策樹
+
+```mermaid
+graph TD
+    A[檢測到失敗] --&gt; B{錯誤類型?}
+    B --&gt;|簡單| C[快速修復]
+    B --&gt;|複雜| D{有匹配模式?}
+    D --&gt;|是| E[應用已知模式]
+    D --&gt;|否| F{風險評估}
+    F --&gt;|低| G[嘗試自動修復]
+    F --&gt;|高| H[人工審查]
+    C --&gt; I[驗證]
+    E --&gt; I
+    G --&gt; I
+    I --&gt; J{成功?}
+    J --&gt;|是| K[提交]
+    J --&gt;|否| L[升級策略]
+</code></pre>
+<h3 id="2.-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E7%9F%A9%E9%99%A3" tabindex="-1"><a class="header-anchor" href="#2.-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E7%9F%A9%E9%99%A3">§</a> 2. 修復信心矩陣</h3>
+<table>
+<thead>
+<tr>
+<th>錯誤複雜度</th>
+<th>測試覆蓋率</th>
+<th>歷史成功率</th>
+<th>建議行動</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+<td>自動修復</td>
+</tr>
+<tr>
+<td>低</td>
+<td>高</td>
+<td>低</td>
+<td>審查後修復</td>
+</tr>
+<tr>
+<td>低</td>
+<td>低</td>
+<td>高</td>
+<td>增加測試後修復</td>
+</tr>
+<tr>
+<td>高</td>
+<td>高</td>
+<td>高</td>
+<td>謹慎自動修復</td>
+</tr>
+<tr>
+<td>高</td>
+<td>低</td>
+<td>-</td>
+<td>人工處理</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3.-%E5%9B%9E%E6%BB%BE%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#3.-%E5%9B%9E%E6%BB%BE%E7%AD%96%E7%95%A5">§</a> 3. 回滾策略</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RollbackStrategy</span> {
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">executeRollback</span>(<span class="hljs-params"><span class="hljs-attr">failure</span>: <span class="hljs-title class_">RepairFailure</span></span>) {
+    <span class="hljs-keyword">const</span> strategy = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">determineRollbackStrategy</span>(failure);
+    
+    <span class="hljs-keyword">switch</span>(strategy) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;immediate&#x27;</span>:
+        <span class="hljs-comment">// 立即回滾到上一個穩定版本</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">immediateRollback</span>();
+        
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;gradual&#x27;</span>:
+        <span class="hljs-comment">// 漸進式回滾</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">gradualRollback</span>();
+        
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;partial&#x27;</span>:
+        <span class="hljs-comment">// 部分回滾（只回滾失敗的部分）</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">partialRollback</span>(failure.<span class="hljs-property">affectedComponents</span>);
+        
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;checkpoint&#x27;</span>:
+        <span class="hljs-comment">// 回滾到特定檢查點</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">rollbackToCheckpoint</span>(failure.<span class="hljs-property">lastStableCheckpoint</span>);
+    }
+  }
+}
+</code></pre>
+<h2 id="%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88">§</a> 常見問題與解決方案</h2>
+<h3 id="q1%3A-%E4%BF%AE%E5%BE%A9%E5%B0%8E%E8%87%B4%E6%96%B0%E5%95%8F%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#q1%3A-%E4%BF%AE%E5%BE%A9%E5%B0%8E%E8%87%B4%E6%96%B0%E5%95%8F%E9%A1%8C">§</a> Q1: 修復導致新問題</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RepairSideEffectHandler</span> {
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">handleSideEffects</span>(<span class="hljs-params"><span class="hljs-attr">repair</span>: <span class="hljs-title class_">RepairResult</span>, <span class="hljs-attr">newIssues</span>: <span class="hljs-title class_">Issue</span>[]</span>) {
+    <span class="hljs-comment">// 1. 評估影響</span>
+    <span class="hljs-keyword">const</span> impact = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">assessImpact</span>(newIssues);
+    
+    <span class="hljs-comment">// 2. 決定策略</span>
+    <span class="hljs-keyword">if</span> (impact.<span class="hljs-property">severity</span> === <span class="hljs-string">&#x27;critical&#x27;</span>) {
+      <span class="hljs-comment">// 立即回滾</span>
+      <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">rollback</span>(repair);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// 嘗試增量修復</span>
+      <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">incrementalFix</span>(newIssues);
+    }
+  }
+}
+</code></pre>
+<h3 id="q2%3A-%E4%BF%AE%E5%BE%A9%E5%BE%AA%E7%92%B0%EF%BC%88%E4%BF%AE%E5%BE%A9a%E5%B0%8E%E8%87%B4b%EF%BC%8C%E4%BF%AE%E5%BE%A9b%E5%B0%8E%E8%87%B4a%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#q2%3A-%E4%BF%AE%E5%BE%A9%E5%BE%AA%E7%92%B0%EF%BC%88%E4%BF%AE%E5%BE%A9a%E5%B0%8E%E8%87%B4b%EF%BC%8C%E4%BF%AE%E5%BE%A9b%E5%B0%8E%E8%87%B4a%EF%BC%89">§</a> Q2: 修復循環（修復A導致B，修復B導致A）</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RepairCycleDetector</span> {
+  <span class="hljs-title function_">detectCycle</span>(<span class="hljs-params"><span class="hljs-attr">repairHistory</span>: <span class="hljs-title class_">RepairRecord</span>[]</span>) {
+    <span class="hljs-comment">// 使用圖算法檢測循環</span>
+    <span class="hljs-keyword">const</span> graph = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">buildRepairGraph</span>(repairHistory);
+    <span class="hljs-keyword">const</span> cycles = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">findCycles</span>(graph);
+    
+    <span class="hljs-keyword">if</span> (cycles.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// 打破循環</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">breakCycle</span>(cycles[<span class="hljs-number">0</span>]);
+    }
+  }
+}
+</code></pre>
+<h3 id="q3%3A-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E4%B8%8D%E8%B6%B3" tabindex="-1"><a class="header-anchor" href="#q3%3A-%E4%BF%AE%E5%BE%A9%E4%BF%A1%E5%BF%83%E4%B8%8D%E8%B6%B3">§</a> Q3: 修復信心不足</h3>
+<p><strong>解決方案</strong>：</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ConfidenceBooster</span> {
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">improveConfidence</span>(<span class="hljs-params"><span class="hljs-attr">repair</span>: <span class="hljs-title class_">RepairResult</span></span>) {
+    <span class="hljs-comment">// 1. 增加測試覆蓋</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">addMoreTests</span>(repair);
+    
+    <span class="hljs-comment">// 2. 進行 A/B 測試</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">performABTesting</span>(repair);
+    
+    <span class="hljs-comment">// 3. 漸進式部署</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">gradualRollout</span>(repair);
+  }
+}
+</code></pre>
+<h2 id="%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E6%80%9D%E8%80%83%E8%88%87%E6%8C%91%E6%88%B0">§</a> 思考與挑戰</h2>
+<h3 id="%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%A1%8C">§</a> 深度思考題</h3>
+<ol>
+<li><strong>倫理考量</strong>：完全自動化的修復是否會降低開發者的技能？</li>
+<li><strong>責任歸屬</strong>：AI 自動修復導致的問題誰來負責？</li>
+<li><strong>創新 vs 穩定</strong>：自動修復會否限制創新？</li>
+<li><strong>人機協作</strong>：如何在自動化和人工控制間找到平衡？</li>
+</ol>
+<h3 id="%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E6%8C%91%E6%88%B0">§</a> 進階挑戰</h3>
+<ol>
+<li><strong>跨服務修復</strong>：實現微服務架構下的自動修復</li>
+<li><strong>智慧回滾</strong>：基於業務影響的智慧回滾決策</li>
+<li><strong>預防性修復</strong>：在問題發生前主動修復</li>
+<li><strong>自適應系統</strong>：建立自我進化的修復系統</li>
+</ol>
+<h2 id="%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E5%AE%8C%E6%95%B4%E8%87%AA%E5%BE%AA%E7%92%B0%E7%B3%BB%E7%B5%B1" tabindex="-1"><a class="header-anchor" href="#%E5%AF%A6%E4%BD%9C%E5%B0%88%E6%A1%88%EF%BC%9A%E5%AE%8C%E6%95%B4%E8%87%AA%E5%BE%AA%E7%92%B0%E7%B3%BB%E7%B5%B1">§</a> 實作專案：完整自循環系統</h2>
+<h3 id="%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82">§</a> 專案需求</h3>
+<p>建立一個完整的自循環開發測試系統：</p>
+<ol>
+<li><strong>需求輸入</strong>：自然語言需求描述</li>
+<li><strong>程式碼生成</strong>：AI 生成初始程式碼</li>
+<li><strong>測試策略</strong>：AI 制定測試計劃</li>
+<li><strong>測試執行</strong>：自動化測試執行</li>
+<li><strong>問題分析</strong>：智慧問題診斷</li>
+<li><strong>自動修復</strong>：AI 修復問題</li>
+<li><strong>持續改進</strong>：學習和優化</li>
+</ol>
+<h3 id="%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B" tabindex="-1"><a class="header-anchor" href="#%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B">§</a> 系統架構</h3>
+<pre><code class="language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SelfCyclingSystem</span> {
+  <span class="hljs-keyword">private</span> components = {
+    <span class="hljs-attr">generator</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">CodeGenerator</span>(),
+    <span class="hljs-attr">strategist</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">TestStrategist</span>(),
+    <span class="hljs-attr">executor</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">TestExecutor</span>(),
+    <span class="hljs-attr">analyzer</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FailureAnalyzer</span>(),
+    <span class="hljs-attr">repairer</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">AutoRepairer</span>(),
+    <span class="hljs-attr">validator</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">RepairValidator</span>(),
+    <span class="hljs-attr">learner</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">ContinuousLearner</span>()
+  };
+  
+  <span class="hljs-keyword">async</span> <span class="hljs-title function_">run</span>(<span class="hljs-params"><span class="hljs-attr">requirements</span>: <span class="hljs-built_in">string</span></span>) {
+    <span class="hljs-comment">// 完整的自循環實現</span>
+  }
+}
+</code></pre>
+<h3 id="%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82">§</a> 提交要求</h3>
+<ul>
+<li>完整的系統原始碼</li>
+<li>系統架構文檔</li>
+<li>測試案例和結果</li>
+<li>效能評估報告</li>
+<li>使用指南和 API 文檔</li>
+</ul>
+<h2 id="%E4%B8%8B%E4%B8%80%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5">§</a> 下一步</h2>
+<p>恭喜你完成了最終樂章！你已經掌握了完整的 AI 自循環開發測試工作流程。從需求到程式碼，從測試到修復，整個流程都可以由 AI 協助完成。在下一章「變奏曲：擴展與優化工作流」中，我們將探討如何將這個工作流程擴展到更複雜的場景。</p>
+<p>記住，自動化的目的不是取代人類，而是讓人類專注於更有創造性和價值的工作。</p>
+<h2 id="%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E9%80%A3%E7%B5%90">§</a> 資源連結</h2>
+<ul>
+<li><a href="https://www.atlassian.com/continuous-delivery/continuous-integration">Continuous Integration Best Practices</a></li>
+<li><a href="https://www.oreilly.com/library/view/self-healing-systems/9781491980545/">Self-Healing Systems</a></li>
+<li><a href="https://program-repair.org/">Automated Program Repair</a></li>
+<li><a href="https://github.com/features/copilot">AI for Code Review</a></li>
+</ul>
+<hr>
+<p><em>「真正的自動化不是讓機器取代人類，而是讓人類和機器各自發揮所長。」</em></p>
 
             </section>
 

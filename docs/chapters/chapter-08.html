@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章節標題 - Play Right with AI</title>
+    <title>Chapter 08 - Play Right with AI</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
@@ -260,8 +260,8 @@
     <main class="container">
         <article class="chapter-content">
             <header class="chapter-header">
-                <h1>Chapter 08: 章節標題</h1>
-                <p class="subtitle">Chapter Title</p>
+                <h1>Chapter 08: Chapter 08</h1>
+                <p class="subtitle"></p>
             </header>
 
             <section class="chapter-meta">
@@ -271,7 +271,10 @@
                 </div>
                 <div class="meta-item">
                     <strong>前置需求：</strong>
-                    <ul><li>無</li></ul>
+                    <ul><li>完成 Chapters 1-7 的所有內容和練習</li>
+<li>準備好完整的開發環境</li>
+<li>具備獨立解決問題的能力</li>
+<li>至少 8 小時的專注時間</li></ul>
                 </div>
                 <div class="meta-item">
                     <strong>預計時間：</strong> 2 hours
@@ -279,8 +282,648 @@
             </section>
 
             <section class="chapter-body">
-                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9"> 章節內容</a></li></ul></nav><h1 id="%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E5%85%A7%E5%AE%B9">§</a> 章節內容</h1>
-<p>內容待新增…</p>
+                <nav id="toc" class="table-of-contents"><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#capstone-%E5%B0%88%E6%A1%88%EF%BC%9A%E6%8C%87%E6%8F%AE%E4%B8%80%E5%A0%B4-ai-%E9%96%8B%E7%99%BC%E4%BA%A4%E9%9F%BF%E6%A8%82"> Capstone 專案：指揮一場 AI 開發交響樂</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0"> 章節概述</a></li><li class="toc-item"><a class="toc-link" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99"> 學習目標</a></li><li class="toc-item"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"> 前置需求</a></li><li class="toc-item"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82%EF%BC%9A%E7%B7%9A%E4%B8%8A%E5%AD%B8%E7%BF%92%E5%B9%B3%E5%8F%B0"> 專案需求：線上學習平台</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%A5%AD%E5%8B%99%E8%83%8C%E6%99%AF"> 業務背景</a></li><li class="toc-item"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"> 核心功能需求</a></li><li class="toc-item"><a class="toc-link" href="#%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82"> 非功能性需求</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E5%9F%B7%E8%A1%8C%E9%9A%8E%E6%AE%B5"> 專案執行階段</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%EF%BC%9A%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%88%87%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89"> 第一階段：需求分析與架構設計（2小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-1.1%EF%BC%9A%E9%9C%80%E6%B1%82%E7%B4%B0%E5%8C%96"> 任務 1.1：需求細化</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-1.2%EF%BC%9A%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88"> 任務 1.2：系統架構設計</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%EF%BC%9Aai-%E7%94%9F%E6%88%90%E6%A0%B8%E5%BF%83%E7%A8%8B%E5%BC%8F%E7%A2%BC%EF%BC%883%E5%B0%8F%E6%99%82%EF%BC%89"> 第二階段：AI 生成核心程式碼（3小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-2.1%EF%BC%9A%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%94%9F%E6%88%90"> 任務 2.1：前端應用生成</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-2.2%EF%BC%9A%E5%BE%8C%E7%AB%AF-api-%E7%94%9F%E6%88%90"> 任務 2.2：後端 API 生成</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-2.3%EF%BC%9A%E8%B3%87%E6%96%99%E5%BA%AB%E8%A8%AD%E8%A8%88"> 任務 2.3：資料庫設計</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%9A%8E%E6%AE%B5%EF%BC%9A%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%88%B6%E5%AE%9A%EF%BC%881.5%E5%B0%8F%E6%99%82%EF%BC%89"> 第三階段：測試策略制定（1.5小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-3.1%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%A8%88%E5%8A%83%E8%A8%AD%E8%A8%88"> 任務 3.1：測試計劃設計</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-3.2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%E7%94%9F%E6%88%90"> 任務 3.2：測試案例生成</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%9A%8E%E6%AE%B5%EF%BC%9Aplaywright-%E6%B8%AC%E8%A9%A6%E5%AF%A6%E7%8F%BE%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89"> 第四階段：Playwright 測試實現（2小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-4.1%EF%BC%9Ae2e-%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%B7%A8%E5%AF%AB"> 任務 4.1：E2E 測試腳本編寫</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-4.2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%87%AA%E5%8B%95%E5%8C%96%E9%85%8D%E7%BD%AE"> 任務 4.2：測試自動化配置</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%95%8F%E9%A1%8C%E6%B3%A8%E5%85%A5%E8%88%87%E5%88%86%E6%9E%90%EF%BC%881.5%E5%B0%8F%E6%99%82%EF%BC%89"> 第五階段：問題注入與分析（1.5小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-5.1%EF%BC%9A%E6%95%85%E6%84%8F%E5%BC%95%E5%85%A5%E7%BC%BA%E9%99%B7"> 任務 5.1：故意引入缺陷</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-5.2%EF%BC%9Aai-%E5%88%86%E6%9E%90%E5%92%8C%E8%A8%BA%E6%96%B7"> 任務 5.2：AI 分析和診斷</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E9%9A%8E%E6%AE%B5%EF%BC%9A%E8%87%AA%E5%8B%95%E4%BF%AE%E5%BE%A9%E5%AF%A6%E7%8F%BE%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89"> 第六階段：自動修復實現（2小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-6.1%EF%BC%9A%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E5%9F%B7%E8%A1%8C"> 任務 6.1：修復策略執行</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-6.2%EF%BC%9A%E4%BF%AE%E5%BE%A9%E9%A9%97%E8%AD%89"> 任務 6.2：修復驗證</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%84%AA%E5%8C%96%E8%88%87%E6%93%B4%E5%B1%95%EF%BC%881%E5%B0%8F%E6%99%82%EF%BC%89"> 第七階段：優化與擴展（1小時）</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-7.1%EF%BC%9A%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96"> 任務 7.1：效能優化</a></li><li class="toc-item"><a class="toc-link" href="#%E4%BB%BB%E5%8B%99-7.2%EF%BC%9A%E5%8A%9F%E8%83%BD%E6%93%B4%E5%B1%95"> 任務 7.2：功能擴展</a></li></ul></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E8%A9%95%E4%BC%B0%E6%A8%99%E6%BA%96"> 評估標準</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%8A%80%E8%A1%93%E8%A9%95%E4%BC%B0%EF%BC%8860%25%EF%BC%89"> 技術評估（60%）</a></li><li class="toc-item"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%A9%95%E4%BC%B0%EF%BC%8840%25%EF%BC%89"> 流程評估（40%）</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"> 提交要求</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%BF%85%E8%A6%81%E4%BA%A4%E4%BB%98%E7%89%A9"> 必要交付物</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%A0%BC%E5%BC%8F"> 提交格式</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86%E5%BB%BA%E8%AD%B0"> 時間管理建議</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E6%99%82%E9%96%93%E5%88%86%E9%85%8D"> 建議時間分配</a></li><li class="toc-item"><a class="toc-link" href="#%E6%AA%A2%E6%9F%A5%E9%BB%9E"> 檢查點</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E6%8C%91%E6%88%B0%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"> 常見挑戰與解決方案</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E6%8C%91%E6%88%B0-1%EF%BC%9A%E9%9C%80%E6%B1%82%E7%90%86%E8%A7%A3%E4%B8%8D%E6%B8%85"> 挑戰 1：需求理解不清</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8C%91%E6%88%B0-2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E4%B8%8D%E8%B6%B3"> 挑戰 2：測試覆蓋不足</a></li><li class="toc-item"><a class="toc-link" href="#%E6%8C%91%E6%88%B0-3%EF%BC%9A%E4%BF%AE%E5%BE%A9%E5%BC%95%E5%85%A5%E6%96%B0%E5%95%8F%E9%A1%8C"> 挑戰 3：修復引入新問題</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E7%A7%98%E8%A8%A3"> 成功秘訣</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#1.-%E5%96%84%E7%94%A8-ai-%E5%B7%A5%E5%85%B7"> 1. 善用 AI 工具</a></li><li class="toc-item"><a class="toc-link" href="#2.-%E4%BF%9D%E6%8C%81%E8%BF%AD%E4%BB%A3%E7%AF%80%E5%A5%8F"> 2. 保持迭代節奏</a></li><li class="toc-item"><a class="toc-link" href="#3.-%E6%96%87%E6%AA%94%E5%85%88%E8%A1%8C"> 3. 文檔先行</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%8D%B2%E5%BE%97%E8%AA%8D%E8%AD%89"> 獲得認證</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E8%AA%8D%E8%AD%89%E6%A8%99%E6%BA%96"> 認證標準</a></li><li class="toc-item"><a class="toc-link" href="#%E8%AA%8D%E8%AD%89%E7%AD%89%E7%B4%9A"> 認證等級</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C%E5%AD%B8%E7%BF%92%E8%B7%AF%E5%BE%91"> 後續學習路徑</a><ul class="toc-list"><li class="toc-item"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E4%B8%BB%E9%A1%8C"> 進階主題</a></li><li class="toc-item"><a class="toc-link" href="#%E7%A4%BE%E7%BE%A4%E5%8F%83%E8%88%87"> 社群參與</a></li></ul></li><li class="toc-item"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"> 結語</a></li><li class="toc-item"><a class="toc-link" href="#%E8%B3%87%E6%BA%90%E6%94%AF%E6%8F%B4"> 資源支援</a></li></ul></li></ul></nav><h1 id="capstone-%E5%B0%88%E6%A1%88%EF%BC%9A%E6%8C%87%E6%8F%AE%E4%B8%80%E5%A0%B4-ai-%E9%96%8B%E7%99%BC%E4%BA%A4%E9%9F%BF%E6%A8%82" tabindex="-1"><a class="header-anchor" href="#capstone-%E5%B0%88%E6%A1%88%EF%BC%9A%E6%8C%87%E6%8F%AE%E4%B8%80%E5%A0%B4-ai-%E9%96%8B%E7%99%BC%E4%BA%A4%E9%9F%BF%E6%A8%82">§</a> Capstone 專案：指揮一場 AI 開發交響樂</h1>
+<h2 id="%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E7%AB%A0%E7%AF%80%E6%A6%82%E8%BF%B0">§</a> 章節概述</h2>
+<p>這是你展現 AI 指揮家完整技能的時刻。在這個 Capstone 專案中，你將獨立完成一個端到端的複雜應用開發專案，從需求分析到自動修復，展示你掌握的所有技能。這不僅是一個測試，更是你成為真正 AI 指揮家的認證。</p>
+<h2 id="%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99" tabindex="-1"><a class="header-anchor" href="#%E5%AD%B8%E7%BF%92%E7%9B%AE%E6%A8%99">§</a> 學習目標</h2>
+<p>完成本專案後，你將能夠：</p>
+<ul>
+<li>獨立規劃和執行完整的 AI 驅動開發專案</li>
+<li>整合所有學到的技術和方法</li>
+<li>處理真實世界的複雜需求</li>
+<li>建立可重用的工作流程模板</li>
+<li>成為合格的 AI 開發指揮家</li>
+</ul>
+<h2 id="%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82">§</a> 前置需求</h2>
+<ul>
+<li>完成 Chapters 1-7 的所有內容和練習</li>
+<li>準備好完整的開發環境</li>
+<li>具備獨立解決問題的能力</li>
+<li>至少 8 小時的專注時間</li>
+</ul>
+<h2 id="%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82%EF%BC%9A%E7%B7%9A%E4%B8%8A%E5%AD%B8%E7%BF%92%E5%B9%B3%E5%8F%B0" tabindex="-1"><a class="header-anchor" href="#%E5%B0%88%E6%A1%88%E9%9C%80%E6%B1%82%EF%BC%9A%E7%B7%9A%E4%B8%8A%E5%AD%B8%E7%BF%92%E5%B9%B3%E5%8F%B0">§</a> 專案需求：線上學習平台</h2>
+<h3 id="%E6%A5%AD%E5%8B%99%E8%83%8C%E6%99%AF" tabindex="-1"><a class="header-anchor" href="#%E6%A5%AD%E5%8B%99%E8%83%8C%E6%99%AF">§</a> 業務背景</h3>
+<p>你被委託開發一個線上學習平台 “EduFlow”，這是一個支援課程管理、學習進度追蹤、互動測驗和社群討論的綜合性平台。</p>
+<h3 id="%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82">§</a> 核心功能需求</h3>
+<pre><code class="language-markdown"><span class="hljs-section"># EduFlow 線上學習平台需求</span>
+
+<span class="hljs-section">## 使用者角色</span>
+<span class="hljs-bullet">1.</span> 學生（Student）
+<span class="hljs-bullet">2.</span> 講師（Instructor）
+<span class="hljs-bullet">3.</span> 管理員（Admin）
+
+<span class="hljs-section">## 功能模組</span>
+
+<span class="hljs-section">### 1. 使用者管理</span>
+<span class="hljs-bullet">-</span> 註冊/登入/登出
+<span class="hljs-bullet">-</span> 個人資料管理
+<span class="hljs-bullet">-</span> 角色權限控制
+<span class="hljs-bullet">-</span> 密碼重設
+
+<span class="hljs-section">### 2. 課程管理</span>
+<span class="hljs-bullet">-</span> 課程建立和編輯（講師）
+<span class="hljs-bullet">-</span> 課程瀏覽和搜尋（所有人）
+<span class="hljs-bullet">-</span> 課程註冊（學生）
+<span class="hljs-bullet">-</span> 課程內容管理（章節、影片、文件）
+
+<span class="hljs-section">### 3. 學習功能</span>
+<span class="hljs-bullet">-</span> 影片播放與進度記錄
+<span class="hljs-bullet">-</span> 筆記功能
+<span class="hljs-bullet">-</span> 書籤收藏
+<span class="hljs-bullet">-</span> 學習進度追蹤
+
+<span class="hljs-section">### 4. 評量系統</span>
+<span class="hljs-bullet">-</span> 測驗建立（講師）
+<span class="hljs-bullet">-</span> 測驗作答（學生）
+<span class="hljs-bullet">-</span> 自動評分
+<span class="hljs-bullet">-</span> 成績報告
+
+<span class="hljs-section">### 5. 互動功能</span>
+<span class="hljs-bullet">-</span> 課程討論區
+<span class="hljs-bullet">-</span> 問答系統
+<span class="hljs-bullet">-</span> 即時通訊
+<span class="hljs-bullet">-</span> 公告通知
+
+<span class="hljs-section">### 6. 分析報表</span>
+<span class="hljs-bullet">-</span> 學習分析儀表板
+<span class="hljs-bullet">-</span> 課程完成率統計
+<span class="hljs-bullet">-</span> 成績分布圖表
+<span class="hljs-bullet">-</span> 使用者活動報告
+
+<span class="hljs-section">## 技術需求</span>
+<span class="hljs-bullet">-</span> 響應式設計（支援手機、平板、桌面）
+<span class="hljs-bullet">-</span> 即時資料同步
+<span class="hljs-bullet">-</span> 支援大檔案上傳（影片）
+<span class="hljs-bullet">-</span> 多語言支援（中文、英文）
+<span class="hljs-bullet">-</span> 資料匯出功能
+</code></pre>
+<h3 id="%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82">§</a> 非功能性需求</h3>
+<pre><code class="language-markdown"><span class="hljs-section">## 效能需求</span>
+<span class="hljs-bullet">-</span> 頁面載入時間 &lt; 2 秒
+<span class="hljs-bullet">-</span> 影片串流順暢（自適應位元率）
+<span class="hljs-bullet">-</span> 支援 1000+ 同時在線使用者
+<span class="hljs-bullet">-</span> API 響應時間 &lt; 500ms
+
+<span class="hljs-section">## 安全需求</span>
+<span class="hljs-bullet">-</span> 資料加密傳輸（HTTPS）
+<span class="hljs-bullet">-</span> 防止 SQL 注入和 XSS 攻擊
+<span class="hljs-bullet">-</span> 角色基礎的存取控制（RBAC）
+<span class="hljs-bullet">-</span> 敏感資料加密儲存
+
+<span class="hljs-section">## 可用性需求</span>
+<span class="hljs-bullet">-</span> 99.9% 正常運行時間
+<span class="hljs-bullet">-</span> 優雅的錯誤處理
+<span class="hljs-bullet">-</span> 離線功能支援
+<span class="hljs-bullet">-</span> 自動儲存草稿
+
+<span class="hljs-section">## 相容性需求</span>
+<span class="hljs-bullet">-</span> 跨瀏覽器支援（Chrome, Firefox, Safari, Edge）
+<span class="hljs-bullet">-</span> 行動裝置優化
+<span class="hljs-bullet">-</span> 無障礙設計（WCAG 2.1 AA）
+</code></pre>
+<h2 id="%E5%B0%88%E6%A1%88%E5%9F%B7%E8%A1%8C%E9%9A%8E%E6%AE%B5" tabindex="-1"><a class="header-anchor" href="#%E5%B0%88%E6%A1%88%E5%9F%B7%E8%A1%8C%E9%9A%8E%E6%AE%B5">§</a> 專案執行階段</h2>
+<h3 id="%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%EF%BC%9A%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%88%87%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%EF%BC%9A%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%88%87%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第一階段：需求分析與架構設計（2小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-1.1%EF%BC%9A%E9%9C%80%E6%B1%82%E7%B4%B0%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-1.1%EF%BC%9A%E9%9C%80%E6%B1%82%E7%B4%B0%E5%8C%96">§</a> 任務 1.1：需求細化</h4>
+<p>使用 AI 協助你：</p>
+<ol>
+<li>分析和細化業務需求</li>
+<li>識別潛在的邊界情況</li>
+<li>建立使用者故事</li>
+<li>定義驗收標準</li>
+</ol>
+<p><strong>提示詞範例：</strong></p>
+<pre><code class="language-markdown">Based on the EduFlow online learning platform requirements, help me:
+
+<span class="hljs-bullet">1.</span> Create detailed user stories for each role
+<span class="hljs-bullet">2.</span> Identify edge cases and potential issues
+<span class="hljs-bullet">3.</span> Define acceptance criteria for core features
+<span class="hljs-bullet">4.</span> Suggest additional features that would enhance user experience
+
+Focus on:
+<span class="hljs-bullet">-</span> Student learning journey
+<span class="hljs-bullet">-</span> Instructor content management workflow
+<span class="hljs-bullet">-</span> Admin monitoring and control needs
+
+Output in Traditional Chinese with clear structure.
+</code></pre>
+<h4 id="%E4%BB%BB%E5%8B%99-1.2%EF%BC%9A%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-1.2%EF%BC%9A%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88">§</a> 任務 1.2：系統架構設計</h4>
+<p>設計系統架構，包含：</p>
+<ol>
+<li>前端架構（元件結構）</li>
+<li>後端架構（API 設計）</li>
+<li>資料庫架構（資料模型）</li>
+<li>部署架構（容器化）</li>
+</ol>
+<p><strong>架構決策記錄（ADR）模板：</strong></p>
+<pre><code class="language-markdown"><span class="hljs-section"># 架構決策記錄</span>
+
+<span class="hljs-section">## 決策：[決策標題]</span>
+
+<span class="hljs-section">### 狀態</span>
+[提議 | 接受 | 棄用]
+
+<span class="hljs-section">### 背景</span>
+[為什麼需要這個決策]
+
+<span class="hljs-section">### 決策</span>
+[做出的具體決策]
+
+<span class="hljs-section">### 後果</span>
+[這個決策的影響]
+
+<span class="hljs-section">### 替代方案</span>
+[考慮過的其他選項]
+</code></pre>
+<h3 id="%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%EF%BC%9Aai-%E7%94%9F%E6%88%90%E6%A0%B8%E5%BF%83%E7%A8%8B%E5%BC%8F%E7%A2%BC%EF%BC%883%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%EF%BC%9Aai-%E7%94%9F%E6%88%90%E6%A0%B8%E5%BF%83%E7%A8%8B%E5%BC%8F%E7%A2%BC%EF%BC%883%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第二階段：AI 生成核心程式碼（3小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-2.1%EF%BC%9A%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%94%9F%E6%88%90" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-2.1%EF%BC%9A%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E7%94%9F%E6%88%90">§</a> 任務 2.1：前端應用生成</h4>
+<p>使用 AI 生成：</p>
+<ol>
+<li>React/Vue 元件結構</li>
+<li>路由配置</li>
+<li>狀態管理</li>
+<li>UI 元件庫整合</li>
+</ol>
+<p><strong>評估標準：</strong></p>
+<ul>
+<li>[ ] 元件可重用性</li>
+<li>[ ] 程式碼組織清晰</li>
+<li>[ ] 遵循最佳實踐</li>
+<li>[ ] 響應式設計實現</li>
+</ul>
+<h4 id="%E4%BB%BB%E5%8B%99-2.2%EF%BC%9A%E5%BE%8C%E7%AB%AF-api-%E7%94%9F%E6%88%90" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-2.2%EF%BC%9A%E5%BE%8C%E7%AB%AF-api-%E7%94%9F%E6%88%90">§</a> 任務 2.2：後端 API 生成</h4>
+<p>使用 AI 生成：</p>
+<ol>
+<li>RESTful API 端點</li>
+<li>資料庫模型</li>
+<li>認證授權邏輯</li>
+<li>業務邏輯實現</li>
+</ol>
+<p><strong>品質檢查清單：</strong></p>
+<ul>
+<li>[ ] API 設計符合 RESTful 原則</li>
+<li>[ ] 錯誤處理完善</li>
+<li>[ ] 輸入驗證嚴格</li>
+<li>[ ] 安全措施到位</li>
+</ul>
+<h4 id="%E4%BB%BB%E5%8B%99-2.3%EF%BC%9A%E8%B3%87%E6%96%99%E5%BA%AB%E8%A8%AD%E8%A8%88" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-2.3%EF%BC%9A%E8%B3%87%E6%96%99%E5%BA%AB%E8%A8%AD%E8%A8%88">§</a> 任務 2.3：資料庫設計</h4>
+<p>設計並實現：</p>
+<ol>
+<li>實體關係圖（ERD）</li>
+<li>資料表結構</li>
+<li>索引優化</li>
+<li>資料遷移腳本</li>
+</ol>
+<h3 id="%E7%AC%AC%E4%B8%89%E9%9A%8E%E6%AE%B5%EF%BC%9A%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%88%B6%E5%AE%9A%EF%BC%881.5%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%B8%89%E9%9A%8E%E6%AE%B5%EF%BC%9A%E6%B8%AC%E8%A9%A6%E7%AD%96%E7%95%A5%E5%88%B6%E5%AE%9A%EF%BC%881.5%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第三階段：測試策略制定（1.5小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-3.1%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%A8%88%E5%8A%83%E8%A8%AD%E8%A8%88" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-3.1%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%A8%88%E5%8A%83%E8%A8%AD%E8%A8%88">§</a> 任務 3.1：測試計劃設計</h4>
+<p>使用 AI 協助制定：</p>
+<ol>
+<li>單元測試策略</li>
+<li>整合測試策略</li>
+<li>E2E 測試場景</li>
+<li>效能測試計劃</li>
+</ol>
+<p><strong>測試矩陣範例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>功能模組</th>
+<th>單元測試</th>
+<th>整合測試</th>
+<th>E2E測試</th>
+<th>效能測試</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>使用者認證</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>課程管理</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>影片播放</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>測驗系統</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>討論區</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%E4%BB%BB%E5%8B%99-3.2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%E7%94%9F%E6%88%90" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-3.2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E6%A1%88%E4%BE%8B%E7%94%9F%E6%88%90">§</a> 任務 3.2：測試案例生成</h4>
+<p>為每個核心功能生成詳細測試案例：</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">TestCase</span> {
+  <span class="hljs-attr">id</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">description</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">preconditions</span>: <span class="hljs-built_in">string</span>[];
+  <span class="hljs-attr">steps</span>: <span class="hljs-title class_">TestStep</span>[];
+  <span class="hljs-attr">expectedResults</span>: <span class="hljs-built_in">string</span>[];
+  <span class="hljs-attr">priority</span>: <span class="hljs-string">&#x27;Critical&#x27;</span> | <span class="hljs-string">&#x27;High&#x27;</span> | <span class="hljs-string">&#x27;Medium&#x27;</span> | <span class="hljs-string">&#x27;Low&#x27;</span>;
+  <span class="hljs-attr">category</span>: <span class="hljs-string">&#x27;Functional&#x27;</span> | <span class="hljs-string">&#x27;Performance&#x27;</span> | <span class="hljs-string">&#x27;Security&#x27;</span> | <span class="hljs-string">&#x27;Usability&#x27;</span>;
+}
+</code></pre>
+<h3 id="%E7%AC%AC%E5%9B%9B%E9%9A%8E%E6%AE%B5%EF%BC%9Aplaywright-%E6%B8%AC%E8%A9%A6%E5%AF%A6%E7%8F%BE%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E5%9B%9B%E9%9A%8E%E6%AE%B5%EF%BC%9Aplaywright-%E6%B8%AC%E8%A9%A6%E5%AF%A6%E7%8F%BE%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第四階段：Playwright 測試實現（2小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-4.1%EF%BC%9Ae2e-%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%B7%A8%E5%AF%AB" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-4.1%EF%BC%9Ae2e-%E6%B8%AC%E8%A9%A6%E8%85%B3%E6%9C%AC%E7%B7%A8%E5%AF%AB">§</a> 任務 4.1：E2E 測試腳本編寫</h4>
+<p>實現關鍵使用者旅程的 E2E 測試：</p>
+<ol>
+<li><strong>學生學習流程</strong></li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-comment">// 學生從註冊到完成課程的完整流程</span>
+test.<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Student Learning Journey&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Complete course from registration to certificate&#x27;</span>, <span class="hljs-title function_">async</span> ({ page }) =&gt; {
+    <span class="hljs-comment">// 1. 註冊新帳號</span>
+    <span class="hljs-comment">// 2. 瀏覽課程目錄</span>
+    <span class="hljs-comment">// 3. 註冊課程</span>
+    <span class="hljs-comment">// 4. 觀看影片</span>
+    <span class="hljs-comment">// 5. 完成測驗</span>
+    <span class="hljs-comment">// 6. 獲得證書</span>
+  });
+});
+</code></pre>
+<ol start="2">
+<li><strong>講師課程管理</strong></li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-comment">// 講師建立和管理課程的流程</span>
+test.<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Instructor Course Management&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Create and publish a complete course&#x27;</span>, <span class="hljs-title function_">async</span> ({ page }) =&gt; {
+    <span class="hljs-comment">// 1. 登入講師帳號</span>
+    <span class="hljs-comment">// 2. 建立新課程</span>
+    <span class="hljs-comment">// 3. 添加章節和內容</span>
+    <span class="hljs-comment">// 4. 設定測驗</span>
+    <span class="hljs-comment">// 5. 發布課程</span>
+  });
+});
+</code></pre>
+<ol start="3">
+<li><strong>管理員監控</strong></li>
+</ol>
+<pre><code class="language-typescript"><span class="hljs-comment">// 管理員監控和管理平台</span>
+test.<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Admin Platform Management&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Monitor and manage platform activities&#x27;</span>, <span class="hljs-title function_">async</span> ({ page }) =&gt; {
+    <span class="hljs-comment">// 1. 查看儀表板</span>
+    <span class="hljs-comment">// 2. 管理使用者</span>
+    <span class="hljs-comment">// 3. 審核課程</span>
+    <span class="hljs-comment">// 4. 生成報告</span>
+  });
+});
+</code></pre>
+<h4 id="%E4%BB%BB%E5%8B%99-4.2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%87%AA%E5%8B%95%E5%8C%96%E9%85%8D%E7%BD%AE" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-4.2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%87%AA%E5%8B%95%E5%8C%96%E9%85%8D%E7%BD%AE">§</a> 任務 4.2：測試自動化配置</h4>
+<p>設定完整的測試自動化：</p>
+<ol>
+<li>CI/CD 整合</li>
+<li>並行測試執行</li>
+<li>測試報告生成</li>
+<li>失敗通知機制</li>
+</ol>
+<h3 id="%E7%AC%AC%E4%BA%94%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%95%8F%E9%A1%8C%E6%B3%A8%E5%85%A5%E8%88%87%E5%88%86%E6%9E%90%EF%BC%881.5%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%BA%94%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%95%8F%E9%A1%8C%E6%B3%A8%E5%85%A5%E8%88%87%E5%88%86%E6%9E%90%EF%BC%881.5%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第五階段：問題注入與分析（1.5小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-5.1%EF%BC%9A%E6%95%85%E6%84%8F%E5%BC%95%E5%85%A5%E7%BC%BA%E9%99%B7" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-5.1%EF%BC%9A%E6%95%85%E6%84%8F%E5%BC%95%E5%85%A5%E7%BC%BA%E9%99%B7">§</a> 任務 5.1：故意引入缺陷</h4>
+<p>在程式碼中故意引入不同類型的問題：</p>
+<pre><code class="language-javascript"><span class="hljs-comment">// 缺陷類型範例</span>
+<span class="hljs-keyword">const</span> defects = {
+  <span class="hljs-attr">logical</span>: <span class="hljs-string">&quot;邏輯錯誤（如權限檢查失敗）&quot;</span>,
+  <span class="hljs-attr">performance</span>: <span class="hljs-string">&quot;效能問題（如 N+1 查詢）&quot;</span>,
+  <span class="hljs-attr">security</span>: <span class="hljs-string">&quot;安全漏洞（如 XSS 攻擊）&quot;</span>,
+  <span class="hljs-attr">usability</span>: <span class="hljs-string">&quot;可用性問題（如無錯誤提示）&quot;</span>,
+  <span class="hljs-attr">compatibility</span>: <span class="hljs-string">&quot;相容性問題（如瀏覽器特定）&quot;</span>
+};
+</code></pre>
+<h4 id="%E4%BB%BB%E5%8B%99-5.2%EF%BC%9Aai-%E5%88%86%E6%9E%90%E5%92%8C%E8%A8%BA%E6%96%B7" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-5.2%EF%BC%9Aai-%E5%88%86%E6%9E%90%E5%92%8C%E8%A8%BA%E6%96%B7">§</a> 任務 5.2：AI 分析和診斷</h4>
+<p>使用 AI 分析測試失敗：</p>
+<ol>
+<li>收集失敗資訊</li>
+<li>分析根本原因</li>
+<li>生成修復建議</li>
+<li>評估影響範圍</li>
+</ol>
+<p><strong>分析報告模板：</strong></p>
+<pre><code class="language-markdown"><span class="hljs-section"># 測試失敗分析報告</span>
+
+<span class="hljs-section">## 失敗摘要</span>
+<span class="hljs-bullet">-</span> 測試名稱：
+<span class="hljs-bullet">-</span> 失敗時間：
+<span class="hljs-bullet">-</span> 影響範圍：
+
+<span class="hljs-section">## 根本原因分析</span>
+<span class="hljs-bullet">-</span> 錯誤類型：
+<span class="hljs-bullet">-</span> 具體原因：
+<span class="hljs-bullet">-</span> 相關程式碼：
+
+<span class="hljs-section">## 修復建議</span>
+<span class="hljs-bullet">1.</span> 立即修復：
+<span class="hljs-bullet">2.</span> 短期改進：
+<span class="hljs-bullet">3.</span> 長期優化：
+
+<span class="hljs-section">## 預防措施</span>
+<span class="hljs-bullet">-</span> 程式碼審查重點：
+<span class="hljs-bullet">-</span> 測試覆蓋改進：
+<span class="hljs-bullet">-</span> 監控指標建議：
+</code></pre>
+<h3 id="%E7%AC%AC%E5%85%AD%E9%9A%8E%E6%AE%B5%EF%BC%9A%E8%87%AA%E5%8B%95%E4%BF%AE%E5%BE%A9%E5%AF%A6%E7%8F%BE%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E5%85%AD%E9%9A%8E%E6%AE%B5%EF%BC%9A%E8%87%AA%E5%8B%95%E4%BF%AE%E5%BE%A9%E5%AF%A6%E7%8F%BE%EF%BC%882%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第六階段：自動修復實現（2小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-6.1%EF%BC%9A%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E5%9F%B7%E8%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-6.1%EF%BC%9A%E4%BF%AE%E5%BE%A9%E7%AD%96%E7%95%A5%E5%9F%B7%E8%A1%8C">§</a> 任務 6.1：修復策略執行</h4>
+<p>實現自動修復流程：</p>
+<ol>
+<li>解析錯誤報告</li>
+<li>生成修復程式碼</li>
+<li>驗證修復效果</li>
+<li>提交程式碼變更</li>
+</ol>
+<h4 id="%E4%BB%BB%E5%8B%99-6.2%EF%BC%9A%E4%BF%AE%E5%BE%A9%E9%A9%97%E8%AD%89" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-6.2%EF%BC%9A%E4%BF%AE%E5%BE%A9%E9%A9%97%E8%AD%89">§</a> 任務 6.2：修復驗證</h4>
+<p>確保修復的品質：</p>
+<ul>
+<li>[ ] 原問題已解決</li>
+<li>[ ] 無新問題引入</li>
+<li>[ ] 測試全部通過</li>
+<li>[ ] 效能無退化</li>
+<li>[ ] 程式碼品質維持</li>
+</ul>
+<h3 id="%E7%AC%AC%E4%B8%83%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%84%AA%E5%8C%96%E8%88%87%E6%93%B4%E5%B1%95%EF%BC%881%E5%B0%8F%E6%99%82%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%B8%83%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%84%AA%E5%8C%96%E8%88%87%E6%93%B4%E5%B1%95%EF%BC%881%E5%B0%8F%E6%99%82%EF%BC%89">§</a> 第七階段：優化與擴展（1小時）</h3>
+<h4 id="%E4%BB%BB%E5%8B%99-7.1%EF%BC%9A%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-7.1%EF%BC%9A%E6%95%88%E8%83%BD%E5%84%AA%E5%8C%96">§</a> 任務 7.1：效能優化</h4>
+<p>識別並優化效能瓶頸：</p>
+<ol>
+<li>前端載入優化</li>
+<li>API 響應優化</li>
+<li>資料庫查詢優化</li>
+<li>快取策略實施</li>
+</ol>
+<h4 id="%E4%BB%BB%E5%8B%99-7.2%EF%BC%9A%E5%8A%9F%E8%83%BD%E6%93%B4%E5%B1%95" tabindex="-1"><a class="header-anchor" href="#%E4%BB%BB%E5%8B%99-7.2%EF%BC%9A%E5%8A%9F%E8%83%BD%E6%93%B4%E5%B1%95">§</a> 任務 7.2：功能擴展</h4>
+<p>添加進階功能：</p>
+<ol>
+<li>AI 推薦系統</li>
+<li>個人化學習路徑</li>
+<li>社群功能增強</li>
+<li>數據分析深化</li>
+</ol>
+<h2 id="%E8%A9%95%E4%BC%B0%E6%A8%99%E6%BA%96" tabindex="-1"><a class="header-anchor" href="#%E8%A9%95%E4%BC%B0%E6%A8%99%E6%BA%96">§</a> 評估標準</h2>
+<h3 id="%E6%8A%80%E8%A1%93%E8%A9%95%E4%BC%B0%EF%BC%8860%25%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%8A%80%E8%A1%93%E8%A9%95%E4%BC%B0%EF%BC%8860%25%EF%BC%89">§</a> 技術評估（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>評估項目</th>
+<th>權重</th>
+<th>評分標準</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>程式碼品質</td>
+<td>15%</td>
+<td>結構清晰、可維護性高</td>
+</tr>
+<tr>
+<td>測試覆蓋</td>
+<td>15%</td>
+<td>覆蓋率 &gt; 80%</td>
+</tr>
+<tr>
+<td>自動化程度</td>
+<td>15%</td>
+<td>全流程自動化</td>
+</tr>
+<tr>
+<td>效能表現</td>
+<td>15%</td>
+<td>滿足所有效能需求</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E6%B5%81%E7%A8%8B%E8%A9%95%E4%BC%B0%EF%BC%8840%25%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B5%81%E7%A8%8B%E8%A9%95%E4%BC%B0%EF%BC%8840%25%EF%BC%89">§</a> 流程評估（40%）</h3>
+<table>
+<thead>
+<tr>
+<th>評估項目</th>
+<th>權重</th>
+<th>評分標準</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 協作效率</td>
+<td>10%</td>
+<td>有效利用 AI 工具</td>
+</tr>
+<tr>
+<td>問題解決能力</td>
+<td>10%</td>
+<td>獨立解決複雜問題</td>
+</tr>
+<tr>
+<td>文檔完整性</td>
+<td>10%</td>
+<td>清晰完整的文檔</td>
+</tr>
+<tr>
+<td>創新性</td>
+<td>10%</td>
+<td>創新的解決方案</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82">§</a> 提交要求</h2>
+<h3 id="%E5%BF%85%E8%A6%81%E4%BA%A4%E4%BB%98%E7%89%A9" tabindex="-1"><a class="header-anchor" href="#%E5%BF%85%E8%A6%81%E4%BA%A4%E4%BB%98%E7%89%A9">§</a> 必要交付物</h3>
+<ol>
+<li>
+<p><strong>原始碼倉庫</strong></p>
+<ul>
+<li>完整的應用程式碼</li>
+<li>測試程式碼</li>
+<li>配置檔案</li>
+<li><a href="http://README.md">README.md</a></li>
+</ul>
+</li>
+<li>
+<p><strong>文檔集</strong></p>
+<ul>
+<li>架構設計文檔</li>
+<li>API 文檔</li>
+<li>測試報告</li>
+<li>使用指南</li>
+</ul>
+</li>
+<li>
+<p><strong>演示材料</strong></p>
+<ul>
+<li>錄製演示影片（10-15分鐘）</li>
+<li>簡報檔案</li>
+<li>線上演示連結</li>
+</ul>
+</li>
+<li>
+<p><strong>學習記錄</strong></p>
+<ul>
+<li>AI 互動歷史</li>
+<li>問題解決過程</li>
+<li>學習心得總結</li>
+</ul>
+</li>
+</ol>
+<h3 id="%E6%8F%90%E4%BA%A4%E6%A0%BC%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E4%BA%A4%E6%A0%BC%E5%BC%8F">§</a> 提交格式</h3>
+<pre><code>/capstone-project
+  /src                 # 原始碼
+    /frontend         # 前端程式碼
+    /backend          # 後端程式碼
+    /database         # 資料庫腳本
+  /tests              # 測試程式碼
+    /unit            # 單元測試
+    /integration     # 整合測試
+    /e2e             # E2E 測試
+  /docs              # 文檔
+    /architecture    # 架構文檔
+    /api            # API 文檔
+    /user-guide     # 使用指南
+  /deployment        # 部署配置
+    /docker         # Docker 配置
+    /k8s            # Kubernetes 配置
+  /reports          # 報告
+    /test-reports   # 測試報告
+    /performance    # 效能報告
+  README.md         # 專案說明
+  LEARNING.md       # 學習記錄
+</code></pre>
+<h2 id="%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86%E5%BB%BA%E8%AD%B0" tabindex="-1"><a class="header-anchor" href="#%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86%E5%BB%BA%E8%AD%B0">§</a> 時間管理建議</h2>
+<h3 id="%E5%BB%BA%E8%AD%B0%E6%99%82%E9%96%93%E5%88%86%E9%85%8D" tabindex="-1"><a class="header-anchor" href="#%E5%BB%BA%E8%AD%B0%E6%99%82%E9%96%93%E5%88%86%E9%85%8D">§</a> 建議時間分配</h3>
+<pre><code class="language-mermaid">gantt
+    title Capstone 專案時間規劃
+    dateFormat HH:mm
+    section 準備階段
+    環境檢查        :00:00, 30m
+    需求理解        :00:30, 30m
+    
+    section 開發階段
+    架構設計        :01:00, 1h
+    程式碼生成      :02:00, 3h
+    測試策略        :05:00, 1h30m
+    
+    section 測試階段
+    測試實現        :06:30, 2h
+    問題分析        :08:30, 1h30m
+    
+    section 優化階段
+    自動修復        :10:00, 2h
+    最終優化        :12:00, 1h
+    
+    section 提交階段
+    文檔整理        :13:00, 30m
+    最終檢查        :13:30, 30m
+</code></pre>
+<h3 id="%E6%AA%A2%E6%9F%A5%E9%BB%9E" tabindex="-1"><a class="header-anchor" href="#%E6%AA%A2%E6%9F%A5%E9%BB%9E">§</a> 檢查點</h3>
+<ul>
+<li><strong>2小時檢查點</strong>：架構設計完成</li>
+<li><strong>5小時檢查點</strong>：核心功能實現</li>
+<li><strong>8小時檢查點</strong>：測試套件完成</li>
+<li><strong>12小時檢查點</strong>：自動修復實現</li>
+<li><strong>14小時檢查點</strong>：專案完成</li>
+</ul>
+<h2 id="%E5%B8%B8%E8%A6%8B%E6%8C%91%E6%88%B0%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A6%8B%E6%8C%91%E6%88%B0%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88">§</a> 常見挑戰與解決方案</h2>
+<h3 id="%E6%8C%91%E6%88%B0-1%EF%BC%9A%E9%9C%80%E6%B1%82%E7%90%86%E8%A7%A3%E4%B8%8D%E6%B8%85" tabindex="-1"><a class="header-anchor" href="#%E6%8C%91%E6%88%B0-1%EF%BC%9A%E9%9C%80%E6%B1%82%E7%90%86%E8%A7%A3%E4%B8%8D%E6%B8%85">§</a> 挑戰 1：需求理解不清</h3>
+<p><strong>解決方案</strong>：</p>
+<ul>
+<li>使用 AI 協助分析需求</li>
+<li>建立需求追蹤矩陣</li>
+<li>及早識別歧義並澄清</li>
+</ul>
+<h3 id="%E6%8C%91%E6%88%B0-2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E4%B8%8D%E8%B6%B3" tabindex="-1"><a class="header-anchor" href="#%E6%8C%91%E6%88%B0-2%EF%BC%9A%E6%B8%AC%E8%A9%A6%E8%A6%86%E8%93%8B%E4%B8%8D%E8%B6%B3">§</a> 挑戰 2：測試覆蓋不足</h3>
+<p><strong>解決方案</strong>：</p>
+<ul>
+<li>使用覆蓋率工具監控</li>
+<li>AI 協助識別遺漏場景</li>
+<li>優先測試關鍵路徑</li>
+</ul>
+<h3 id="%E6%8C%91%E6%88%B0-3%EF%BC%9A%E4%BF%AE%E5%BE%A9%E5%BC%95%E5%85%A5%E6%96%B0%E5%95%8F%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E6%8C%91%E6%88%B0-3%EF%BC%9A%E4%BF%AE%E5%BE%A9%E5%BC%95%E5%85%A5%E6%96%B0%E5%95%8F%E9%A1%8C">§</a> 挑戰 3：修復引入新問題</h3>
+<p><strong>解決方案</strong>：</p>
+<ul>
+<li>完整的回歸測試</li>
+<li>修復前建立快照</li>
+<li>漸進式修復策略</li>
+</ul>
+<h2 id="%E6%88%90%E5%8A%9F%E7%A7%98%E8%A8%A3" tabindex="-1"><a class="header-anchor" href="#%E6%88%90%E5%8A%9F%E7%A7%98%E8%A8%A3">§</a> 成功秘訣</h2>
+<h3 id="1.-%E5%96%84%E7%94%A8-ai-%E5%B7%A5%E5%85%B7" tabindex="-1"><a class="header-anchor" href="#1.-%E5%96%84%E7%94%A8-ai-%E5%B7%A5%E5%85%B7">§</a> 1. 善用 AI 工具</h3>
+<pre><code class="language-markdown">AI 使用策略：
+<span class="hljs-bullet">1.</span> 需求階段：分析、細化、驗證
+<span class="hljs-bullet">2.</span> 開發階段：生成、優化、重構
+<span class="hljs-bullet">3.</span> 測試階段：策略、案例、腳本
+<span class="hljs-bullet">4.</span> 修復階段：診斷、修復、驗證
+</code></pre>
+<h3 id="2.-%E4%BF%9D%E6%8C%81%E8%BF%AD%E4%BB%A3%E7%AF%80%E5%A5%8F" tabindex="-1"><a class="header-anchor" href="#2.-%E4%BF%9D%E6%8C%81%E8%BF%AD%E4%BB%A3%E7%AF%80%E5%A5%8F">§</a> 2. 保持迭代節奏</h3>
+<pre><code class="language-markdown">迭代原則：
+<span class="hljs-bullet">-</span> 小步快跑，頻繁驗證
+<span class="hljs-bullet">-</span> 每完成一個模組就測試
+<span class="hljs-bullet">-</span> 及時調整方向
+<span class="hljs-bullet">-</span> 持續優化改進
+</code></pre>
+<h3 id="3.-%E6%96%87%E6%AA%94%E5%85%88%E8%A1%8C" tabindex="-1"><a class="header-anchor" href="#3.-%E6%96%87%E6%AA%94%E5%85%88%E8%A1%8C">§</a> 3. 文檔先行</h3>
+<pre><code class="language-markdown">文檔策略：
+<span class="hljs-bullet">-</span> 開始前寫需求文檔
+<span class="hljs-bullet">-</span> 開發中更新設計文檔
+<span class="hljs-bullet">-</span> 測試時記錄測試文檔
+<span class="hljs-bullet">-</span> 完成後整理使用文檔
+</code></pre>
+<h2 id="%E7%8D%B2%E5%BE%97%E8%AA%8D%E8%AD%89" tabindex="-1"><a class="header-anchor" href="#%E7%8D%B2%E5%BE%97%E8%AA%8D%E8%AD%89">§</a> 獲得認證</h2>
+<h3 id="%E8%AA%8D%E8%AD%89%E6%A8%99%E6%BA%96" tabindex="-1"><a class="header-anchor" href="#%E8%AA%8D%E8%AD%89%E6%A8%99%E6%BA%96">§</a> 認證標準</h3>
+<p>完成 Capstone 專案並達到以下標準，即可獲得「AI 開發指揮家」認證：</p>
+<ul>
+<li><strong>技術分數</strong> ≥ 80/100</li>
+<li><strong>流程分數</strong> ≥ 80/100</li>
+<li><strong>總分</strong> ≥ 160/200</li>
+<li>完成所有必要交付物</li>
+<li>通過程式碼審查</li>
+</ul>
+<h3 id="%E8%AA%8D%E8%AD%89%E7%AD%89%E7%B4%9A" tabindex="-1"><a class="header-anchor" href="#%E8%AA%8D%E8%AD%89%E7%AD%89%E7%B4%9A">§</a> 認證等級</h3>
+<ul>
+<li><strong>銅級指揮家</strong>（160-170分）：掌握基本技能</li>
+<li><strong>銀級指揮家</strong>（171-185分）：熟練運用技能</li>
+<li><strong>金級指揮家</strong>（186-200分）：精通所有技能</li>
+</ul>
+<h2 id="%E5%BE%8C%E7%BA%8C%E5%AD%B8%E7%BF%92%E8%B7%AF%E5%BE%91" tabindex="-1"><a class="header-anchor" href="#%E5%BE%8C%E7%BA%8C%E5%AD%B8%E7%BF%92%E8%B7%AF%E5%BE%91">§</a> 後續學習路徑</h2>
+<h3 id="%E9%80%B2%E9%9A%8E%E4%B8%BB%E9%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E9%80%B2%E9%9A%8E%E4%B8%BB%E9%A1%8C">§</a> 進階主題</h3>
+<ol>
+<li><strong>AI 原生開發</strong>：完全由 AI 驅動的開發流程</li>
+<li><strong>多模型協作</strong>：協調多個 AI 模型協同工作</li>
+<li><strong>自適應系統</strong>：建立自我學習和改進的系統</li>
+<li><strong>規模化應用</strong>：企業級 AI 開發流程</li>
+</ol>
+<h3 id="%E7%A4%BE%E7%BE%A4%E5%8F%83%E8%88%87" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BE%E7%BE%A4%E5%8F%83%E8%88%87">§</a> 社群參與</h3>
+<ul>
+<li>分享你的 Capstone 專案</li>
+<li>參與開源專案貢獻</li>
+<li>指導其他學習者</li>
+<li>持續學習新技術</li>
+</ul>
+<h2 id="%E7%B5%90%E8%AA%9E" tabindex="-1"><a class="header-anchor" href="#%E7%B5%90%E8%AA%9E">§</a> 結語</h2>
+<p>恭喜你即將完成這個充滿挑戰的 Capstone 專案！這不僅是一個技術測試，更是你成為 AI 開發指揮家的重要里程碑。</p>
+<p>記住，真正的指揮家不是控制每個細節的人，而是能夠協調各種資源，創造出和諧作品的人。在 AI 時代，你的角色是引導和協調 AI 工具，創造出高品質的軟體產品。</p>
+<p>祝你在專案中取得成功，期待看到你的精彩作品！</p>
+<h2 id="%E8%B3%87%E6%BA%90%E6%94%AF%E6%8F%B4" tabindex="-1"><a class="header-anchor" href="#%E8%B3%87%E6%BA%90%E6%94%AF%E6%8F%B4">§</a> 資源支援</h2>
+<ul>
+<li><a href="https://github.com/play-right-with-ai/capstone-template">專案模板倉庫</a></li>
+<li><a href="https://github.com/play-right-with-ai/discussions">社群討論區</a></li>
+<li><a href="https://github.com/play-right-with-ai/FAQ">常見問題解答</a></li>
+<li><a href="mailto:support@play-right-with-ai.dev">技術支援</a></li>
+</ul>
+<hr>
+<p><em>「完成這個專案，你就完成了從開發者到 AI 指揮家的蛻變。」</em></p>
+<p><strong>開始你的 Capstone 專案，展現你的 AI 指揮才能！🎼</strong></p>
 
             </section>
 

@@ -1,100 +1,15 @@
 {
-  "timestamp": "2025-09-12T01:59:03.917Z",
+  "timestamp": "2025-09-12T02:35:49.379Z",
   "summary": {
     "totalIssues": 30,
-    "missing": 14,
+    "missing": 0,
     "orphaned": 16,
     "outdated": 0,
-    "metadata": 0,
+    "metadata": 14,
     "structure": 0
   },
   "issues": {
-    "missing": [
-      {
-        "type": "source_file",
-        "chapter": "02",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/02-first-movement/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "02",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/02-first-movement/metadata.yaml"
-      },
-      {
-        "type": "source_file",
-        "chapter": "03",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/03-second-movement/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "03",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/03-second-movement/metadata.yaml"
-      },
-      {
-        "type": "source_file",
-        "chapter": "04",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/04-third-movement/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "04",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/04-third-movement/metadata.yaml"
-      },
-      {
-        "type": "source_file",
-        "chapter": "05",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/05-fourth-movement/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "05",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/05-fourth-movement/metadata.yaml"
-      },
-      {
-        "type": "source_file",
-        "chapter": "06",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/06-final-movement/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "06",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/06-final-movement/metadata.yaml"
-      },
-      {
-        "type": "source_file",
-        "chapter": "07",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/07-variations/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "07",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/07-variations/metadata.yaml"
-      },
-      {
-        "type": "source_file",
-        "chapter": "08",
-        "file": "index.md",
-        "path": "/workspace/play-right-with-ai/content/chapters/08-capstone/index.md"
-      },
-      {
-        "type": "source_file",
-        "chapter": "08",
-        "file": "metadata.yaml",
-        "path": "/workspace/play-right-with-ai/content/chapters/08-capstone/metadata.yaml"
-      }
-    ],
+    "missing": [],
     "orphaned": [
       {
         "type": "html",
@@ -178,7 +93,106 @@
       }
     ],
     "outdated": [],
-    "metadata": [],
+    "metadata": [
+      {
+        "chapter": "02",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "02",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/02-first-movement/metadata.yaml"
+      },
+      {
+        "chapter": "03",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "03",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/03-second-movement/metadata.yaml"
+      },
+      {
+        "chapter": "04",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "04",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/04-third-movement/metadata.yaml"
+      },
+      {
+        "chapter": "05",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "05",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/05-fourth-movement/metadata.yaml"
+      },
+      {
+        "chapter": "06",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "06",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/06-final-movement/metadata.yaml"
+      },
+      {
+        "chapter": "07",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "07",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/07-variations/metadata.yaml"
+      },
+      {
+        "chapter": "08",
+        "field": "objectives",
+        "error": "At least one objective required"
+      },
+      {
+        "chapter": "08",
+        "missingFields": [
+          "title",
+          "objectives",
+          "duration"
+        ],
+        "path": "/workspace/play-right-with-ai/content/chapters/08-capstone/metadata.yaml"
+      }
+    ],
     "structure": []
   }
 }

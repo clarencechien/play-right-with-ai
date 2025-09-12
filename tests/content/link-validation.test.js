@@ -4,7 +4,8 @@
  * Comprehensive tests for link validation in the content pipeline
  */
 
-const fs = require('fs');
+// fs is not used in this test file 
+// const fs = require('fs');
 const path = require('path');
 
 describe('Link Validation System', () => {
