@@ -107,7 +107,9 @@ npm test
 {
   "@types/node": "^20.0.0",
   "eslint": "^8.50.0",
-  "prettier": "^3.0.0"
+  "prettier": "^3.0.0",
+  "jest": "^29.0.0",
+  "markdown-it": "^13.0.0"
 }
 ```
 
@@ -119,6 +121,21 @@ npm test
   "@google/generative-ai": "^0.1.0"
 }
 ```
+
+## Build Pipeline
+
+### Content Generation Scripts
+| Script | Purpose |
+|--------|---------|
+| build-chapters.js | Converts markdown to HTML with templates |
+| validate-links.js | Checks all internal and external links |
+| sync-content.js | Synchronizes content across directories |
+
+### Testing Infrastructure
+- 81 comprehensive TDD tests covering content pipeline
+- Automated link validation
+- Format compliance checking
+- CI/CD integration for content validation
 
 ## Configuration Files
 
@@ -206,8 +223,19 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - run: npm ci
-      - run: npx playwright install
-      - run: npm test
+      - run: npm run build
+      - run: npm run test
+      - run: npm run validate-links
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
 ```
 
 ## Monitoring and Logging

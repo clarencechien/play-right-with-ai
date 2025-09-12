@@ -7,16 +7,17 @@
 play-right-with-ai/
 ├── .claude/agents/          # AI agent definitions
 ├── memory-bank/             # Context persistence
-├── prompts/                 # Golden prompts collection
-│   ├── chapter-*/          # Chapter-specific prompts
-│   └── guides/              # Strategy guides
-├── workshop/                # Learning materials
-│   ├── chapter-*/          # Chapter content
-│   │   ├── README.md       # Instructions
-│   │   ├── start-here/     # Starting point
-│   │   └── example-output/ # Reference solutions
-├── sample-app-source/       # Example applications
-└── docs/                    # Documentation
+├── content/                 # Single source of truth
+│   ├── chapters/            # All 8 chapters (25,000+ words)
+│   ├── prompts/             # Golden prompts collection
+│   └── apps/                # Sample applications
+├── scripts/                 # Build pipeline
+│   ├── build-chapters.js    # Content generation
+│   ├── validate-links.js    # Link validation
+│   └── sync-content.js      # Content synchronization
+├── tests/                   # TDD test suite (81 tests)
+├── docs/                    # Generated website
+└── workshop/                # Legacy structure (deprecated)
 
 ```
 
@@ -44,7 +45,14 @@ Requirements → Generate → Test → Debug → Repair → Validate
 
 ## Design Patterns in Use
 
-### 1. Agent Specialization Pattern
+### 1. Single Source of Truth Pattern
+All content maintained in `/content/` directory:
+- Eliminates duplication across locations
+- Automated synchronization with build pipeline
+- Version controlled content with git
+- Consistent formatting and validation
+
+### 2. Agent Specialization Pattern
 Each agent has specific expertise:
 - `workshop-content`: Teaching materials
 - `prompt-engineering`: Prompt optimization
@@ -101,12 +109,22 @@ graph LR
 ### Content Generation Flow
 ```mermaid
 graph TD
-    PRD --> Agents
-    Agents --> Prompts
-    Prompts --> Workshop
-    Workshop --> Community
-    Community --> Feedback
-    Feedback --> PRD
+    Source[/content/ Source] --> Build[Build Scripts]
+    Build --> HTML[Generated HTML]
+    Build --> Validate[Link Validation]
+    HTML --> Deploy[GitHub Pages]
+    Validate --> Tests[TDD Tests]
+    Tests --> CI[CI/CD Pipeline]
+    CI --> Deploy
+```
+
+### Quality Assurance Pattern
+```mermaid
+graph TD
+    Content --> TDD[81 TDD Tests]
+    TDD --> Validate[Link Validation]
+    Validate --> Format[Format Check]
+    Format --> Deploy[Auto Deploy]
 ```
 
 ## Architectural Principles
