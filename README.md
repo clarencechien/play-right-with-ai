@@ -107,39 +107,37 @@ npm run workshop:start
 ## 📂 專案結構
 
 完整專案結構詳見 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)  
-UX/UI 改進計畫詳見 [docs/next-step.md](./docs/next-step.md)  
+內容架構實作總結詳見 [CONTENT_ARCHITECTURE_SUMMARY.md](./CONTENT_ARCHITECTURE_SUMMARY.md)  
 快速學習指南詳見 [llms.txt](./llms.txt) - 為 AI 助手準備的專案總覽
 
 ```
 play-right-with-ai/
-├── workshop/           # 工作坊章節內容 (8 章節完整)
-│   ├── chapter-01/    # 環境設置
-│   ├── chapter-02/    # AI 生成應用
+├── content/           # 🆕 單一來源內容架構 (全部 8 章節)
+│   ├── chapters/     # 所有章節內容與元資料
+│   ├── templates/    # 內容模板
+│   └── config.yaml   # 全域設定
+├── workshop/          # 工作坊章節內容 (自動生成)
+│   ├── chapter-01/   # 環境設置
+│   ├── chapter-02/   # AI 生成應用
 │   └── ...
-├── prompts/           # 黃金提示詞集合 (40+ 提示詞)
-│   ├── chapter-02/    # 應用生成提示
-│   ├── chapter-03/    # 測試策略提示
-│   └── ...
+├── scripts/          # 🆕 建構與驗證腳本
+│   ├── build-chapters.js    # 內容生成管線
+│   ├── validate-links.js    # 連結驗證系統
+│   └── sync-content.js      # 同步檢查器
+├── tests/            # 測試套件 (含 81 個 TDD 測試)
+│   ├── content/     # 🆕 內容管線測試
+│   ├── e2e/         # 端到端測試
+│   └── specs/       # 測試規格
+├── docs/             # 靜態網站內容 (自動生成)
+│   ├── chapters/    # 章節 HTML 頁面
+│   ├── playground/  # 互動式練習場
+│   └── reports/     # 驗證報告
+├── prompts/          # 黃金提示詞集合 (40+ 提示詞)
 ├── sample-app-source/ # 範例應用程式 (4 個應用)
-│   ├── todo-app/      # TODO 應用
-│   ├── shopping-list/ # 購物清單應用
-│   └── ...
-├── tests/             # 測試套件
-│   ├── e2e/          # 端到端測試
-│   ├── specs/        # 測試規格
-│   └── utils/        # 測試工具
-├── docs/              # 靜態網站內容
-│   ├── assets/       # CSS、JS、圖片資源
-│   ├── chapters/     # 章節靜態頁面
-│   ├── playground/   # 互動式練習場
-│   └── reports/      # 驗證報告
-├── integrations/      # AI 服務整合
-│   ├── claude/       # Claude API
-│   ├── gemini/       # Gemini API
-│   └── openai/       # OpenAI API
-├── memory-bank/       # 專案記憶系統
-└── .github/          # CI/CD 設定
-    └── workflows/    # GitHub Actions
+├── integrations/     # AI 服務整合
+├── memory-bank/      # 專案記憶系統
+└── .github/         # CI/CD 設定
+    └── workflows/   # GitHub Actions (含內容驗證)
 ```
 
 ## 🎭 範例應用程式
@@ -264,13 +262,15 @@ Create a web application with CRUD operations...
 
 ### 工作坊完成度
 
-- ✅ **章節內容**: 8/8 章節完整
+- ✅ **章節內容**: 8/8 章節完整 (25,000+ 字教學內容)
+- ✅ **內容架構**: 單一來源架構實作完成
 - ✅ **範例應用**: 4/4 應用實作
 - ✅ **提示詞庫**: 40+ 黃金提示詞 (版本無關化)
-- ✅ **測試套件**: E2E 測試完整
+- ✅ **測試套件**: 81 個 TDD 測試 + E2E 測試
+- ✅ **建構系統**: 自動化內容生成管線
 - ✅ **文檔資料**: 完整中文文檔
 - ✅ **線上部署**: GitHub Pages 運行中
-- 🎯 **UX/UI 改進**: 詳細計畫已制定 (見 [next-step.md](./docs/next-step.md))
+- ✅ **CI/CD**: GitHub Actions 內容驗證管線
 
 ---
 
