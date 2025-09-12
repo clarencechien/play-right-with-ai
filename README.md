@@ -106,9 +106,9 @@ npm run workshop:start
 
 ## 📂 專案結構
 
-完整專案結構詳見 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)  
-內容架構實作總結詳見 [CONTENT_ARCHITECTURE_SUMMARY.md](./CONTENT_ARCHITECTURE_SUMMARY.md)  
-快速學習指南詳見 [llms.txt](./llms.txt) - 為 AI 助手準備的專案總覽
+完整專案結構詳見 [PROJECT_STRUCTURE.md](./docs/PROJECT_STRUCTURE.md)  
+內容架構實作總結詳見 [CONTENT_ARCHITECTURE_SUMMARY.md](./docs/CONTENT_ARCHITECTURE_SUMMARY.md)  
+快速學習指南詳見 [llms.txt](./docs/llms.txt) - 為 AI 助手準備的專案總覽
 
 ```
 play-right-with-ai/
@@ -222,7 +222,7 @@ Create a web application with CRUD operations...
 - 回報和修復 bugs
 - 翻譯其他語言版本
 
-詳見 [CONTRIBUTING.md](./CONTRIBUTING.md)
+詳見 [CONTRIBUTING.md](./docs/CONTRIBUTING.md)
 
 ## 📈 成功指標
 
@@ -243,6 +243,26 @@ Create a web application with CRUD operations...
 ## 📝 授權條款
 
 本專案採用 MIT 授權條款 - 詳見 [LICENSE](./LICENSE) 檔案
+
+## 📖 重要文檔
+
+### 專案文檔
+- [專案結構說明](./docs/PROJECT_STRUCTURE.md) - 完整的目錄結構解析
+- [內容架構總結](./docs/CONTENT_ARCHITECTURE_SUMMARY.md) - 單一來源架構實作細節
+- [部署指南](./docs/DEPLOYMENT.md) - GitHub Pages 部署說明
+- [更新日誌](./docs/CHANGELOG.md) - 版本更新記錄
+
+### 社群文檔
+- [貢獻指南](./docs/CONTRIBUTING.md) - 如何參與專案貢獻
+- [行為準則](./docs/CODE_OF_CONDUCT.md) - 社群行為規範
+- [作者名單](./docs/AUTHORS.md) - 專案貢獻者
+- [公告事項](./docs/ANNOUNCEMENT.md) - 最新消息與更新
+
+### 技術文檔
+- [講師指南](./docs/instructor-guide.md) - 工作坊教學指引
+- [常見問題](./docs/faq.md) - FAQ 解答
+- [隱私政策](./docs/privacy-policy.html) - 資料使用說明
+- [實作報告](./docs/reports/) - 各項驗證與測試報告
 
 ## 🙏 致謝
 
